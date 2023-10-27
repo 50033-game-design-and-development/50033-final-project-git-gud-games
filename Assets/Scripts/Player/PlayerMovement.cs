@@ -6,13 +6,13 @@ using UnityEngine.PlayerLoop;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float speed = 50f;
+    public PlayerConstants playerConstants;
 
     /// <summary>
     /// The vector the player should move in based on player input
     /// </summary>
-    public Vector3 moveVector = Vector2.zero;
-    public CharacterController controller;
+    private Vector3 moveVector = Vector2.zero;
+    private CharacterController controller;
 
     void Start()
     {
@@ -27,9 +27,13 @@ public class PlayerMovement : MonoBehaviour
     public void Move()
     {
         Vector3 moveDirection = CalculateMoveDirection();
-        controller.Move(moveDirection * speed * Time.deltaTime);
+        controller.Move(moveDirection * playerConstants.moveSpeed * Time.deltaTime);
     }
 
+    /// <summary>
+    /// Called by the ActionManager when the player moves (WASD or Arrow keys).
+    /// </summary>
+    /// <param name="direction"></param>
     public void OnMoveInput(Vector2 direction)
     {
         moveVector.x = direction.x;
