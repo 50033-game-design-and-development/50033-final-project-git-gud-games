@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveDirection = cameraForward.normalized * moveVector.z 
                                 + cameraRight.normalized * moveVector.x;
 
-        return new Vector3(moveDirection.x, 0, moveDirection.z);
+        return new Vector3(moveDirection.x, playerConstants.gravity, moveDirection.z);
         
     }
 

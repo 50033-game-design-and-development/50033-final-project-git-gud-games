@@ -11,6 +11,8 @@ public class PlayerMouseLook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rotationX = transform.localEulerAngles.y;
+        rotationY = -transform.localEulerAngles.x;
         Cursor.lockState = CursorLockMode.Locked;
     }
 

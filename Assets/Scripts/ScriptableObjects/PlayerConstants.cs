@@ -12,5 +12,6 @@ public class PlayerConstants : ScriptableObject
     public float viewMaximumY = 60f;
 
     public float moveSpeed = 10f;
+    public float gravity = -9.81f;
 
 }
