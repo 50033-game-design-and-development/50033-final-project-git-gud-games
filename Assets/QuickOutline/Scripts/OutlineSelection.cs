@@ -1,26 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class OutlineSelection : MonoBehaviour
-{
-    private Transform highlight = null;
-    private bool highlighted = false;
+public class OutlineSelection : MonoBehaviour {
+    private Transform highlight;
+    private bool highlighted;
 
-    private Vector3 rayOrigin = new Vector3(0.5f, 0.5f, 0f); 
+    private Vector3 rayOrigin = new (0.5f, 0.5f, 0f);
 
-    void Update()
-    {
+    void Update() {
         // Handle cases where player hovers away from object
-        if (highlight != null && !highlighted) DisableOutline();
+        if (highlight != null && !highlighted)
+            DisableOutline();
 
         // Ray points out from the middle of camera viewport 
         Ray ray = Camera.main.ViewportPointToRay(rayOrigin);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit))
-        {
-            if (raycastHit.transform.gameObject.layer == LayerMask.NameToLayer("Interactable"))
-            {
+        if (Physics.Raycast(ray, out RaycastHit raycastHit)) {
+            if (raycastHit.transform.gameObject.layer == LayerMask.NameToLayer("Interactable")) {
                 PerformHighlight(raycastHit.transform);
                 return;
             }
@@ -32,34 +26,29 @@ public class OutlineSelection : MonoBehaviour
     /// <summary>
     /// Performs highlighting of a valid interactable object
     /// </summary>
-    private void PerformHighlight(Transform transform)
-    {
+    private void PerformHighlight(Transform transform) {
         // Hover over same object. Do nothing
-        if (highlight != null && highlight.GetInstanceID() == transform.GetInstanceID()) return;
+        if (highlight != null && highlight.GetInstanceID() == transform.GetInstanceID())
+            return;
 
         // Disable outline on previous object before handling new one
         DisableOutline();
-        
+
         highlighted = true;
         highlight = transform;
 
         EnableOutline();
     }
 
-    private void EnableOutline()
-    {
-        if (highlight.transform.GetComponent<Outline>() != null)
-        {
+    private void EnableOutline() {
+        if (highlight.transform.GetComponent<Outline>() != null) {
             highlight.transform.GetComponent<Outline>().enabled = true;
-        }
-        else 
-        {
+        } else {
             AddOutline();
         }
     }
 
-    private void AddOutline()
-    {
+    private void AddOutline() {
         Outline outline = highlight.gameObject.AddComponent<Outline>();
         outline.OutlineColor = Color.red;
         outline.OutlineMode = Outline.Mode.OutlineVisible;
@@ -67,9 +56,9 @@ public class OutlineSelection : MonoBehaviour
         outline.enabled = true;
     }
 
-    private void DisableOutline()
-    {
-        if (highlight == null) return;
+    private void DisableOutline() {
+        if (highlight == null)
+            return;
         highlight.gameObject.GetComponent<Outline>().enabled = false;
         highlight = null;
     }

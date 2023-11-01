@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6320342883266193291}
   - component: {fileID: 5953542610913343821}
   - component: {fileID: 8864711836116118310}
+  - component: {fileID: 6252818835038087967}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -93,6 +94,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754602151221385095}
   m_Enabled: 1
+--- !u!114 &6252818835038087967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754602151221385095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1840e2308171f46a0ac185c1fef975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2026819621428964197
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,7 +430,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5758501854294509582}
   - component: {fileID: 7507323187678732956}
-  - component: {fileID: 8837264937157711233}
   - component: {fileID: 7423084023782881769}
   m_Layer: 0
   m_Name: SamplePlayerObject
@@ -434,14 +446,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3633744455387614485}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.99958056, z: -0, w: -0.028961493}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 3.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3110089461578342046}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 183.319, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7507323187678732956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,7 +481,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8837264937157711233}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ActionManager, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
@@ -485,7 +497,7 @@ MonoBehaviour:
     m_ActionName: gameplay/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8837264937157711233}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ActionManager, Assembly-CSharp
         m_MethodName: OnMouseMove
         m_Mode: 0
@@ -501,7 +513,7 @@ MonoBehaviour:
     m_ActionName: gameplay/MouseMove[/Mouse/delta]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8837264937157711233}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ActionManager, Assembly-CSharp
         m_MethodName: OnEscapeKeyPress
         m_Mode: 0
@@ -520,63 +532,6 @@ MonoBehaviour:
   m_DefaultActionMap: gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &8837264937157711233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3633744455387614485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d66ce30bd4d9da84d9dd0f12e63b57db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 229509071889470388}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: OnMoveInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  mouseMoveEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4473199412481664680}
-        m_TargetAssemblyTypeName: PlayerMouseLook, Assembly-CSharp
-        m_MethodName: OnMouseMove
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onEscKeyPress:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4473199412481664680}
-        m_TargetAssemblyTypeName: PlayerMouseLook, Assembly-CSharp
-        m_MethodName: ToggleCursorLockState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &7423084023782881769
 MonoBehaviour:
   m_ObjectHideFlags: 0
