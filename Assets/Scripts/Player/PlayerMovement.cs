@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour {
         playerAction.gameplay.Move.canceled += ctx => OnMove(ctx.ReadValue<Vector2>());
     }
 
-    private void FixedUpdate() {
+    private void Update() {
         Move();
     }
 }
