@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6320342883266193291}
   - component: {fileID: 5953542610913343821}
   - component: {fileID: 8864711836116118310}
-  - component: {fileID: 6252818835038087967}
   - component: {fileID: 5119092279033307458}
   m_Layer: 0
   m_Name: Main Camera
@@ -95,18 +94,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754602151221385095}
   m_Enabled: 1
---- !u!114 &6252818835038087967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754602151221385095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d1840e2308171f46a0ac185c1fef975, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &5119092279033307458
 Animator:
   serializedVersion: 5
@@ -655,6 +642,7 @@ GameObject:
   - component: {fileID: 4473199412481664680}
   - component: {fileID: 229509071889470388}
   - component: {fileID: 5762579918575265110}
+  - component: {fileID: 1925511426797802688}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -731,6 +719,18 @@ CharacterController:
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1925511426797802688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4772525976313030945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1840e2308171f46a0ac185c1fef975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8369782335964148659
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,6 +773,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3110089461578342046}
+  - component: {fileID: 3990233900336455806}
   m_Layer: 0
   m_Name: Main
   m_TagString: Untagged
@@ -796,3 +797,24 @@ Transform:
   - {fileID: 7228327823367820058}
   m_Father: {fileID: 5758501854294509582}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &3990233900336455806
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9197874333959478097}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 32c58f3eb4231fe4a84b6f631b92743b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
