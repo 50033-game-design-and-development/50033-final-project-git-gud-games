@@ -8,28 +8,17 @@ public enum InventoryItems {
     Paper = 2
 }
 
-public class GameState : MonoBehaviour {
-    // Start is called before the first frame update
-    private static List<InventoryItems> _inventory = new List<InventoryItems>();
-
-    public static bool AddInventoryItem(InventoryItems item) {
-        if (_inventory.Contains(item)) { return false; }
-        _inventory.Add(item);
-        return true;
-    }
-
-    public static bool RemoveInventoryItem(InventoryItems item) {
-        return _inventory.Remove(item);
-    }
-
-    public static bool HasInventoryItem(InventoryItems item) {
-        return _inventory.Contains(item);
-    }
+public class GameState: MonoBehaviour {
+    public static readonly List<Collectable> Inventory = new List<Collectable>{};
+    // initial list of items to assign to inventory (for testing only)
+    public List<Collectable> startInventory = new List<Collectable>();
     
     void Start() {
-        
+        foreach (var collectable in startInventory) {
+            Inventory.Add(collectable);
+        }
     }
-
+    
     // Update is called once per frame
     void Update() {
         

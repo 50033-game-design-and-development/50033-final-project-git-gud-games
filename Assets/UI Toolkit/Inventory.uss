@@ -17,4 +17,14 @@
 .unity-button {
     height: 100%;
     border-radius: 20px;
+    background-size: contain;
+    padding: 10px;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.unity-button:hover {
+    background-color: #EEEEEE; /* Light gray background on hover */
+}
+.unity-button:active {
+    background-color: #CCCCCC; /* Darker gray background when active (clicked) */
 }
