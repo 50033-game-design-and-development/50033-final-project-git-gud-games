@@ -3,8 +3,12 @@ using UnityEngine;
 
 public class CollectibleInteractable : MonoBehaviour, IInteractable
 {
+    public int itemIndex;
+    // public IntGameEvent onItemCollected;
+
     public void Interact()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Collect " + gameObject.name);
+        Destroy(gameObject);
     }
 }
