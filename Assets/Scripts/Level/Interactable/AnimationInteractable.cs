@@ -1,18 +1,15 @@
 using UnityEngine;
 
-public class AnimationInteractable : MonoBehaviour, IInteractable
-{
+public class AnimationInteractable : MonoBehaviour, IInteractable {
     private Animator animator;
 
-    public void Interact()
-    {
+    public void Interact() {
         Debug.Log("Animate " + gameObject.name);
         animator.SetTrigger("Interact");
 
     }
 
-    private void Start()
-    {
+    private void Start() {
         animator = GetComponent<Animator>();
     }
 }

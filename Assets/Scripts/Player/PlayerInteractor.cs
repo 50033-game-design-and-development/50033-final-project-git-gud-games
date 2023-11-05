@@ -1,13 +1,11 @@
 using UnityEngine;
 
-public class PlayerInteractor : MonoBehaviour
-{
+public class PlayerInteractor : MonoBehaviour {
     private PlayerAction playerAction;
 
     private int layerMaskInteractable;
 
-    void OnClick(Vector2 screenPos)
-    {
+    void OnClick(Vector2 screenPos) {
         Debug.Log("Clicked");
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
 
@@ -20,8 +18,7 @@ public class PlayerInteractor : MonoBehaviour
         Debug.Log("End");
     }
 
-    void Interact(GameObject obj)
-    {
+    void Interact(GameObject obj) {
         foreach (IInteractable i in obj.GetComponents<IInteractable>())
         {
             i.Interact();
@@ -29,8 +26,7 @@ public class PlayerInteractor : MonoBehaviour
     }
 
 
-    void Start()
-    {
+    void Start() {
         layerMaskInteractable = LayerMask.GetMask("Interactable");
 
         playerAction = new PlayerAction();
