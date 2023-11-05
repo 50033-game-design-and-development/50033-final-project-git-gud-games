@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5953542610913343821}
   - component: {fileID: 8864711836116118310}
   - component: {fileID: 6252818835038087967}
+  - component: {fileID: 5119092279033307458}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -44,8 +45,8 @@ Camera:
   m_GameObject: {fileID: 754602151221385095}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -106,6 +107,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d1840e2308171f46a0ac185c1fef975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &5119092279033307458
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754602151221385095}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 32c58f3eb4231fe4a84b6f631b92743b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2026819621428964197
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7261056845224280472
 Transform:
   m_ObjectHideFlags: 0
@@ -544,7 +566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6c22296347694a418ea2456977f4aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewAnimator: {fileID: 9056264843622613203}
+  viewAnimator: {fileID: 5119092279033307458}
   controller: {fileID: 5762579918575265110}
 --- !u!1 &4656251487141721812
 GameObject:
@@ -604,7 +626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 0.3764706}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.6392157}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -702,10 +724,10 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1
-  m_Radius: 1
+  m_Height: 2.4
+  m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.1
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
@@ -751,7 +773,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3110089461578342046}
-  - component: {fileID: 9056264843622613203}
   m_Layer: 0
   m_Name: Main
   m_TagString: Untagged
@@ -775,24 +796,3 @@ Transform:
   - {fileID: 7228327823367820058}
   m_Father: {fileID: 5758501854294509582}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &9056264843622613203
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9197874333959478097}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 32c58f3eb4231fe4a84b6f631b92743b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0

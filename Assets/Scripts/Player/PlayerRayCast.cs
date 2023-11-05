@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class OutlineSelection : MonoBehaviour {
+public class PlayerRayCast : MonoBehaviour {
     private Transform highlight;
     private bool highlighted;
 
