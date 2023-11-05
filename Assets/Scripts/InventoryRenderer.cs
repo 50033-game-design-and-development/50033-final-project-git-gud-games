@@ -6,6 +6,9 @@ using UnityEngine.Assertions;
 using UnityEngine.UIElements;
 
 public class InventoryRenderer: MonoBehaviour {
+    // hotbar USS slot class to assign to filled inventory slots
+    private static string OCCUPIED_SLOT_CLASS = "filled";
+    
     public UIDocument hotbarUI;
     public int hotbarItemGap = 40;
 
@@ -118,10 +121,12 @@ public class InventoryRenderer: MonoBehaviour {
 
             if (k < GameState.Inventory.Count) {
                 var collectable = GameState.Inventory[k];
+                hotbarSlot.AddToClassList(OCCUPIED_SLOT_CLASS);
                 hotbarSlot.style.backgroundImage = (
                     new StyleBackground(collectable.itemSprite)
                 );                
             } else {
+                hotbarSlot.RemoveFromClassList(OCCUPIED_SLOT_CLASS);
                 hotbarSlot.style.backgroundImage = null;
             }
 

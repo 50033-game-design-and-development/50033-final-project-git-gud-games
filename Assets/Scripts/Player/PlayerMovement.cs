@@ -36,6 +36,9 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Move() {
+        // don't move when the inventory is open
+        if (GameState.IsInventoryOpened()) { return; }
+        
         Vector3 moveDirection = CalculateMoveDirection();
         controller.Move(moveDirection * playerConstants.moveSpeed * Time.deltaTime);
     }

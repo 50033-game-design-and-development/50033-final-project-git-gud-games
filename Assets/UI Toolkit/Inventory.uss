@@ -20,14 +20,17 @@
     background-size: contain;
     padding: 10px;
     transition: background-color 0.15s ease-in-out;
-    background-color: rgba(235, 235, 235, 0.5);
+    background-color: rgba(235, 235, 235, 0.0);
+    
+    border-color: rgba(0, 0, 0, 0.0);
+    border: none;
 }
 
-.unity-button:hover {
+.unity-button.filled:hover {
     /* Light gray background on hover */
-    background-color: rgba(228, 228, 228, 0.5);
+    background-color: rgba(228, 228, 228, 0.2);
 }
-.unity-button:active {
+.unity-button.filled:active {
     /* Darker gray background when active (clicked) */
-    background-color: rgba(204, 204, 204, 0.5); 
+    background-color: rgba(204, 204, 204, 0.3); 
 }
