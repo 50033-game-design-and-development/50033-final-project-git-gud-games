@@ -15,8 +15,14 @@ public class InventoryRenderer: MonoBehaviour {
     private readonly List<Button> _hotbarItems = new List<Button>();
     // whether or not hotbar item slots have been rendered
     private bool _rendered = false;
-    // whether or not inventory is opened
-    private bool _opened = false;
+
+    public void OnInventoryUpdate() {
+        if (GameState.IsInventoryOpened()) {
+            Show();
+        } else {
+            Hide();
+        }
+    }
 
     public void Show() {
         hotbarUI.rootVisualElement.style.visibility = Visibility.Visible;

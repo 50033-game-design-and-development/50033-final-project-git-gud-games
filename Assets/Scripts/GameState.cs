@@ -12,6 +12,19 @@ public class GameState: MonoBehaviour {
     public static readonly List<Collectable> Inventory = new List<Collectable>{};
     // initial list of items to assign to inventory (for testing only)
     public List<Collectable> startInventory = new List<Collectable>();
+    private static bool _inventoryOpened = false;
+
+    public static void ShowInventory() {
+        _inventoryOpened = true;
+    }
+
+    public static void HideInventory() {
+        _inventoryOpened = false;
+    }
+
+    public static bool IsInventoryOpened() {
+        return _inventoryOpened;
+    }
     
     void Start() {
         foreach (var collectable in startInventory) {

@@ -6,6 +6,8 @@ public class PlayerMouseLook : MonoBehaviour {
     float rotationY;
     float rotationX;
 
+    public GameEvent onInventoryUpdate;
+
     private PlayerAction playerAction;
 
     /// <summary>
@@ -13,6 +15,9 @@ public class PlayerMouseLook : MonoBehaviour {
     /// </summary>
     /// <param name="mouseDelta">Mouse move delta</param>
     private void OnMouseMove(Vector2 mouseDelta) {
+        // don't adjust camera based on mouse movement if inventory is opened
+        if (GameState.IsInventoryOpened()) { return; }
+        
         rotationX = transform.localEulerAngles.y + mouseDelta.x * playerConstants.mouseSensitivityX;
         rotationY += mouseDelta.y * playerConstants.mouseSensitivityY;
         rotationY = Mathf.Clamp(rotationY, playerConstants.viewMinimumY, playerConstants.viewMaximumY);
@@ -41,6 +46,17 @@ public class PlayerMouseLook : MonoBehaviour {
         playerAction.gameplay.MouseMove.performed += ctx => OnMouseMove(ctx.ReadValue<Vector2>());
         playerAction.gameplay.Escape.performed += _ => ToggleCursorLockState();
         playerAction.gameplay.InventoryOpen.performed += _ => GameState.ConfineCursor();
+        
+        // open inventory when you press E
+        playerAction.gameplay.InventoryOpen.performed += _ => {
+            GameState.ShowInventory();
+            onInventoryUpdate.Raise();
+        };
+        // close inventory when you press escape
+        playerAction.gameplay.Escape.performed += _ => {
+            GameState.HideInventory();
+            onInventoryUpdate.Raise();
+        };
     }
 
     private void Update() {
