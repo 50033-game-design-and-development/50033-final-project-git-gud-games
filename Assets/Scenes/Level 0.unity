@@ -2871,6 +2871,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 628170632}
     m_Modifications:
+    - target: {fileID: 1122904477481253306, guid: af7c1bf41c173b243810edd408a0b7ea, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 2249525245218977268, guid: af7c1bf41c173b243810edd408a0b7ea, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4470,6 +4474,7 @@ GameObject:
   - component: {fileID: 23590790294723831}
   - component: {fileID: 64142480145798581}
   - component: {fileID: 64142480145798582}
+  - component: {fileID: 64142480145798583}
   m_Layer: 6
   m_Name: dfk_wardrobe_animated
   m_TagString: Untagged
@@ -4881,6 +4886,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &64142480145798583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962679469923267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6896a279f20e465e8b2dd828644e08b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monologueKeys: 00000000
+  OnMonologue:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 62e6ee5f9f8e57faead4e67ac6610ee4, type: 2}
+        m_TargetAssemblyTypeName: AbstractEvent`1[[System.Int32, mscorlib
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!64 &64231187392885935
 MeshCollider:
   m_ObjectHideFlags: 0
