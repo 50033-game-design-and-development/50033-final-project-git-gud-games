@@ -134,6 +134,7 @@ public class InventoryRenderer: MonoBehaviour {
 
             // have the image fit within the button
             hotbarSlot.style.unityBackgroundScaleMode = ScaleMode.ScaleToFit;
+            yield return null;
         }
 
         _updating = false;
