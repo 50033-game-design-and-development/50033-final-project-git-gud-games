@@ -39,19 +39,4 @@ public class PlayerInteractor : MonoBehaviour
     }
 
 
-    // void Update() {
-
-    //     // Ray points out from the middle of camera viewport 
-    //     Ray ray = Camera.main.ViewportPointToRay(rayOrigin);
-    //     if (Physics.Raycast(ray, out RaycastHit raycastHit)) {
-    //         if (raycastHit.transform.gameObject.layer == LayerMask.NameToLayer("Interactable")) {
-    //             PerformHighlight(raycastHit.transform);
-    //             return;
-    //         }
-    //     }
-
-    //     highlighted = false;
-    // }
-
-
 }

@@ -7,7 +7,7 @@ public class AnimationInteractable : MonoBehaviour, IInteractable
     public void Interact()
     {
         Debug.Log("Animate " + gameObject.name);
-        // animator.SetTrigger("Interact");
+        animator.SetTrigger("Interact");
 
     }
 
