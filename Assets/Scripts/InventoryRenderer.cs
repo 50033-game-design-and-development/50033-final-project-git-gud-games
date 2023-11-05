@@ -109,6 +109,8 @@ public class InventoryRenderer: MonoBehaviour {
         // on the list of collectable items in GameState
         while (!_rendered) { yield return null; }
         while (_updating) { yield return null; }
+        
+        _updating = true;
 
         for (int k = 0; k < _hotbarItems.Count; k++) {
             var hotbarSlot = _hotbarItems[k];
