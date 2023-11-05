@@ -3,13 +3,15 @@ using UnityEngine;
 
 public class PlayerRayCast : MonoBehaviour
 {
+    public PlayerConstants playerConstants;
+    public GameEvent onRevealAll;
+    public GameEvent onUnrevealAll;
+
     private Transform highlight;
     private bool highlighted;
     private PlayerAction playerAction;
     private Vector3 rayOrigin = new(0.5f, 0.5f, 0f);
     private int layerMaskInteractable = 1 << 6;
-    private bool allHighlighted = false;
-    private GameObject[] interactables;
 
 
     /// <summary>
@@ -67,47 +69,28 @@ public class PlayerRayCast : MonoBehaviour
 
     private void EnableAllOutlines()
     {
-        allHighlighted = true;
-        foreach (GameObject gameObject in interactables) EnableOutline(gameObject);
+        onRevealAll.Raise();
     }
 
     private void DisableAllOutlines()
     {
-        allHighlighted = false;
-        foreach (GameObject gameObject in interactables) DisableOutline(gameObject);
+        onUnrevealAll.Raise();
         highlight = null;
         highlighted = false;
     }
 
-
-    /// <summary>
-    /// Finds all gameobject in the Interactables layer 
-    /// </summary>
-    /// <returns>Array of all interactables in the scene</returns>
-    private GameObject[] PopulateInteractables()
-    {
-        // Find all in layer interactables
-        GameObject[] interactables = FindObjectsOfType<GameObject>().Where(obj => ((1 << obj.layer) & layerMaskInteractable) > 0).ToArray();
-        return interactables;
-    }
-
-
-
     void Start()
     {
-        interactables = PopulateInteractables();
+        // interactables = PopulateInteractables();
         playerAction = new PlayerAction();
         playerAction.Enable();
 
         playerAction.gameplay.Tab.performed += _ => EnableAllOutlines();
         playerAction.gameplay.Tab.canceled += _ => DisableAllOutlines();
-        Debug.Log("Start");
     }
 
     void Update()
     {
-        if (allHighlighted) return;
-
         // Handle cases where player hovers away from object
         if (highlight != null && !highlighted)
             DisableOutline();
@@ -116,7 +99,8 @@ public class PlayerRayCast : MonoBehaviour
         Ray ray = Camera.main.ViewportPointToRay(rayOrigin);
         if (Physics.Raycast(ray, out RaycastHit raycastHit, layerMaskInteractable))
         {
-            if (raycastHit.transform.gameObject.layer == LayerMask.NameToLayer("Interactable"))
+            if (raycastHit.distance <= playerConstants.raycastDistance
+                && raycastHit.transform.gameObject.layer == LayerMask.NameToLayer("Interactable"))
             {
                 PerformHighlight(raycastHit.transform);
                 return;

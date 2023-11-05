@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "MouseClick",
+                    "type": "Value",
+                    "id": "cf3fc409-5425-4d2b-b54a-ed18c7db05b9",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "MouseMove",
                     "type": "Value",
                     "id": "1448d582-197c-4b47-b911-8b1e391f0d02",
@@ -185,6 +194,39 @@
                     "action": "Tab",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "5b9bc10c-0b5c-42b7-9d91-32f54e759930",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseClick",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "3b65ac43-7438-4f3a-96c8-a0618ebdd1e2",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Default",
+                    "action": "MouseClick",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "9c6567ee-9eb0-4af4-b547-4e30120f4cff",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Default",
+                    "action": "MouseClick",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
