@@ -35,15 +35,12 @@ public class InventoryRenderer: MonoBehaviour {
     }
 
     private int CalculateNumberOfHotbarItems(
-        RectTransform hotbarRectTransform, float hotbarItemSize
+        float hotbarWidth, float hotbarItemSize
     ) {
         // returns number of hotbar slots that can fit in the hotbar
         VisualElement root = hotbarUI.rootVisualElement;
         VisualElement hotbarElement = root.Q("Hotbar");
         _padding = hotbarElement.resolvedStyle.paddingLeft;
-
-        var imageRect = hotbarRectTransform.rect;
-        var hotbarWidth = imageRect.width;
         var usableWidth = hotbarWidth - _padding * 2;
         /*
         n - number of hotbar items
@@ -82,13 +79,14 @@ public class InventoryRenderer: MonoBehaviour {
             hotbarElement.resolvedStyle.paddingLeft +
             hotbarElement.resolvedStyle.paddingRight
         ) / 2.0f;
-        
+
+        var hotbarWidth = hotbarElement.resolvedStyle.width;
         var hotbarHeight = hotbarElement.resolvedStyle.height;
         Debug.Log("HOTBAR_HEIGHT " + hotbarHeight);
         var hotbarItemHeight = hotbarHeight - _padding * 2;
         Debug.Log("HOTBAR_ITEM_HEIGHT " + hotbarItemHeight);
         _numHotbarItems = CalculateNumberOfHotbarItems(
-            rectTransform, hotbarItemHeight
+            hotbarWidth, hotbarItemHeight
         );
 
         for (int k = 0; k < _numHotbarItems; k++) {
