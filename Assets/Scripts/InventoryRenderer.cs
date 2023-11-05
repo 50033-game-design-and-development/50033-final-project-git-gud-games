@@ -15,10 +15,13 @@ public class InventoryRenderer: MonoBehaviour {
     private readonly List<Button> _hotbarItems = new List<Button>();
     // whether or not hotbar item slots have been rendered
     private bool _rendered = false;
+    // whether ot not hotbar item slots are currently being updated
+    private bool _updating = false;
 
     public void OnInventoryUpdate() {
         if (GameState.IsInventoryOpened()) {
             Show();
+            StartCoroutine(PopulateInventory());
         } else {
             Hide();
         }
@@ -89,11 +92,12 @@ public class InventoryRenderer: MonoBehaviour {
         );
 
         for (int k = 0; k < _numHotbarItems; k++) {
-            // Create a new button.
+            // Create hotbar item slots (each slot is a UIElement Button)
             Button inventoryItem = new Button();
             inventoryItem.style.width = hotbarItemHeight;
             hotbarElement.Add(inventoryItem);
             _hotbarItems.Add(inventoryItem);
+            yield return null;
         }
         
         _rendered = true;
@@ -103,9 +107,16 @@ public class InventoryRenderer: MonoBehaviour {
         // fill up the hotbar items slot UI elements based
         // on the list of collectable items in GameState
         while (!_rendered) { yield return null; }
+        while (_updating) { yield return null; }
 
         for (int k = 0; k < _hotbarItems.Count; k++) {
             var hotbarSlot = _hotbarItems[k];
+            int buttonNo = k;
+            
+            hotbarSlot.clicked += () => {
+                // TODO: tie this to an actually useful callback during integration
+                Debug.Log($"SLOT {buttonNo} CLICKED");
+            };
 
             if (k < GameState.Inventory.Count) {
                 var collectable = GameState.Inventory[k];
@@ -119,6 +130,8 @@ public class InventoryRenderer: MonoBehaviour {
             // have the image fit within the button
             hotbarSlot.style.unityBackgroundScaleMode = ScaleMode.ScaleToFit;
         }
+
+        _updating = false;
     }
     
     // Start is called before the first frame update
