@@ -5,7 +5,7 @@ public class RevealBehaviour : MonoBehaviour
 {
 
     public Vector3GameEvent revealInteractableUIEvent;
-    private bool isVisible = true;
+    public bool isVisible = true;
 
     public void OnReveal()
     {

@@ -11,7 +11,7 @@ public class PlayerRayCast : MonoBehaviour
     private bool highlighted;
     private PlayerAction playerAction;
     private Vector3 rayOrigin = new(0.5f, 0.5f, 0f);
-    private int layerMaskInteractable = 1 << 6;
+    private int layerMaskInteractable;
 
 
     /// <summary>
@@ -81,7 +81,8 @@ public class PlayerRayCast : MonoBehaviour
 
     void Start()
     {
-        // interactables = PopulateInteractables();
+        layerMaskInteractable = LayerMask.GetMask("Interactable");
+
         playerAction = new PlayerAction();
         playerAction.Enable();
 
