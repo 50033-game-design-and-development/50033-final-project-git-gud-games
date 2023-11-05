@@ -18,6 +18,17 @@ public class GameState: MonoBehaviour {
             Inventory.Add(collectable);
         }
     }
+
+    public static void LockCursor() {
+        // A locked cursor is positioned in the center
+        // of the view and cannot be moved.
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public static void ConfineCursor() {
+        // The cursor is visible and can be moved around
+        Cursor.lockState = CursorLockMode.Confined;
+    }
     
     // Update is called once per frame
     void Update() {

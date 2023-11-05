@@ -40,6 +40,7 @@ public class PlayerMouseLook : MonoBehaviour {
 
         playerAction.gameplay.MouseMove.performed += ctx => OnMouseMove(ctx.ReadValue<Vector2>());
         playerAction.gameplay.Escape.performed += _ => ToggleCursorLockState();
+        playerAction.gameplay.InventoryOpen.performed += _ => GameState.ConfineCursor();
     }
 
     private void Update() {

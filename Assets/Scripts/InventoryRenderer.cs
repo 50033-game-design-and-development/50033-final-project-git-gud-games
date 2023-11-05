@@ -15,6 +15,15 @@ public class InventoryRenderer: MonoBehaviour {
     private readonly List<Button> _hotbarItems = new List<Button>();
     // whether or not hotbar item slots have been rendered
     private bool _rendered = false;
+    // whether or not inventory is opened
+    private bool _opened = false;
+
+    public void Show() {
+        hotbarUI.rootVisualElement.style.visibility = Visibility.Visible;
+    }
+    public void Hide() {
+        hotbarUI.rootVisualElement.style.visibility = Visibility.Hidden;
+    }
 
     private int CalculateNumberOfHotbarItems(
         RectTransform hotbarRectTransform, float hotbarItemSize
@@ -108,6 +117,7 @@ public class InventoryRenderer: MonoBehaviour {
     
     // Start is called before the first frame update
     void Start() {
+        this.Hide();
         StartCoroutine(InitializeInventory());
         StartCoroutine(PopulateInventory());
     }
