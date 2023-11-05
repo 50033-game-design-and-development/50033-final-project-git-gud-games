@@ -26,12 +26,6 @@ public class GameState: MonoBehaviour {
         return _inventoryOpened;
     }
     
-    void Start() {
-        foreach (var collectable in startInventory) {
-            Inventory.Add(collectable);
-        }
-    }
-
     public static void LockCursor() {
         // A locked cursor is positioned in the center
         // of the view and cannot be moved.
@@ -41,6 +35,12 @@ public class GameState: MonoBehaviour {
     public static void ConfineCursor() {
         // The cursor is visible and can be moved around
         Cursor.lockState = CursorLockMode.Confined;
+    }
+    
+    void Start() {
+        foreach (var collectable in startInventory) {
+            Inventory.Add(collectable);
+        }
     }
     
     // Update is called once per frame
