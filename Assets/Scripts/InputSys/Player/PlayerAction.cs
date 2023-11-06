@@ -37,15 +37,6 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""MouseClick"",
-                    ""type"": ""Value"",
-                    ""id"": ""cf3fc409-5425-4d2b-b54a-ed18c7db05b9"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""MouseMove"",
                     ""type"": ""Value"",
                     ""id"": ""1448d582-197c-4b47-b911-8b1e391f0d02"",
@@ -216,39 +207,6 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
                     ""action"": ""Tab"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""One Modifier"",
-                    ""id"": ""5b9bc10c-0b5c-42b7-9d91-32f54e759930"",
-                    ""path"": ""OneModifier"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseClick"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""modifier"",
-                    ""id"": ""3b65ac43-7438-4f3a-96c8-a0618ebdd1e2"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Default"",
-                    ""action"": ""MouseClick"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""binding"",
-                    ""id"": ""9c6567ee-9eb0-4af4-b547-4e30120f4cff"",
-                    ""path"": ""<Mouse>/position"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Default"",
-                    ""action"": ""MouseClick"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -275,7 +233,6 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         // gameplay
         m_gameplay = asset.FindActionMap("gameplay", throwIfNotFound: true);
         m_gameplay_Move = m_gameplay.FindAction("Move", throwIfNotFound: true);
-        m_gameplay_MouseClick = m_gameplay.FindAction("MouseClick", throwIfNotFound: true);
         m_gameplay_MouseMove = m_gameplay.FindAction("MouseMove", throwIfNotFound: true);
         m_gameplay_Escape = m_gameplay.FindAction("Escape", throwIfNotFound: true);
         m_gameplay_Tab = m_gameplay.FindAction("Tab", throwIfNotFound: true);
@@ -341,7 +298,6 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_gameplay;
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_gameplay_Move;
-    private readonly InputAction m_gameplay_MouseClick;
     private readonly InputAction m_gameplay_MouseMove;
     private readonly InputAction m_gameplay_Escape;
     private readonly InputAction m_gameplay_Tab;
@@ -350,7 +306,6 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         private @PlayerAction m_Wrapper;
         public GameplayActions(@PlayerAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_gameplay_Move;
-        public InputAction @MouseClick => m_Wrapper.m_gameplay_MouseClick;
         public InputAction @MouseMove => m_Wrapper.m_gameplay_MouseMove;
         public InputAction @Escape => m_Wrapper.m_gameplay_Escape;
         public InputAction @Tab => m_Wrapper.m_gameplay_Tab;
@@ -366,9 +321,6 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @MouseClick.started += instance.OnMouseClick;
-            @MouseClick.performed += instance.OnMouseClick;
-            @MouseClick.canceled += instance.OnMouseClick;
             @MouseMove.started += instance.OnMouseMove;
             @MouseMove.performed += instance.OnMouseMove;
             @MouseMove.canceled += instance.OnMouseMove;
@@ -385,9 +337,6 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @MouseClick.started -= instance.OnMouseClick;
-            @MouseClick.performed -= instance.OnMouseClick;
-            @MouseClick.canceled -= instance.OnMouseClick;
             @MouseMove.started -= instance.OnMouseMove;
             @MouseMove.performed -= instance.OnMouseMove;
             @MouseMove.canceled -= instance.OnMouseMove;
@@ -426,7 +375,6 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
     public interface IGameplayActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnMouseClick(InputAction.CallbackContext context);
         void OnMouseMove(InputAction.CallbackContext context);
         void OnEscape(InputAction.CallbackContext context);
         void OnTab(InputAction.CallbackContext context);

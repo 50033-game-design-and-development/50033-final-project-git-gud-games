@@ -98,14 +98,10 @@ public class PlayerRayCast : MonoBehaviour
 
         // Ray points out from the middle of camera viewport 
         Ray ray = Camera.main.ViewportPointToRay(rayOrigin);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, layerMaskInteractable))
+        if (Physics.Raycast(ray, out RaycastHit raycastHit, playerConstants.raycastDistance, layerMaskInteractable))
         {
-            if (raycastHit.distance <= playerConstants.raycastDistance
-                && raycastHit.transform.gameObject.layer == LayerMask.NameToLayer("Interactable"))
-            {
-                PerformHighlight(raycastHit.transform);
-                return;
-            }
+            PerformHighlight(raycastHit.transform);
+            return;
         }
 
         highlighted = false;
