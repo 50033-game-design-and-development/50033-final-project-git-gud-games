@@ -79,7 +79,7 @@ public class PlayerRayCast : MonoBehaviour
         highlighted = false;
     }
 
-    void Start()
+    private void Start()
     {
         layerMaskInteractable = LayerMask.GetMask("Interactable");
 
@@ -90,7 +90,7 @@ public class PlayerRayCast : MonoBehaviour
         playerAction.gameplay.Tab.canceled += _ => DisableAllOutlines();
     }
 
-    void Update()
+    private void Update()
     {
         // Handle cases where player hovers away from object
         if (highlight != null && !highlighted)

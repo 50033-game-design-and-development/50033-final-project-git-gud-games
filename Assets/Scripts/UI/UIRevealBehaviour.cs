@@ -26,7 +26,7 @@ public class UIRevealBehaviour : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         for (int i = 0; i < elements.Count; i++)
         {
