@@ -28,11 +28,11 @@ public class InventoryRenderer : MonoBehaviour {
         }
     }
 
-    public void Show() {
+    private void Show() {
         hotbarUI.rootVisualElement.style.visibility = Visibility.Visible;
     }
 
-    public void Hide() {
+    private void Hide() {
         hotbarUI.rootVisualElement.style.visibility = Visibility.Hidden;
     }
 
@@ -111,9 +111,9 @@ public class InventoryRenderer : MonoBehaviour {
 
         // go through each slot in the hotbar and set its background image
         // based on the items on the GameState inventory
-        for (int k = 0; k < _hotbarItems.Count; k++) {
+        for (var k = 0; k < _hotbarItems.Count; k++) {
             var hotbarSlot = _hotbarItems[k];
-            int buttonNo = k;
+            var buttonNo = k;
 
             hotbarSlot.clicked += () => {
                 // TODO: tie this to an actually useful callback during integration
@@ -138,8 +138,6 @@ public class InventoryRenderer : MonoBehaviour {
                 hotbarSlot.style.backgroundImage = null;
             }
 
-            // have the image fit within the button
-            hotbarSlot.style.unityBackgroundScaleMode = ScaleMode.ScaleToFit;
             yield return null;
         }
 
