@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class UIRevealBehaviour : MonoBehaviour {
     public Transform revealCrosshairPrefab;
-    public CanvasGroup revealOverlay;
+    public PostProcessVolume revealVignette;
     public UIConstants uiConstants; 
 
     private Vector2 _prefabSize;
@@ -22,7 +23,7 @@ public class UIRevealBehaviour : MonoBehaviour {
     public void OnReveal(Vector3 coords) {
 
         isRevealed = true;
-        revealOverlay.alpha = 1f;
+        revealVignette.weight = 1f;
 
         if (IsCoordInList(coords)) return;
 
@@ -56,11 +57,11 @@ public class UIRevealBehaviour : MonoBehaviour {
         for (float alpha = 1f; alpha >= -0.05f; alpha -= timeDecrement)
         {
             if (isRevealed) {
-                revealOverlay.alpha = 1f;
+                revealVignette.weight = 1f;
                 yield break;
             }
 
-            revealOverlay.alpha = alpha;
+            revealVignette.weight = alpha;
             yield return new WaitForSecondsRealtime(0.05f);
         }
 
@@ -121,6 +122,8 @@ public class UIRevealBehaviour : MonoBehaviour {
 
     private void Start() {
         _prefabSize = revealCrosshairPrefab.GetComponent<RectTransform>().sizeDelta;
+        revealVignette.weight = 0;
+        revealVignette.gameObject.SetActive(true);
     }
     
 }
