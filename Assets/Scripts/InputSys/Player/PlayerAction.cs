@@ -55,7 +55,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Tab"",
+                    ""name"": ""RevealItems"",
                     ""type"": ""Button"",
                     ""id"": ""84b12bfb-88f6-4178-ae04-f927c12d0814"",
                     ""expectedControlType"": ""Button"",
@@ -204,7 +204,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Default"",
-                    ""action"": ""Tab"",
+                    ""action"": ""RevealItems"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -235,7 +235,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         m_gameplay_Move = m_gameplay.FindAction("Move", throwIfNotFound: true);
         m_gameplay_MouseMove = m_gameplay.FindAction("MouseMove", throwIfNotFound: true);
         m_gameplay_Escape = m_gameplay.FindAction("Escape", throwIfNotFound: true);
-        m_gameplay_Tab = m_gameplay.FindAction("Tab", throwIfNotFound: true);
+        m_gameplay_RevealItems = m_gameplay.FindAction("RevealItems", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -300,7 +300,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_gameplay_Move;
     private readonly InputAction m_gameplay_MouseMove;
     private readonly InputAction m_gameplay_Escape;
-    private readonly InputAction m_gameplay_Tab;
+    private readonly InputAction m_gameplay_RevealItems;
     public struct GameplayActions
     {
         private @PlayerAction m_Wrapper;
@@ -308,7 +308,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_gameplay_Move;
         public InputAction @MouseMove => m_Wrapper.m_gameplay_MouseMove;
         public InputAction @Escape => m_Wrapper.m_gameplay_Escape;
-        public InputAction @Tab => m_Wrapper.m_gameplay_Tab;
+        public InputAction @RevealItems => m_Wrapper.m_gameplay_RevealItems;
         public InputActionMap Get() { return m_Wrapper.m_gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -327,9 +327,9 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
             @Escape.started += instance.OnEscape;
             @Escape.performed += instance.OnEscape;
             @Escape.canceled += instance.OnEscape;
-            @Tab.started += instance.OnTab;
-            @Tab.performed += instance.OnTab;
-            @Tab.canceled += instance.OnTab;
+            @RevealItems.started += instance.OnRevealItems;
+            @RevealItems.performed += instance.OnRevealItems;
+            @RevealItems.canceled += instance.OnRevealItems;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -343,9 +343,9 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
             @Escape.started -= instance.OnEscape;
             @Escape.performed -= instance.OnEscape;
             @Escape.canceled -= instance.OnEscape;
-            @Tab.started -= instance.OnTab;
-            @Tab.performed -= instance.OnTab;
-            @Tab.canceled -= instance.OnTab;
+            @RevealItems.started -= instance.OnRevealItems;
+            @RevealItems.performed -= instance.OnRevealItems;
+            @RevealItems.canceled -= instance.OnRevealItems;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -377,6 +377,6 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnMouseMove(InputAction.CallbackContext context);
         void OnEscape(InputAction.CallbackContext context);
-        void OnTab(InputAction.CallbackContext context);
+        void OnRevealItems(InputAction.CallbackContext context);
     }
 }
