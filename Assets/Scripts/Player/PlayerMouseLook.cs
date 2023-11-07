@@ -45,16 +45,16 @@ public class PlayerMouseLook : MonoBehaviour {
 
         playerAction.gameplay.MouseMove.performed += ctx => OnMouseMove(ctx.ReadValue<Vector2>());
         playerAction.gameplay.Escape.performed += _ => ToggleCursorLockState();
-        playerAction.gameplay.InventoryOpen.performed += _ => GameState.ConfineCursor();
         
         // open inventory when you press E
         playerAction.gameplay.InventoryOpen.performed += _ => {
-            GameState.ShowInventory();
+            GameState.ToggleInventory();
+            Debug.Log("TOGGLE");
             onInventoryUpdate.Raise();
         };
         // close inventory when you press escape
         playerAction.gameplay.Escape.performed += _ => {
-            GameState.HideInventory();
+            // GameState.HideInventory();
             onInventoryUpdate.Raise();
         };
     }

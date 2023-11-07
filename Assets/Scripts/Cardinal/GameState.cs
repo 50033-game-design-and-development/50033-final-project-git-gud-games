@@ -5,20 +5,28 @@ public class GameState : MonoBehaviour {
     // initial list of items to assign to inventory (for testing only)
     public List<Collectable> startInventory = new List<Collectable>();
 
-    public static readonly List<Collectable> inventory = new List<Collectable>();
+    public static readonly List<Collectable> Inventory = new List<Collectable>();
 
-    private static bool inventoryOpened = false;
+    private static bool _inventoryOpened = false;
 
-    public static void ShowInventory() {
-        inventoryOpened = true;
+    public static bool InventoryOpened {
+        get => _inventoryOpened;
+        set {
+            _inventoryOpened = value;
+            if (_inventoryOpened) {
+                ConfineCursor();
+            } else {
+                LockCursor();
+            }
+        }
     }
-
-    public static void HideInventory() {
-        inventoryOpened = false;
+    
+    public static void ToggleInventory() {
+        InventoryOpened = !InventoryOpened;
     }
-
+    
     public static bool IsInventoryOpened() {
-        return inventoryOpened;
+        return _inventoryOpened;
     }
 
     public static void LockCursor() {
@@ -28,13 +36,14 @@ public class GameState : MonoBehaviour {
     }
 
     public static void ConfineCursor() {
+        Debug.Log("ENABLE_CURSOR");
         // The cursor is visible and can be moved around
         Cursor.lockState = CursorLockMode.Confined;
     }
 
     private void Start() {
         foreach (var collectable in startInventory) {
-            inventory.Add(collectable);
+            Inventory.Add(collectable);
         }
     }
 }

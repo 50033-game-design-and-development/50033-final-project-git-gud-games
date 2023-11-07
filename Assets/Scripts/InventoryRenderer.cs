@@ -6,27 +6,23 @@ using UnityEngine.UIElements;
 
 public class InventoryRenderer : MonoBehaviour {
     // hotbar USS slot class to assign to filled inventory slots
-    private static readonly string OCCUPIED_SLOT_CLASS = "filled";
+    private const string OccupiedSlotClass = "filled";
 
     public UIDocument hotbarUI;
     public int hotbarItemGap = 40;
 
-    private float padding;
-    private int numHotbarItems;
+    private float _padding;
+    private int _numHotbarItems;
 
     // gap between bar item images
-    private readonly List<Button> hotbarItems = new List<Button>();
-
-    // whether or not hotbar item slots have been rendered
-    private bool rendered = false;
-
-    // whether or not hotbar item slots are currently being updated
-    private bool updating = false;
+    private readonly List<Button> _hotbarItems = new List<Button>();
+    private bool _hotbarRendered = false;
+    private bool _hotbarItemsUpdating = false;
 
     public void OnInventoryUpdate() {
         if (GameState.IsInventoryOpened()) {
             Show();
-            StartCoroutine(PopulateInventory());
+            StartCoroutine(PopulateHotbar());
         } else {
             Hide();
         }
@@ -44,8 +40,8 @@ public class InventoryRenderer : MonoBehaviour {
         // returns number of hotbar slots that can fit in the hotbar
         VisualElement root = hotbarUI.rootVisualElement;
         VisualElement hotbarElement = root.Q("Hotbar");
-        padding = hotbarElement.resolvedStyle.paddingLeft;
-        var usableWidth = hotbarWidth - padding * 2;
+        _padding = hotbarElement.resolvedStyle.paddingLeft;
+        var usableWidth = hotbarWidth - _padding * 2;
         /*
         n - number of hotbar items
         H - hotbar item size
@@ -61,7 +57,7 @@ public class InventoryRenderer : MonoBehaviour {
         return numHotbarItems;
     }
 
-    private IEnumerator InitializeInventory() {
+    private IEnumerator InitializeHotbar() {
         // Initialize the hotbar items slot UI elements
 
         // wait for UI document to render,
@@ -75,61 +71,68 @@ public class InventoryRenderer : MonoBehaviour {
             button.RemoveFromHierarchy();
         }
 
-        var rectTransform = hotbarUI.GetComponent<RectTransform>();
         VisualElement hotbarElement = root.Q<VisualElement>("Hotbar");
-        padding = (
+        _padding = (
             hotbarElement.resolvedStyle.paddingLeft + hotbarElement.resolvedStyle.paddingRight
         ) / 2.0f;
 
         var hotbarWidth = hotbarElement.resolvedStyle.width;
         var hotbarHeight = hotbarElement.resolvedStyle.height;
         Debug.Log("HOTBAR_HEIGHT " + hotbarHeight);
-        var hotbarItemHeight = hotbarHeight - padding * 2;
+        var hotbarItemHeight = hotbarHeight - _padding * 2;
         Debug.Log("HOTBAR_ITEM_HEIGHT " + hotbarItemHeight);
-        numHotbarItems = CalculateNumberOfHotbarItems(hotbarWidth, hotbarItemHeight);
+        _numHotbarItems = CalculateNumberOfHotbarItems(hotbarWidth, hotbarItemHeight);
 
-        for (int k = 0; k < numHotbarItems; k++) {
+        for (int k = 0; k < _numHotbarItems; k++) {
             // Create hotbar item slots (each slot is a UIElement Button)
             Button inventoryItem = new Button();
             inventoryItem.style.width = hotbarItemHeight;
             hotbarElement.Add(inventoryItem);
-            hotbarItems.Add(inventoryItem);
+            _hotbarItems.Add(inventoryItem);
             yield return null;
         }
 
-        rendered = true;
+        _hotbarRendered = true;
+        
+        // update the displayed hotbar items based on what's in the inventory
+        yield return StartCoroutine(PopulateHotbar());
     }
 
-    private IEnumerator PopulateInventory() {
+    private IEnumerator PopulateHotbar() {
         // fill up the hotbar items slot UI elements based
         // on the list of collectable items in GameState
-        while (!rendered) {
+        while (_hotbarItemsUpdating || !_hotbarRendered) {
             yield return null;
         }
 
-        while (updating) {
-            yield return null;
-        }
+        _hotbarItemsUpdating = true;
 
-        updating = true;
-
-        for (int k = 0; k < hotbarItems.Count; k++) {
-            var hotbarSlot = hotbarItems[k];
+        // go through each slot in the hotbar and set its background image
+        // based on the items on the GameState inventory
+        for (int k = 0; k < _hotbarItems.Count; k++) {
+            var hotbarSlot = _hotbarItems[k];
             int buttonNo = k;
 
             hotbarSlot.clicked += () => {
                 // TODO: tie this to an actually useful callback during integration
                 Debug.Log($"SLOT {buttonNo} CLICKED");
             };
+            
+            Debug.Assert(
+                GameState.Inventory.Count < _hotbarItems.Count,
+                "Theres more inventory items than hotbar slots available!"
+            );
 
-            if (k < GameState.inventory.Count) {
-                var collectable = GameState.inventory[k];
-                hotbarSlot.AddToClassList(OCCUPIED_SLOT_CLASS);
+            if (k < GameState.Inventory.Count) {
+                // set hotbar slot background image and make slot active
+                var collectable = GameState.Inventory[k];
+                hotbarSlot.AddToClassList(OccupiedSlotClass);
                 hotbarSlot.style.backgroundImage = (
-                                                       new StyleBackground(collectable.itemSprite)
-                                                   );
+                    new StyleBackground(collectable.itemSprite)
+                );
             } else {
-                hotbarSlot.RemoveFromClassList(OCCUPIED_SLOT_CLASS);
+                // remove hotbar slot background image and make slot inactive
+                hotbarSlot.RemoveFromClassList(OccupiedSlotClass);
                 hotbarSlot.style.backgroundImage = null;
             }
 
@@ -138,13 +141,12 @@ public class InventoryRenderer : MonoBehaviour {
             yield return null;
         }
 
-        updating = false;
+        _hotbarItemsUpdating = false;
     }
 
     // Start is called before the first frame update
     void Start() {
         Hide();
-        StartCoroutine(InitializeInventory());
-        StartCoroutine(PopulateInventory());
+        StartCoroutine(InitializeHotbar());
     }
 }
