@@ -1,8 +1,6 @@
-using System.Linq;
 using UnityEngine;
 
-public class PlayerRayCast : MonoBehaviour
-{
+public class PlayerRayCast : MonoBehaviour {
     public PlayerConstants playerConstants;
     public GameEvent onRevealAll;
     public GameEvent onUnrevealAll;
@@ -17,8 +15,7 @@ public class PlayerRayCast : MonoBehaviour
     /// <summary>
     /// Performs highlighting of a valid interactable object
     /// </summary>
-    private void PerformHighlight(Transform transform)
-    {
+    private void PerformHighlight(Transform transform) {
         // Hover over same object. Do nothing
         if (highlight != null && highlight.GetInstanceID() == transform.GetInstanceID())
             return;
@@ -32,21 +29,18 @@ public class PlayerRayCast : MonoBehaviour
         EnableOutline();
     }
 
-    private void EnableOutline()
-    {
-        if (highlight == null) return;
+    private void EnableOutline() {
+        if (highlight == null)
+            return;
         EnableOutline(highlight.gameObject);
     }
 
-    private void EnableOutline(GameObject obj)
-    {
-        if (obj == null) return;
-        if (obj.GetComponent<Outline>() != null)
-        {
+    private void EnableOutline(GameObject obj) {
+        if (obj == null)
+            return;
+        if (obj.GetComponent<Outline>() != null) {
             obj.GetComponent<Outline>().enabled = true;
-        }
-        else
-        {
+        } else {
             Outline outline = obj.AddComponent<Outline>();
             outline.OutlineColor = new Color(255, 255, 255, 0.8f);
             outline.OutlineMode = Outline.Mode.OutlineVisible;
@@ -55,32 +49,28 @@ public class PlayerRayCast : MonoBehaviour
         }
     }
 
-    private void DisableOutline()
-    {
-        if (highlight == null) return;
+    private void DisableOutline() {
+        if (highlight == null)
+            return;
         DisableOutline(highlight.gameObject);
         highlight = null;
     }
 
-    private void DisableOutline(GameObject obj)
-    {
+    private void DisableOutline(GameObject obj) {
         obj.GetComponent<Outline>().enabled = false;
     }
 
-    private void EnableAllOutlines()
-    {
+    private void EnableAllOutlines() {
         onRevealAll.Raise();
     }
 
-    private void DisableAllOutlines()
-    {
+    private void DisableAllOutlines() {
         onUnrevealAll.Raise();
         highlight = null;
         highlighted = false;
     }
 
-    private void Start()
-    {
+    private void Start() {
         layerMaskInteractable = LayerMask.GetMask("Interactable");
 
         playerAction = new PlayerAction();
@@ -90,16 +80,14 @@ public class PlayerRayCast : MonoBehaviour
         playerAction.gameplay.Tab.canceled += _ => DisableAllOutlines();
     }
 
-    private void Update()
-    {
+    private void Update() {
         // Handle cases where player hovers away from object
         if (highlight != null && !highlighted)
             DisableOutline();
 
         // Ray points out from the middle of camera viewport 
         Ray ray = Camera.main.ViewportPointToRay(rayOrigin);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, playerConstants.raycastDistance, layerMaskInteractable))
-        {
+        if (Physics.Raycast(ray, out RaycastHit raycastHit, playerConstants.raycastDistance, layerMaskInteractable)) {
             PerformHighlight(raycastHit.transform);
             return;
         }
