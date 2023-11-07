@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class UIRevealBehaviour : MonoBehaviour {
     public Transform revealCrosshairPrefab;
+    // public Canvas revealOverlay;
     public UIConstants uiConstants; 
 
+    private Vector2 _prefabSize;
     private List<RevealUIElement> elements = new List<RevealUIElement>();
 
 
@@ -22,21 +24,6 @@ public class UIRevealBehaviour : MonoBehaviour {
         StartCoroutine(DelayedDestroy());
     }
 
-    // Update is called once per frame
-    private void Update() {
-        for (int i = 0; i < elements.Count; i++) {
-            RevealUIElement element = elements[i];
-            Vector3 screenCoords = Camera.main.WorldToScreenPoint(element.coords);
-            
-            // Set size to 15% of screen
-            float size = Mathf.Min(Screen.width, Screen.height) * 0.15f;
-            element.crosshair.GetComponent<RectTransform>().sizeDelta = new Vector2(size, size);
-
-            element.crosshair.position = screenCoords;
-            element.crosshair.gameObject.SetActive(screenCoords.z > 0);
-        }
-    }
-
     private IEnumerator DelayedDestroy() {
         yield return new WaitForSeconds(uiConstants.RevealDestroyDelay);
         for (int i = 0; i < elements.Count; i++) {
@@ -44,6 +31,25 @@ public class UIRevealBehaviour : MonoBehaviour {
         }
 
         elements.Clear();
+    }
+
+    // Update is called once per frame
+    private void Update() {
+        for (int i = 0; i < elements.Count; i++) {
+            RevealUIElement element = elements[i];
+            Vector3 screenCoords = Camera.main.WorldToScreenPoint(element.coords);
+            
+            // Scale with width
+            float scale = (Screen.width * uiConstants.RevealScale) / _prefabSize.x;
+
+            element.crosshair.localScale = new Vector3(scale, scale, 1f);
+            element.crosshair.position = screenCoords;
+            element.crosshair.gameObject.SetActive(screenCoords.z > 0);
+        }
+    }
+
+    private void Start() {
+        _prefabSize = revealCrosshairPrefab.GetComponent<RectTransform>().sizeDelta;
     }
     
 }
