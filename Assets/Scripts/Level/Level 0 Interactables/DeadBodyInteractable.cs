@@ -2,15 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeadBodyInteractable : MonoBehaviour
-{
+public class DeadBodyInteractable : MonoBehaviour {
     public Animator cinemachineAnimator;
     
     /// <summary>
     /// Called when player clicks on first puzzle paper.
     /// </summary>
-    public virtual void OnInteraction()
-    {
+    public virtual void OnInteraction() {
         cinemachineAnimator.Play("L0 Dead Body");
         // TODO - open inventory, freeze player movement (player is auto frozen though)
     }
@@ -18,28 +16,22 @@ public class DeadBodyInteractable : MonoBehaviour
     /// <summary>
     /// Called when player exits puzzle scene.
     /// </summary>
-    public void OnEscape()
-    {
+    public void OnEscape() {
         cinemachineAnimator.Play("L0 First Person");
     }
     
-    private void Start()
-    {
+    private void Start() {
         
     }
     
-    private void Update()
-    {
+    private void Update() {
         // For testing purposes
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) {
             OnInteraction();
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+        if (Input.GetKeyDown(KeyCode.Alpha2)) {
             OnEscape();
-            
         }
     }
 }
