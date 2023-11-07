@@ -3,7 +3,7 @@ using UnityEngine;
 public class AnimationInteractable : MonoBehaviour, IInteractable {
     private Animator animator;
 
-    public void Interact() {
+    public void OnInteraction() {
         Debug.Log("Animate " + gameObject.name);
         animator.SetTrigger("Interact");
 

@@ -21,7 +21,7 @@ public class PlayerInteractor : MonoBehaviour {
     void Interact(GameObject obj) {
         foreach (IInteractable i in obj.GetComponents<IInteractable>())
         {
-            i.Interact();
+            i.OnInteraction();
         }
     }
 
