@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class UIRevealBehaviour : MonoBehaviour {
     public Transform revealCrosshairPrefab;
+    public UIConstants uiConstants; 
 
     private List<RevealUIElement> elements = new List<RevealUIElement>();
 
@@ -17,11 +19,7 @@ public class UIRevealBehaviour : MonoBehaviour {
     }
 
     public void OnUnreveal() {
-        for (int i = 0; i < elements.Count; i++) {
-            Destroy(elements[i].crosshair.gameObject);
-        }
-
-        elements.Clear();
+        StartCoroutine(DelayedDestroy());
     }
 
     // Update is called once per frame
@@ -29,10 +27,25 @@ public class UIRevealBehaviour : MonoBehaviour {
         for (int i = 0; i < elements.Count; i++) {
             RevealUIElement element = elements[i];
             Vector3 screenCoords = Camera.main.WorldToScreenPoint(element.coords);
+            
+            // Set size to 15% of screen
+            float size = Mathf.Min(Screen.width, Screen.height) * 0.15f;
+            element.crosshair.GetComponent<RectTransform>().sizeDelta = new Vector2(size, size);
+
             element.crosshair.position = screenCoords;
             element.crosshair.gameObject.SetActive(screenCoords.z > 0);
         }
     }
+
+    private IEnumerator DelayedDestroy() {
+        yield return new WaitForSeconds(uiConstants.RevealDestroyDelay);
+        for (int i = 0; i < elements.Count; i++) {
+            Destroy(elements[i].crosshair.gameObject);
+        }
+
+        elements.Clear();
+    }
+    
 }
 
 class RevealUIElement {
