@@ -53,7 +53,9 @@ public class InventoryRenderer : MonoBehaviour {
         n*(g+H) - g = u
         n = (u+g) / (g+H)
         */
-        var numHotbarItems = (int)Math.Floor((usableWidth + hotbarItemGap) / (hotbarItemSize + hotbarItemGap));
+        var numHotbarItems = (int) Math.Floor(
+            (usableWidth + hotbarItemGap) / (hotbarItemSize + hotbarItemGap)
+        );
         return numHotbarItems;
     }
 
@@ -100,7 +102,7 @@ public class InventoryRenderer : MonoBehaviour {
 
     private IEnumerator PopulateHotbar() {
         // fill up the hotbar items slot UI elements based
-        // on the list of collectable items in GameState
+        // on the list of inventory items in GameState
         while (_hotbarItemsUpdating || !_hotbarRendered) {
             yield return null;
         }
