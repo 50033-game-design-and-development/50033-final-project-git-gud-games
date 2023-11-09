@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour {
         playerAction = new PlayerAction();
         playerAction.Enable();
 
-        playerAction.gameplay.Move.performed += ctx =>  OnMove(ctx.ReadValue<Vector2>());
+        playerAction.gameplay.Move.performed += ctx => OnMove(ctx.ReadValue<Vector2>());
         playerAction.gameplay.Move.canceled += ctx => OnMove(ctx.ReadValue<Vector2>());
     }
 

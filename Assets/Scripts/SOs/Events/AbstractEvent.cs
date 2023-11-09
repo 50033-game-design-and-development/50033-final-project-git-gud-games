@@ -11,10 +11,11 @@ public class AbstractEvent<T> : ScriptableObject {
     }
 
     public void AddListener(AbstractEventListener<T> listener) {
-        if(!_listeners.Contains(listener)) {
+        if (!_listeners.Contains(listener)) {
             _listeners.Add(listener);
         }
     }
+
     public void RemoveListener(AbstractEventListener<T> listener) {
         _listeners.Remove(listener);
     }
@@ -30,10 +31,11 @@ public class AbstractEvent : ScriptableObject {
     }
 
     public void AddListener(AbstractEventListener listener) {
-        if(!_listeners.Contains(listener)) {
+        if (!_listeners.Contains(listener)) {
             _listeners.Add(listener);
         }
     }
+
     public void RemoveListener(AbstractEventListener listener) {
         _listeners.Remove(listener);
     }
