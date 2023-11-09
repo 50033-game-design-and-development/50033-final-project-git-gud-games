@@ -57,7 +57,6 @@ public class InventoryRenderer : MonoBehaviour {
         var hotbarWidth = hotbarElement.resolvedStyle.width;
         var hotbarHeight = hotbarElement.resolvedStyle.height;
         var hotbarItemHeight = hotbarHeight - _padding * 2;
-        Debug.Log("ITEM_HEIGHT " + hotbarItemHeight);
 
         for (int k = 0; k < numHotbarItems; k++) {
             // Create hotbar item slots (each slot is a UIElement Button)
@@ -105,7 +104,9 @@ public class InventoryRenderer : MonoBehaviour {
         }
     }
 
-    private IEnumerator initialize() {
+    private IEnumerator renderHotbar() {
+		// wait for UI document to render
+		// before populating it with hotbar UI elements
         yield return new WaitForEndOfFrame();
         InitializeHotbar();
         PopulateHotbar();
@@ -114,6 +115,6 @@ public class InventoryRenderer : MonoBehaviour {
     // Start is called before the first frame update
     void OnEnable() {
         Hide();
-        StartCoroutine(initialize());
+        StartCoroutine(renderHotbar());
     }
 }
