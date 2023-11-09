@@ -1,7 +1,6 @@
-using System.Linq;
 using UnityEngine;
 
-public class CollectibleInteractable : MonoBehaviour, IInteractable {
+public class Collectable : MonoBehaviour, IInteractable {
     public int itemIndex;
     // public IntGameEvent onItemCollected;
 
