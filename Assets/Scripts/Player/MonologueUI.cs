@@ -12,11 +12,15 @@ public class MonologueUI : MonoBehaviour {
     private Image background;
 
     public void StartMonologue(int monologueKey) {
+        StopCoroutine("EndMonologue");
+
         subtitles.text = monologueMap.textList[monologueKey];
         SetAlpha(1);
 
-        AudioClip voiceLines = monologueMap.audioList[monologueKey];
-        audioSource.PlayOneShot(voiceLines);
+        // Disabled these lines to prevent breakage, DO NOT DELETE
+        //AudioClip voiceLines = monologueMap.audioList[monologueKey];
+        //audioSource.PlayOneShot(voiceLines);
+        //StartCoroutine("EndMonologue", voiceLines.length);
 
         StartCoroutine("EndMonologue", 1);
     }
