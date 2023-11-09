@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class PlayerRayCast : MonoBehaviour {
     public PlayerConstants playerConstants;
-    public GameEvent onRevealAll;
-    public GameEvent onUnrevealAll;
 
-    private Transform highlight;
-    private bool highlighted;
-    private PlayerAction playerAction;
-    private Vector3 rayOrigin = new(0.5f, 0.5f, 0f);
-    private int layerMaskInteractable;
+    private Transform _highlight;
+    private bool _highlighted;
+    private PlayerAction _playerAction;
+    private readonly Vector3 _rayOrigin = new(0.5f, 0.5f, 0f);
+    private int _layerMaskInteractable;
 
 
     /// <summary>
@@ -17,22 +15,22 @@ public class PlayerRayCast : MonoBehaviour {
     /// </summary>
     private void PerformHighlight(Transform transform) {
         // Hover over same object. Do nothing
-        if (highlight != null && highlight.GetInstanceID() == transform.GetInstanceID())
+        if (_highlight != null && _highlight.GetInstanceID() == transform.GetInstanceID())
             return;
 
         // Disable outline on previous object before handling new one
         DisableOutline();
 
-        highlighted = true;
-        highlight = transform;
+        _highlighted = true;
+        _highlight = transform;
 
         EnableOutline();
     }
 
     private void EnableOutline() {
-        if (highlight == null)
+        if (_highlight == null)
             return;
-        EnableOutline(highlight.gameObject);
+        EnableOutline(_highlight.gameObject);
     }
 
     private void EnableOutline(GameObject obj) {
@@ -50,10 +48,10 @@ public class PlayerRayCast : MonoBehaviour {
     }
 
     private void DisableOutline() {
-        if (highlight == null)
+        if (_highlight == null)
             return;
-        DisableOutline(highlight.gameObject);
-        highlight = null;
+        DisableOutline(_highlight.gameObject);
+        _highlight = null;
     }
 
     private void DisableOutline(GameObject obj) {
@@ -61,37 +59,37 @@ public class PlayerRayCast : MonoBehaviour {
     }
 
     private void EnableAllOutlines() {
-        onRevealAll.Raise();
+        Event.revealAll.Raise();
     }
 
     private void DisableAllOutlines() {
-        onUnrevealAll.Raise();
-        highlight = null;
-        highlighted = false;
+        Event.hideAll.Raise();
+        _highlight = null;
+        _highlighted = false;
     }
 
     private void Start() {
-        layerMaskInteractable = LayerMask.GetMask("Interactable");
+        _layerMaskInteractable = LayerMask.GetMask("Interactable");
 
-        playerAction = new PlayerAction();
-        playerAction.Enable();
+        _playerAction = new PlayerAction();
+        _playerAction.Enable();
 
-        playerAction.gameplay.RevealItems.performed += _ => EnableAllOutlines();
-        playerAction.gameplay.RevealItems.canceled += _ => DisableAllOutlines();
+        _playerAction.gameplay.RevealItems.performed += _ => EnableAllOutlines();
+        _playerAction.gameplay.RevealItems.canceled += _ => DisableAllOutlines();
     }
 
     private void Update() {
         // Handle cases where player hovers away from object
-        if (highlight != null && !highlighted)
+        if (_highlight != null && !_highlighted)
             DisableOutline();
 
         // Ray points out from the middle of camera viewport 
-        Ray ray = Camera.main.ViewportPointToRay(rayOrigin);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, playerConstants.raycastDistance, layerMaskInteractable)) {
+        Ray ray = Camera.main.ViewportPointToRay(_rayOrigin);
+        if (Physics.Raycast(ray, out RaycastHit raycastHit, playerConstants.raycastDistance, _layerMaskInteractable)) {
             PerformHighlight(raycastHit.transform);
             return;
         }
 
-        highlighted = false;
+        _highlighted = false;
     }
 }

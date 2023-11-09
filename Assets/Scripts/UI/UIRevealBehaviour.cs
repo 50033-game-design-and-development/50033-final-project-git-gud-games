@@ -1,18 +1,18 @@
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
 public class UIRevealBehaviour : MonoBehaviour {
     public Transform revealCrosshairPrefab;
     public PostProcessVolume revealVignette;
-    public UIConstants uiConstants; 
+    public UIConstants uiConstants;
 
     private Vector2 _prefabSize;
-    private List<RevealUIElement> elements = new List<RevealUIElement>();
+    private List<RevealUIElement> _elements = new();
 
-    private bool isRevealed = false;
-    private bool isResetting = false;
+    private bool _isRevealed;
 
 
     /// <summary>
@@ -21,11 +21,11 @@ public class UIRevealBehaviour : MonoBehaviour {
     /// </summary>
     /// <param name="coords">World coordinates to render the crosshair on</param>
     public void OnReveal(Vector3 coords) {
-
-        isRevealed = true;
+        _isRevealed = true;
         revealVignette.weight = 1f;
 
-        if (IsCoordInList(coords)) return;
+        if (IsCoordInList(coords))
+            return;
 
         RevealUIElement element = new RevealUIElement(
             coords,
@@ -33,17 +33,16 @@ public class UIRevealBehaviour : MonoBehaviour {
         );
 
         element.crosshair.SetParent(transform);
-        while (isResetting) ;
-        elements.Add(element);
+        _elements.Add(element);
     }
 
 
     /// <summary>
-    /// Called on an Unreveal Event to fade out the reveal overlay and destroy all crosshairs
+    /// Called on a Hide Event to fade out the reveal overlay and destroy all crosshairs
     /// </summary>
-    public void OnUnreveal() {
-        isRevealed = false;
-        StartCoroutine(DelayedUnreveal());
+    public void OnHide() {
+        _isRevealed = false;
+        StartCoroutine(DelayedHide());
     }
 
 
@@ -52,11 +51,10 @@ public class UIRevealBehaviour : MonoBehaviour {
     /// within a delay time specified in UIConstants SO
     /// </summary>
     /// <returns>IEnumerator</returns>
-    private IEnumerator DelayedUnreveal() {
+    private IEnumerator DelayedHide() {
         float timeDecrement = uiConstants.RevealDestroyDelay / 40f;
-        for (float alpha = 1f; alpha >= -0.05f; alpha -= timeDecrement)
-        {
-            if (isRevealed) {
+        for (float alpha = 1f; alpha >= -0.05f; alpha -= timeDecrement) {
+            if (_isRevealed) {
                 revealVignette.weight = 1f;
                 yield break;
             }
@@ -66,17 +64,16 @@ public class UIRevealBehaviour : MonoBehaviour {
         }
 
         // Blocks execution of OnReveal() until elements are all destroyed
-        if (isRevealed) yield break;
-        isResetting = true;
+        if (_isRevealed)
+            yield break;
 
 
         // After the reveal overlay has faded out, destroy all the crosshairs
-        for (int i = 0; i < elements.Count; i++) {
-            Destroy(elements[i].crosshair.gameObject);
+        foreach (var t in _elements) {
+            Destroy(t.crosshair.gameObject);
         }
 
-        elements.Clear();
-        isResetting = false;
+        _elements.Clear();
     }
 
 
@@ -86,12 +83,7 @@ public class UIRevealBehaviour : MonoBehaviour {
     /// <param name="coords">World coordinates to check</param>
     /// <returns>True if any RevealUIElement has the coordinate specified</returns>
     private bool IsCoordInList(Vector3 coords) {
-        for (int i = 0; i < elements.Count; i++) {
-            if (elements[i].coords == coords) {
-                return true;
-            }
-        }
-        return false;
+        return _elements.Any(t => t.coords == coords);
     }
 
     /// <summary>
@@ -103,7 +95,7 @@ public class UIRevealBehaviour : MonoBehaviour {
     /// <param name="coords">World coordinates of object</param>
     private void AdjustCrosshairTransform(Transform crosshair, Vector3 coords) {
         Vector3 screenCoords = Camera.main.WorldToScreenPoint(coords);
-            
+
         // Scale with width
         float scale = (Screen.width * uiConstants.RevealScale) / _prefabSize.x;
 
@@ -112,10 +104,9 @@ public class UIRevealBehaviour : MonoBehaviour {
         crosshair.gameObject.SetActive(screenCoords.z > 0);
     }
 
-   
+
     private void Update() {
-        for (int i = 0; i < elements.Count; i++) {
-            RevealUIElement element = elements[i];
+        foreach (var element in _elements) {
             AdjustCrosshairTransform(element.crosshair, element.coords);
         }
     }
@@ -125,7 +116,6 @@ public class UIRevealBehaviour : MonoBehaviour {
         revealVignette.weight = 0;
         revealVignette.gameObject.SetActive(true);
     }
-    
 }
 
 
@@ -137,7 +127,6 @@ class RevealUIElement {
     public Transform crosshair;
 
     public RevealUIElement(Vector3 coords, Transform crosshair) {
-        if (coords == null) throw new System.ArgumentNullException("coords");
         this.coords = coords;
         this.crosshair = crosshair;
     }
