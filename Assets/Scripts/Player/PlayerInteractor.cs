@@ -4,18 +4,14 @@ public class PlayerInteractor : MonoBehaviour {
     private PlayerAction _playerAction;
 
     private int _layerMaskInteractable;
+    public PlayerConstants playerConstants;
 
     void OnClick(Vector2 screenPos) {
-        Debug.Log("Clicked");
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
 
-        // TODO: for the distance, use playerconstants once merged with FGD-14
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, 1.8f, _layerMaskInteractable)) {
-            Debug.Log("Interact " + raycastHit.transform.gameObject.name);
+        if (Physics.Raycast(ray, out RaycastHit raycastHit, playerConstants.raycastDistance, _layerMaskInteractable)) {
             Interact(raycastHit.transform.gameObject);
         }
-
-        Debug.Log("End");
     }
 
     private static void Interact(GameObject obj) {

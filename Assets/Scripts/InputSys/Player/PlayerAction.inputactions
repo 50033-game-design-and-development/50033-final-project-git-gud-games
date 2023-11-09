@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "RevealItems",
+                    "type": "Button",
+                    "id": "84b12bfb-88f6-4178-ae04-f927c12d0814",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -227,6 +236,17 @@
                     "action": "MousePos",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "88a060df-2a38-4ea7-a373-bf2a86b153d7",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Default",
+                    "action": "RevealItems",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
