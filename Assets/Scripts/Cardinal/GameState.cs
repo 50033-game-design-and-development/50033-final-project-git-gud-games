@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour {
     // initial list of items to assign to inventory (for testing only)
-    public List<Collectable> startInventory = new();
+    public List<Inv.Collectable> startInventory = new();
 
-    public static readonly List<Collectable> inventory = new();
+    public static readonly List<Inv.Collectable> inventory = new();
 
     private static bool _inventoryOpened = false;
 
