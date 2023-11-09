@@ -2,7 +2,7 @@
     font-size: 20px;
     -unity-font-style: bold;
     color: rgb(68, 138, 255);
-}
+
 
 #Hotbar {
     background-color: rgba(0, 0, 0, 0.5);
@@ -23,6 +23,8 @@
     background-color: rgba(235, 235, 235, 0.0);
     
     border-color: rgba(0, 0, 0, 0.0);
+    flex-shrink: 0;
+    flex-grow: 0;
     border: none;
 }
 
@@ -30,6 +32,7 @@
     /* Light gray background on hover */
     background-color: rgba(228, 228, 228, 0.2);
 }
+    
 .unity-button.filled:active {
     /* Darker gray background when active (clicked) */
     background-color: rgba(204, 204, 204, 0.3); 
