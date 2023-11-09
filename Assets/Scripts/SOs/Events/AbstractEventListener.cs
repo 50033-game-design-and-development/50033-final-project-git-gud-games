@@ -8,9 +8,11 @@ public class AbstractEventListener<T> : MonoBehaviour {
     public void OnRaised(T data) {
         response.Invoke(data);
     }
+
     private void OnEnable() {
         @event.AddListener(this);
     }
+
     private void OnDisable() {
         @event.RemoveListener(this);
     }
@@ -23,9 +25,11 @@ public class AbstractEventListener : MonoBehaviour {
     public void OnRaised() {
         response.Invoke();
     }
+
     private void OnEnable() {
         @event.AddListener(this);
     }
+
     private void OnDisable() {
         @event.RemoveListener(this);
     }
