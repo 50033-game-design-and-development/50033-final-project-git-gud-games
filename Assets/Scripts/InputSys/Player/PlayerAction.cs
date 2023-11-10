@@ -55,6 +55,15 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""InventoryOpen"",
+                    ""type"": ""Button"",
+                    ""id"": ""7dc661d7-2ae7-4dbe-a132-09faf7c191ec"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""MousePos"",
                     ""type"": ""Value"",
                     ""id"": ""1fe3ef86-b123-4ab0-a353-8713c697b3ce"",
@@ -207,6 +216,17 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""b008fe4b-bbf0-4700-b9cc-5cedbe4eacf6"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""InventoryOpen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""MouseClick"",
                     ""id"": ""b032edf6-892c-469b-bc4a-cd333d214ca5"",
                     ""path"": ""OneModifier"",
@@ -277,6 +297,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         m_gameplay_Move = m_gameplay.FindAction("Move", throwIfNotFound: true);
         m_gameplay_MouseMove = m_gameplay.FindAction("MouseMove", throwIfNotFound: true);
         m_gameplay_Escape = m_gameplay.FindAction("Escape", throwIfNotFound: true);
+        m_gameplay_InventoryOpen = m_gameplay.FindAction("InventoryOpen", throwIfNotFound: true);
         m_gameplay_MousePos = m_gameplay.FindAction("MousePos", throwIfNotFound: true);
         m_gameplay_RevealItems = m_gameplay.FindAction("RevealItems", throwIfNotFound: true);
     }
@@ -343,6 +364,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_gameplay_Move;
     private readonly InputAction m_gameplay_MouseMove;
     private readonly InputAction m_gameplay_Escape;
+    private readonly InputAction m_gameplay_InventoryOpen;
     private readonly InputAction m_gameplay_MousePos;
     private readonly InputAction m_gameplay_RevealItems;
     public struct GameplayActions
@@ -352,6 +374,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_gameplay_Move;
         public InputAction @MouseMove => m_Wrapper.m_gameplay_MouseMove;
         public InputAction @Escape => m_Wrapper.m_gameplay_Escape;
+        public InputAction @InventoryOpen => m_Wrapper.m_gameplay_InventoryOpen;
         public InputAction @MousePos => m_Wrapper.m_gameplay_MousePos;
         public InputAction @RevealItems => m_Wrapper.m_gameplay_RevealItems;
         public InputActionMap Get() { return m_Wrapper.m_gameplay; }
@@ -372,6 +395,9 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
             @Escape.started += instance.OnEscape;
             @Escape.performed += instance.OnEscape;
             @Escape.canceled += instance.OnEscape;
+            @InventoryOpen.started += instance.OnInventoryOpen;
+            @InventoryOpen.performed += instance.OnInventoryOpen;
+            @InventoryOpen.canceled += instance.OnInventoryOpen;
             @MousePos.started += instance.OnMousePos;
             @MousePos.performed += instance.OnMousePos;
             @MousePos.canceled += instance.OnMousePos;
@@ -391,6 +417,9 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
             @Escape.started -= instance.OnEscape;
             @Escape.performed -= instance.OnEscape;
             @Escape.canceled -= instance.OnEscape;
+            @InventoryOpen.started -= instance.OnInventoryOpen;
+            @InventoryOpen.performed -= instance.OnInventoryOpen;
+            @InventoryOpen.canceled -= instance.OnInventoryOpen;
             @MousePos.started -= instance.OnMousePos;
             @MousePos.performed -= instance.OnMousePos;
             @MousePos.canceled -= instance.OnMousePos;
@@ -428,6 +457,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnMouseMove(InputAction.CallbackContext context);
         void OnEscape(InputAction.CallbackContext context);
+        void OnInventoryOpen(InputAction.CallbackContext context);
         void OnMousePos(InputAction.CallbackContext context);
         void OnRevealItems(InputAction.CallbackContext context);
     }

@@ -6,7 +6,8 @@ using UnityEngine.UI;
 using TMPro;
 
 public class MonologueUI : MonoBehaviour {
-    public MonologueMap monologueMap;
+    public AudioMap audioMap;
+    public StringMap stringMap;
     private AudioSource audioSource;
     private TextMeshProUGUI subtitles;
     private Image background;
@@ -14,11 +15,11 @@ public class MonologueUI : MonoBehaviour {
     public void StartMonologue(int monologueKey) {
         StopCoroutine("EndMonologue");
 
-        subtitles.text = monologueMap.textList[monologueKey];
+        subtitles.text = stringMap.textList[monologueKey];
         SetAlpha(1);
 
         // Disabled these lines to prevent breakage, DO NOT DELETE
-        //AudioClip voiceLines = monologueMap.audioList[monologueKey];
+        //AudioClip voiceLines = audioMap.audioList[monologueKey];
         //audioSource.PlayOneShot(voiceLines);
         //StartCoroutine("EndMonologue", voiceLines.length);
 
