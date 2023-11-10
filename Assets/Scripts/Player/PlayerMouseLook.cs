@@ -3,19 +3,26 @@ using UnityEngine;
 public class PlayerMouseLook : MonoBehaviour {
     public PlayerConstants playerConstants;
 
-    float rotationY;
-    float rotationX;
+    float _rotationY;
+    float _rotationX;
 
-    private PlayerAction playerAction;
+    public GameEvent onInventoryUpdate;
+
+    private PlayerAction _playerAction;
 
     /// <summary>
     /// Called by the ActionManager when the mouse is moved.
     /// </summary>
     /// <param name="mouseDelta">Mouse move delta</param>
     private void OnMouseMove(Vector2 mouseDelta) {
-        rotationX = transform.localEulerAngles.y + mouseDelta.x * playerConstants.mouseSensitivityX;
-        rotationY += mouseDelta.y * playerConstants.mouseSensitivityY;
-        rotationY = Mathf.Clamp(rotationY, playerConstants.viewMinimumY, playerConstants.viewMaximumY);
+        // don't adjust camera based on mouse movement if inventory is opened
+        if (GameState.inventoryOpened) {
+            return;
+        }
+
+        _rotationX = transform.localEulerAngles.y + mouseDelta.x * playerConstants.mouseSensitivityX;
+        _rotationY += mouseDelta.y * playerConstants.mouseSensitivityY;
+        _rotationY = Mathf.Clamp(_rotationY, playerConstants.viewMinimumY, playerConstants.viewMaximumY);
     }
 
     /// <summary>
@@ -24,25 +31,38 @@ public class PlayerMouseLook : MonoBehaviour {
     /// The cursor is invisible in locked state, regardless of the value of Cursor.visible.
     /// </summary>
     private void ToggleCursorLockState() {
-        if (Cursor.lockState == CursorLockMode.Locked)
-            Cursor.lockState = CursorLockMode.Confined;
-        else
-            Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = (
+            Cursor.lockState == CursorLockMode.Locked
+            ? CursorLockMode.Confined
+            : CursorLockMode.Locked
+        );
     }
 
     private void Start() {
-        rotationX = transform.localEulerAngles.y;
-        rotationY = -transform.localEulerAngles.x;
+        _rotationX = transform.localEulerAngles.y;
+        _rotationY = -transform.localEulerAngles.x;
         Cursor.lockState = CursorLockMode.Locked;
 
-        playerAction = new PlayerAction();
-        playerAction.Enable();
+        _playerAction = new PlayerAction();
+        _playerAction.Enable();
 
-        playerAction.gameplay.MouseMove.performed += ctx => OnMouseMove(ctx.ReadValue<Vector2>());
-        playerAction.gameplay.Escape.performed += _ => ToggleCursorLockState();
+        _playerAction.gameplay.MouseMove.performed += ctx => OnMouseMove(ctx.ReadValue<Vector2>());
+        _playerAction.gameplay.Escape.performed += _ => ToggleCursorLockState();
+
+        // open inventory when you press E
+        _playerAction.gameplay.InventoryOpen.performed += _ => {
+            GameState.ToggleInventory();
+            Debug.Log("TOGGLE");
+            onInventoryUpdate.Raise();
+        };
+        // close inventory when you press escape
+        _playerAction.gameplay.Escape.performed += _ => {
+            // GameState.HideInventory();
+            onInventoryUpdate.Raise();
+        };
     }
 
     private void Update() {
-        transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
+        transform.localEulerAngles = new Vector3(-_rotationY, _rotationX, 0);
     }
 }
