@@ -28,6 +28,7 @@ public class DoorLockInteractable : MonoBehaviour {
     private void Update() {
         // For testing purposes
         if (Input.GetKeyDown(KeyCode.Alpha3)) {
+            print("alpha3 pressed");
             OnInteraction();
         }
 
