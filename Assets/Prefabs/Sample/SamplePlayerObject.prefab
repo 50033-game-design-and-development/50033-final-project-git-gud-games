@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6534828400990026098}
   - component: {fileID: 1083258293192373845}
   - component: {fileID: 8033819223550226134}
-  - component: {fileID: 6927462181489859488}
+  - component: {fileID: 8103450708248757507}
   m_Layer: 0
   m_Name: MonologuePanel
   m_TagString: Untagged
@@ -90,7 +90,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -187,8 +187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41bcfe612b2ea082aaaa6876fd9351e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monologueMap: {fileID: 11400000, guid: ae4db688efb22283a88dcc52b9bbe435, type: 2}
---- !u!114 &6927462181489859488
+  audioMap: {fileID: 11400000, guid: 0cc7ccf23724d0344ac30c7d73e4285f, type: 2}
+  stringMap: {fileID: 11400000, guid: 8c89af2e4d976165784a1ad4f7098afd, type: 2}
+--- !u!114 &8103450708248757507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e6c60828e67a53fdbb5d4b2387d9d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: 62e6ee5f9f8e57faead4e67ac6610ee4, type: 2}
+  event: {fileID: 11400000, guid: 6a3053994178469ae94d7fdb325885cb, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
@@ -458,11 +459,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ugh... what happened here?
-
-
-    I don''t want to go anywhere near that
-    thing.'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -531,66 +528,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3631305806978491894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754602151221385095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 6320342883266193291}
-  volumeLayer:
-    serializedVersion: 2
-    m_Bits: 32
-  stopNaNPropagation: 1
-  finalBlitToCameraTarget: 0
-  antialiasingMode: 0
-  temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
-  subpixelMorphologicalAntialiasing:
-    quality: 2
-  fastApproximateAntialiasing:
-    fastMode: 0
-    keepAlpha: 0
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []
 --- !u!1 &2026819621428964197
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,6 +922,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 1fe3ef86-b123-4ab0-a353-8713c697b3ce
     m_ActionName: gameplay/MousePos[/Mouse/leftButton,/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7dc661d7-2ae7-4dbe-a132-09faf7c191ec
+    m_ActionName: gameplay/InventoryOpen[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Default
   m_DefaultActionMap: gameplay
@@ -1129,6 +1070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerConstants: {fileID: 11400000, guid: c5333c05b04472e41bf642f63025eb7e, type: 2}
+  onInventoryUpdate: {fileID: 0}
 --- !u!114 &229509071889470388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1181,8 +1123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerConstants: {fileID: 11400000, guid: c5333c05b04472e41bf642f63025eb7e, type: 2}
-  onRevealAll: {fileID: 11400000, guid: 63080e7618c82ec40a90130e24461487, type: 2}
-  onUnrevealAll: {fileID: 11400000, guid: ec75149745319684498e4c3dfd53c9de, type: 2}
 --- !u!1 &5599919651094197622
 GameObject:
   m_ObjectHideFlags: 0

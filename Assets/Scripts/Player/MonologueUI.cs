@@ -13,24 +13,34 @@ public class MonologueUI : MonoBehaviour {
     private Image background;
 
     public void StartMonologue(int monologueKey) {
+        StopCoroutine("Monologue");
         StopCoroutine("EndMonologue");
 
-        subtitles.text = stringMap.textList[monologueKey];
-        SetAlpha(1);
-
-        // Disabled these lines to prevent breakage, DO NOT DELETE
-        //AudioClip voiceLines = audioMap.audioList[monologueKey];
-        //audioSource.PlayOneShot(voiceLines);
-        //StartCoroutine("EndMonologue", voiceLines.length);
-
-        StartCoroutine("EndMonologue", 1);
+        StartCoroutine("Monologue", monologueKey);
     }
 
-    private IEnumerator EndMonologue(float duration) {
-        // Wait for monologue to be spoken completely
-        yield return new WaitForSeconds(duration);
+    private IEnumerator Monologue(int monologueKey) {
+        string unparsedText = stringMap.textList[monologueKey];
+        string[] monologues = unparsedText.Split('|');
+        SetAlpha(1);
 
-        // Fade out monologue panel
+        foreach (string monologue in monologues) {
+            subtitles.text = monologue;
+
+            // Disabled these lines to prevent breakage, DO NOT DELETE
+            //AudioClip voiceLines = audioMap.audioList[monologueKey];
+            //audioSource.PlayOneShot(voiceLines);
+
+            // Wait for monologue to be spoken completely
+            //yield return new WaitForSeconds(voiceLines.length);
+            yield return new WaitForSeconds(1);
+        }
+
+        StartCoroutine("EndMonologue");
+    }
+
+    // Fade out monologue panel
+    private IEnumerator EndMonologue() {
         for (float alpha = 1; alpha > 0; alpha -= 0.05f) {
             SetAlpha(alpha);
             yield return new WaitForSeconds(0.05f);
