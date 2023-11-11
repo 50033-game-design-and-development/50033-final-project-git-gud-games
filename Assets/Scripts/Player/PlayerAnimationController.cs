@@ -8,12 +8,13 @@ using UnityEngine;
 public class PlayerAnimationController : MonoBehaviour {
     public Animator viewAnimator;
     public CharacterController controller;
+    private static readonly int SPEED = Animator.StringToHash("Speed");
 
     private void SetSpeed() {
         // Get planar horizontal velocity of the controller
         Vector3 velocity = controller.velocity;
         velocity.y = 0;
-        viewAnimator.SetFloat("Speed", velocity.magnitude);
+        viewAnimator.SetFloat(SPEED, velocity.magnitude);
     }
 
     private void Update() {
