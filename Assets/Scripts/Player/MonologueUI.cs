@@ -15,7 +15,6 @@ public class MonologueUI : MonoBehaviour {
     public void StartMonologue(int monologueKey) {
         StopCoroutine("Monologue");
         StopCoroutine("EndMonologue");
-
         StartCoroutine("Monologue", monologueKey);
     }
 
