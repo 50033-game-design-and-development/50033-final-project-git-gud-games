@@ -1,17 +1,21 @@
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class GameState : MonoBehaviour {
     // initial list of items to assign to inventory (for testing only)
     public List<Inv.Collectable> startInventory = new();
-
-    public static readonly List<Inv.Collectable> inventory = new();
-
+    public static readonly List<Inv.Collectable> Inventory = new();
+    
+    public static Inv.Collectable? SelectedInventoryItem = null; 
+    public static bool IsDraggingInventoryItem = false;
+    public static Vector2 LastPointerDragScreenPos;
+    
     private static bool _inventoryOpened = false;
-
-    public static bool inventoryOpened {
+    
+    public static bool InventoryOpened {
         get => _inventoryOpened;
-        set {
+        private set {
             _inventoryOpened = value;
             if (_inventoryOpened) {
                 ConfineCursor();
@@ -22,7 +26,7 @@ public class GameState : MonoBehaviour {
     }
     
     public static void ToggleInventory() {
-        inventoryOpened = !inventoryOpened;
+        InventoryOpened = !InventoryOpened;
     }
     
     public static void LockCursor() {
@@ -38,7 +42,7 @@ public class GameState : MonoBehaviour {
 
     private void Start() {
         foreach (var collectable in startInventory) {
-            inventory.Add(collectable);
+            Inventory.Add(collectable);
         }
     }
 }

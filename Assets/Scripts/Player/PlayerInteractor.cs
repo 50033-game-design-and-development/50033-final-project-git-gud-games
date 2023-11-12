@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class PlayerInteractor : MonoBehaviour {
     private PlayerAction _playerAction;
-
     private int _layerMaskInteractable;
+    
     public PlayerConstants playerConstants;
 
     void OnClick(Vector2 screenPos) {
@@ -19,13 +19,23 @@ public class PlayerInteractor : MonoBehaviour {
             i.OnInteraction();
         }
     }
-
-
+    
     private void Start() {
         _layerMaskInteractable = LayerMask.GetMask("Interactable");
 
         _playerAction = new PlayerAction();
         _playerAction.Enable();
-        _playerAction.gameplay.MousePos.performed += ctx => OnClick(ctx.ReadValue<Vector2>());
+        _playerAction.gameplay.MousePos.performed += ctx => {
+            GameState.LastPointerDragScreenPos = ctx.ReadValue<Vector2>();
+        };
+        // trigger drag interaction with object on mouse release
+        _playerAction.gameplay.MousePress.canceled += ctx => {
+            if (GameState.IsDraggingInventoryItem) {
+                OnClick(GameState.LastPointerDragScreenPos);
+            }
+            
+            GameState.IsDraggingInventoryItem = false;
+            GameState.SelectedInventoryItem = null;
+        };
     }
 }

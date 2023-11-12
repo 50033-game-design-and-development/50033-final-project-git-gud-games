@@ -80,6 +80,15 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MousePress"",
+                    ""type"": ""Button"",
+                    ""id"": ""26a97fb9-4624-4229-bbad-9ad507cbee23"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -269,6 +278,17 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
                     ""action"": ""RevealItems"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""33423aa6-6010-400f-a518-3ed848c66904"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePress"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -300,6 +320,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         m_gameplay_InventoryOpen = m_gameplay.FindAction("InventoryOpen", throwIfNotFound: true);
         m_gameplay_MousePos = m_gameplay.FindAction("MousePos", throwIfNotFound: true);
         m_gameplay_RevealItems = m_gameplay.FindAction("RevealItems", throwIfNotFound: true);
+        m_gameplay_MousePress = m_gameplay.FindAction("MousePress", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -367,6 +388,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_gameplay_InventoryOpen;
     private readonly InputAction m_gameplay_MousePos;
     private readonly InputAction m_gameplay_RevealItems;
+    private readonly InputAction m_gameplay_MousePress;
     public struct GameplayActions
     {
         private @PlayerAction m_Wrapper;
@@ -377,6 +399,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         public InputAction @InventoryOpen => m_Wrapper.m_gameplay_InventoryOpen;
         public InputAction @MousePos => m_Wrapper.m_gameplay_MousePos;
         public InputAction @RevealItems => m_Wrapper.m_gameplay_RevealItems;
+        public InputAction @MousePress => m_Wrapper.m_gameplay_MousePress;
         public InputActionMap Get() { return m_Wrapper.m_gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -404,6 +427,9 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
             @RevealItems.started += instance.OnRevealItems;
             @RevealItems.performed += instance.OnRevealItems;
             @RevealItems.canceled += instance.OnRevealItems;
+            @MousePress.started += instance.OnMousePress;
+            @MousePress.performed += instance.OnMousePress;
+            @MousePress.canceled += instance.OnMousePress;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -426,6 +452,9 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
             @RevealItems.started -= instance.OnRevealItems;
             @RevealItems.performed -= instance.OnRevealItems;
             @RevealItems.canceled -= instance.OnRevealItems;
+            @MousePress.started -= instance.OnMousePress;
+            @MousePress.performed -= instance.OnMousePress;
+            @MousePress.canceled -= instance.OnMousePress;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -460,5 +489,6 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         void OnInventoryOpen(InputAction.CallbackContext context);
         void OnMousePos(InputAction.CallbackContext context);
         void OnRevealItems(InputAction.CallbackContext context);
+        void OnMousePress(InputAction.CallbackContext context);
     }
 }
