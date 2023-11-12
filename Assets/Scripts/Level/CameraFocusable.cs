@@ -2,12 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorLockFocusable : MonoBehaviour {
+public class CameraFocusable : MonoBehaviour, IInteractable {
+    
     public Animator cinemachineAnimator;
     public GameEvent onInventoryUpdate;
     
+    // name of the virtual camera state in cinemachineAnimator to play when object is clicked
+    public string startStateName;
+    
+    // name of the virtual camera state in cinemachineAnimator to play when player presses escape
+    public string endStateName;
+    
     public virtual void OnInteraction() {
-        cinemachineAnimator.Play("L0 Door Lock");
+        cinemachineAnimator.Play(startStateName);
         if (!GameState.inventoryOpened) {
             GameState.ToggleInventory();
             onInventoryUpdate.Raise();
@@ -15,8 +22,8 @@ public class DoorLockFocusable : MonoBehaviour {
         }
     }
     
-    public void OnEscape() {
-        cinemachineAnimator.Play("L0 First Person");
+    private void OnEscape() {
+        cinemachineAnimator.Play(endStateName);
         if (GameState.inventoryOpened) {
             GameState.ToggleInventory();
             onInventoryUpdate.Raise();
@@ -25,7 +32,6 @@ public class DoorLockFocusable : MonoBehaviour {
     }
     
     private void Start() {
-        
     }
     
     private void Update() {
