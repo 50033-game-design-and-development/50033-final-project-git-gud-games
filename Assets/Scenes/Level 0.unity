@@ -724,14 +724,13 @@ GameObject:
   - component: {fileID: 435150049}
   - component: {fileID: 435150051}
   - component: {fileID: 435150050}
-  - component: {fileID: 435150052}
   m_Layer: 6
   m_Name: Paper2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &435150045
 Transform:
   m_ObjectHideFlags: 0
@@ -809,7 +808,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43cd4c5bb4c96634ca91419a57491eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIndex: 0
+  onInventoryUpdate: {fileID: 0}
+  invSprite: {fileID: 0}
+  itemType: 0
 --- !u!114 &435150050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,19 +852,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVisible: 0
---- !u!114 &435150052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 435150044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4554c88273303224dad63051da05013c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monologueKeys: 02000000
 --- !u!1001 &457189697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2224,7 +2212,6 @@ GameObject:
   - component: {fileID: 776722864}
   - component: {fileID: 776722860}
   - component: {fileID: 776722862}
-  - component: {fileID: 776722861}
   - component: {fileID: 776722863}
   - component: {fileID: 776722867}
   m_Layer: 6
@@ -2233,7 +2220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &776722860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2247,19 +2234,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVisible: 0
---- !u!114 &776722861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 776722859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4554c88273303224dad63051da05013c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monologueKeys: 02000000
 --- !u!114 &776722862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2300,7 +2274,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43cd4c5bb4c96634ca91419a57491eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIndex: 0
+  onInventoryUpdate: {fileID: 11400000, guid: f242a7ef48cbb9af9a7d7fac0e508881, type: 2}
+  invSprite: {fileID: 21300000, guid: ac89fab78e15245a5b038763c0a648a0, type: 3}
+  itemType: 1
 --- !u!23 &776722864
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3591,6 +3567,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SamplePlayerObject
       objectReference: {fileID: 0}
+    - target: {fileID: 3633744455387614485, guid: 7602b0f6b487a7163a70f98b5009db02, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4473199412481664680, guid: 7602b0f6b487a7163a70f98b5009db02, type: 3}
       propertyPath: onInventoryUpdate
       value: 
@@ -3636,12 +3616,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5953542610913343821, guid: 7602b0f6b487a7163a70f98b5009db02, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5953542610913343821, guid: 7602b0f6b487a7163a70f98b5009db02, type: 3}
       propertyPath: field of view
       value: 60.000004
       objectReference: {fileID: 0}
     - target: {fileID: 5953542610913343821, guid: 7602b0f6b487a7163a70f98b5009db02, type: 3}
       propertyPath: far clip plane
       value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6320342883266193291, guid: 7602b0f6b487a7163a70f98b5009db02, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6320342883266193291, guid: 7602b0f6b487a7163a70f98b5009db02, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3663,50 +3651,15 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[5].m_ActionName
       value: gameplay/InventoryOpen[/Keyboard/e]
       objectReference: {fileID: 0}
+    - target: {fileID: 8969430962846369876, guid: 7602b0f6b487a7163a70f98b5009db02, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7602b0f6b487a7163a70f98b5009db02, type: 3}
---- !u!21 &1271259771
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 695.60004, g: -340.4, b: 40, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &1283150151
 GameObject:
   m_ObjectHideFlags: 0
@@ -4091,6 +4044,45 @@ Transform:
   - {fileID: 790270935}
   m_Father: {fileID: 628170632}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1412226598
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 695.60004, g: -340.4, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &1436283825
 GameObject:
   m_ObjectHideFlags: 0
@@ -4611,7 +4603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1271259771}
+  m_Material: {fileID: 1412226598}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -5770,7 +5762,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2046779812
 Transform:
   m_ObjectHideFlags: 0
@@ -6247,7 +6239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4137915363887479
 Transform:
   m_ObjectHideFlags: 0
