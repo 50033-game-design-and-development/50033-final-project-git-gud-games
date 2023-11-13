@@ -10,14 +10,10 @@ public class PlayerRayCast : MonoBehaviour {
     private readonly Vector3 _rayOrigin = new(0.5f, 0.5f, 0f);
     private int _layerMaskInteractable;
 
-    private void PerformHighlight(Transform transform) {
-        PerformHighlight(transform, OUTLINE_COLOR);
-    }
-
     /// <summary>
     /// Performs highlighting of a valid interactable object
     /// </summary>
-    private void PerformHighlight(Transform transform, Color highlightColor) {
+    private void PerformHighlight(Transform transform) {
         // Hover over same object. Do nothing
         if (_highlight != null && _highlight.GetInstanceID() == transform.GetInstanceID())
             return;
@@ -28,17 +24,13 @@ public class PlayerRayCast : MonoBehaviour {
         _highlighted = true;
         _highlight = transform;
 
-        EnableOutline(highlightColor);
+        EnableOutline();
     }
     
     private void EnableOutline() {
         if (_highlight == null)
             return;
         EnableOutline(_highlight.gameObject, OUTLINE_COLOR);
-    }
-    
-    private void EnableOutline(Color highlightColor) {
-        EnableOutline(_highlight.gameObject, highlightColor);       
     }
 
     private void EnableOutline(GameObject obj, Color highlightColor) {
