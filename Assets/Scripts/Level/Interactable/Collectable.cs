@@ -16,7 +16,8 @@ public class Collectable : MonoBehaviour, IInteractable {
         // Disable model and collider
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<Collider>().enabled = false;
-        Event.testEvent.Raise();
+        // To test incrementing state, TODO: remove
+        Event.L0P1SolvedEvent.Raise();
 
         // Play out the SFX before destroying
         yield return new WaitForSeconds(duration);
