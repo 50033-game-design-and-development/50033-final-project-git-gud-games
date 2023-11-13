@@ -12,7 +12,7 @@ public class HotbarItemDragHandler : DragCallbacks {
         _hotbarItemIndex = hotbarItemIndex;
     }
     
-    public void OnDragStart(PointerDownEvent evt) {
+    public void OnDragStart(IPointerEvent evt) {
         if (_hotbarItemIndex >= GameState.Inventory.Count) { return; }
         GameState.SelectedInventoryItem = GameState.Inventory[_hotbarItemIndex];
     }

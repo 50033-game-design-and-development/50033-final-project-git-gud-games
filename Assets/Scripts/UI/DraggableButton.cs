@@ -3,12 +3,13 @@ using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
 public interface DragCallbacks {
-    void OnDragStart(PointerDownEvent evt);
+    void OnDragStart(IPointerEvent evt);
 }
 
 
 public class DraggableButton: Button {
     private const string DRAGGING_SLOT_CLASS = "dragging";
+    private const int LEFT_MOUSE_PRESS_MASK = 1;
     private readonly DragCallbacks _dragCallbacks;
 
     public DraggableButton(DragCallbacks dragCallbacks) {
@@ -19,7 +20,7 @@ public class DraggableButton: Button {
         RegisterCallback<PointerUpEvent>(OnPointerUp);
     }
 
-    private void OnPointerDown(PointerDownEvent evt) {
+    private void OnPointerDown(IPointerEvent evt) {
         if (evt.pointerId == PointerId.mousePointerId) { 
             GameState.IsDraggingInventoryItem = true;
             AddToClassList(DRAGGING_SLOT_CLASS);
@@ -28,17 +29,17 @@ public class DraggableButton: Button {
         }
     }
     
-    private void OnPointerMove(PointerMoveEvent evt) {
+    private void OnPointerMove(IPointerEvent evt) {
         // Check if the left button is pressed
         if (
             evt.pointerId == PointerId.mousePointerId 
-            && evt.pressedButtons == 1
+            && evt.pressedButtons == LEFT_MOUSE_PRESS_MASK
         ) {
             // TODO: maybe show the inventory item moving on cursor drag
         }
     }
     
-    private void OnPointerUp(PointerUpEvent evt) {
+    private void OnPointerUp(IPointerEvent evt) {
         RemoveFromClassList(DRAGGING_SLOT_CLASS);
         this.ReleasePointer(evt.pointerId);
     }

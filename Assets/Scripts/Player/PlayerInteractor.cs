@@ -27,6 +27,7 @@ public class PlayerInteractor : MonoBehaviour {
         _playerAction.Enable();
         _playerAction.gameplay.MousePos.performed += ctx => {
             GameState.LastPointerDragScreenPos = ctx.ReadValue<Vector2>();
+            OnClick(GameState.LastPointerDragScreenPos);
         };
         // trigger drag interaction with object on mouse release
         _playerAction.gameplay.MousePress.canceled += ctx => {

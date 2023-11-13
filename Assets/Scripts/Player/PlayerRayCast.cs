@@ -87,6 +87,45 @@ public class PlayerRayCast : MonoBehaviour {
         _playerAction.gameplay.RevealItems.canceled += _ => DisableAllOutlines();
     }
 
+    private void DoInventoryDragHighlight() {
+        if (!GameState.IsDraggingInventoryItem) {
+            _highlighted = false;
+            DisableOutline();
+            return;
+        }
+            
+        // Ray points out from cursor position in camera viewport
+        Ray ray = Camera.main.ScreenPointToRay(
+            GameState.LastPointerDragScreenPos
+        );
+            
+        if (Physics.Raycast(
+            ray, out RaycastHit raycastHit, playerConstants.raycastDistance,
+            _layerMaskInteractable
+        )) {
+            PerformHighlight(raycastHit.transform);
+            return;
+        }
+        
+        _highlighted = false;
+        DisableOutline();
+    }
+
+    private void DoNormalHighlight() {
+        // Ray points out from the middle of camera viewport 
+        Ray ray = Camera.main.ViewportPointToRay(_rayOrigin);
+        if (Physics.Raycast(
+            ray, out RaycastHit raycastHit, playerConstants.raycastDistance,
+            _layerMaskInteractable
+        )) {
+            PerformHighlight(raycastHit.transform);
+            return;
+        }
+        
+        _highlighted = false;
+        DisableOutline();
+    }
+
     private void Update() {
         // Handle cases where player hovers away from object
         if (_highlight != null && !_highlighted) {
@@ -94,38 +133,9 @@ public class PlayerRayCast : MonoBehaviour {
         }
 
         if (GameState.InventoryOpened) {
-            if (!GameState.IsDraggingInventoryItem) {
-                _highlighted = false;
-                DisableOutline();
-                return;
-            }
-            
-            // Ray points out from cursor position in camera viewport
-            Ray ray = Camera.main.ScreenPointToRay(
-                GameState.LastPointerDragScreenPos
-            );
-            
-            if (Physics.Raycast(
-                ray, out RaycastHit raycastHit, playerConstants.raycastDistance,
-                _layerMaskInteractable
-            )) {
-                PerformHighlight(raycastHit.transform);
-                return;
-            }
+            DoInventoryDragHighlight();
         } else {
-            // Ray points out from the middle of camera viewport 
-            Ray ray = Camera.main.ViewportPointToRay(_rayOrigin);
-            if (Physics.Raycast(
-                ray, out RaycastHit raycastHit, playerConstants.raycastDistance,
-                _layerMaskInteractable
-            )) {
-                PerformHighlight(raycastHit.transform);
-                return;
-            }
+            DoNormalHighlight();
         }
-        
-        
-        _highlighted = false;
-        DisableOutline();
     }
 }
