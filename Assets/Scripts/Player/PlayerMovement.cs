@@ -31,10 +31,6 @@ public class PlayerMovement : MonoBehaviour {
 
         Vector3 moveDirection = cameraForward.normalized * moveVector.z
                                 + cameraRight.normalized * moveVector.x;
-
-        if (moveDirection.magnitude > 0.1f) {
-            this.gameObject.GetComponent<PlayerAudio>().PlayFootStepSFX();
-        }
         
         return new Vector3(moveDirection.x, playerConstants.gravity, moveDirection.z);
     }
