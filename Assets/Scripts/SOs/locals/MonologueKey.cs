@@ -4,6 +4,7 @@ using UnityEngine;
 
 // Manually assigned numbers to prevent breakage
 public enum MonologueKey {
+    NULL = -1,
     L0_START = 0,
     L0_PAPER_TABLE = 1,
     L0_PAPER_WARDROBE = 2,

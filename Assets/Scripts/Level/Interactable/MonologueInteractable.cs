@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,7 +7,10 @@ public class MonologueInteractable : MonoBehaviour, IInteractable {
     private int state;
 
     public void OnInteraction() {
-        Event.showDialogue.Raise((int)monologueKeys[state]);
+        int key = (int)monologueKeys[state];
+        if (key != -1) {
+            Event.showDialogue.Raise(key);
+        }
     }
 
     // To be called by event listener so that monologue changes based on game state
