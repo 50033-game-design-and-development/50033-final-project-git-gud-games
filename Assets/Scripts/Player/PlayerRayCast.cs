@@ -124,7 +124,7 @@ public class PlayerRayCast : MonoBehaviour {
             DisableOutline();
         }
 
-        if (GameState.InventoryOpened) {
+        if (GameState.inventoryOpened) {
             DoInventoryDragHighlight();
         } else {
             DoNormalHighlight();

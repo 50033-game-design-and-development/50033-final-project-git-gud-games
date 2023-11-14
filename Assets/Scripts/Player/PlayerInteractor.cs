@@ -6,7 +6,7 @@ public class PlayerInteractor : MonoBehaviour {
     
     public PlayerConstants playerConstants;
 
-    void OnClick(Vector2 screenPos) {
+    void TriggerInteractions(Vector2 screenPos) {
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
 
         if (Physics.Raycast(ray, out RaycastHit raycastHit, playerConstants.raycastDistance, _layerMaskInteractable)) {
@@ -27,12 +27,21 @@ public class PlayerInteractor : MonoBehaviour {
         _playerAction.Enable();
         _playerAction.gameplay.MousePos.performed += ctx => {
             GameState.LastPointerDragScreenPos = ctx.ReadValue<Vector2>();
-            OnClick(GameState.LastPointerDragScreenPos);
         };
+
+        // trigger interaction with object on click
+        // and when inventory is not opened
+        _playerAction.gameplay.MousePress.performed += ctx => {
+            if (!GameState.inventoryOpened) {
+                TriggerInteractions(GameState.LastPointerDragScreenPos);
+            }
+        };
+        
         // trigger drag interaction with object on mouse release
+        // and inventory item was previously being dragged
         _playerAction.gameplay.MousePress.canceled += ctx => {
             if (GameState.IsDraggingInventoryItem) {
-                OnClick(GameState.LastPointerDragScreenPos);
+                TriggerInteractions(GameState.LastPointerDragScreenPos);
             }
             
             GameState.IsDraggingInventoryItem = false;

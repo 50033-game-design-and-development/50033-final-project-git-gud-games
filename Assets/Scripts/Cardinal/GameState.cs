@@ -12,7 +12,7 @@ public class GameState : MonoBehaviour {
     
     private static bool _inventoryOpened = false;
     
-    public static bool InventoryOpened {
+    public static bool inventoryOpened {
         get => _inventoryOpened;
         private set {
             _inventoryOpened = value;
@@ -25,7 +25,7 @@ public class GameState : MonoBehaviour {
     }
     
     public static void ToggleInventory() {
-        InventoryOpened = !InventoryOpened;
+        inventoryOpened = !inventoryOpened;
     }
     
     public static void LockCursor() {

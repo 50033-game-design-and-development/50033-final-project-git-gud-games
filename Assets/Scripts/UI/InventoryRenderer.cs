@@ -15,6 +15,7 @@ public class HotbarItemDragHandler : DragCallbacks {
     public void OnDragStart(IPointerEvent evt) {
         if (_hotbarItemIndex >= GameState.Inventory.Count) { return; }
         GameState.SelectedInventoryItem = GameState.Inventory[_hotbarItemIndex];
+        GameState.IsDraggingInventoryItem = true;
     }
 }
 
@@ -32,7 +33,7 @@ public class InventoryRenderer : MonoBehaviour {
     private readonly List<DraggableButton> _hotbarItems = new();
 
     public void OnInventoryUpdate() {
-        if (GameState.InventoryOpened) {
+        if (GameState.inventoryOpened) {
             Show();
             PopulateHotbar();
         } else {

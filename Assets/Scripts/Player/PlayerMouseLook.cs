@@ -16,7 +16,7 @@ public class PlayerMouseLook : MonoBehaviour {
     /// <param name="mouseDelta">Mouse move delta</param>
     private void OnMouseMove(Vector2 mouseDelta) {
         // don't adjust camera based on mouse movement if inventory is opened
-        if (GameState.InventoryOpened) {
+        if (GameState.inventoryOpened) {
             return;
         }
 

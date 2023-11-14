@@ -22,7 +22,6 @@ public class DraggableButton: Button {
 
     private void OnPointerDown(IPointerEvent evt) {
         if (evt.pointerId == PointerId.mousePointerId) { 
-            GameState.IsDraggingInventoryItem = true;
             AddToClassList(DRAGGING_SLOT_CLASS);
             this.CapturePointer(evt.pointerId);
             _dragCallbacks.OnDragStart(evt);
