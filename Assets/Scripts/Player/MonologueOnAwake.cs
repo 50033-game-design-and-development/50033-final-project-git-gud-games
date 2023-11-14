@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class MonologueOnAwake : MonoBehaviour
-{
+public class MonologueOnAwake : MonoBehaviour {
     public MonologueKey monologueKey;
 
     private void Start() {

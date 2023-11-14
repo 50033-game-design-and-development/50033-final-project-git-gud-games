@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SFXInteractable : MonoBehaviour, IInteractable
-{
+public class SFXInteractable : MonoBehaviour, IInteractable {
     public List<AudioClip> audioClips;
     private AudioSource audioSource;
     private int state;
