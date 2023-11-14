@@ -15,7 +15,7 @@ public class SFXInteractable : MonoBehaviour, IInteractable {
 
     // To be called by event listener so that monologue changes based on game state
     public void IncrementState() {
-        state++;
+        state = (state + 1) % audioClips.Count;
     }
 
     private void Start() {

@@ -52,7 +52,7 @@ public class MonologueUI : MonoBehaviour {
         background.color = new Color(0, 0, 0, value * 0.6f);
     }
 
-    private void Start () {
+    private void Start() {
         audioSource = GetComponent<AudioSource>();
         subtitles = GetComponentInChildren<TextMeshProUGUI>();
         background = GetComponent<Image>();
