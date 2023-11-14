@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public class PlayerRayCast : MonoBehaviour {
+    private static Color OUTLINE_COLOR = new Color(255, 255, 255, 0.8f);
     public PlayerConstants playerConstants;
 
     private Transform _highlight;
@@ -8,7 +9,6 @@ public class PlayerRayCast : MonoBehaviour {
     private PlayerAction _playerAction;
     private readonly Vector3 _rayOrigin = new(0.5f, 0.5f, 0f);
     private int _layerMaskInteractable;
-
 
     /// <summary>
     /// Performs highlighting of a valid interactable object
@@ -26,21 +26,22 @@ public class PlayerRayCast : MonoBehaviour {
 
         EnableOutline();
     }
-
+    
     private void EnableOutline() {
         if (_highlight == null)
             return;
-        EnableOutline(_highlight.gameObject);
+        EnableOutline(_highlight.gameObject, OUTLINE_COLOR);
     }
 
-    private void EnableOutline(GameObject obj) {
+    private void EnableOutline(GameObject obj, Color highlightColor) {
         if (obj == null)
             return;
         if (obj.GetComponent<Outline>() != null) {
+            obj.GetComponent<Outline>().OutlineColor = highlightColor;
             obj.GetComponent<Outline>().enabled = true;
         } else {
             Outline outline = obj.AddComponent<Outline>();
-            outline.OutlineColor = new Color(255, 255, 255, 0.8f);
+            outline.OutlineColor = highlightColor;
             outline.OutlineMode = Outline.Mode.OutlineVisible;
             outline.OutlineWidth = 5f;
             outline.enabled = true;
@@ -78,18 +79,55 @@ public class PlayerRayCast : MonoBehaviour {
         _playerAction.gameplay.RevealItems.canceled += _ => DisableAllOutlines();
     }
 
-    private void Update() {
-        // Handle cases where player hovers away from object
-        if (_highlight != null && !_highlighted)
+    private void DoInventoryDragHighlight() {
+        if (!GameState.isDraggingInventoryItem) {
+            _highlighted = false;
             DisableOutline();
-
-        // Ray points out from the middle of camera viewport 
-        Ray ray = Camera.main.ViewportPointToRay(_rayOrigin);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, playerConstants.raycastDistance, _layerMaskInteractable)) {
+            return;
+        }
+            
+        // Ray points out from cursor position in camera viewport
+        Ray ray = Camera.main.ScreenPointToRay(
+            GameState.lastPointerDragScreenPos
+        );
+            
+        if (Physics.Raycast(
+            ray, out RaycastHit raycastHit, playerConstants.raycastDistance,
+            _layerMaskInteractable
+        )) {
             PerformHighlight(raycastHit.transform);
             return;
         }
-
+        
         _highlighted = false;
+        DisableOutline();
+    }
+
+    private void DoNormalHighlight() {
+        // Ray points out from the middle of camera viewport 
+        Ray ray = Camera.main.ViewportPointToRay(_rayOrigin);
+        if (Physics.Raycast(
+            ray, out RaycastHit raycastHit, playerConstants.raycastDistance,
+            _layerMaskInteractable
+        )) {
+            PerformHighlight(raycastHit.transform);
+            return;
+        }
+        
+        _highlighted = false;
+        DisableOutline();
+    }
+
+    private void Update() {
+        // Handle cases where player hovers away from object
+        if (_highlight != null && !_highlighted) {
+            DisableOutline();
+        }
+
+        if (GameState.inventoryOpened) {
+            DoInventoryDragHighlight();
+        } else {
+            DoNormalHighlight();
+        }
     }
 }
