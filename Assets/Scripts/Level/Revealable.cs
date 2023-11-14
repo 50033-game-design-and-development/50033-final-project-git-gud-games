@@ -9,4 +9,3 @@ public class Revealable : MonoBehaviour {
         Event.revealPositionOnUi.Raise(transform.position);
     }
 }
-

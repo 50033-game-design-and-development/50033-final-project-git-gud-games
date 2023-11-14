@@ -1,7 +1,6 @@
 using UnityEngine;
 
 public class Collectable : MonoBehaviour, IInteractable {
-
     public GameEvent onInventoryUpdate;
     public Sprite invSprite;
     public InventoryItems itemType;
@@ -20,6 +19,5 @@ public class Collectable : MonoBehaviour, IInteractable {
         GameState.inventory.Add(invItem);
         onInventoryUpdate.Raise();
         Destroy(gameObject);
-        
     }
 }
