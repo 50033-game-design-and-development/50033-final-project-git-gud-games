@@ -13,9 +13,9 @@ public class HotbarItemDragHandler : DragCallbacks {
     }
     
     public void OnDragStart(IPointerEvent evt) {
-        if (_hotbarItemIndex >= GameState.Inventory.Count) { return; }
-        GameState.SelectedInventoryItem = GameState.Inventory[_hotbarItemIndex];
-        GameState.IsDraggingInventoryItem = true;
+        if (_hotbarItemIndex >= GameState.inventory.Count) { return; }
+        GameState.selectedInventoryItem = GameState.inventory[_hotbarItemIndex];
+        GameState.isDraggingInventoryItem = true;
     }
 }
 
@@ -94,13 +94,13 @@ public class InventoryRenderer : MonoBehaviour {
             var hotbarSlot = _hotbarItems[k];
             
             Debug.Assert(
-                GameState.Inventory.Count < _hotbarItems.Count,
+                GameState.inventory.Count < _hotbarItems.Count,
                 "Theres more inventory items than hotbar slots available!"
             );
 
-            if (k < GameState.Inventory.Count) {
+            if (k < GameState.inventory.Count) {
                 // set hotbar slot background image and make slot active
-                var collectable = GameState.Inventory[k];
+                var collectable = GameState.inventory[k];
                 hotbarSlot.AddToClassList(OCCUPIED_SLOT_CLASS);
                 hotbarSlot.style.backgroundImage = (
                     new StyleBackground(collectable.itemSprite)

@@ -80,7 +80,7 @@ public class PlayerRayCast : MonoBehaviour {
     }
 
     private void DoInventoryDragHighlight() {
-        if (!GameState.IsDraggingInventoryItem) {
+        if (!GameState.isDraggingInventoryItem) {
             _highlighted = false;
             DisableOutline();
             return;
@@ -88,7 +88,7 @@ public class PlayerRayCast : MonoBehaviour {
             
         // Ray points out from cursor position in camera viewport
         Ray ray = Camera.main.ScreenPointToRay(
-            GameState.LastPointerDragScreenPos
+            GameState.lastPointerDragScreenPos
         );
             
         if (Physics.Raycast(
