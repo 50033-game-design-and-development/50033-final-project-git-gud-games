@@ -14,8 +14,8 @@ public class L0P1Paper2 : MonoBehaviour {
     private void Start() {
         meshRenderer = GetComponent<MeshRenderer>();
         boxCollider = GetComponent<Collider>();
-        //meshRenderer.enabled = false;
-        //boxCollider.enabled = false;
+        meshRenderer.enabled = false;
+        boxCollider.enabled = false;
     }
 
     private void Update() {
