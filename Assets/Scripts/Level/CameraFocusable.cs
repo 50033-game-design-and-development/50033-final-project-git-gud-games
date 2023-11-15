@@ -13,29 +13,34 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
     // name of the virtual camera state in cinemachineAnimator to play when player presses escape
     public string endStateName;
     
+    private bool IsCinemachineInStartState() {
+        AnimatorStateInfo stateInfo = cinemachineAnimator.GetCurrentAnimatorStateInfo(0);
+        return stateInfo.IsName(startStateName);
+    }
+    
     public virtual void OnInteraction() {
-        cinemachineAnimator.Play(startStateName);
-        if (!GameState.inventoryOpened) {
-            GameState.ToggleInventory();
-            onInventoryUpdate.Raise();
-            GameState.ConfineCursor();
+        if (GameState.inventoryOpened) {
+            // dont use the camera to move the CineMachine
+            // to an interactable object if inventory is already opened
+            return;
         }
+        
+        cinemachineAnimator.Play(startStateName);
+        GameState.inventoryOpened = true;
+        onInventoryUpdate.Raise();
     }
     
     private void OnEscape() {
         cinemachineAnimator.Play(endStateName);
-        if (GameState.inventoryOpened) {
-            GameState.ToggleInventory();
-            onInventoryUpdate.Raise();
-            GameState.LockCursor();
-        }
-    }
-    
-    private void Start() {
+        GameState.inventoryOpened = false;
+        onInventoryUpdate.Raise();
     }
     
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (
+            Input.GetKeyDown(KeyCode.Escape) &&
+            IsCinemachineInStartState()
+        ) {
             OnEscape();
         }
     }
