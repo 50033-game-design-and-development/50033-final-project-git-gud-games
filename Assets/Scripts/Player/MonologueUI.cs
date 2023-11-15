@@ -1,38 +1,39 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
 
 public class MonologueUI : MonoBehaviour {
-    public AudioMap audioMap;
-    public StringMap stringMap;
     private AudioSource audioSource;
     private TextMeshProUGUI subtitles;
     private Image background;
 
-    public void StartMonologue(int monologueKey) {
+    public void StartMonologue(MonologueKey monologueKey) {
         StopCoroutine("Monologue");
         StopCoroutine("EndMonologue");
         StartCoroutine("Monologue", monologueKey);
     }
 
-    private IEnumerator Monologue(int monologueKey) {
-        string unparsedText = stringMap.textList[monologueKey];
-        string[] monologues = unparsedText.Split('|');
+    private IEnumerator Monologue(MonologueKey monologueKey) {
+        Monologue monologue = MonologueMap.Get(monologueKey);
         SetAlpha(1);
 
-        foreach (string monologue in monologues) {
-            subtitles.text = monologue;
+        for (int i = 0; i < monologue.strings.Count; i++) {
+            subtitles.text = monologue.strings[i];
+            AudioClip voiceLines = monologue.audios[i];
+            float duration;
 
-            // Disabled these lines to prevent breakage, DO NOT DELETE
-            //AudioClip voiceLines = audioMap.audioList[monologueKey];
-            //audioSource.PlayOneShot(voiceLines);
+            if (voiceLines != null) {
+                audioSource.PlayOneShot(voiceLines);
+                duration = voiceLines.length;
+            } else {
+                // Set duration for unvoiced lines based on length of text
+                duration = monologue.strings[i].Length / 15.0f;
+            }
 
             // Wait for monologue to be spoken completely
-            //yield return new WaitForSeconds(voiceLines.length);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(duration);
         }
 
         StartCoroutine("EndMonologue");
