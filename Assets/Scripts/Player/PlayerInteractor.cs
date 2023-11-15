@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class PlayerInteractor : MonoBehaviour {
     private PlayerAction _playerAction;
-
     private int _layerMaskInteractable;
+    
     public PlayerConstants playerConstants;
 
-    void OnClick(Vector2 screenPos) {
+    private void TriggerInteractions(Vector2 screenPos) {
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
 
         if (Physics.Raycast(ray, out RaycastHit raycastHit, playerConstants.raycastDistance, _layerMaskInteractable)) {
@@ -19,13 +19,33 @@ public class PlayerInteractor : MonoBehaviour {
             i.OnInteraction();
         }
     }
-
-
+    
     private void Start() {
         _layerMaskInteractable = LayerMask.GetMask("Interactable");
 
         _playerAction = new PlayerAction();
         _playerAction.Enable();
-        _playerAction.gameplay.MousePos.performed += ctx => OnClick(ctx.ReadValue<Vector2>());
+        _playerAction.gameplay.MousePos.performed += ctx => {
+            GameState.lastPointerDragScreenPos = ctx.ReadValue<Vector2>();
+        };
+
+        // trigger interaction with object on click
+        // and when inventory is not opened
+        _playerAction.gameplay.MousePress.performed += ctx => {
+            if (!GameState.inventoryOpened) {
+                TriggerInteractions(GameState.lastPointerDragScreenPos);
+            }
+        };
+        
+        // trigger drag interaction with object on mouse release
+        // and inventory item was previously being dragged
+        _playerAction.gameplay.MousePress.canceled += ctx => {
+            if (GameState.isDraggingInventoryItem) {
+                TriggerInteractions(GameState.lastPointerDragScreenPos);
+            }
+            
+            GameState.isDraggingInventoryItem = false;
+            GameState.selectedInventoryItem = null;
+        };
     }
 }
