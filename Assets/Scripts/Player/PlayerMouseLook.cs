@@ -47,7 +47,7 @@ public class PlayerMouseLook : MonoBehaviour {
         _playerAction.Enable();
 
         _playerAction.gameplay.MouseMove.performed += ctx => OnMouseMove(ctx.ReadValue<Vector2>());
-        _playerAction.gameplay.Escape.performed += _ => ToggleCursorLockState();
+        // _playerAction.gameplay.Escape.performed += _ => ToggleCursorLockState();
 
         /*
         // open inventory when you press E
