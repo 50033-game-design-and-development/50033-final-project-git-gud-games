@@ -16,6 +16,7 @@ public class MonologueUI : MonoBehaviour {
         StopCoroutine("EndMonologue");
 
         subtitles.text = stringMap.textList[monologueKey];
+        Debug.Log(stringMap.textList[monologueKey]);
         SetAlpha(1);
 
         // Disabled these lines to prevent breakage, DO NOT DELETE

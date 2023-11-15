@@ -5,9 +5,9 @@ using UnityEngine.Events;
 
 public class MonologueInteractable : MonoBehaviour, IInteractable {
     public List<MonologueKey> monologueKeys;
-    private int state;
+    public int state;
 
-    public void OnInteraction() {
+    public virtual void OnInteraction() {
         Event.showDialogue.Raise((int)monologueKeys[state]);
     }
 
