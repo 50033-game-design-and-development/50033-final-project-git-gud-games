@@ -1,6 +1,9 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
+
 
 public interface DragCallbacks {
     void OnDragStart(IPointerEvent evt);
@@ -39,10 +42,17 @@ public class DraggableButton: Button {
     }
     
     private void OnPointerUp(IPointerEvent evt) {
+        // Debug.Log("valu4 is" + GameState.selectedInventoryItem.HasValue.ToString());
+        if(GameState.selectedInventoryItem.HasValue)
+            // Debug.Log(GameState.selectedInventoryItem.Value.itemType.ToString());
+            if(GameState.selectedInventoryItem.Value.itemType.ToString()=="Key") {
+                Event.unlockAudioEvent.Raise();
+            }
         // TODO: The event raised is just a temporary measure to get L0P1 working
         // To be replaced with a more robust system that can match where items should go
         Event.itemPlaced.Raise();
         RemoveFromClassList(DRAGGING_SLOT_CLASS);
         this.ReleasePointer(evt.pointerId);
     }
+    
 }

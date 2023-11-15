@@ -51,7 +51,8 @@ public class PlayerInteractor : MonoBehaviour {
             }
             
             GameState.isDraggingInventoryItem = false;
-            GameState.selectedInventoryItem = null;
+            // GameState.selectedInventoryItem = null;
+            // Debug.Log("setting to null");
             GameState.mouseHold = false;
         };
     }

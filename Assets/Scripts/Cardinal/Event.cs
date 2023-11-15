@@ -7,6 +7,8 @@ public class Event : MonoBehaviour {
     public static IntGameEvent showDialogue;
     public static GameEvent L0P1SolvedEvent;
     public static GameEvent itemPlaced;
+    public static AudioSource unlockAudio;
+    public static GameEvent unlockAudioEvent;
 
     public GameEvent _hideAll;
     public GameEvent _revealAll;
@@ -14,6 +16,8 @@ public class Event : MonoBehaviour {
     public IntGameEvent _showDialogue;
     public GameEvent _L0P1SolvedEvent;
     public GameEvent _itemPlaced;
+    public GameEvent _unlockAudioEvent;
+    public AudioSource _unlockAudio;
 
 
     void Start() {
@@ -23,5 +27,8 @@ public class Event : MonoBehaviour {
         showDialogue = _showDialogue;
         L0P1SolvedEvent = _L0P1SolvedEvent;
         itemPlaced = _itemPlaced;
+        unlockAudio = _unlockAudio;
+        unlockAudioEvent = _unlockAudioEvent;
     }
+    
 }
