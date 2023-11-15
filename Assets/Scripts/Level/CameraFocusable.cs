@@ -19,6 +19,7 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
             GameState.ToggleInventory();
             onInventoryUpdate.Raise();
             GameState.ConfineCursor();
+            GameState.isFocused = true;
         }
     }
     
@@ -28,6 +29,7 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
             GameState.ToggleInventory();
             onInventoryUpdate.Raise();
             GameState.LockCursor();
+            GameState.isFocused = false;
         }
     }
     

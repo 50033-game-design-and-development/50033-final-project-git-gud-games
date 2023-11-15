@@ -4,6 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+
+public class HotbarItemDragHandler : DragCallbacks {
+    private readonly int _hotbarItemIndex;
+
+    public HotbarItemDragHandler(int hotbarItemIndex) {
+        _hotbarItemIndex = hotbarItemIndex;
+    }
+    
+    public void OnDragStart(IPointerEvent evt) {
+        if (_hotbarItemIndex >= GameState.inventory.Count) { return; }
+        Debug.Log("currently"+ GameState.selectedInventoryItem.HasValue.ToString());
+        GameState.selectedInventoryItem = GameState.inventory[_hotbarItemIndex];
+        Debug.Log("now"+ GameState.selectedInventoryItem.HasValue.ToString());
+        Debug.Log(_hotbarItemIndex.ToString());
+        GameState.isDraggingInventoryItem = true;
+    }
+}
+
 public class InventoryRenderer : MonoBehaviour {
     // hotbar USS slot class to assign to filled inventory slots
     private const string OCCUPIED_SLOT_CLASS = "filled";
@@ -15,7 +33,7 @@ public class InventoryRenderer : MonoBehaviour {
     private float _padding;
 
     // gap between bar item images
-    private readonly List<Button> _hotbarItems = new();
+    private readonly List<DraggableButton> _hotbarItems = new();
 
     public void OnInventoryUpdate() {
         if (GameState.inventoryOpened) {
@@ -34,9 +52,10 @@ public class InventoryRenderer : MonoBehaviour {
         hotbarUI.rootVisualElement.style.visibility = Visibility.Hidden;
     }
 
+    /// <summary>
+    ///  Initialize the hotbar item slot UI elements
+    /// </summary>
     private void InitializeHotbar() {
-        // Initialize the hotbar items slot UI elements
-
         // wait for UI document to render,
         // necessary before reading hotbar padding value
         VisualElement root = hotbarUI.rootVisualElement;
@@ -54,13 +73,15 @@ public class InventoryRenderer : MonoBehaviour {
             + hotbarElement.resolvedStyle.paddingBottom
         ) / 2.0f;
 
-        var hotbarWidth = hotbarElement.resolvedStyle.width;
         var hotbarHeight = hotbarElement.resolvedStyle.height;
         var hotbarItemHeight = hotbarHeight - _padding * 2;
 
         for (int k = 0; k < numHotbarItems; k++) {
             // Create hotbar item slots (each slot is a UIElement Button)
-            Button inventoryItem = new Button();
+            var dragCallback = new HotbarItemDragHandler(k);
+            DraggableButton inventoryItem = new DraggableButton(dragCallback);
+            
+            // DragAndDropManipulator manipulator = new(inventoryItem);
             inventoryItem.style.width = hotbarItemHeight;
             hotbarElement.Add(inventoryItem);
             _hotbarItems.Add(inventoryItem);
@@ -74,12 +95,6 @@ public class InventoryRenderer : MonoBehaviour {
     private void PopulateHotbar() {
         for (var k = 0; k < _hotbarItems.Count; k++) {
             var hotbarSlot = _hotbarItems[k];
-            var buttonNo = k;
-
-            hotbarSlot.clicked += () => {
-                // TODO: tie this to an actually useful callback during integration
-                Debug.Log($"SLOT {buttonNo} CLICKED");
-            };
             
             Debug.Assert(
                 GameState.inventory.Count < _hotbarItems.Count,
@@ -89,8 +104,6 @@ public class InventoryRenderer : MonoBehaviour {
             if (k < GameState.inventory.Count) {
                 // set hotbar slot background image and make slot active
                 var collectable = GameState.inventory[k];
-                Debug.Log("SET_ITEM " + k);
-                
                 hotbarSlot.AddToClassList(OCCUPIED_SLOT_CLASS);
                 hotbarSlot.style.backgroundImage = (
                     new StyleBackground(collectable.itemSprite)
@@ -104,7 +117,7 @@ public class InventoryRenderer : MonoBehaviour {
         }
     }
 
-    private IEnumerator renderHotbar() {
+    private IEnumerator RenderHotbar() {
 		// wait for UI document to render
 		// before populating it with hotbar UI elements
         yield return new WaitForEndOfFrame();
@@ -115,6 +128,6 @@ public class InventoryRenderer : MonoBehaviour {
     // Start is called before the first frame update
     void OnEnable() {
         Hide();
-        StartCoroutine(renderHotbar());
+        StartCoroutine(RenderHotbar());
     }
 }

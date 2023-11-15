@@ -4,14 +4,19 @@ using UnityEngine;
 public class GameState : MonoBehaviour {
     // initial list of items to assign to inventory (for testing only)
     public List<Inv.Collectable> startInventory = new();
-
     public static readonly List<Inv.Collectable> inventory = new();
-
+    
+    public static Inv.Collectable? selectedInventoryItem = null; 
+    public static bool isDraggingInventoryItem = false;
+    public static Vector2 lastPointerDragScreenPos;
+    public static bool mouseHold;
+    public static bool isFocused;
+    
     private static bool _inventoryOpened = false;
-
+    
     public static bool inventoryOpened {
         get => _inventoryOpened;
-        set {
+        private set {
             _inventoryOpened = value;
             if (_inventoryOpened) {
                 ConfineCursor();
