@@ -9,6 +9,7 @@ public class Event : MonoBehaviour {
     public static GameEvent itemPlaced;
     public static AudioSource unlockAudio;
     public static GameEvent unlockAudioEvent;
+    public static GameEvent onInventoryUpdate;
 
     public GameEvent _hideAll;
     public GameEvent _revealAll;
@@ -18,6 +19,7 @@ public class Event : MonoBehaviour {
     public GameEvent _itemPlaced;
     public GameEvent _unlockAudioEvent;
     public AudioSource _unlockAudio;
+    public GameEvent _onInventoryUpdate;
 
 
     void Start() {
@@ -29,6 +31,7 @@ public class Event : MonoBehaviour {
         itemPlaced = _itemPlaced;
         unlockAudio = _unlockAudio;
         unlockAudioEvent = _unlockAudioEvent;
+        onInventoryUpdate = _onInventoryUpdate;
     }
     
 }

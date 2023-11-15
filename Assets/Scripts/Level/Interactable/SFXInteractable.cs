@@ -26,6 +26,7 @@ public class SFXInteractable : MonoBehaviour, IInteractable {
     public IEnumerator playunlockScene()
     {
         audioSource.Stop();
+        GetComponent<Animator>().SetTrigger("Unlock");
         audioSource.PlayOneShot(unlockAudio);
         yield return new WaitForSeconds(unlockAudio.length);
         SceneManager.LoadSceneAsync("BlankScene", LoadSceneMode.Single);
