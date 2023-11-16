@@ -17,7 +17,7 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
         AnimatorStateInfo stateInfo = cinemachineAnimator.GetCurrentAnimatorStateInfo(0);
         return stateInfo.IsName(startStateName);
     }
-    
+  
     public virtual void OnInteraction() {
         if (GameState.inventoryOpened) {
             // dont use the camera to move the CineMachine

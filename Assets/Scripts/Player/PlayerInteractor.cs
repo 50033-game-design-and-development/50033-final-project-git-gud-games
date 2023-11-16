@@ -36,9 +36,15 @@ public class PlayerInteractor : MonoBehaviour {
         // trigger interaction with object on click
         // and when inventory is not opened
         _playerAction.gameplay.MousePress.performed += ctx => {
+            // Disabled this so that dragging the paper in L0P1 works
+            // TODO: Make this work with L0P1
+            /*
             if (!GameState.inventoryOpened) {
                 TriggerInteractions(GameState.lastPointerDragScreenPos);
             }
+            */
+            TriggerInteractions(GameState.lastPointerDragScreenPos);
+            GameState.mouseHold = true;
         };
         
         // trigger drag interaction with object on mouse release
@@ -50,6 +56,7 @@ public class PlayerInteractor : MonoBehaviour {
             
             GameState.isDraggingInventoryItem = false;
             GameState.selectedInventoryItem = null;
+            GameState.mouseHold = false;
         };
         
         // open inventory when you press E
