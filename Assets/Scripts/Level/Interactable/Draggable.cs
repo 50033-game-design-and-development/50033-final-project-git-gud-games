@@ -1,16 +1,17 @@
+using System.Collections;
 using UnityEngine;
 
 // Adapted from https://fistfullofshrimp.com/unity-drag-things-around/
-public class Draggable : MonoBehaviour, IInteractable {
+public class Draggable : MonoBehaviour, IClickable {
     private Plane draggingPlane;
     private Vector3 offset;
     private Camera mainCamera;
     private bool hasOffset;
 
     // Determine offset of object from camera upon click
-    public void OnInteraction() {
+    public void OnClick() {
         // Can only be interacted with when focused
-        if (!GameState.isFocused) {
+        if (!GameState.inventoryOpened) {
             return;
         }
 
@@ -31,7 +32,7 @@ public class Draggable : MonoBehaviour, IInteractable {
         // 1. Camera is focused on the puzzle
         // 2. Left click has not been released
         // 3. offset value is fresh
-        if (!GameState.isFocused || !GameState.mouseHold || !hasOffset) {
+        if (!GameState.inventoryOpened || !GameState.mouseHold || !hasOffset) {
             hasOffset = false;
             return;
         }
