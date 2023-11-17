@@ -52,12 +52,12 @@ public class DraggableButton: Button {
         // TODO: The event raised is just a temporary measure to get L0P1 working
         // To be replaced with a more robust system that can match where items should go
         switch (GameState.selectedInventoryItem.Value.itemType) {
-            case InventoryItems.Key:
+            case InventoryItem.Key:
                 if (raycastHit.transform.gameObject.name == "Doorframe") {
                     TriggerDragInteraction(Event.L0UnlockDoorEvent);
                 }
                 break;
-            case InventoryItems.Paper:
+            case InventoryItem.Paper:
                 if (raycastHit.transform.gameObject.name == "Paper1") {
                     TriggerDragInteraction(Event.itemPlaced);
                 }

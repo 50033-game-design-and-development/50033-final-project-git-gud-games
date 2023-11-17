@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraFocusable : MonoBehaviour, IInteractable {
     
     public Animator cinemachineAnimator;
-    public GameEvent onInventoryUpdate;
     
     // name of the virtual camera state in cinemachineAnimator to play when object is clicked
     public string startStateName;
@@ -13,31 +12,34 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
     // name of the virtual camera state in cinemachineAnimator to play when player presses escape
     public string endStateName;
     
+    private bool IsCinemachineInStartState() {
+        AnimatorStateInfo stateInfo = cinemachineAnimator.GetCurrentAnimatorStateInfo(0);
+        return stateInfo.IsName(startStateName);
+    }
+  
     public virtual void OnInteraction() {
-        cinemachineAnimator.Play(startStateName);
-        if (!GameState.inventoryOpened) {
-            GameState.ToggleInventory();
-            onInventoryUpdate.Raise();
-            GameState.ConfineCursor();
-            GameState.isFocused = true;
+        if (GameState.inventoryOpened) {
+            // dont use the camera to move the CineMachine
+            // to an interactable object if inventory is already opened
+            return;
         }
+        
+        cinemachineAnimator.Play(startStateName);
+        GameState.inventoryOpened = true;
+        Event.onInventoryUpdate.Raise();
     }
     
     private void OnEscape() {
         cinemachineAnimator.Play(endStateName);
-        if (GameState.inventoryOpened) {
-            GameState.ToggleInventory();
-            onInventoryUpdate.Raise();
-            GameState.LockCursor();
-            GameState.isFocused = false;
-        }
-    }
-    
-    private void Start() {
+        GameState.inventoryOpened = false;
+        Event.onInventoryUpdate.Raise();
     }
     
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (
+            Input.GetKeyDown(KeyCode.Escape) &&
+            IsCinemachineInStartState()
+        ) {
             OnEscape();
         }
     }

@@ -5,9 +5,7 @@ public class PlayerMouseLook : MonoBehaviour {
 
     float _rotationY;
     float _rotationX;
-
-    public GameEvent onInventoryUpdate;
-
+    
     private PlayerAction _playerAction;
 
     /// <summary>
@@ -60,7 +58,7 @@ public class PlayerMouseLook : MonoBehaviour {
         // close inventory when you press escape
         _playerAction.gameplay.Escape.performed += _ => {
             // GameState.HideInventory();
-            onInventoryUpdate.Raise();
+            Event.onInventoryUpdate.Raise();
         };
     }
 
