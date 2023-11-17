@@ -1,14 +1,13 @@
 
 using UnityEngine;
 using UnityEngine.Playables;
-using UnityEngine.InputSystem;
 public class CutsceneInteractable : MonoBehaviour, IInteractable {
-    protected int state = 0;
+    private int state = 0;
     
     [SerializeField]
-    protected int playState = 1;
+    private int playState = 1;
 
-    public virtual void OnInteraction() {
+    public void OnInteraction() {
         if (state == playState) {
             PlayCutscene();    
             IncrementState();
@@ -16,7 +15,7 @@ public class CutsceneInteractable : MonoBehaviour, IInteractable {
               
     }
 
-    protected void PlayCutscene() {
+    private void PlayCutscene() {
         // TODO: Lock player input
         
         PlayableDirector director = GetComponent<PlayableDirector>();

@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class MonologueInteractable : MonoBehaviour, IInteractable {
     public List<MonologueKey> monologueKeys;
-    protected int state;
+    private int state;
 
-    public virtual void OnInteraction() {
+    public void OnInteraction() {
         int key = (int)monologueKeys[state];
         if (key != -1) {
             Event.showDialogue.Raise(key);

@@ -10,7 +10,6 @@ public class FadeBehaviour : MonoBehaviour {
     public enum FadeType {
         FadeIn,
         FadeOut,
-        FadeInOut,
     }
 
     public float duration = 2f;
@@ -20,28 +19,21 @@ public class FadeBehaviour : MonoBehaviour {
     }
 
     public void Fade() {
-        Debug.Log("Fade");
         switch (fadeType) {
             case FadeType.FadeIn:
-                fadeOverlay.alpha = 0f;
                 StartCoroutine(FadeIn());
                 break;
             case FadeType.FadeOut:
-                fadeOverlay.alpha = 1f;
                 StartCoroutine(FadeOut());
                 break;
-            case FadeType.FadeInOut:
-                fadeOverlay.alpha = 0f;
-                StartCoroutine(FadeInOut());
-                break;
             default: 
-                fadeOverlay.alpha = 1f;
                 StartCoroutine(FadeOut());
                 break;
         }
     }
 
     private IEnumerator FadeOut() {
+        fadeOverlay.alpha = 1f;
         float t = 0;
         while (t < duration) {
             t += Time.deltaTime;
@@ -51,6 +43,7 @@ public class FadeBehaviour : MonoBehaviour {
     }
 
     private IEnumerator FadeIn() {
+        fadeOverlay.alpha = 0f;
         float t = 0;
         while (t < duration) {
             t += Time.deltaTime;
@@ -59,18 +52,4 @@ public class FadeBehaviour : MonoBehaviour {
         }
     }
 
-    private IEnumerator FadeInOut() {
-        float t = 0;
-        while (t < duration) {
-            t += Time.deltaTime;
-            fadeOverlay.alpha = t / duration;
-            yield return null;
-        }
-        t = 0;
-        while (t < duration) {
-            t += Time.deltaTime;
-            fadeOverlay.alpha = 1 - t / duration;
-            yield return null;
-        }
-    }
 }
