@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FadeOutBehaviour : MonoBehaviour
+public class FadeInBehaviour : MonoBehaviour
 {
     public CanvasGroup fadeOverlay;
     // Start is called before the first frame update
     void Start() {
-        fadeOverlay.alpha = 1f;
+        fadeOverlay.alpha = 0f;
         StartCoroutine(FadeIn());
         
     }
@@ -17,9 +17,12 @@ public class FadeOutBehaviour : MonoBehaviour
         float t = 0;
         while (t < 2) {
             t += Time.deltaTime;
-            fadeOverlay.alpha = 1 - t / 2;
+            fadeOverlay.alpha = t / 2;
             yield return null;
         }
 
+        yield return new WaitForSeconds(3f);
+        // Start scene "New Level 0"
+        SceneManager.LoadScene("New Level 0");
     }
 }

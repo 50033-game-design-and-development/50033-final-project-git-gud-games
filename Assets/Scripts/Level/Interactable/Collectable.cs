@@ -23,8 +23,12 @@ public class Collectable : MonoBehaviour, IInteractable {
 
     private IEnumerator Collect(float duration) {
         // Disable model and collider
-        GetComponent<MeshRenderer>().enabled = false;
-        GetComponent<Collider>().enabled = false;
+        if (TryGetComponent(out MeshRenderer meshRenderer)) {
+            meshRenderer.enabled = false;
+        }
+        if (TryGetComponent(out Collider collider)) {
+            collider.enabled = false;
+        }
 
         // Play out the SFX before destroying
         yield return new WaitForSeconds(duration);

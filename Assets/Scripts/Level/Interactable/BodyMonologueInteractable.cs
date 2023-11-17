@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.Playables;
 
 /// <summary>
 /// Monologue Interactable due to the state requirement, but
@@ -10,62 +9,22 @@ using UnityEngine.Events;
 /// Is there a better way to do this?
 /// Will a state machine with Enter/Exit Actions help?
 /// </summary>
-public class BodyMonologueInteractable : MonologueInteractable {
-
-    [SerializeField]
-    private Sprite keySprite;
-    [SerializeField]
-    private InventoryItems keyCollectable;
-    [SerializeField]
-    private CanvasGroup UIFadeOverlay;
-    [SerializeField]
-    private float uiFadeOutTime;
-    [SerializeField]
-    private GameEvent onInventoryUpdate;
-    private AudioSource bodyAudio;
-    
-    private Inv.Collectable invItem {
-        get => new Inv.Collectable {
-            itemType = keyCollectable, 
-            itemSprite = keySprite
-        };
-    }
-
-    public override void OnInteraction() {
-        base.OnInteraction();
+public class BodyMonologueInteractable : MonoBehaviour, IInteractable {
+    private int state = 0;
+    public void OnInteraction() {
         if (state == 1) {
-            PlayCutscene();
-            GameState.inventory.Add(invItem);
-            state = 2;            
+            PlayCutscene();          
         }
     }
 
     private void PlayCutscene() {
-        // Lock controls (not priority)
-        StartCoroutine(FadeOutIn());
-        bodyAudio.PlayOneShot(bodyAudio.clip);
+        PlayableDirector director = GetComponent<PlayableDirector>();
+        director.Play();
     }
 
-    private IEnumerator FadeOutIn() {
-        UIFadeOverlay.alpha = 0;
-        float inc =  uiFadeOutTime / 100;
-        for (float alpha = 0; alpha < uiFadeOutTime; alpha += inc) {
-            UIFadeOverlay.alpha = alpha;
-            yield return new WaitForSecondsRealtime(inc);
-        }
-
-        yield return new WaitForSecondsRealtime(1f);
-        onInventoryUpdate.Raise();
-
-        for (float alpha = 1; alpha > 0; alpha -= inc) {
-            UIFadeOverlay.alpha = alpha;
-            yield return new WaitForSecondsRealtime(inc);
-        }
-        
+    public void IncrementState() {
+        state++;
     }
 
-    private void Start() {
-        bodyAudio = GetComponent<AudioSource>();
-    }
 
 }
