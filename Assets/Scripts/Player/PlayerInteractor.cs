@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerInteractor : MonoBehaviour {
     private PlayerAction _playerAction;
     private int _layerMaskInteractable;
-    
+
     public GameEvent onInventoryUpdate;
     public CinemachineStateDrivenCamera cineMachineCamera;
     public CinemachineVirtualCamera firstPersonCamera;
@@ -19,11 +19,23 @@ public class PlayerInteractor : MonoBehaviour {
     }
 
     private static void Interact(GameObject obj) {
-        foreach (var i in obj.GetComponents<IInteractable>()) {
-            i.OnInteraction();
+        if(!GameState.inventoryOpened) {
+            foreach (var i in obj.GetComponents<IInteractable>()) {
+                i.OnInteraction();
+            }
+            return;
+        }
+        if (GameState.isDraggingInventoryItem) {
+            foreach (var i in obj.GetComponents<IDragDroppable>()) {
+                i.OnDragDrop();
+            }
+            return;
+        }
+        foreach (var i in obj.GetComponents<IClickable>()) {
+            i.OnClick();
         }
     }
-    
+
     private void Start() {
         _layerMaskInteractable = LayerMask.GetMask("Interactable");
 
@@ -33,32 +45,25 @@ public class PlayerInteractor : MonoBehaviour {
             GameState.lastPointerDragScreenPos = ctx.ReadValue<Vector2>();
         };
 
-        // trigger interaction with object on click
         // and when inventory is not opened
+        // trigger interaction with object on click
         _playerAction.gameplay.MousePress.performed += ctx => {
-            // Disabled this so that dragging the paper in L0P1 works
-            // TODO: Make this work with L0P1
-            /*
-            if (!GameState.inventoryOpened) {
-                TriggerInteractions(GameState.lastPointerDragScreenPos);
-            }
-            */
             TriggerInteractions(GameState.lastPointerDragScreenPos);
             GameState.mouseHold = true;
         };
-        
+
         // trigger drag interaction with object on mouse release
         // and inventory item was previously being dragged
         _playerAction.gameplay.MousePress.canceled += ctx => {
             if (GameState.isDraggingInventoryItem) {
                 TriggerInteractions(GameState.lastPointerDragScreenPos);
             }
-            
+
             GameState.isDraggingInventoryItem = false;
             GameState.selectedInventoryItem = null;
             GameState.mouseHold = false;
         };
-        
+
         // open inventory when you press E
         _playerAction.gameplay.InventoryOpen.performed += _ => {
             Debug.Log("TOGGLE");
@@ -79,7 +84,7 @@ public class PlayerInteractor : MonoBehaviour {
 
             onInventoryUpdate.Raise();
         };
-        
+
         // close inventory when you press escape
         _playerAction.gameplay.Escape.performed += _ => {
             // GameState.HideInventory();
