@@ -7,8 +7,8 @@ public class MonologueInteractable : MonoBehaviour, IInteractable {
     private int state;
 
     public void OnInteraction() {
-        int key = (int)monologueKeys[state];
-        if (key != -1) {
+        MonologueKey key = monologueKeys[state];
+        if (key != MonologueKey.NULL) {
             Event.showDialogue.Raise(key);
         }
     }

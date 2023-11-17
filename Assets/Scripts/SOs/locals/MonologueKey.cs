@@ -4,16 +4,16 @@ using UnityEngine;
 
 // Manually assigned numbers to prevent breakage
 public enum MonologueKey {
-    NULL = -1,
-    L0_START = 0,
-    L0_PAPER_TABLE = 1,
-    L0_PAPER_WARDROBE = 2,
-    L0_DOOR_LOCKED = 3,
-    L0_CORPSE_DEFAULT = 4,
-    L0_CORPSE_AFTER_P1 = 5,
-    L0_CORPSE_AFTER_KEY = 6,
-    L0_BOX = 7,
-    L0_BARREL = 8,
-    L0_PAPER_TABLE_AFTER_P1 = 9,
-    L0_PAPER_TABLE_AFTER_KEY = 10,
+    NULL = 0,
+    L0_START = 1,
+    L0_PAPER_TABLE = 2,
+    L0_PAPER_WARDROBE = 3,
+    L0_DOOR_LOCKED = 4,
+    L0_CORPSE_DEFAULT = 5,
+    L0_CORPSE_AFTER_P1 = 6,
+    L0_CORPSE_AFTER_KEY = 7,
+    L0_BOX = 8,
+    L0_BARREL = 9,
+    L0_PAPER_TABLE_AFTER_P1 = 10,
+    L0_PAPER_TABLE_AFTER_KEY = 11,
 }
