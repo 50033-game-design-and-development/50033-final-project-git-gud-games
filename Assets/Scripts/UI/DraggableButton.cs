@@ -54,7 +54,7 @@ public class DraggableButton: Button {
         switch (GameState.selectedInventoryItem.Value.itemType) {
             case InventoryItems.Key:
                 if (raycastHit.transform.gameObject.name == "Doorframe") {
-                    TriggerDragInteraction(Event.unlockAudioEvent);
+                    TriggerDragInteraction(Event.L0UnlockDoorEvent);
                 }
                 break;
             case InventoryItems.Paper:

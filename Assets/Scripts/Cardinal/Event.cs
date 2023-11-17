@@ -7,8 +7,7 @@ public class Event : MonoBehaviour {
     public static IntGameEvent showDialogue;
     public static GameEvent L0P1SolvedEvent;
     public static GameEvent itemPlaced;
-    public static AudioSource unlockAudio;
-    public static GameEvent unlockAudioEvent;
+    public static GameEvent L0UnlockDoorEvent;
     public static GameEvent onInventoryUpdate;
 
     public GameEvent _hideAll;
@@ -17,8 +16,7 @@ public class Event : MonoBehaviour {
     public IntGameEvent _showDialogue;
     public GameEvent _L0P1SolvedEvent;
     public GameEvent _itemPlaced;
-    public GameEvent _unlockAudioEvent;
-    public AudioSource _unlockAudio;
+    public GameEvent _L0UnlockDoorEvent;
     public GameEvent _onInventoryUpdate;
 
 
@@ -29,8 +27,7 @@ public class Event : MonoBehaviour {
         showDialogue = _showDialogue;
         L0P1SolvedEvent = _L0P1SolvedEvent;
         itemPlaced = _itemPlaced;
-        unlockAudio = _unlockAudio;
-        unlockAudioEvent = _unlockAudioEvent;
+        L0UnlockDoorEvent = _L0UnlockDoorEvent;
         onInventoryUpdate = _onInventoryUpdate;
     }
     
