@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class MonologueInteractable : MonoBehaviour, IInteractable {
     public List<MonologueKey> monologueKeys;
-    public int state;
+    protected int state;
 
     public virtual void OnInteraction() {
         int key = (int)monologueKeys[state];

@@ -634,13 +634,14 @@ GameObject:
   - component: {fileID: 241267128}
   - component: {fileID: 241267127}
   - component: {fileID: 241267126}
+  - component: {fileID: 241267129}
   m_Layer: 6
   m_Name: CutsceneObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &241267124
 Transform:
   m_ObjectHideFlags: 0
@@ -668,13 +669,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ef586535ea21248bef8c38a37d4f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monologueKeys: 0500000006000000
-  state: 0
-  keySprite: {fileID: 21300000, guid: 25e8dca4976dc1a46908f7d1368aabed, type: 3}
-  keyCollectable: 2
-  UIFadeOverlay: {fileID: 6211640560441965027}
-  uiFadeOutTime: 3
-  onInventoryUpdate: {fileID: 11400000, guid: f242a7ef48cbb9af9a7d7fac0e508881, type: 2}
 --- !u!114 &241267126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -744,6 +738,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 241267129}
+          m_TargetAssemblyTypeName: SFXInteractable, Assembly-CSharp
+          m_MethodName: OnInteraction
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &241267127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -772,7 +778,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monologueKeys: 0500000006000000
-  state: 0
+--- !u!114 &241267129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241267123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18efc4c6e49c6a7c28122326c3c5efc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 6c96f17621974ab469d71b6645c210ae, type: 3}
+  unlockAudio: {fileID: 0}
 --- !u!1 &326178045
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,7 +1013,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monologueKeys: 01000000090000000a000000
-  state: 0
 --- !u!114 &368544884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1271,7 +1290,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monologueKeys: 02000000
-  state: 0
 --- !u!114 &435150054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2266,13 +2284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ef586535ea21248bef8c38a37d4f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monologueKeys: 040000000500000006000000
-  state: 0
-  keySprite: {fileID: 21300000, guid: 25e8dca4976dc1a46908f7d1368aabed, type: 3}
-  keyCollectable: 2
-  UIFadeOverlay: {fileID: 1530900348}
-  uiFadeOutTime: 3
-  onInventoryUpdate: {fileID: 11400000, guid: f242a7ef48cbb9af9a7d7fac0e508881, type: 2}
 --- !u!114 &552294222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2364,7 +2375,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monologueKeys: 040000000500000006000000
-  state: 0
 --- !u!23 &552294227
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4834,7 +4844,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monologueKeys: 03000000ffffffff
-  state: 0
 --- !u!65 &1012689758
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5761,10 +5770,10 @@ GameObject:
   - component: {fileID: 1375832014}
   - component: {fileID: 1375832013}
   - component: {fileID: 1375832012}
-  - component: {fileID: 1375832011}
   - component: {fileID: 1375832010}
+  - component: {fileID: 1375832015}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: InitialFade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5798,23 +5807,10 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375832008}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1375832011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375832008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a749a6e1756734843ad3f18b6b6f6537, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeOverlay: {fileID: 1375832010}
 --- !u!114 &1375832012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5878,6 +5874,22 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1375832015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375832008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070f6b70c51818f488d9fb62af3dae3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeOverlay: {fileID: 1375832010}
+  playOnStart: 1
+  fadeType: 1
+  duration: 2
 --- !u!1 &1391560882
 GameObject:
   m_ObjectHideFlags: 0
@@ -6920,7 +6932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2025998563}
+  m_Material: {fileID: 1727527226}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -7195,6 +7207,45 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!21 &1727527226
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &1744571529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8124,45 +8175,6 @@ Transform:
   - {fileID: 604971743}
   m_Father: {fileID: 628170632}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &2025998563
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &2039650043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8710,6 +8722,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8206406108544564750}
+        m_TargetAssemblyTypeName: MonologueInteractable, Assembly-CSharp
+        m_MethodName: IncrementState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4630370020659876694
 GameObject:
   m_ObjectHideFlags: 0
@@ -8899,6 +8923,7 @@ GameObject:
   - component: {fileID: 4045452704721238299}
   - component: {fileID: 4196028184060868064}
   - component: {fileID: 8206406108544564747}
+  - component: {fileID: 8206406108544564750}
   - component: {fileID: 4611370902057292704}
   - component: {fileID: 2352411634535059775}
   - component: {fileID: 8206406108544564749}
@@ -8963,13 +8988,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ef586535ea21248bef8c38a37d4f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monologueKeys: 040000000500000006000000
-  state: 0
-  keySprite: {fileID: 21300000, guid: 25e8dca4976dc1a46908f7d1368aabed, type: 3}
-  keyCollectable: 2
-  UIFadeOverlay: {fileID: 6211640560441965027}
-  uiFadeOutTime: 3
-  onInventoryUpdate: {fileID: 11400000, guid: f242a7ef48cbb9af9a7d7fac0e508881, type: 2}
 --- !u!65 &8206406108544564748
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9001,7 +9019,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 0ea27490919a9684191c0b937089a118, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -9009,13 +9027,26 @@ PlayableDirector:
   - key: {fileID: 8431790742035000743, guid: 0ea27490919a9684191c0b937089a118, type: 2}
     value: {fileID: 241267123}
   - key: {fileID: 4817899379631159027, guid: 0ea27490919a9684191c0b937089a118, type: 2}
-    value: {fileID: 457189713}
+    value: {fileID: 2352411634535059775}
   - key: {fileID: -3227374124978392831, guid: 0ea27490919a9684191c0b937089a118, type: 2}
     value: {fileID: 9136636432968900177}
   - key: {fileID: 3856135306993335858, guid: 0ea27490919a9684191c0b937089a118, type: 2}
     value: {fileID: 241267126}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &8206406108544564750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7724380518995005617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4554c88273303224dad63051da05013c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monologueKeys: 04000000ffffffff06000000
 --- !u!1 &8953038627021730006
 GameObject:
   m_ObjectHideFlags: 0
