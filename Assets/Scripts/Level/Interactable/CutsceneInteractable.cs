@@ -4,8 +4,16 @@ using UnityEngine.Playables;
 using UnityEngine.InputSystem;
 public class CutsceneInteractable : MonoBehaviour, IInteractable {
     protected int state = 0;
+    
+    [SerializeField]
+    protected int playState = 1;
+
     public virtual void OnInteraction() {
-        PlayCutscene();          
+        if (state == playState) {
+            PlayCutscene();    
+            IncrementState();
+        }
+              
     }
 
     protected void PlayCutscene() {
