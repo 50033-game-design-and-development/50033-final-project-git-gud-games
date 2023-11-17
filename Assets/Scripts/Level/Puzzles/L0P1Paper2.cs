@@ -39,19 +39,11 @@ public class L0P1Paper2 : MonoBehaviour {
 
     private void AdjustTransformToBounds() {
 
-        if (transform.position.x > _max.x) {
-            transform.position = new Vector3(_max.x, transform.position.y, transform.position.z);
-        } 
-        else if (transform.position.x < _min.x) {
-            transform.position = new Vector3(_min.x, transform.position.y, transform.position.z);
-        }
+        Vector3 newPos = transform.position;
+        newPos.x = Mathf.Clamp(newPos.x, _min.x, _max.x);
+        newPos.z = Mathf.Clamp(newPos.z, _min.z, _max.z);
 
-        if (transform.position.z > _max.z) {
-            transform.position = new Vector3(transform.position.x, transform.position.y, _max.z);
-        } 
-        else if (transform.position.z < _min.z) {
-            transform.position = new Vector3(transform.position.x, transform.position.y, _min.z);
-        }
+        transform.position = newPos;
 
     }
 }
