@@ -1,9 +1,13 @@
+using Cinemachine;
 using UnityEngine;
 
 public class PlayerInteractor : MonoBehaviour {
     private PlayerAction _playerAction;
     private int _layerMaskInteractable;
     
+    public GameEvent onInventoryUpdate;
+    public CinemachineStateDrivenCamera cineMachineCamera;
+    public CinemachineVirtualCamera firstPersonCamera;
     public PlayerConstants playerConstants;
 
     private void TriggerInteractions(Vector2 screenPos) {
@@ -53,6 +57,33 @@ public class PlayerInteractor : MonoBehaviour {
             GameState.isDraggingInventoryItem = false;
             GameState.selectedInventoryItem = null;
             GameState.mouseHold = false;
+        };
+        
+        // open inventory when you press E
+        _playerAction.gameplay.InventoryOpen.performed += _ => {
+            Debug.Log("TOGGLE");
+            GameState.ToggleInventory();
+
+            // check if the cinemachine camera is not locked
+            // to any interaction objects i.e. it follows the player
+            if (cineMachineCamera.LiveChild == firstPersonCamera) {
+                if (GameState.inventoryOpened) {
+                    // disable the cineMachineCamera if the inventory
+                    // is opened, otherwise the camera will follow
+                    // the cursor position
+                    cineMachineCamera.enabled = false;
+                } else {
+                    cineMachineCamera.enabled = true;
+                }
+            }
+
+            onInventoryUpdate.Raise();
+        };
+        
+        // close inventory when you press escape
+        _playerAction.gameplay.Escape.performed += _ => {
+            // GameState.HideInventory();
+            onInventoryUpdate.Raise();
         };
     }
 }
