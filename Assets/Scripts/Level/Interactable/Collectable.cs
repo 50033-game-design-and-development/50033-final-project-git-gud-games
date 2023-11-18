@@ -14,7 +14,12 @@ public class Collectable : MonoBehaviour, IInteractable {
         Debug.Log("Collect " + gameObject.name);
         GameState.inventory.Add(invItem);
         Event.onInventoryUpdate.Raise();
-        float duration = GetComponent<SFXInteractable>().audioClips[0].length;
+
+        float duration = 0f;
+        if (TryGetComponent(out SFXInteractable sfxInteractable)) {
+            duration = sfxInteractable.audioClips[0].length;
+        }
+        
         StartCoroutine("Collect", duration);
     }
 
