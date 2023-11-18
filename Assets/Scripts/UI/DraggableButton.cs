@@ -1,6 +1,9 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
+
 
 public interface DragCallbacks {
     void OnDragStart(IPointerEvent evt);
@@ -39,10 +42,38 @@ public class DraggableButton: Button {
     }
     
     private void OnPointerUp(IPointerEvent evt) {
+        // Debug.Log("valu4 is" + GameState.selectedInventoryItem.HasValue.ToString());
+        if(GameState.selectedInventoryItem.HasValue)
+            Debug.Log(GameState.selectedInventoryItem.Value.itemType.ToString());
+
+        Ray ray = Camera.main.ScreenPointToRay(GameState.lastPointerDragScreenPos);
+        if (!Physics.Raycast(ray, out RaycastHit raycastHit, LayerMask.GetMask("Interactable"))) return;
+        
         // TODO: The event raised is just a temporary measure to get L0P1 working
         // To be replaced with a more robust system that can match where items should go
-        Event.itemPlaced.Raise();
-        RemoveFromClassList(DRAGGING_SLOT_CLASS);
-        this.ReleasePointer(evt.pointerId);
+        switch (GameState.selectedInventoryItem.Value.itemType) {
+            case InventoryItem.Key:
+                if (raycastHit.transform.gameObject.name == "Doorframe") {
+                    TriggerDragInteraction(Event.L0UnlockDoorEvent);
+                }
+                break;
+            case InventoryItem.Paper:
+                if (raycastHit.transform.gameObject.name == "Paper1") {
+                    TriggerDragInteraction(Event.itemPlaced);
+                }
+                break;
+            default:
+                return;
+        }
+
+        
     }
+
+    private void TriggerDragInteraction(GameEvent gameEvent) {
+        gameEvent.Raise();
+        GameState.inventory.Clear();
+        Event.onInventoryUpdate.Raise();
+
+    }
+    
 }

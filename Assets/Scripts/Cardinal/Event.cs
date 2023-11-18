@@ -7,6 +7,8 @@ public class Event : MonoBehaviour {
     public static MonologueKeyGameEvent showDialogue;
     public static GameEvent L0P1SolvedEvent;
     public static GameEvent itemPlaced;
+    public static GameEvent L0UnlockDoorEvent;
+    public static GameEvent onInventoryUpdate;
 
     public GameEvent _hideAll;
     public GameEvent _revealAll;
@@ -14,6 +16,8 @@ public class Event : MonoBehaviour {
     public MonologueKeyGameEvent _showDialogue;
     public GameEvent _L0P1SolvedEvent;
     public GameEvent _itemPlaced;
+    public GameEvent _L0UnlockDoorEvent;
+    public GameEvent _onInventoryUpdate;
 
 
     void Start() {
@@ -23,5 +27,8 @@ public class Event : MonoBehaviour {
         showDialogue = _showDialogue;
         L0P1SolvedEvent = _L0P1SolvedEvent;
         itemPlaced = _itemPlaced;
+        L0UnlockDoorEvent = _L0UnlockDoorEvent;
+        onInventoryUpdate = _onInventoryUpdate;
     }
+    
 }

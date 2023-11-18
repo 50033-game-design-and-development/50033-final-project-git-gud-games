@@ -4,6 +4,7 @@ using UnityEngine;
 public class SFXInteractable : MonoBehaviour, IInteractable {
     public List<AudioClip> audioClips;
     private AudioSource audioSource;
+
     private int state;
 
     public void OnInteraction() {
@@ -12,7 +13,7 @@ public class SFXInteractable : MonoBehaviour, IInteractable {
             audioSource.PlayOneShot(audioClips[state]);
         }
     }
-
+    
     // To be called by event listener so that monologue changes based on game state
     public void IncrementState() {
         state = (state + 1) % audioClips.Count;
@@ -21,4 +22,6 @@ public class SFXInteractable : MonoBehaviour, IInteractable {
     private void Start() {
         audioSource = GetComponent<AudioSource>();
     }
+    
+    
 }

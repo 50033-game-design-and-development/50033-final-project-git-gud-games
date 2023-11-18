@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 
 namespace Inv {
-    [System.Serializable]
+    [Serializable]
     public struct Collectable {
-        public InventoryItems itemType;
+        public InventoryItem itemType;
         public Sprite itemSprite;
     }
 }

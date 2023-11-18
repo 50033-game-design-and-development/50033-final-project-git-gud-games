@@ -5,6 +5,11 @@ public class L0P1Paper2 : MonoBehaviour {
     private Collider boxCollider;
     public Transform paper1;
 
+    public Transform min;
+    public Transform max;
+    private Vector3 _min;
+    private Vector3 _max;
+
     // To be called by event listener
     public void PlacePaperOnDesk() {
         meshRenderer.enabled = true;
@@ -16,6 +21,9 @@ public class L0P1Paper2 : MonoBehaviour {
         boxCollider = GetComponent<Collider>();
         meshRenderer.enabled = false;
         boxCollider.enabled = false;
+
+        _min = min.position;
+        _max = max.position;
     }
 
     private void Update() {
@@ -24,5 +32,18 @@ public class L0P1Paper2 : MonoBehaviour {
             Event.L0P1SolvedEvent.Raise();
             Destroy(gameObject);
         }
+        
+        AdjustTransformToBounds();
+        
+    }
+
+    private void AdjustTransformToBounds() {
+
+        Vector3 newPos = transform.position;
+        newPos.x = Mathf.Clamp(newPos.x, _min.x, _max.x);
+        newPos.z = Mathf.Clamp(newPos.z, _min.z, _max.z);
+
+        transform.position = newPos;
+
     }
 }

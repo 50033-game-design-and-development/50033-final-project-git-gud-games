@@ -4,14 +4,12 @@ using UnityEngine;
 public class Collectable : MonoBehaviour, IInteractable {
     public GameEvent onInventoryUpdate;
     public Sprite invSprite;
-    public InventoryItems itemType;
+    public InventoryItem itemType;
 
-    private Inv.Collectable invItem {
-        get => new Inv.Collectable {
-            itemType = itemType,
-            itemSprite = invSprite,
-        };
-    }
+    private Inv.Collectable invItem => new() {
+        itemType = itemType,
+        itemSprite = invSprite,
+    };
 
     public void OnInteraction() {
         Debug.Log("Collect " + gameObject.name);
@@ -23,8 +21,12 @@ public class Collectable : MonoBehaviour, IInteractable {
 
     private IEnumerator Collect(float duration) {
         // Disable model and collider
-        GetComponent<MeshRenderer>().enabled = false;
-        GetComponent<Collider>().enabled = false;
+        if (TryGetComponent(out MeshRenderer meshRenderer)) {
+            meshRenderer.enabled = false;
+        }
+        if (TryGetComponent(out Collider collider)) {
+            collider.enabled = false;
+        }
 
         // Play out the SFX before destroying
         yield return new WaitForSeconds(duration);

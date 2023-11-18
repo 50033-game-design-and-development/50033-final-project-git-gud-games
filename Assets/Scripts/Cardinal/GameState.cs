@@ -11,7 +11,6 @@ public class GameState : MonoBehaviour {
     public static bool isDraggingInventoryItem = false;
     public static Vector2 lastPointerDragScreenPos;
     public static bool mouseHold;
-    public static bool isFocused;
     
     private static bool _inventoryOpened = false;
     
