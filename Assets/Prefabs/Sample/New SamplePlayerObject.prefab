@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6534828400990026098}
   - component: {fileID: 1083258293192373845}
   - component: {fileID: 8033819223550226134}
-  - component: {fileID: 6927462181489859488}
   - component: {fileID: 8239637410759064175}
+  - component: {fileID: 1371007329217956156}
   m_Layer: 0
   m_Name: MonologuePanel
   m_TagString: Untagged
@@ -188,9 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41bcfe612b2ea082aaaa6876fd9351e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMap: {fileID: 11400000, guid: 0cc7ccf23724d0344ac30c7d73e4285f, type: 2}
-  stringMap: {fileID: 11400000, guid: 8c89af2e4d976165784a1ad4f7098afd, type: 2}
---- !u!114 &6927462181489859488
+--- !u!114 &8239637410759064175
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,10 +197,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 493417330213947310}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e6c60828e67a53fdbb5d4b2387d9d07, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ef980e6a2193870a9869f3c63362c86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: 6a3053994178469ae94d7fdb325885cb, type: 2}
+  monologueKey: 1
+--- !u!114 &1371007329217956156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493417330213947310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afddf984aa5a37612a64a41620226b33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 9a33f24b199f73fbea54375e870f2719, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
@@ -218,19 +229,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8239637410759064175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 493417330213947310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ef980e6a2193870a9869f3c63362c86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monologueKey: 0
 --- !u!1 &754602151221385095
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,6 +243,8 @@ GameObject:
   - component: {fileID: 5119092279033307458}
   - component: {fileID: 3631305806978491893}
   - component: {fileID: 7692906976158322618}
+  - component: {fileID: 4057700154051713467}
+  - component: {fileID: 4651706699068592141}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -455,6 +455,124 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!82 &4057700154051713467
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754602151221385095}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 7525234714639305404, guid: a94018a47709040fd82c3e5dfe0b6432, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &4651706699068592141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754602151221385095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4969042a1ab9d4dd98b538cd6cc60985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAudioSource: {fileID: 4057700154051713467}
+  walkSounds:
+  - {fileID: 8300000, guid: b993df4a93c1d304ab19d8b2eb88c9a5, type: 3}
+  - {fileID: 8300000, guid: 5c9bdbce37b06a24fa6ea793bcfd1907, type: 3}
+  - {fileID: 8300000, guid: 0909de896e9029541b92ae05fe15e4b6, type: 3}
+  - {fileID: 8300000, guid: 6ad0cf00f050bee41a2dee098475dc78, type: 3}
+  - {fileID: 8300000, guid: 7ca5a9710db4327439c9f8cb8204615e, type: 3}
+  - {fileID: 8300000, guid: 14ae706fef2303e4cb71112dbd5d250b, type: 3}
+  - {fileID: 8300000, guid: b995bc1775ea83b4b8f861763e9a1424, type: 3}
+  - {fileID: 8300000, guid: d15f7338d693f0343843a6b9096d27f6, type: 3}
 --- !u!1 &1732224761850957014
 GameObject:
   m_ObjectHideFlags: 0
@@ -987,6 +1105,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 7dc661d7-2ae7-4dbe-a132-09faf7c191ec
     m_ActionName: gameplay/InventoryOpen[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 26a97fb9-4624-4229-bbad-9ad507cbee23
+    m_ActionName: gameplay/MousePress[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Default
   m_DefaultActionMap: gameplay
@@ -1064,14 +1186,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.6392157}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 7e432b18b81e6a2438fa51bc7b4583a8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1132,7 +1254,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerConstants: {fileID: 11400000, guid: c5333c05b04472e41bf642f63025eb7e, type: 2}
-  onInventoryUpdate: {fileID: 11400000, guid: f242a7ef48cbb9af9a7d7fac0e508881, type: 2}
 --- !u!114 &229509071889470388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1165,8 +1286,8 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2.4
-  m_Radius: 0.5
+  m_Height: 2.6
+  m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.1
   m_SkinWidth: 0.0001
@@ -1197,6 +1318,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b0d065c8311f544ba4dee606042c0a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cineMachineCamera: {fileID: 0}
+  firstPersonCamera: {fileID: 0}
   playerConstants: {fileID: 11400000, guid: c5333c05b04472e41bf642f63025eb7e, type: 2}
 --- !u!1 &5599919651094197622
 GameObject:

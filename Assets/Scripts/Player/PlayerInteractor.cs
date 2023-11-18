@@ -4,8 +4,6 @@ using UnityEngine;
 public class PlayerInteractor : MonoBehaviour {
     private PlayerAction _playerAction;
     private int _layerMaskInteractable;
-
-    public GameEvent onInventoryUpdate;
     public CinemachineStateDrivenCamera cineMachineCamera;
     public CinemachineVirtualCamera firstPersonCamera;
     public PlayerConstants playerConstants;
@@ -60,7 +58,8 @@ public class PlayerInteractor : MonoBehaviour {
             }
 
             GameState.isDraggingInventoryItem = false;
-            GameState.selectedInventoryItem = null;
+            // GameState.selectedInventoryItem = null;
+            // Debug.Log("setting to null");
             GameState.mouseHold = false;
         };
 
@@ -82,13 +81,13 @@ public class PlayerInteractor : MonoBehaviour {
                 }
             }
 
-            onInventoryUpdate.Raise();
+            Event.onInventoryUpdate.Raise();
         };
 
         // close inventory when you press escape
         _playerAction.gameplay.Escape.performed += _ => {
             // GameState.HideInventory();
-            onInventoryUpdate.Raise();
+            Event.onInventoryUpdate.Raise();
         };
     }
 }

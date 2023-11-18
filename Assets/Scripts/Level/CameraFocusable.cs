@@ -5,7 +5,6 @@ using UnityEngine;
 public class CameraFocusable : MonoBehaviour, IInteractable {
     
     public Animator cinemachineAnimator;
-    public GameEvent onInventoryUpdate;
     
     // name of the virtual camera state in cinemachineAnimator to play when object is clicked
     public string startStateName;
@@ -27,13 +26,13 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
         
         cinemachineAnimator.Play(startStateName);
         GameState.inventoryOpened = true;
-        onInventoryUpdate.Raise();
+        Event.onInventoryUpdate.Raise();
     }
     
     private void OnEscape() {
         cinemachineAnimator.Play(endStateName);
         GameState.inventoryOpened = false;
-        onInventoryUpdate.Raise();
+        Event.onInventoryUpdate.Raise();
     }
     
     private void Update() {

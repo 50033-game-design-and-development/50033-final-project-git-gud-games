@@ -14,7 +14,10 @@ public class HotbarItemDragHandler : DragCallbacks {
     
     public void OnDragStart(IPointerEvent evt) {
         if (_hotbarItemIndex >= GameState.inventory.Count) { return; }
+        Debug.Log("currently"+ GameState.selectedInventoryItem.HasValue.ToString());
         GameState.selectedInventoryItem = GameState.inventory[_hotbarItemIndex];
+        Debug.Log("now"+ GameState.selectedInventoryItem.HasValue.ToString());
+        Debug.Log(_hotbarItemIndex.ToString());
         GameState.isDraggingInventoryItem = true;
     }
 }

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class MonologueInteractable : MonoBehaviour, IInteractable {
     public List<MonologueKey> monologueKeys;
