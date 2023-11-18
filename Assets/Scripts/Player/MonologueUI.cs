@@ -8,14 +8,19 @@ public class MonologueUI : MonoBehaviour {
     private AudioSource audioSource;
     private TextMeshProUGUI subtitles;
     private Image background;
+    private MonologueKey? cachedKey;
 
     public void StartMonologue(MonologueKey monologueKey) {
+        if (monologueKey == cachedKey) {
+            return;
+        }
         StopCoroutine("Monologue");
         StopCoroutine("EndMonologue");
         StartCoroutine("Monologue", monologueKey);
     }
 
     private IEnumerator Monologue(MonologueKey monologueKey) {
+        cachedKey = monologueKey;
         Monologue monologue = MonologueMap.Get(monologueKey);
         SetAlpha(1);
 
@@ -41,6 +46,7 @@ public class MonologueUI : MonoBehaviour {
 
     // Fade out monologue panel
     private IEnumerator EndMonologue() {
+        cachedKey = null;
         for (float alpha = 1; alpha > 0; alpha -= 0.05f) {
             SetAlpha(alpha);
             yield return new WaitForSeconds(0.05f);
