@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class P1Paper1 : MonoBehaviour {
-    public Material combinedPapersMaterial;
+    [SerializeField] private Material combinedPapersMaterial;
 
     // To be called by event listener
     public void L0P1Solved() {

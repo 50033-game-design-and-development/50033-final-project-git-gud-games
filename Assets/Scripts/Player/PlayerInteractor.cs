@@ -10,7 +10,7 @@ public class PlayerInteractor : MonoBehaviour {
 
     private void TriggerInteractions(Vector2 screenPos) {
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
-
+        
         if (Physics.Raycast(ray, out RaycastHit raycastHit, playerConstants.raycastDistance, _layerMaskInteractable)) {
             Interact(raycastHit.transform.gameObject);
         }

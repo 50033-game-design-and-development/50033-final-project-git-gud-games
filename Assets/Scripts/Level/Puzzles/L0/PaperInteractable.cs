@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class PaperInteractable : MonoBehaviour, IInteractable {
-    public bool _isPaper1;
+    [SerializeField] private bool _isPaper1;
     private bool seen;
 
     public void OnInteraction() {

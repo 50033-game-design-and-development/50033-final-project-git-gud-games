@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MonologueInteractable : MonoBehaviour, IInteractable {
-    public List<MonologueKey> monologueKeys;
+    [SerializeField] private List<MonologueKey> monologueKeys;
     private int state;
 
     public void OnInteraction() {
