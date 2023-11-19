@@ -63,8 +63,8 @@ namespace NavKeypad
         }
 
         public void OnInteraction() {
-            // Debug.Log("PRESS_DIGIT " + value);
-            PressButton();
+            keypad.AddInput(value);
+            StartCoroutine(MoveSmooth());
         }
     }
 }
