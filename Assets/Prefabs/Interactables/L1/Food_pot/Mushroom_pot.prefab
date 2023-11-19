@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 4415715908314949732}
   - component: {fileID: 2353143708258376893}
   - component: {fileID: 759224899048273876}
+  - component: {fileID: 8097694627485220808}
+  - component: {fileID: 1234206549875223329}
+  - component: {fileID: 4191092327718091698}
   m_Layer: 6
   m_Name: Mushroom_pot
   m_TagString: Untagged
@@ -30,8 +33,8 @@ Transform:
   m_GameObject: {fileID: 51683372884599015}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.56255, y: -0.6239865, z: -2.8917975}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2321101749110775188}
@@ -181,10 +184,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.8208052
-  m_Height: 4.4639983
-  m_Direction: 1
-  m_Center: {x: -0.06977552, y: -0.3105194, z: -0.016005509}
+  m_Radius: 2.0711484
+  m_Height: 5.4105506
+  m_Direction: 0
+  m_Center: {x: 0.37017295, y: -0.14723068, z: 0.16978508}
 --- !u!54 &759224899048273876
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -212,6 +215,61 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8097694627485220808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51683372884599015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46e28ceabde7904d85fce35313eb440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: b5e48fdadf380cc4f97f671f00f3264c, type: 2}
+  item: 7
+--- !u!114 &1234206549875223329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51683372884599015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a692da04ac66546bf271644ad4547c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 7
+--- !u!114 &4191092327718091698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51683372884599015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328dfcd12e818624da4540317814398c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: b5e48fdadf380cc4f97f671f00f3264c, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1234206549875223329}
+        m_TargetAssemblyTypeName: InventoryItemInteractionTrigger, Assembly-CSharp
+        m_MethodName: TriggerInteraction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2220283425863191009
 GameObject:
   m_ObjectHideFlags: 0

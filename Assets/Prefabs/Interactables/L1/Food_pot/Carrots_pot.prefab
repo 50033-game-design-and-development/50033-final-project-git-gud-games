@@ -26,13 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474597577324094417}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.17357677, y: -0.29476255, z: -0.16286443, w: 0.925452}
+  m_LocalRotation: {x: -0.0902628, y: -0.15204322, z: -0.1906623, w: 0.9656}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6311163051445075268}
-  m_LocalEulerAnglesHint: {x: -24.663, y: -32.556, z: -12.657}
+  m_LocalEulerAnglesHint: {x: -13.432, y: -15.456, z: -20.508}
 --- !u!33 &8176279898024323499
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -97,6 +97,9 @@ GameObject:
   - component: {fileID: 6034071874835647969}
   - component: {fileID: 188102810403247149}
   - component: {fileID: 3571257004822348688}
+  - component: {fileID: 5729031132180750000}
+  - component: {fileID: 3761968513394404900}
+  - component: {fileID: 3187809920826805327}
   m_Layer: 6
   m_Name: Carrots_pot
   m_TagString: Untagged
@@ -114,8 +117,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.11, y: 0.11, z: 0.11}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2220109029316262374}
   m_Father: {fileID: 0}
@@ -264,10 +267,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 6.78623
+  m_Radius: 1.3054541
+  m_Height: 6.4744763
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0.1001873}
+  m_Center: {x: -0.27076602, y: -0.35182482, z: -0.055689704}
 --- !u!54 &3571257004822348688
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -295,3 +298,58 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5729031132180750000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6788073716747617998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46e28ceabde7904d85fce35313eb440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: b5e48fdadf380cc4f97f671f00f3264c, type: 2}
+  item: 9
+--- !u!114 &3761968513394404900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6788073716747617998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a692da04ac66546bf271644ad4547c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 9
+--- !u!114 &3187809920826805327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6788073716747617998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328dfcd12e818624da4540317814398c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: b5e48fdadf380cc4f97f671f00f3264c, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3761968513394404900}
+        m_TargetAssemblyTypeName: InventoryItemInteractionTrigger, Assembly-CSharp
+        m_MethodName: TriggerInteraction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

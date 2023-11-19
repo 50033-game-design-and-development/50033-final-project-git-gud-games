@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 467815353401050551}
   - component: {fileID: 557658907159770237}
   - component: {fileID: 4194953101328865491}
+  - component: {fileID: 1250302547392110292}
+  - component: {fileID: 6978886300464576372}
+  - component: {fileID: 1813716910053636432}
   m_Layer: 6
   m_Name: Tomato_pot
   m_TagString: Untagged
@@ -31,7 +34,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
+  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 633211679807633170}
@@ -72,8 +75,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2.5922656
-  m_Center: {x: 0.00000025806443, y: 2.6, z: -3.593306}
+  m_Radius: 3.2049472
+  m_Center: {x: -0.58750564, y: 2.6251795, z: -3.593309}
 --- !u!114 &467815353401050551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +214,61 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1250302547392110292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985594609270455805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46e28ceabde7904d85fce35313eb440, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: b5e48fdadf380cc4f97f671f00f3264c, type: 2}
+  item: 10
+--- !u!114 &6978886300464576372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985594609270455805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a692da04ac66546bf271644ad4547c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 10
+--- !u!114 &1813716910053636432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985594609270455805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328dfcd12e818624da4540317814398c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: b5e48fdadf380cc4f97f671f00f3264c, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6978886300464576372}
+        m_TargetAssemblyTypeName: InventoryItemInteractionTrigger, Assembly-CSharp
+        m_MethodName: TriggerInteraction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4396626085534765579
 GameObject:
   m_ObjectHideFlags: 0

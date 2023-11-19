@@ -6,6 +6,7 @@ public class P2Pot : MonoBehaviour {
 
     [Header("Debug")]
     public List<InventoryItem> potItems = new List<InventoryItem>();
+    private Dictionary<InventoryItem, GameObject> potItemPrefabs = new Dictionary<InventoryItem, GameObject>(); 
 
     [Header("Attributes")]
     [SerializeField] private Transform ingredientsTransform;
@@ -17,7 +18,7 @@ public class P2Pot : MonoBehaviour {
 
     
 
-    public void OnDragDrop() {
+    public void AddIngredient() {
         if (!GameState.selectedInventoryItem.HasValue) 
             return;
 
@@ -44,6 +45,13 @@ public class P2Pot : MonoBehaviour {
     // Listening to potCombinationCheck event
     public void CheckCombination() {
         Debug.LogWarning("Unimplemented");
+    }
+
+    public void RemoveIngredient(InventoryItem item) {
+        if (potItems.Contains(item)) {
+            potItems.Remove(item);
+        }
+            
     }
 
 
