@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 // Adapted from https://fistfullofshrimp.com/unity-drag-things-around/

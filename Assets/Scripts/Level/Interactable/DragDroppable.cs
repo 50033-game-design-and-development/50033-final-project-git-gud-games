@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +15,7 @@ public class DragDoppable : MonoBehaviour, IDragDroppable {
             return;
         }
         GameState.inventory.Remove(selectedInventoryItem);
+        Event.Global.inventoryUpdate.Raise();
 
         @event.Raise();
     }

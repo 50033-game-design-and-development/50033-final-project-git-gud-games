@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace NavKeypad
 {
-    public class KeypadButton : MonoBehaviour
+    public class KeypadButton : MonoBehaviour, IInteractable
     {
         [Header("Value")]
         [SerializeField] private string value;
@@ -60,6 +60,11 @@ namespace NavKeypad
             transform.localPosition = endPos;
 
             moving = false;
+        }
+
+        public void OnInteraction() {
+            // Debug.Log("PRESS_DIGIT " + value);
+            PressButton();
         }
     }
 }

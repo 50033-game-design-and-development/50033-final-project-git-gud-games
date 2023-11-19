@@ -52,13 +52,13 @@ public class PlayerMouseLook : MonoBehaviour {
         _playerAction.gameplay.InventoryOpen.performed += _ => {
             GameState.ToggleInventory();
             Debug.Log("TOGGLE");
-            onInventoryUpdate.Raise();
+            inventoryUpdate.Raise();
         };
         */
         // close inventory when you press escape
         _playerAction.gameplay.Escape.performed += _ => {
             // GameState.HideInventory();
-            Event.onInventoryUpdate.Raise();
+            Event.Global.inventoryUpdate.Raise();
         };
     }
 
