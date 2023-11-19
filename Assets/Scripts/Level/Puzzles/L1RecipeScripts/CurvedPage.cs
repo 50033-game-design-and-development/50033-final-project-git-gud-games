@@ -2,9 +2,9 @@ using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter))]
 public class CurvedPage : MonoBehaviour {
-    private float _curveHeight = 0.2f;
-    private float _sineWaveStartPercent = 0;
-    private float _sineWaveEndPercent = 0.5f;
+    public float _curveHeight;
+    public float _sineWaveStartPercent;
+    public float _sineWaveEndPercent;
 
     private void CreateCurvedPage() {
         Mesh mesh = GetComponent<MeshFilter>().mesh;
