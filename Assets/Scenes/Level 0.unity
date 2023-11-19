@@ -293,7 +293,7 @@ Transform:
   - {fileID: 1948914237}
   m_Father: {fileID: 628170632}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &120635303
+--- !u!21 &185074258
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -3616,6 +3616,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5273702698105169557, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
+      insertIndex: 9
+      addedObject: {fileID: 2124534455}
+    - targetCorrespondingSourceObject: {fileID: 5273702698105169557, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2124534445}
   m_SourcePrefab: {fileID: 100100000, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
@@ -3834,7 +3837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 120635303}
+  m_Material: {fileID: 185074258}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -3996,6 +3999,10 @@ PrefabInstance:
       propertyPath: cinemachineAnimator
       value: 
       objectReference: {fileID: 1194112844}
+    - target: {fileID: 9066448938180331214, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
+      propertyPath: event
+      value: 
+      objectReference: {fileID: 11400000, guid: b170fc9a837f1864cac89169605a3b0f, type: 2}
     - target: {fileID: 9066448938180331214, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
       propertyPath: itemType
       value: 1
@@ -4259,10 +4266,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hideAll: {fileID: 11400000, guid: ec75149745319684498e4c3dfd53c9de, type: 2}
+  _inventoryUpdate: {fileID: 0}
   _revealAll: {fileID: 11400000, guid: 63080e7618c82ec40a90130e24461487, type: 2}
   _revealPositionOnUi: {fileID: 11400000, guid: 3254f790691a4a74fb7ecb1a932ff123, type: 2}
   _showDialogue: {fileID: 11400000, guid: 9a33f24b199f73fbea54375e870f2719, type: 2}
-  _inventoryUpdate: {fileID: 0}
 --- !u!4 &1793376006
 Transform:
   m_ObjectHideFlags: 0
@@ -4335,6 +4342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 844ffd213d1a409da3c5e52cbfad81ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collectKey: {fileID: 11400000, guid: b170fc9a837f1864cac89169605a3b0f, type: 2}
   _placepPaper2: {fileID: 11400000, guid: 758ca5494ab26ef11b8e221d78b29c55, type: 2}
   _solveP1: {fileID: 11400000, guid: ceccf42bdf2c966fbaa3bea98c7580ae, type: 2}
   _unlockDoor: {fileID: 11400000, guid: a959324e947c541029b0648d3e6e82a6, type: 2}
@@ -4351,10 +4359,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hideAll: {fileID: 11400000, guid: ec75149745319684498e4c3dfd53c9de, type: 2}
+  _inventoryUpdate: {fileID: 11400000, guid: f242a7ef48cbb9af9a7d7fac0e508881, type: 2}
   _revealAll: {fileID: 11400000, guid: 63080e7618c82ec40a90130e24461487, type: 2}
   _revealPositionOnUi: {fileID: 11400000, guid: 3254f790691a4a74fb7ecb1a932ff123, type: 2}
   _showDialogue: {fileID: 11400000, guid: 9a33f24b199f73fbea54375e870f2719, type: 2}
-  _inventoryUpdate: {fileID: 11400000, guid: f242a7ef48cbb9af9a7d7fac0e508881, type: 2}
 --- !u!4 &1841515208
 Transform:
   m_ObjectHideFlags: 0
@@ -5248,6 +5256,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleDroppable: 00000000
   event: {fileID: 11400000, guid: 758ca5494ab26ef11b8e221d78b29c55, type: 2}
+--- !u!114 &2124534448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7258650849225820414, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
+  m_PrefabInstance: {fileID: 1523629649}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124534443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4554c88273303224dad63051da05013c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2124534455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124534443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1645042ab9c7e1c40a7c732a204f5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: b170fc9a837f1864cac89169605a3b0f, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2124534448}
+        m_TargetAssemblyTypeName: MonologueInteractable, Assembly-CSharp
+        m_MethodName: IncrementState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1216136005929907595
 PrefabInstance:
   m_ObjectHideFlags: 0

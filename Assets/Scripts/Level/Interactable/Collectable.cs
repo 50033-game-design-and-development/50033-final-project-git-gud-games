@@ -5,6 +5,8 @@ public class Collectable : MonoBehaviour, IInteractable {
     public Sprite invSprite;
     public InventoryItem itemType;
 
+    public GameEvent @event;
+
     private Inv.Collectable invItem => new() {
         itemType = itemType,
         itemSprite = invSprite,
@@ -19,7 +21,11 @@ public class Collectable : MonoBehaviour, IInteractable {
         if (TryGetComponent(out SFXInteractable sfxInteractable)) {
             duration = sfxInteractable.audioClips[0].length;
         }
-        
+
+        if (@event != null) {
+            @event.Raise();
+        }
+
         StartCoroutine("Collect", duration);
     }
 
