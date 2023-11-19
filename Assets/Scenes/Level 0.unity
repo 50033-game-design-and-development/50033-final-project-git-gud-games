@@ -412,45 +412,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 129059286620472505, guid: 0b50cf60278d80f43acc448fe7c07d9d, type: 3}
   m_PrefabInstance: {fileID: 788321114}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &394243631
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
-  m_BuildTextureStacks: []
 --- !u!4 &402842775 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2578315247240585259, guid: 6f15c2fc0c9b5b149a4f0802e0cc927e, type: 3}
@@ -1360,6 +1321,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4432975863972712, guid: 278e8eacf74c6154ebc173a666e00c27, type: 3}
   m_PrefabInstance: {fileID: 632847931}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &645731980 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9137121833469213466, guid: 2bc20f0a7bef25a4c82cc1dc5d4185f8, type: 3}
+  m_PrefabInstance: {fileID: 1356206777}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &651358926
 PrefabInstance:
@@ -2799,6 +2765,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7124944250631982417, guid: 2bc20f0a7bef25a4c82cc1dc5d4185f8, type: 3}
+      propertyPath: monologueKeys.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124944250631982417, guid: 2bc20f0a7bef25a4c82cc1dc5d4185f8, type: 3}
+      propertyPath: monologueKeys.Array.data[0]
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124944250631982417, guid: 2bc20f0a7bef25a4c82cc1dc5d4185f8, type: 3}
+      propertyPath: monologueKeys.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9137121833469213466, guid: 2bc20f0a7bef25a4c82cc1dc5d4185f8, type: 3}
       propertyPath: m_Name
       value: Paper2
@@ -2806,7 +2784,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9137121833469213466, guid: 2bc20f0a7bef25a4c82cc1dc5d4185f8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1356206794}
+    - targetCorrespondingSourceObject: {fileID: 9137121833469213466, guid: 2bc20f0a7bef25a4c82cc1dc5d4185f8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1356206793}
   m_SourcePrefab: {fileID: 100100000, guid: 2bc20f0a7bef25a4c82cc1dc5d4185f8, type: 3}
 --- !u!4 &1356206778 stripped
 Transform:
@@ -2818,12 +2802,76 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3520785864255833461, guid: 2bc20f0a7bef25a4c82cc1dc5d4185f8, type: 3}
   m_PrefabInstance: {fileID: 1356206777}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 645731980}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30247d4bbd61d434da331d5029c47197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1356206787 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7124944250631982417, guid: 2bc20f0a7bef25a4c82cc1dc5d4185f8, type: 3}
+  m_PrefabInstance: {fileID: 1356206777}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645731980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4554c88273303224dad63051da05013c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1356206793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645731980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1645042ab9c7e1c40a7c732a204f5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 16d24df7029effaebbeb62ab65152153, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1356206794}
+        m_TargetAssemblyTypeName: PaperInteractable, Assembly-CSharp
+        m_MethodName: SetSeen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1356206787}
+        m_TargetAssemblyTypeName: MonologueInteractable, Assembly-CSharp
+        m_MethodName: IncrementState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1356206794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645731980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a3d9f0bced06b679f328f2b0250a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isPaper1: 0
 --- !u!1001 &1361994740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3473,6 +3521,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paper1
       objectReference: {fileID: 0}
+    - target: {fileID: 7258650849225820414, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
+      propertyPath: monologueKeys.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258650849225820414, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
+      propertyPath: monologueKeys.Array.data[1]
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258650849225820414, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
+      propertyPath: monologueKeys.Array.data[2]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258650849225820414, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
+      propertyPath: monologueKeys.Array.data[3]
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3483,6 +3547,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5273702698105169557, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2124534445}
+    - targetCorrespondingSourceObject: {fileID: 5273702698105169557, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2124534465}
+    - targetCorrespondingSourceObject: {fileID: 5273702698105169557, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2124534464}
   m_SourcePrefab: {fileID: 100100000, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
 --- !u!1 &1592162206
 GameObject:
@@ -3699,7 +3769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 394243631}
+  m_Material: {fileID: 1796238600}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -4097,6 +4167,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4333737611318720, guid: b29ecf6c6d8bc074fb2fa0418d400134, type: 3}
   m_PrefabInstance: {fileID: 1780292793}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &1796238600
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &1841515204
 GameObject:
   m_ObjectHideFlags: 0
@@ -4142,9 +4251,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collectKey: {fileID: 11400000, guid: b170fc9a837f1864cac89169605a3b0f, type: 2}
-  _placepPaper2: {fileID: 11400000, guid: 758ca5494ab26ef11b8e221d78b29c55, type: 2}
+  _placePaper2: {fileID: 11400000, guid: 758ca5494ab26ef11b8e221d78b29c55, type: 2}
   _solveP1: {fileID: 11400000, guid: ceccf42bdf2c966fbaa3bea98c7580ae, type: 2}
   _unlockDoor: {fileID: 11400000, guid: a959324e947c541029b0648d3e6e82a6, type: 2}
+  _seePaper1: {fileID: 11400000, guid: 16d24df7029effaebbeb62ab65152153, type: 2}
+  _seePaper2: {fileID: 11400000, guid: 42aab39586cb04f91a07127cb36e4659, type: 2}
 --- !u!114 &1841515207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5095,6 +5206,59 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2124534464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124534443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1645042ab9c7e1c40a7c732a204f5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 42aab39586cb04f91a07127cb36e4659, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2124534465}
+        m_TargetAssemblyTypeName: PaperInteractable, Assembly-CSharp
+        m_MethodName: SetSeen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2124534448}
+        m_TargetAssemblyTypeName: MonologueInteractable, Assembly-CSharp
+        m_MethodName: IncrementState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2124534465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124534443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a3d9f0bced06b679f328f2b0250a22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isPaper1: 1
 --- !u!1001 &1216136005929907595
 PrefabInstance:
   m_ObjectHideFlags: 0
