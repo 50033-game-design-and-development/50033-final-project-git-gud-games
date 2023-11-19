@@ -60,11 +60,11 @@ public class PlayerRayCast : MonoBehaviour {
     }
 
     private void EnableAllOutlines() {
-        Event.revealAll.Raise();
+        Event.Global.revealAll.Raise();
     }
 
     private void DisableAllOutlines() {
-        Event.hideAll.Raise();
+        Event.Global.hideAll.Raise();
         _highlight = null;
         _highlighted = false;
     }

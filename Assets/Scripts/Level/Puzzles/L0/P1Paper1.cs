@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class L0P1Paper1 : MonoBehaviour {
+public class P1Paper1 : MonoBehaviour {
     public Material combinedPapersMaterial;
 
     // To be called by event listener

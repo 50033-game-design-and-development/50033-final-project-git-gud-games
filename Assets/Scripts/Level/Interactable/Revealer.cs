@@ -5,7 +5,7 @@ public class Revealer : MonoBehaviour, IInteractable {
     private Revealable revealedObject;
 
     [Header("State Tracking")] [SerializeField]
-    private bool isRevealed = false;
+    private bool isRevealed;
 
     public void OnInteraction() {
         isRevealed = !isRevealed;
