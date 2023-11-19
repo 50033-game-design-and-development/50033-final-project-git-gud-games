@@ -70,24 +70,19 @@ public class PlayerInteractor : MonoBehaviour {
 
             // check if the cinemachine camera is not locked
             // to any interaction objects i.e. it follows the player
-            if (cineMachineCamera.LiveChild == firstPersonCamera) {
-                if (GameState.inventoryOpened) {
-                    // disable the cineMachineCamera if the inventory
-                    // is opened, otherwise the camera will follow
-                    // the cursor position
-                    cineMachineCamera.enabled = false;
-                } else {
-                    cineMachineCamera.enabled = true;
-                }
+            if (ReferenceEquals(cineMachineCamera.LiveChild, firstPersonCamera)) {
+                // disable the cineMachineCamera if the inventory is opened, otherwise the camera will follow
+                // the cursor position
+                cineMachineCamera.enabled = !GameState.inventoryOpened;
             }
 
-            Event.onInventoryUpdate.Raise();
+            Event.Global.inventoryUpdate.Raise();
         };
 
         // close inventory when you press escape
         _playerAction.gameplay.Escape.performed += _ => {
             // GameState.HideInventory();
-            Event.onInventoryUpdate.Raise();
+            Event.Global.inventoryUpdate.Raise();
         };
     }
 }

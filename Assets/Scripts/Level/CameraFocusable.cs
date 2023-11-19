@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraFocusable : MonoBehaviour, IInteractable {
@@ -26,13 +24,13 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
         
         cinemachineAnimator.Play(startStateName);
         GameState.inventoryOpened = true;
-        Event.onInventoryUpdate.Raise();
+        Event.Global.inventoryUpdate.Raise();
     }
     
     private void OnEscape() {
         cinemachineAnimator.Play(endStateName);
         GameState.inventoryOpened = false;
-        Event.onInventoryUpdate.Raise();
+        Event.Global.inventoryUpdate.Raise();
     }
     
     private void Update() {
