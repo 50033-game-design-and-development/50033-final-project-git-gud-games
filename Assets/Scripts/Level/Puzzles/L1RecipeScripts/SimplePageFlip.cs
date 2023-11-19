@@ -2,11 +2,9 @@ using System.Collections;
 using UnityEngine;
 public class SimplePageFlip : MonoBehaviour {
     public float flipSpeed = 0.1f; // Adjust the speed of the flip as needed
-
-    private bool _isFlipping = false;
-
-    public GameObject topPage; 
+    public GameObject topPage;
     public GameObject bottomPage;
+    private bool _isFlipping = false;
     
     public void LeftFlip() {
         if (!_isFlipping) {
@@ -47,7 +45,8 @@ public class SimplePageFlip : MonoBehaviour {
 
     private void SetPageActive(GameObject page, bool isActive) {
         if (page != null) {
-            page.SetActive(isActive);
+            page.GetComponent<Collider>().enabled = isActive;
+            page.GetComponent<MeshRenderer>().enabled = isActive;
         }
     }
     
