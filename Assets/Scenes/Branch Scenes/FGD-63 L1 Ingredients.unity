@@ -684,6 +684,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVisible: 1
+--- !u!21 &200149069
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &203319874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3325,45 +3364,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4393125519056686, guid: d9701c9a48aaebe40813707f15a57b7d, type: 3}
   m_PrefabInstance: {fileID: 1326671939}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &903219280
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
-  m_BuildTextureStacks: []
 --- !u!4 &916773561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4432975863972712, guid: 278e8eacf74c6154ebc173a666e00c27, type: 3}
@@ -4044,7 +4044,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1146918221}
   m_Layer: 6
-  m_Name: FoodAddTransform
+  m_Name: Ingredients
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4059,7 +4059,7 @@ Transform:
   m_GameObject: {fileID: 1146918220}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.96, z: 0}
+  m_LocalPosition: {x: 0.038, y: 1.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4487,14 +4487,13 @@ GameObject:
   - component: {fileID: 1283216762}
   - component: {fileID: 1283216765}
   - component: {fileID: 1283216764}
-  - component: {fileID: 1283216763}
   m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1283216762
 Transform:
   m_ObjectHideFlags: 0
@@ -4510,29 +4509,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1639976169}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1283216763
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283216761}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1283216764
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5563,7 +5539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 903219280}
+  m_Material: {fileID: 200149069}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -5792,7 +5768,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 37dc65af55103f640a067d624e0b5303, type: 3}
 --- !u!1 &1639573225 stripped
@@ -5981,18 +5957,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   potItems: 
-  ingredientTransform: {fileID: 1146918221}
+  ingredientsTransform: {fileID: 1146918221}
   validItems: 02000000030000000400000005000000060000000700000008000000090000000a000000
   itemPrefabs:
-  - {fileID: 1847185068838499428, guid: 40f37951921f9ec438636a7b917e84f9, type: 3}
-  - {fileID: 6228904131254032662, guid: 50fd1e0aeabbdfd40a238e58863558a0, type: 3}
-  - {fileID: 305065933469344673, guid: 918758ca73c4db24db9b7a836355589e, type: 3}
-  - {fileID: 4097765851571926877, guid: 614d5ef3339dd93449f0820191f4474b, type: 3}
-  - {fileID: 8683847613737236764, guid: b0da6263342d3e04593ebf9e0e183704, type: 3}
-  - {fileID: 1709549777231915040, guid: 3d39dc15aaa238441b8abeeeae681b6a, type: 3}
-  - {fileID: 8197620515490454455, guid: b6410f22fd5693c40833122abc078f7d, type: 3}
-  - {fileID: 5488210325201089450, guid: c05195097e2e5274c9e61473d768e312, type: 3}
-  - {fileID: 5534114547609247359, guid: 899918596e09516478405e70ea06435c, type: 3}
+  - {fileID: 9172847521441355182, guid: 58840736d6e4eb84dbc4dc764fc46ad4, type: 3}
+  - {fileID: 7290080629405415091, guid: 6db2e0021a9fb65499f1be82e50b36f3, type: 3}
+  - {fileID: 844469472284238510, guid: 98342c71b969f2e438f3208556e8f407, type: 3}
+  - {fileID: 8797128082646451940, guid: 30febb08e538d3d4bb301ec92c211e9a, type: 3}
+  - {fileID: 8786036391655017191, guid: 601538606910b7a41993cb55d7805b5f, type: 3}
+  - {fileID: 51683372884599015, guid: 5e5f8cca0aebbe34b9a2b12f1d0a0d31, type: 3}
+  - {fileID: 8601782397292859899, guid: b1ec80a36ad7b6a4888d7f94078add0a, type: 3}
+  - {fileID: 6788073716747617998, guid: 81545a083e54ef04aa5fcb9c15ccf68f, type: 3}
+  - {fileID: 1985594609270455805, guid: f99a43c734266f046abf0ea39551aebe, type: 3}
 --- !u!1001 &1659493605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6466,7 +6442,6 @@ Transform:
   - {fileID: 4985949415617917}
   - {fileID: 4455027004845976}
   - {fileID: 4502275108223417}
-  - {fileID: 8277478718538462713}
   - {fileID: 4754351273213279}
   - {fileID: 4486963033800819}
   - {fileID: 4583812081429465}
@@ -7611,63 +7586,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1001 &743120480341191669
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1774614194}
-    m_Modifications:
-    - target: {fileID: 51683372884599015, guid: 5e5f8cca0aebbe34b9a2b12f1d0a0d31, type: 3}
-      propertyPath: m_Name
-      value: Mushrooms_pot
-      objectReference: {fileID: 0}
-    - target: {fileID: 8326925873826640177, guid: 5e5f8cca0aebbe34b9a2b12f1d0a0d31, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.56255
-      objectReference: {fileID: 0}
-    - target: {fileID: 8326925873826640177, guid: 5e5f8cca0aebbe34b9a2b12f1d0a0d31, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.6239865
-      objectReference: {fileID: 0}
-    - target: {fileID: 8326925873826640177, guid: 5e5f8cca0aebbe34b9a2b12f1d0a0d31, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.8917975
-      objectReference: {fileID: 0}
-    - target: {fileID: 8326925873826640177, guid: 5e5f8cca0aebbe34b9a2b12f1d0a0d31, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8326925873826640177, guid: 5e5f8cca0aebbe34b9a2b12f1d0a0d31, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8326925873826640177, guid: 5e5f8cca0aebbe34b9a2b12f1d0a0d31, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8326925873826640177, guid: 5e5f8cca0aebbe34b9a2b12f1d0a0d31, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8326925873826640177, guid: 5e5f8cca0aebbe34b9a2b12f1d0a0d31, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8326925873826640177, guid: 5e5f8cca0aebbe34b9a2b12f1d0a0d31, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8326925873826640177, guid: 5e5f8cca0aebbe34b9a2b12f1d0a0d31, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5e5f8cca0aebbe34b9a2b12f1d0a0d31, type: 3}
 --- !u!114 &870409034638938954
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -9135,11 +9053,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5091265851622434079}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &8277478718538462713 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8326925873826640177, guid: 5e5f8cca0aebbe34b9a2b12f1d0a0d31, type: 3}
-  m_PrefabInstance: {fileID: 743120480341191669}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8440264531296553129
 MonoBehaviour:
   m_ObjectHideFlags: 3
