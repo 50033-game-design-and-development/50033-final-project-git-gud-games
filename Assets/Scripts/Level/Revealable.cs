@@ -6,6 +6,6 @@ public class Revealable : MonoBehaviour {
     public void OnReveal() {
         if (!isVisible)
             return;
-        Event.revealPositionOnUi.Raise(transform.position);
+        Event.Global.revealPositionOnUi.Raise(transform.position);
     }
 }

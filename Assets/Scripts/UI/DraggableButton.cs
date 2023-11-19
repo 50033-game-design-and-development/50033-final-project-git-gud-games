@@ -1,16 +1,6 @@
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
-
-public interface DragCallbacks {
-    void OnDragStart(IPointerEvent evt);
-}
-
-
-public class DraggableButton: Button {
+public class DraggableButton : Button {
     private const string DRAGGING_SLOT_CLASS = "dragging";
     private const int LEFT_MOUSE_PRESS_MASK = 1;
     private readonly DragCallbacks _dragCallbacks;
@@ -24,11 +14,13 @@ public class DraggableButton: Button {
     }
 
     private void OnPointerDown(IPointerEvent evt) {
-        if (evt.pointerId == PointerId.mousePointerId) { 
-            AddToClassList(DRAGGING_SLOT_CLASS);
-            this.CapturePointer(evt.pointerId);
-            _dragCallbacks.OnDragStart(evt);
+        if (evt.pointerId != PointerId.mousePointerId) {
+            return;
         }
+
+        AddToClassList(DRAGGING_SLOT_CLASS);
+        this.CapturePointer(evt.pointerId);
+        _dragCallbacks.OnDragStart(evt);
     }
     
     private void OnPointerMove(IPointerEvent evt) {

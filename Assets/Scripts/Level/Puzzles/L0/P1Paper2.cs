@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class L0P1Paper2 : MonoBehaviour {
+public class P1Paper2 : MonoBehaviour {
     private MeshRenderer meshRenderer;
     private Collider boxCollider;
     public Transform paper1;
@@ -29,12 +29,10 @@ public class L0P1Paper2 : MonoBehaviour {
     private void Update() {
         // Snap to correct position once it is close enough
         if ((transform.position - paper1.position).magnitude < 0.01f) {
-            Event.L0P1SolvedEvent.Raise();
+            Event.L0.solveP1.Raise();
             Destroy(gameObject);
         }
-        
         AdjustTransformToBounds();
-        
     }
 
     private void AdjustTransformToBounds() {

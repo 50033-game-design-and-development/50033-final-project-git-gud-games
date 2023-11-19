@@ -13,7 +13,7 @@ public class Collectable : MonoBehaviour, IInteractable {
     public void OnInteraction() {
         Debug.Log("Collect " + gameObject.name);
         GameState.inventory.Add(invItem);
-        Event.onInventoryUpdate.Raise();
+        Event.Global.inventoryUpdate.Raise();
 
         float duration = 0f;
         if (TryGetComponent(out SFXInteractable sfxInteractable)) {

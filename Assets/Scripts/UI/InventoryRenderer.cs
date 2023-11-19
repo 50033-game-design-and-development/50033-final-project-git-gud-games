@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,10 +13,7 @@ public class HotbarItemDragHandler : DragCallbacks {
     
     public void OnDragStart(IPointerEvent evt) {
         if (_hotbarItemIndex >= GameState.inventory.Count) { return; }
-        Debug.Log("currently"+ GameState.selectedInventoryItem.HasValue.ToString());
         GameState.selectedInventoryItem = GameState.inventory[_hotbarItemIndex];
-        Debug.Log("now"+ GameState.selectedInventoryItem.HasValue.ToString());
-        Debug.Log(_hotbarItemIndex.ToString());
         GameState.isDraggingInventoryItem = true;
     }
 }
@@ -125,8 +121,8 @@ public class InventoryRenderer : MonoBehaviour {
     }
 
     private IEnumerator RenderHotbar() {
-		// wait for UI document to render
-		// before populating it with hotbar UI elements
+        // wait for UI document to render
+        // before populating it with hotbar UI elements
         yield return new WaitForEndOfFrame();
         InitializeHotbar();
         PopulateHotbar();
