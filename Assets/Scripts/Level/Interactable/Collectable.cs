@@ -19,7 +19,7 @@ public class Collectable : MonoBehaviour, IInteractable {
 
         float duration = 0f;
         if (TryGetComponent(out SFXInteractable sfxInteractable)) {
-            duration = sfxInteractable.audioClips[0].length;
+            duration = sfxInteractable.GetAudioLength();
         }
 
         if (@event != null) {

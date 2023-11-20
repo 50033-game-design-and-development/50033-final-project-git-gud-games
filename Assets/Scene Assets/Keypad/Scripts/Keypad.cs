@@ -124,6 +124,7 @@ public class Keypad : MonoBehaviour
         onAccessGranted?.Invoke();
         panelMesh.material.SetVector("_EmissionColor", screenGrantedColor * screenIntensity);
         audioSource.PlayOneShot(accessGrantedSfx);
+        Event.L1.unlockDoor.Raise();
     }
 
 }

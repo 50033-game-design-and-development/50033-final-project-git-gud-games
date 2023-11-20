@@ -1,12 +1,11 @@
 using UnityEngine;
 
 public class P1Paper2 : MonoBehaviour {
+    [SerializeField] private Transform paper1;
+    [SerializeField] private Transform min;
+    [SerializeField] private Transform max;
     private MeshRenderer meshRenderer;
     private Collider boxCollider;
-    public Transform paper1;
-
-    public Transform min;
-    public Transform max;
     private Vector3 _min;
     private Vector3 _max;
 
@@ -36,7 +35,6 @@ public class P1Paper2 : MonoBehaviour {
     }
 
     private void AdjustTransformToBounds() {
-
         Vector3 newPos = transform.position;
         newPos.x = Mathf.Clamp(newPos.x, _min.x, _max.x);
         newPos.z = Mathf.Clamp(newPos.z, _min.z, _max.z);

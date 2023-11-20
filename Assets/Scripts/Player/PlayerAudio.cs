@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAudio : MonoBehaviour {
-    public AudioSource playerAudioSource;
-    public List<AudioClip> walkSounds;
+    [SerializeField] private AudioSource playerAudioSource;
+    [SerializeField] private List<AudioClip> walkSounds;
 
     /// <summary>
     /// plays a random footstep SFX from the list

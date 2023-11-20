@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MonologueMap : MonoBehaviour {
     private static Dictionary<MonologueKey, Monologue> monologueMap = new Dictionary<MonologueKey, Monologue>();
-    public MonologueList _monologueList;
+    [SerializeField] private MonologueList _monologueList;
 
     public static Monologue Get(MonologueKey key) {
         return monologueMap[key];
