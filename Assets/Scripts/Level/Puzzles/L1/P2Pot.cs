@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class P2Pot : MonoBehaviour {
 
-    // [Header("Debug")] [SerializeField]
     private HashSet<InventoryItem> potItems = new HashSet<InventoryItem>();
 
     [Header("Attributes")]
     [SerializeField] private Transform ingredientsTransform;
-    [SerializeField] private GameEvent L1P2Solved;
+    [SerializeField] private InventoryItem[] correctCombination;
     
     [Header("Ingredient details")]    
     [SerializeField] private List<InventoryItem> validItems = new List<InventoryItem>();
@@ -46,32 +45,28 @@ public class P2Pot : MonoBehaviour {
 
     // Listening to potCombinationCheck event
     public void CheckCombination() {
-        Debug.Log("Checking combination");
-        // Check if chicken, banana, and capsicum are in the pot
-        // If so, lock the pot
-        // TODO: integrate
-        InventoryItem[] items = new InventoryItem[] {
-            InventoryItem.L1_Chicken,
-            InventoryItem.L1_Banana,
-            InventoryItem.L1_Tomato
-        };
 
-        if (potItems.Count != items.Length) 
+        if (potItems.Count != correctCombination.Length) 
             return;
 
-        foreach (InventoryItem item in items) {
+        // Can be optimized to set
+        foreach (InventoryItem item in correctCombination) {
             if (!potItems.Contains(item)) 
                 return;
         }
 
         Debug.Log("Combination correct");
-        // TODO: integrate into Event
-        L1P2Solved.Raise();
+        Event.L1.solveP2.Raise();
         
     }
 
-    // Listened on L1P2Solved event
-    public void LockIngredients() {
+    public void OnP2Solved() {
+        solved = true;
+        LockIngredients();
+        // TODO: play sinking animation (?)
+    }
+
+    private void LockIngredients() {
         solved = true;
         GetComponent<BoxCollider>().enabled = true;
         Destroy(GetComponent<DragDoppable>());

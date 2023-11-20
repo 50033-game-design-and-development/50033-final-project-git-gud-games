@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingredientsTransform: {fileID: 5437783282464117075}
-  L1P2Solved: {fileID: 11400000, guid: e029cfffe5d5aeb4f9b78ff6af884342, type: 2}
+  correctCombination: 08000000050000000a0000000200000003000000
   validItems: 02000000030000000400000005000000060000000700000008000000090000000a000000
   itemPrefabs:
   - {fileID: 9172847521441355182, guid: 58840736d6e4eb84dbc4dc764fc46ad4, type: 3}
@@ -310,7 +310,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4841465205392198314}
         m_TargetAssemblyTypeName: P2Pot, Assembly-CSharp
-        m_MethodName: LockIngredients
+        m_MethodName: OnP2Solved
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -347,7 +347,7 @@ Transform:
   m_GameObject: {fileID: 4952986879980573004}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.45, z: 0}
+  m_LocalPosition: {x: 0, y: 0.43, z: 0}
   m_LocalScale: {x: 1.1, y: 0.03, z: 1.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
