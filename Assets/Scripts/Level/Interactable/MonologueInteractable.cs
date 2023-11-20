@@ -1,15 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class MonologueInteractable : MonoBehaviour, IInteractable {
-    public List<MonologueKey> monologueKeys;
+    [SerializeField] private List<MonologueKey> monologueKeys;
     private int state;
 
     public void OnInteraction() {
-        int key = (int)monologueKeys[state];
-        if (key != -1) {
-            Event.showDialogue.Raise(key);
+        MonologueKey key = monologueKeys[state];
+        if (key != MonologueKey.NULL) {
+            Event.Global.showDialogue.Raise(key);
         }
     }
 

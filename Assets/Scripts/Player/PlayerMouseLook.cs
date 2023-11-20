@@ -5,9 +5,7 @@ public class PlayerMouseLook : MonoBehaviour {
 
     float _rotationY;
     float _rotationX;
-
-    public GameEvent onInventoryUpdate;
-
+    
     private PlayerAction _playerAction;
 
     /// <summary>
@@ -47,20 +45,20 @@ public class PlayerMouseLook : MonoBehaviour {
         _playerAction.Enable();
 
         _playerAction.gameplay.MouseMove.performed += ctx => OnMouseMove(ctx.ReadValue<Vector2>());
-        _playerAction.gameplay.Escape.performed += _ => ToggleCursorLockState();
+        // _playerAction.gameplay.Escape.performed += _ => ToggleCursorLockState();
 
         /*
         // open inventory when you press E
         _playerAction.gameplay.InventoryOpen.performed += _ => {
             GameState.ToggleInventory();
             Debug.Log("TOGGLE");
-            onInventoryUpdate.Raise();
+            inventoryUpdate.Raise();
         };
         */
         // close inventory when you press escape
         _playerAction.gameplay.Escape.performed += _ => {
             // GameState.HideInventory();
-            onInventoryUpdate.Raise();
+            Event.Global.inventoryUpdate.Raise();
         };
     }
 

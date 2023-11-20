@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class HotbarItemDragHandler : DragCallbacks {
     private readonly int _hotbarItemIndex;
-
+    
     public HotbarItemDragHandler(int hotbarItemIndex) {
         _hotbarItemIndex = hotbarItemIndex;
     }
@@ -22,12 +21,13 @@ public class HotbarItemDragHandler : DragCallbacks {
 public class InventoryRenderer : MonoBehaviour {
     // hotbar USS slot class to assign to filled inventory slots
     private const string OCCUPIED_SLOT_CLASS = "filled";
-
+    
+    private float _padding;
+    private float hotbarItemSize;
+    
     public UIDocument hotbarUI;
     public int hotbarItemGap = 40;
     public int numHotbarItems = 5;
-
-    private float _padding;
 
     // gap between bar item images
     private readonly List<DraggableButton> _hotbarItems = new();
@@ -71,7 +71,7 @@ public class InventoryRenderer : MonoBehaviour {
         ) / 2.0f;
 
         var hotbarHeight = hotbarElement.resolvedStyle.height;
-        var hotbarItemHeight = hotbarHeight - _padding * 2;
+        hotbarItemSize = hotbarHeight - _padding * 2;
 
         for (int k = 0; k < numHotbarItems; k++) {
             // Create hotbar item slots (each slot is a UIElement Button)
@@ -79,7 +79,7 @@ public class InventoryRenderer : MonoBehaviour {
             DraggableButton inventoryItem = new DraggableButton(dragCallback);
             
             // DragAndDropManipulator manipulator = new(inventoryItem);
-            inventoryItem.style.width = hotbarItemHeight;
+            inventoryItem.style.width = hotbarItemSize;
             hotbarElement.Add(inventoryItem);
             _hotbarItems.Add(inventoryItem);
         }
@@ -105,18 +105,24 @@ public class InventoryRenderer : MonoBehaviour {
                 hotbarSlot.style.backgroundImage = (
                     new StyleBackground(collectable.itemSprite)
                 );
+
+                // make the inventory slot visible
+                hotbarSlot.style.display = DisplayStyle.Flex;
             } else {
                 // remove hotbar slot background image and make slot inactive
                 // if theres no corresponding inventory item for the hotbar slot
                 hotbarSlot.RemoveFromClassList(OCCUPIED_SLOT_CLASS);
                 hotbarSlot.style.backgroundImage = null;
+                
+                // make the inventory slot invisible
+                hotbarSlot.style.display = DisplayStyle.None;
             }
         }
     }
 
     private IEnumerator RenderHotbar() {
-		// wait for UI document to render
-		// before populating it with hotbar UI elements
+        // wait for UI document to render
+        // before populating it with hotbar UI elements
         yield return new WaitForEndOfFrame();
         InitializeHotbar();
         PopulateHotbar();
