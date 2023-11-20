@@ -16,6 +16,9 @@ public class P2Pot : MonoBehaviour {
     
 
     private bool solved = false;
+    private int clickState = 0;
+
+
     
     public void AddIngredient() {
         if (!GameState.selectedInventoryItem.HasValue || solved) 
@@ -79,6 +82,26 @@ public class P2Pot : MonoBehaviour {
 
         CheckCombination();
             
+    }
+
+    public void OnStewClicked() {
+        if (!solved || clickState > 4)
+            return;
+        
+        clickState ++;
+        if (clickState == 4) 
+            Event.L1.drinkStew.Raise();
+        else if (clickState < 4) {
+            MonologueInteractable monologueInteractable = GetComponent<MonologueInteractable>();
+            // monologueInteractable.OnInteraction();
+            monologueInteractable.IncrementState();
+        }
+
+    }
+
+    public void OnStewDrink() {
+        Debug.Log("GANPEIIIII");
+        // TODO: Play some cutscene
     }
 
 

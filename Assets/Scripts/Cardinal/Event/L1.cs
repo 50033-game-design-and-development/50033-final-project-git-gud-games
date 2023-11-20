@@ -9,7 +9,9 @@ namespace Event {
         public static GameEvent solveP1;
         public static GameEvent drinkStew;
         public static GameEvent unlockDoor;
+        public static GameEvent checkStew;
 
+        [SerializeField] private GameEvent _checkStew;
         [SerializeField] private  GameEvent _drinkStew;
         [SerializeField] private  GameEvent _L1unlockDoor;
         [SerializeField] private GameEvent _placeIngredient;
@@ -18,7 +20,6 @@ namespace Event {
         [SerializeField] private  GameEvent _solveP1;
         [SerializeField] private GameEvent _solveP2;
         
-
         private void Start() {
             placeIngredient = _placeIngredient;
             removeIngredient = _removeIngredient;
@@ -28,6 +29,7 @@ namespace Event {
             solveP2 = _solveP2;
             drinkStew = _drinkStew;
             unlockDoor = _L1unlockDoor;
+            checkStew = _checkStew;
         }
     }
 }
