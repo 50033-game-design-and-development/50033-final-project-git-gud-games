@@ -66,7 +66,7 @@ public class PlayerInteractor : MonoBehaviour {
 
         // open inventory when you press E
         _playerAction.gameplay.InventoryOpen.performed += _ => {
-            // don't open inventory if inventory is closed 
+            // don't open inventory if inventory is closed and empty
             if (!GameState.inventoryOpened && GameState.inventory.Count == 0) {
                 return;        
             }

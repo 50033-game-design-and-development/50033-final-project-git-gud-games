@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Move() {
         // don't move when the inventory is open
-        if (GameState.inventoryOpened && GameState.inventory.Count > 0) {
+        if (GameState.inventoryOpened) {
             controller.Move(Vector3.zero);
             return;
         }

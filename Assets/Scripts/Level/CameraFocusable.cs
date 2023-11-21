@@ -23,6 +23,12 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
         }
         
         cinemachineAnimator.Play(startStateName);
+
+        // don't open inventory if it's empty
+        if (GameState.inventory.Count == 0) {
+            return;
+        }
+
         GameState.inventoryOpened = true;
         Event.Global.inventoryUpdate.Raise();
     }
