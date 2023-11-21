@@ -12,4 +12,6 @@
     L1_Carrot = 9,
     L1_Tomato = 10,
     L1_Pencil = 11,
+    
+    L2_Fuse = 12,
 }
