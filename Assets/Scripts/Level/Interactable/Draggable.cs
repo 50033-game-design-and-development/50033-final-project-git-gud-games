@@ -9,7 +9,6 @@ public class Draggable : MonoBehaviour, IClickable {
 
     // Determine offset of object from camera upon click
     public void OnClick() {
-        // Debug.Log("LL " + GameState.isPuzzleLocked + " CC " + GameState.isInventoryOpened);
         // Can only be interacted with when focused
         if (GameState.isInteractionAllowed) {
             return;
