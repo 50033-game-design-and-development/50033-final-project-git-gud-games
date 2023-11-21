@@ -12,6 +12,7 @@ public class PlayerInteractor : MonoBehaviour {
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
         
         if (Physics.Raycast(ray, out RaycastHit raycastHit, playerConstants.raycastDistance, _layerMaskInteractable)) {
+            Debug.Log(raycastHit.transform.gameObject.ToString());
             Interact(raycastHit.transform.gameObject);
         }
     }
