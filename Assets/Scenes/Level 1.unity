@@ -705,6 +705,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18efc4c6e49c6a7c28122326c3c5efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &202204648 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2081046324246587285, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+  m_PrefabInstance: {fileID: 1539796289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202204643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cd4c5bb4c96634ca91419a57491eea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &202204649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -737,6 +748,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: SFXAbstract, Assembly-CSharp
         m_MethodName: IncrementState
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 202204648}
+        m_TargetAssemblyTypeName: Collectable, Assembly-CSharp
+        m_MethodName: SetCanCollect
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -784,6 +807,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 202204648}
+        m_TargetAssemblyTypeName: Collectable, Assembly-CSharp
+        m_MethodName: SetCanCollect
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &202204651
 MonoBehaviour:
@@ -1133,7 +1168,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 228105804}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b0858f33e9464300bf380908a8a5bde, type: 3}
   m_Name: 
@@ -2257,7 +2292,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 440471108}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b0858f33e9464300bf380908a8a5bde, type: 3}
   m_Name: 
@@ -2391,6 +2426,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18efc4c6e49c6a7c28122326c3c5efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &520416744 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9076107555233414230, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+  m_PrefabInstance: {fileID: 1539796289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520416740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cd4c5bb4c96634ca91419a57491eea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &520416748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2423,6 +2469,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: SFXAbstract, Assembly-CSharp
         m_MethodName: IncrementState
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 520416744}
+        m_TargetAssemblyTypeName: Collectable, Assembly-CSharp
+        m_MethodName: SetCanCollect
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2470,6 +2528,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 520416744}
+        m_TargetAssemblyTypeName: Collectable, Assembly-CSharp
+        m_MethodName: SetCanCollect
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &520416750
 MonoBehaviour:
@@ -2776,7 +2846,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531808561}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b0858f33e9464300bf380908a8a5bde, type: 3}
   m_Name: 
@@ -2784,45 +2854,6 @@ MonoBehaviour:
   cinemachineAnimator: {fileID: 6287965008387169629}
   startStateName: L1 Recipe
   endStateName: L1 First Person
---- !u!21 &533457127
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &544829872 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2225887874147284791, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
@@ -3992,9 +4023,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 173732, guid: 147f183af15640289aa7154f0ea2de5c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 734517909}
-    - targetCorrespondingSourceObject: {fileID: 173732, guid: 147f183af15640289aa7154f0ea2de5c, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 734517906}
     - targetCorrespondingSourceObject: {fileID: 173732, guid: 147f183af15640289aa7154f0ea2de5c, type: 3}
       insertIndex: -1
@@ -4017,6 +4045,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 173732, guid: 147f183af15640289aa7154f0ea2de5c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 734517920}
+    - targetCorrespondingSourceObject: {fileID: 173732, guid: 147f183af15640289aa7154f0ea2de5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 734517923}
+    - targetCorrespondingSourceObject: {fileID: 173732, guid: 147f183af15640289aa7154f0ea2de5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 734517924}
   m_SourcePrefab: {fileID: 100100000, guid: 147f183af15640289aa7154f0ea2de5c, type: 3}
 --- !u!4 &734517904 stripped
 Transform:
@@ -4041,28 +4075,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monologueKeys: 1c0000001f0000001d0000002000000021000000
---- !u!64 &734517909
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734517905}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 64f5a07922ba43ce87d8ccbf4798669c, type: 3}
 --- !u!114 &734517910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4215,6 +4227,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f249bd2e732049500939988b7a167998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &734517923
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734517905}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.48480415, y: 0.1, z: 0.30349922}
+  m_Center: {x: -0.0000009536743, y: 0.03833681, z: 0}
+--- !u!114 &734517924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 734517905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1645042ab9c7e1c40a7c732a204f5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: f242a7ef48cbb9af9a7d7fac0e508881, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 734517920}
+        m_TargetAssemblyTypeName: BookInteractable, Assembly-CSharp
+        m_MethodName: ToggleCollider
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &759632721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4733,6 +4794,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18efc4c6e49c6a7c28122326c3c5efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &960450779 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8993957386199041504, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+  m_PrefabInstance: {fileID: 1539796289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960450775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cd4c5bb4c96634ca91419a57491eea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &960450783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4765,6 +4837,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: SFXAbstract, Assembly-CSharp
         m_MethodName: IncrementState
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 960450779}
+        m_TargetAssemblyTypeName: Collectable, Assembly-CSharp
+        m_MethodName: SetCanCollect
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4812,6 +4896,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 960450779}
+        m_TargetAssemblyTypeName: Collectable, Assembly-CSharp
+        m_MethodName: SetCanCollect
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &960450785
 MonoBehaviour:
@@ -5365,7 +5461,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6770622591282772054, guid: a94018a47709040fd82c3e5dfe0b6432, type: 2}
-  m_audioClip: {fileID: 8300000, guid: a2730fd02f17e4ea99168876aa5c6305, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0ffb6c2b1e8821651accbf8b91d6ab34, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -5535,18 +5631,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: SetTrigger
         m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Interact
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1084643591}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5751,6 +5835,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18efc4c6e49c6a7c28122326c3c5efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1161828220 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2080496345754310786, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+  m_PrefabInstance: {fileID: 1539796289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161828216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cd4c5bb4c96634ca91419a57491eea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1161828224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5783,6 +5878,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: SFXAbstract, Assembly-CSharp
         m_MethodName: IncrementState
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1161828220}
+        m_TargetAssemblyTypeName: Collectable, Assembly-CSharp
+        m_MethodName: SetCanCollect
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5830,6 +5937,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1161828220}
+        m_TargetAssemblyTypeName: Collectable, Assembly-CSharp
+        m_MethodName: SetCanCollect
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1161828226
 MonoBehaviour:
@@ -6389,6 +6508,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18efc4c6e49c6a7c28122326c3c5efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1368542617 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1209234761984114335, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+  m_PrefabInstance: {fileID: 1539796289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368542613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cd4c5bb4c96634ca91419a57491eea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1368542619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6421,6 +6551,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: SFXAbstract, Assembly-CSharp
         m_MethodName: IncrementState
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1368542617}
+        m_TargetAssemblyTypeName: Collectable, Assembly-CSharp
+        m_MethodName: SetCanCollect
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6468,6 +6610,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1368542617}
+        m_TargetAssemblyTypeName: Collectable, Assembly-CSharp
+        m_MethodName: SetCanCollect
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1368542621
 MonoBehaviour:
@@ -6908,6 +7062,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18efc4c6e49c6a7c28122326c3c5efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1416356982 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 899526389458501682, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+  m_PrefabInstance: {fileID: 1539796289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416356978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cd4c5bb4c96634ca91419a57491eea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1416356986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6940,6 +7105,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: SFXAbstract, Assembly-CSharp
         m_MethodName: IncrementState
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416356982}
+        m_TargetAssemblyTypeName: Collectable, Assembly-CSharp
+        m_MethodName: SetCanCollect
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6987,6 +7164,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1416356982}
+        m_TargetAssemblyTypeName: Collectable, Assembly-CSharp
+        m_MethodName: SetCanCollect
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1416356988
 MonoBehaviour:
@@ -7804,7 +7993,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493992966}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b0858f33e9464300bf380908a8a5bde, type: 3}
   m_Name: 
@@ -7826,6 +8015,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18efc4c6e49c6a7c28122326c3c5efc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1497137397 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1615127249704640372, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+  m_PrefabInstance: {fileID: 1539796289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497137393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cd4c5bb4c96634ca91419a57491eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1497137399
@@ -7860,6 +8060,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: SFXAbstract, Assembly-CSharp
         m_MethodName: IncrementState
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1497137397}
+        m_TargetAssemblyTypeName: Collectable, Assembly-CSharp
+        m_MethodName: SetCanCollect
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7907,6 +8119,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1497137397}
+        m_TargetAssemblyTypeName: Collectable, Assembly-CSharp
+        m_MethodName: SetCanCollect
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1497137401
 MonoBehaviour:
@@ -8623,7 +8847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 533457127}
+  m_Material: {fileID: 1911877758}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -8978,6 +9202,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18efc4c6e49c6a7c28122326c3c5efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1665537825 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7276190009248304854, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+  m_PrefabInstance: {fileID: 1539796289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665537821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cd4c5bb4c96634ca91419a57491eea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1665537829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9010,6 +9245,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: SFXAbstract, Assembly-CSharp
         m_MethodName: IncrementState
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1665537825}
+        m_TargetAssemblyTypeName: Collectable, Assembly-CSharp
+        m_MethodName: SetCanCollect
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9057,6 +9304,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1665537825}
+        m_TargetAssemblyTypeName: Collectable, Assembly-CSharp
+        m_MethodName: SetCanCollect
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1665537831
 MonoBehaviour:
@@ -9777,6 +10036,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18efc4c6e49c6a7c28122326c3c5efc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1820539714 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5233159252202419560, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+  m_PrefabInstance: {fileID: 1539796289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820539709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cd4c5bb4c96634ca91419a57491eea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1820539715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9809,6 +10079,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: SFXAbstract, Assembly-CSharp
         m_MethodName: IncrementState
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1820539714}
+        m_TargetAssemblyTypeName: Collectable, Assembly-CSharp
+        m_MethodName: SetCanCollect
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9856,6 +10138,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1820539714}
+        m_TargetAssemblyTypeName: Collectable, Assembly-CSharp
+        m_MethodName: SetCanCollect
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1820539717
 MonoBehaviour:
@@ -9925,6 +10219,10 @@ PrefabInstance:
     - target: {fileID: 6996316432753589566, guid: a02e328a79948d643abdad41867b4488, type: 3}
       propertyPath: itemType
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996316432753589566, guid: a02e328a79948d643abdad41867b4488, type: 3}
+      propertyPath: canCollect
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7380649438522124602, guid: a02e328a79948d643abdad41867b4488, type: 3}
       propertyPath: m_Name
@@ -10050,6 +10348,45 @@ Transform:
   - {fileID: 1461616318}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1911877758
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &1931451257
 GameObject:
   m_ObjectHideFlags: 0

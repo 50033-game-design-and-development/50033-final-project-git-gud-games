@@ -11,7 +11,6 @@ public abstract class SFXAbstract : MonoBehaviour {
     // To be called by event listener so that monologue changes based on game state
     public void IncrementState() {
         state = (state + 1) % audioClips.Count;
-        Debug.Log(state);
     }
 
     public float GetAudioLength() {

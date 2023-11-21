@@ -4,8 +4,8 @@ using UnityEngine;
 public class Collectable : MonoBehaviour, IInteractable {
     public Sprite invSprite;
     public InventoryItem itemType;
-
     public GameEvent @event;
+    [SerializeField] private bool canCollect;
 
     private Inv.Collectable invItem => new() {
         itemType = itemType,
@@ -13,6 +13,10 @@ public class Collectable : MonoBehaviour, IInteractable {
     };
 
     public void OnInteraction() {
+        if (!canCollect) {
+            return;
+        }
+
         Debug.Log("Collect " + gameObject.name);
         GameState.inventory.Add(invItem);
         Event.Global.inventoryUpdate.Raise();
@@ -27,6 +31,10 @@ public class Collectable : MonoBehaviour, IInteractable {
         }
 
         StartCoroutine("Collect", duration);
+    }
+
+    public void SetCanCollect(bool value) {
+        canCollect = value;
     }
 
     private IEnumerator Collect(float duration) {
