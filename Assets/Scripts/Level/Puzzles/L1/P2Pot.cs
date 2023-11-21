@@ -13,13 +13,12 @@ public class P2Pot : MonoBehaviour {
     [Header("Ingredient details")]    
     [SerializeField] private List<InventoryItem> validItems = new List<InventoryItem>();
     [SerializeField] private List<GameObject> itemPrefabs = new List<GameObject>();
-    
 
     private bool solved = false;
     private int clickState = 0;
+    private bool canCook;
+    private Collider potCollider;
 
-
-    
     public void AddIngredient() {
         if (!GameState.selectedInventoryItem.HasValue || solved) 
             return;
@@ -33,7 +32,6 @@ public class P2Pot : MonoBehaviour {
         InstantiatePrefab(validItems.IndexOf(item));
 
         CheckCombination();
-        
     }
 
     public void InstantiatePrefab(int index) {
@@ -42,13 +40,11 @@ public class P2Pot : MonoBehaviour {
         // Spawn prefab at ingredientTransform as child of this
         GameObject ingredient = Instantiate(prefab, ingredientsTransform);
         ingredient.transform.parent = ingredientsTransform;
-        
     }
 
 
     // Listening to potCombinationCheck event
     public void CheckCombination() {
-
         if (potItems.Count != correctCombination.Length) 
             return;
 
@@ -60,7 +56,6 @@ public class P2Pot : MonoBehaviour {
 
         Debug.Log("Combination correct");
         Event.L1.solveP2.Raise();
-        
     }
 
     public void OnP2Solved() {
@@ -69,19 +64,12 @@ public class P2Pot : MonoBehaviour {
         // TODO: play sinking animation (?)
     }
 
-    private void LockIngredients() {
-        solved = true;
-        GetComponent<BoxCollider>().enabled = true;
-        Destroy(GetComponent<DragDoppable>());
-    }
-
     public void RemoveIngredient(InventoryItem item) {
         if (potItems.Contains(item)) {
             potItems.Remove(item);
         }
 
         CheckCombination();
-            
     }
 
     public void OnStewClicked() {
@@ -96,7 +84,6 @@ public class P2Pot : MonoBehaviour {
             // monologueInteractable.OnInteraction();
             monologueInteractable.IncrementState();
         }
-
     }
 
     public void OnStewDrink() {
@@ -104,5 +91,24 @@ public class P2Pot : MonoBehaviour {
         // TODO: Play some cutscene
     }
 
+    public void SetCanCook(bool value) {
+        canCook = value;
+        potCollider.enabled = true;
+    }
 
+    public void ToggleCollider() {
+        if (!canCook) {
+            potCollider.enabled = !GameState.inventoryOpened;
+        }
+    }
+
+    private void LockIngredients() {
+        solved = true;
+        GetComponent<BoxCollider>().enabled = true;
+        Destroy(GetComponent<DragDoppable>());
+    }
+
+    private void Start() {
+        potCollider = GetComponent<Collider>();
+    }
 }

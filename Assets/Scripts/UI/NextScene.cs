@@ -7,6 +7,7 @@ public class NextScene : MonoBehaviour {
     private string sceneName;
 
     public void LoadSingle() {
+        GameState.inventoryOpened = false;
         SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
     }
 

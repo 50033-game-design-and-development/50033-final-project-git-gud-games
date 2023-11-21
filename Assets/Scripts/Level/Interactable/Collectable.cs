@@ -45,6 +45,9 @@ public class Collectable : MonoBehaviour, IInteractable {
         if (TryGetComponent(out Collider collider)) {
             collider.enabled = false;
         }
+        foreach (Transform child in transform) {
+            Destroy(child.gameObject);
+        }
 
         // Play out the SFX before destroying
         yield return new WaitForSeconds(duration);

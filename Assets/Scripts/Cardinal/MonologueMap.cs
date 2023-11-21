@@ -10,6 +10,7 @@ public class MonologueMap : MonoBehaviour {
     }
 
     private void Start() {
+        monologueMap.Clear();
         foreach (Monologue monologue in _monologueList.monologues) {
             monologueMap.Add(monologue.key, monologue);
         }
