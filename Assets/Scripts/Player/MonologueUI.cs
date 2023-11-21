@@ -47,7 +47,7 @@ public class MonologueUI : MonoBehaviour {
     // Fade out monologue panel
     private IEnumerator EndMonologue() {
         cachedKey = null;
-        for (float alpha = 1; alpha > 0; alpha -= 0.05f) {
+        for (float alpha = 1; alpha > -0.1f; alpha -= 0.05f) {
             SetAlpha(alpha);
             yield return new WaitForSeconds(0.05f);
         }
