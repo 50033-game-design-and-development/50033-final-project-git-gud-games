@@ -7,6 +7,7 @@ public class DragDoppable : MonoBehaviour, IDragDroppable {
 
     private HashSet<InventoryItem> _possibleDroppable;
     public void OnDragDrop() {
+        Debug.Log("being called");
         if (GameState.selectedInventoryItem == null) {
             return;
         }
