@@ -124,7 +124,7 @@ public class PlayerRayCast : MonoBehaviour {
             DisableOutline();
         }
 
-        if (GameState.inventoryOpened) {
+        if (!GameState.isInteractionAllowed) {
             DoInventoryDragHighlight();
         } else {
             DoNormalHighlight();
