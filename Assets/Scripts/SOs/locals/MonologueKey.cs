@@ -45,6 +45,7 @@ public enum MonologueKey {
     L1_INGREDIENT_AFTER_BOOK = 40,
     L1_INGREDIENT_AFTER_P2 = 41,
     L1_CABINET_LOCKED = 42,
+    L1_CABINET_OPEN = 46,
 
     WRONG_ITEM = 99,
 }
