@@ -15,7 +15,7 @@ public class PlayerMouseLook : MonoBehaviour {
     private void OnMouseMove(Vector2 mouseDelta) {
         // don't adjust camera based on mouse movement if inventory is opened
         // or the camera is locked onto a puzzle
-        if (GameState.isInteractionAllowed) {
+        if (!GameState.isInteractionAllowed) {
             return;
         }
 
