@@ -18,7 +18,7 @@ public class PlayerInteractor : MonoBehaviour {
     }
 
     private static void Interact(GameObject obj) {
-        if(!GameState.inventoryOpened) {
+        if(!GameState.isDraggable) {
             foreach (var i in obj.GetComponents<IInteractable>()) {
                 i.OnInteraction();
             }

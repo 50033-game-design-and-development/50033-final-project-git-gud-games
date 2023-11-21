@@ -16,27 +16,27 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
     }
   
     public virtual void OnInteraction() {
-        if (GameState.inventoryOpened) {
+        if (GameState.isPuzzleLocked) {
             // dont use the camera to move the CineMachine
-            // to an interactable object if inventory is already opened
+            // to an interactable object if camera is locked onto a puzzle
             return;
         }
         
         cinemachineAnimator.Play(startStateName);
+        GameState.isPuzzleLocked = true;
+        GameState.ConfineCursor();
 
-        // don't open inventory if it's empty
-        if (GameState.inventory.Count == 0) {
-            return;
+        if (GameState.inventory.Count > 0) {
+            GameState.inventoryOpened = true;
+            Event.Global.inventoryUpdate.Raise();
         }
-
-        GameState.inventoryOpened = true;
-        Event.Global.inventoryUpdate.Raise();
     }
     
     private void OnEscape() {
         cinemachineAnimator.Play(endStateName);
         GameState.inventoryOpened = false;
         Event.Global.inventoryUpdate.Raise();
+        GameState.isPuzzleLocked = false;
     }
     
     private void Update() {

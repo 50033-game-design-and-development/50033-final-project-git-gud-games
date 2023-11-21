@@ -13,6 +13,10 @@ public class GameState : MonoBehaviour {
     public static bool mouseHold;
     
     private static bool _inventoryOpened = false;
+    // whether or not the camera is locked onto a puzzle or not
+    public static bool isPuzzleLocked = false;
+    
+    public static bool isDraggable => isPuzzleLocked || inventoryOpened;
     
     public static bool inventoryOpened {
         get => _inventoryOpened;

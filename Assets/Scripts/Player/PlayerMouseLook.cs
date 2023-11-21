@@ -14,7 +14,8 @@ public class PlayerMouseLook : MonoBehaviour {
     /// <param name="mouseDelta">Mouse move delta</param>
     private void OnMouseMove(Vector2 mouseDelta) {
         // don't adjust camera based on mouse movement if inventory is opened
-        if (GameState.inventoryOpened) {
+        // or the camera is locked onto a puzzle
+        if (GameState.inventoryOpened || GameState.isPuzzleLocked) {
             return;
         }
 

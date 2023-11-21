@@ -9,8 +9,9 @@ public class Draggable : MonoBehaviour, IClickable {
 
     // Determine offset of object from camera upon click
     public void OnClick() {
+        Debug.Log("LL " + GameState.isPuzzleLocked + " CC " + GameState.inventoryOpened);
         // Can only be interacted with when focused
-        if (!GameState.inventoryOpened) {
+        if (!GameState.isDraggable) {
             return;
         }
 
@@ -31,7 +32,7 @@ public class Draggable : MonoBehaviour, IClickable {
         // 1. Camera is focused on the puzzle
         // 2. Left click has not been released
         // 3. offset value is fresh
-        if (!GameState.inventoryOpened || !GameState.mouseHold || !hasOffset) {
+        if (!GameState.isDraggable || !GameState.mouseHold || !hasOffset) {
             hasOffset = false;
             return;
         }
