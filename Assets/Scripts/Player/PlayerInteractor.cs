@@ -66,18 +66,21 @@ public class PlayerInteractor : MonoBehaviour {
 
         // open inventory when you press E
         _playerAction.gameplay.InventoryOpen.performed += _ => {
-            Debug.Log("TOGGLE");
-            GameState.ToggleInventory();
-
-            // check if the cinemachine camera is not locked
+            // don't open inventory if inventory is closed 
+            if (!GameState.inventoryOpened && GameState.inventory.Count == 0) {
+                return;        
+            }
+            
+            // check if the cineMachine camera is not locked
             // to any interaction objects i.e. it follows the player
+            // also don't allow player to toggle inventory if they're locked onto a puzzle
             if (ReferenceEquals(cineMachineCamera.LiveChild, firstPersonCamera)) {
-                // disable the cineMachineCamera if the inventory is opened, otherwise the camera will follow
-                // the cursor position
+                // disable the cineMachineCamera if the inventory is opened,
+                // otherwise the camera will follow the cursor position
+                GameState.ToggleInventory();
+                Event.Global.inventoryUpdate.Raise();
                 cineMachineCamera.enabled = !GameState.inventoryOpened;
             }
-
-            Event.Global.inventoryUpdate.Raise();
         };
 
         // close inventory when you press escape

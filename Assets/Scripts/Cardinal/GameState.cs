@@ -18,7 +18,7 @@ public class GameState : MonoBehaviour {
         get => _inventoryOpened;
         set {
             _inventoryOpened = value;
-            if (_inventoryOpened) {
+            if (_inventoryOpened && inventory.Count > 0) {
                 ConfineCursor();
             } else {
                 LockCursor();
