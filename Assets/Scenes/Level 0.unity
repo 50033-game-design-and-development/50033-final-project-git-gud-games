@@ -1960,45 +1960,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!21 &882232331
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &910486281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2302,45 +2263,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleDroppable: 01000000
   event: {fileID: 11400000, guid: a959324e947c541029b0648d3e6e82a6, type: 2}
---- !u!21 &1083722037
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &1104522237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2870,10 +2792,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 9137121833469213466, guid: 2bc20f0a7bef25a4c82cc1dc5d4185f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1356206794}
+      addedObject: {fileID: 1356206793}
     - targetCorrespondingSourceObject: {fileID: 9137121833469213466, guid: 2bc20f0a7bef25a4c82cc1dc5d4185f8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1356206793}
+      addedObject: {fileID: 1356206794}
   m_SourcePrefab: {fileID: 100100000, guid: 2bc20f0a7bef25a4c82cc1dc5d4185f8, type: 3}
 --- !u!4 &1356206778 stripped
 Transform:
@@ -2918,18 +2840,6 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1356206794}
-        m_TargetAssemblyTypeName: PaperInteractable, Assembly-CSharp
-        m_MethodName: SetSeen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1356206787}
         m_TargetAssemblyTypeName: MonologueInteractable, Assembly-CSharp
         m_MethodName: IncrementState
@@ -2951,10 +2861,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 645731980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6a3d9f0bced06b679f328f2b0250a22, type: 3}
+  m_Script: {fileID: 11500000, guid: 563a9f4233f2e3997ae2b258c321bc2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isPaper1: 0
+  event: {fileID: 11400000, guid: 42aab39586cb04f91a07127cb36e4659, type: 2}
 --- !u!1001 &1361994740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3734,10 +3644,10 @@ PrefabInstance:
       addedObject: {fileID: 2124534445}
     - targetCorrespondingSourceObject: {fileID: 5273702698105169557, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2124534465}
+      addedObject: {fileID: 2124534464}
     - targetCorrespondingSourceObject: {fileID: 5273702698105169557, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2124534464}
+      addedObject: {fileID: 2124534465}
   m_SourcePrefab: {fileID: 100100000, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
 --- !u!1 &1592162206
 GameObject:
@@ -3954,7 +3864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 882232331}
+  m_Material: {fileID: 1725475583}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -4228,6 +4138,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5758501854294509582, guid: cacca0ede52bf12949fda8e7b602dc25, type: 3}
   m_PrefabInstance: {fileID: 1471267332}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &1725475583
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &1744571529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5368,9 +5317,9 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2124534465}
-        m_TargetAssemblyTypeName: PaperInteractable, Assembly-CSharp
-        m_MethodName: SetSeen
+      - m_Target: {fileID: 2124534448}
+        m_TargetAssemblyTypeName: MonologueInteractable, Assembly-CSharp
+        m_MethodName: IncrementState
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5380,9 +5329,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2124534448}
-        m_TargetAssemblyTypeName: MonologueInteractable, Assembly-CSharp
-        m_MethodName: IncrementState
+      - m_Target: {fileID: 2124534465}
+        m_TargetAssemblyTypeName: TriggerEventOnceInteractable, Assembly-CSharp
+        m_MethodName: DisableTrigger
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5401,10 +5350,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2124534443}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6a3d9f0bced06b679f328f2b0250a22, type: 3}
+  m_Script: {fileID: 11500000, guid: 563a9f4233f2e3997ae2b258c321bc2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isPaper1: 1
+  event: {fileID: 11400000, guid: 16d24df7029effaebbeb62ab65152153, type: 2}
 --- !u!1001 &1216136005929907595
 PrefabInstance:
   m_ObjectHideFlags: 0
