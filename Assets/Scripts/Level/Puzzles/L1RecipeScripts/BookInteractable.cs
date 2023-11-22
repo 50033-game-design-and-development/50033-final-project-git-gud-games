@@ -13,7 +13,7 @@ public class BookInteractable : MonoBehaviour, IInteractable {
     }
 
     public void ToggleCollider() {
-        bookCollider.enabled = !GameState.inventoryOpened;
+        bookCollider.enabled = !GameState.isInventoryOpened;
     }
 
     private void Start() {

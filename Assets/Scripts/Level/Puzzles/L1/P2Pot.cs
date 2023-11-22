@@ -98,7 +98,7 @@ public class P2Pot : MonoBehaviour {
 
     public void ToggleCollider() {
         if (!canCook) {
-            potCollider.enabled = !GameState.inventoryOpened;
+            potCollider.enabled = !GameState.isInventoryOpened;
         }
     }
 
