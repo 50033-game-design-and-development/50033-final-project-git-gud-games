@@ -12,13 +12,17 @@ public class GameState : MonoBehaviour {
     public static Vector2 lastPointerDragScreenPos;
     public static bool mouseHold;
     
-    private static bool _inventoryOpened = false;
+    private static bool _isInventoryOpened;
+    // whether or not the camera is locked onto a puzzle or not
+    public static bool isPuzzleLocked = false;
     
-    public static bool inventoryOpened {
-        get => _inventoryOpened;
+    public static bool isInteractionAllowed => !(isPuzzleLocked || isInventoryOpened);
+    
+    public static bool isInventoryOpened {
+        get => _isInventoryOpened;
         set {
-            _inventoryOpened = value;
-            if (_inventoryOpened) {
+            _isInventoryOpened = value;
+            if (_isInventoryOpened && inventory.Count > 0) {
                 ConfineCursor();
             } else {
                 LockCursor();
@@ -27,7 +31,7 @@ public class GameState : MonoBehaviour {
     }
     
     public static void ToggleInventory() {
-        inventoryOpened = !inventoryOpened;
+        isInventoryOpened = !isInventoryOpened;
     }
     
     public static void LockCursor() {

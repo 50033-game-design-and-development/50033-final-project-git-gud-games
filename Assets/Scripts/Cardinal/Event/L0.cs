@@ -9,12 +9,12 @@ namespace Event {
         public static GameEvent seePaper1;
         public static GameEvent seePaper2;
 
-        public GameEvent _collectKey;
-        public GameEvent _placePaper2;
-        public GameEvent _solveP1;
-        public GameEvent _unlockDoor;
-        public GameEvent _seePaper1;
-        public GameEvent _seePaper2;
+        [SerializeField] private GameEvent _collectKey;
+        [SerializeField] private GameEvent _placePaper2;
+        [SerializeField] private GameEvent _solveP1;
+        [SerializeField] private GameEvent _unlockDoor;
+        [SerializeField] private GameEvent _seePaper1;
+        [SerializeField] private GameEvent _seePaper2;
 
         private void Start() {
             collectKey = _collectKey;

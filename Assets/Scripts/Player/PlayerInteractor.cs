@@ -12,18 +12,21 @@ public class PlayerInteractor : MonoBehaviour {
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
         
         if (Physics.Raycast(ray, out RaycastHit raycastHit, playerConstants.raycastDistance, _layerMaskInteractable)) {
+            Debug.Log(raycastHit.transform.gameObject.ToString());
             Interact(raycastHit.transform.gameObject);
         }
     }
 
     private static void Interact(GameObject obj) {
-        if(!GameState.inventoryOpened) {
+        if(GameState.isInteractionAllowed) {
             foreach (var i in obj.GetComponents<IInteractable>()) {
                 i.OnInteraction();
             }
             return;
         }
-        if (GameState.isDraggingInventoryItem) {
+        // if we only check for isDraggingInventoryItem, we can implement a mechanic where stuff is dragged/dropped
+        // onto items in the world itself. Leaving this comment here in case this is ever required (unlikely)
+        if (GameState.isPuzzleLocked && GameState.isDraggingInventoryItem) {
             foreach (var i in obj.GetComponents<IDragDroppable>()) {
                 i.OnDragDrop();
             }
@@ -65,18 +68,23 @@ public class PlayerInteractor : MonoBehaviour {
 
         // open inventory when you press E
         _playerAction.gameplay.InventoryOpen.performed += _ => {
-            Debug.Log("TOGGLE");
-            GameState.ToggleInventory();
-
-            // check if the cinemachine camera is not locked
+            // don't open inventory if inventory is closed and empty
+            if (!GameState.isInventoryOpened && GameState.inventory.Count == 0) {
+                return;        
+            }
+            
+            // check if the cineMachine camera is not locked
             // to any interaction objects i.e. it follows the player
-            if (ReferenceEquals(cineMachineCamera.LiveChild, firstPersonCamera)) {
-                // disable the cineMachineCamera if the inventory is opened, otherwise the camera will follow
-                // the cursor position
-                cineMachineCamera.enabled = !GameState.inventoryOpened;
+            // also don't allow player to toggle inventory if they're locked onto a puzzle
+            if (!ReferenceEquals(cineMachineCamera.LiveChild, firstPersonCamera)) {
+                return;
             }
 
+            // disable the cineMachineCamera if the inventory is opened,
+            // otherwise the camera will follow the cursor position
+            GameState.ToggleInventory();
             Event.Global.inventoryUpdate.Raise();
+            cineMachineCamera.enabled = !GameState.isInventoryOpened;
         };
 
         // close inventory when you press escape

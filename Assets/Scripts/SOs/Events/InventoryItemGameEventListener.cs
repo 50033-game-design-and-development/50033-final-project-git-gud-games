@@ -1,0 +1,1 @@
+﻿public class InventoryItemGameEventListener : AbstractEventListener<InventoryItem> { }
