@@ -33,7 +33,7 @@ public class InventoryRenderer : MonoBehaviour {
     private readonly List<DraggableButton> _hotbarItems = new();
 
     public void OnInventoryUpdate() {
-        if (!GameState.isInteractionAllowed && GameState.inventory.Count > 0) {
+        if (GameState.isInventoryOpened && GameState.inventory.Count > 0) {
             Show();
             PopulateHotbar();
         } else {
