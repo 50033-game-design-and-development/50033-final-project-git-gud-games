@@ -16,8 +16,6 @@ public class P2Pot : MonoBehaviour {
 
     private bool solved = false;
     private int clickState = 0;
-    private bool canCook;
-    private MeshCollider potCollider;
 
     public void AddIngredient() {
         if (!GameState.selectedInventoryItem.HasValue || solved) 
@@ -73,7 +71,7 @@ public class P2Pot : MonoBehaviour {
     }
 
     public void OnStewClicked() {
-        if (!solved || clickState > 4)
+        if (!solved || clickState > 5)
             return;
         
         clickState ++;
@@ -91,24 +89,9 @@ public class P2Pot : MonoBehaviour {
         // TODO: Play some cutscene
     }
 
-    public void SetCanCook(bool value) {
-        canCook = value;
-        potCollider.enabled = true;
-    }
-
-    public void ToggleCollider() {
-        if (!canCook) {
-            potCollider.enabled = !GameState.isInventoryOpened;
-        }
-    }
-
     private void LockIngredients() {
         solved = true;
         GetComponent<BoxCollider>().enabled = true;
         Destroy(GetComponent<DragDoppable>());
-    }
-
-    private void Start() {
-        potCollider = GetComponent<MeshCollider>();
     }
 }
