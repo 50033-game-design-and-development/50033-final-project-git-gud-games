@@ -25,13 +25,6 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
         cinemachineAnimator.Play(startStateName);
         GameState.isPuzzleLocked = true;
         GameState.ConfineCursor();
-
-        if (GameState.inventory.Count <= 0) {
-            return;
-        }
-
-        GameState.isInventoryOpened = true;
-        Event.Global.inventoryUpdate.Raise();
     }
     
     private void OnEscape() {
@@ -39,6 +32,7 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
         GameState.isInventoryOpened = false;
         GameState.isPuzzleLocked = false;
         Event.Global.inventoryUpdate.Raise();
+        GameState.LockCursor();
     }
     
     private void Update() {
