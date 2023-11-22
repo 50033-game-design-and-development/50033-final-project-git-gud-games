@@ -6,7 +6,8 @@ public class ToggleCollider : MonoBehaviour {
 
     public void Toggle() {
         if (canToggle) {
-            targetCollider.enabled = !GameState.isInventoryOpened;
+            Debug.Log(GameState.isPuzzleLocked);
+            targetCollider.enabled = !GameState.isPuzzleLocked;
         }
     }
 

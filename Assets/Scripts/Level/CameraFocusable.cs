@@ -25,6 +25,7 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
         cinemachineAnimator.Play(startStateName);
         GameState.isPuzzleLocked = true;
         GameState.ConfineCursor();
+        Event.Global.changeCamera.Raise();
 
         if (GameState.inventory.Count <= 0) {
             return;
@@ -39,6 +40,7 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
         GameState.isInventoryOpened = false;
         GameState.isPuzzleLocked = false;
         Event.Global.inventoryUpdate.Raise();
+        Event.Global.changeCamera.Raise();
     }
     
     private void Update() {
