@@ -77,9 +77,9 @@ public class P2Pot : MonoBehaviour {
             return;
         
         clickState ++;
-        if (clickState == 4) 
+        if (clickState == 5)
             Event.L1.drinkStew.Raise();
-        else if (clickState < 4) {
+        else if (clickState < 5) {
             MonologueInteractable monologueInteractable = GetComponent<MonologueInteractable>();
             // monologueInteractable.OnInteraction();
             monologueInteractable.IncrementState();
