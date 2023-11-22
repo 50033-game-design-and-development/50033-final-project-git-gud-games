@@ -10,7 +10,7 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
     // name of the virtual camera state in cinemachineAnimator to play when player presses escape
     public string endStateName;
     
-    private bool IsCinemachineInStartState() {
+    public bool IsCinemachineInStartState() {
         AnimatorStateInfo stateInfo = cinemachineAnimator.GetCurrentAnimatorStateInfo(0);
         return stateInfo.IsName(startStateName);
     }
