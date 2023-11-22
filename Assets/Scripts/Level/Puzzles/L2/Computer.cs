@@ -20,6 +20,8 @@ public class Computer : MonoBehaviour {
     [SerializeField] private Canvas loginCanvas;
     [SerializeField] private Canvas desktopCanvas;
     [SerializeField] private TextMeshProUGUI loginInputField;
+    [SerializeField] private AudioClip loginSuccessAudioClip;
+    [SerializeField] private AudioClip loginFailAudioClip;
     [SerializeField] private string password;
 
     [SerializeField] private CameraFocusable cameraFocusable;
@@ -76,11 +78,16 @@ public class Computer : MonoBehaviour {
     }
 
     public void OnLoginSubmit() {
-        if (loginInputField.text.ToLower() == password.ToLower()) {
+    
+        string input = loginInputField.text;
+
+        // Trim zero width space characters
+        if (input.Trim((char)8203).Equals(password.Trim(), StringComparison.OrdinalIgnoreCase)) {
             Event.L2.LoggedIn.Raise();
+            audioSource.PlayOneShot(loginSuccessAudioClip);
         } else {
             loginInputField.text = "";
-            // Play audioclip for wrong password
+            audioSource.PlayOneShot(loginFailAudioClip);
         }
     }
 
