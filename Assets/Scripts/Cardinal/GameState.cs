@@ -30,8 +30,12 @@ public class GameState : MonoBehaviour {
         }
     }
     
-    public static void ToggleInventory() {
-        isInventoryOpened = !isInventoryOpened;
+    public static void ToggleInventory(bool adjustCursor = true) {
+        if (adjustCursor) {
+            isInventoryOpened = !isInventoryOpened;
+        } else {
+            _isInventoryOpened = !_isInventoryOpened;
+        }
     }
     
     public static void LockCursor() {
