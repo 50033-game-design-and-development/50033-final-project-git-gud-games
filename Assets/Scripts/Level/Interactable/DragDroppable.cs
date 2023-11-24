@@ -20,6 +20,10 @@ public class DragDoppable : MonoBehaviour, IDragDroppable {
         @event.Raise();
     }
     private void Awake() {
+        UpdateDroppables();
+    }
+
+    public void UpdateDroppables() {
         _possibleDroppable = new(possibleDroppable);
     }
 }

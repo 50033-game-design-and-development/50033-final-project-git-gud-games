@@ -14,21 +14,28 @@ public enum ComputerState {
 
 public class Computer : MonoBehaviour {
 
-    [SerializeField] private Canvas offCanvas;
-    [SerializeField] private Canvas noBootCanvas;
-    [SerializeField] private Canvas startupOSCanvas;
-    [SerializeField] private Canvas loginCanvas;
-    [SerializeField] private Canvas desktopCanvas;
-    [SerializeField] private TextMeshProUGUI loginInputField;
+    [Header("Screens")]
+    [SerializeField] private Canvas[] screens;
+
+    [Header("Settings")]
     [SerializeField] private AudioClip loginSuccessAudioClip;
     [SerializeField] private AudioClip loginFailAudioClip;
+    [SerializeField] private AudioClip AudioFileClip;
     [SerializeField] private string password;
 
-    [SerializeField] private CameraFocusable cameraFocusable;
+    [Header("References")]
+    [SerializeField] private GameObject interactable;
+    [SerializeField] private TextMeshProUGUI loginInputField;
+    [SerializeField] private Animator audioWindowAnimator;
 
-    private Canvas[] canvases;
+
     private bool isOn = false;
-    private AudioSource audioSource;
+    private bool isPlayingAudio = false;
+    private AudioSource ambientAudioSource;
+    private AudioSource interactableAudioSource;
+    
+    private CameraFocusable cameraFocusable;
+    private DragDoppable dragDroppable;
 
     private ComputerState _state;
     private ComputerState State {
@@ -41,7 +48,12 @@ public class Computer : MonoBehaviour {
         }
     }
 
-    public void OnFusePlugged() => State = ComputerState.NoBoot;
+    public void OnFusePlugged() {
+        State = ComputerState.NoBoot;
+        dragDroppable.possibleDroppable.Clear();
+        dragDroppable.possibleDroppable.Add(InventoryItem.L2_Floppy);
+        dragDroppable.UpdateDroppables();
+    }
     public void OnFloppyInserted()  => State = ComputerState.Startup;
     public void OnLogin() => State = ComputerState.Desktop;
 
@@ -52,23 +64,25 @@ public class Computer : MonoBehaviour {
     public void On() {
         isOn = true;
         
-        for (int i = 0; i < canvases.Length; i++) {
-            canvases[i].gameObject.SetActive(i == (int) State);
+        for (int i = 0; i < screens.Length; i++) {
+            screens[i].gameObject.SetActive(i == (int) State);
         }
         if (State == ComputerState.Startup) 
             StartCoroutine("LoadStartupScreen");
         
         if (State != ComputerState.Off)
-            audioSource.Play();
+            ambientAudioSource.Play();
         
     }
 
     public void Off() {
         isOn = false;
-        audioSource.Stop();
+        isPlayingAudio = false;
+        ambientAudioSource.Stop();
+        interactableAudioSource.Stop();
         // Set all to off except for the first one
-        for (int i = 1; i < canvases.Length; i++) {
-            canvases[i].gameObject.SetActive(false);
+        for (int i = 1; i < screens.Length; i++) {
+            screens[i].gameObject.SetActive(false);
         }
     }
 
@@ -84,23 +98,18 @@ public class Computer : MonoBehaviour {
         // Trim zero width space characters
         if (input.Trim((char)8203).Equals(password.Trim(), StringComparison.OrdinalIgnoreCase)) {
             Event.L2.LoggedIn.Raise();
-            audioSource.PlayOneShot(loginSuccessAudioClip);
+            ambientAudioSource.PlayOneShot(loginSuccessAudioClip);
         } else {
             loginInputField.text = "";
-            audioSource.PlayOneShot(loginFailAudioClip);
+            ambientAudioSource.PlayOneShot(loginFailAudioClip);
         }
     }
 
     private void Start() {
-        audioSource = GetComponent<AudioSource>();
-
-        canvases = new Canvas[] {
-            offCanvas,
-            noBootCanvas,
-            startupOSCanvas,
-            loginCanvas,
-            desktopCanvas
-        };
+        ambientAudioSource = GetComponent<AudioSource>();
+        cameraFocusable = interactable.GetComponent<CameraFocusable>();
+        dragDroppable = interactable.GetComponent<DragDoppable>();
+        interactableAudioSource = interactable.GetComponent<AudioSource>();
         
         Off();
     }
@@ -111,6 +120,17 @@ public class Computer : MonoBehaviour {
         } else if (isOn && !cameraFocusable.IsCinemachineInStartState()) {
             Off();
         }
+
+        if (isPlayingAudio && !interactableAudioSource.isPlaying) {
+            isPlayingAudio = false;
+            audioWindowAnimator.SetTrigger("Close");
+        }
+    }
+
+    public void OnOpenAudioFile() {
+        isPlayingAudio = true;
+        interactableAudioSource.clip = AudioFileClip;
+        interactableAudioSource.Play();
     }
 
     
