@@ -130,4 +130,8 @@ public class PlayerRayCast : MonoBehaviour {
             DoNormalHighlight();
         }
     }
+
+    private void OnDisable() {
+        _playerAction.Disable();
+    }
 }

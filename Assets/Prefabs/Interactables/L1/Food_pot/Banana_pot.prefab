@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 4951484601251796068}
   - component: {fileID: 8532235480777837278}
   - component: {fileID: 8484413684546609112}
+  - component: {fileID: 6291028690451504435}
   m_Layer: 6
   m_Name: Banana_pot
   m_TagString: Untagged
@@ -138,6 +139,7 @@ MonoBehaviour:
   invSprite: {fileID: 21300000, guid: 95090d757b48a8148b8ccc1c9f9055ee, type: 3}
   itemType: 6
   event: {fileID: 0}
+  canCollect: 1
 --- !u!114 &6943180477487176196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: c230389cdba1a4d47bda71c4d0e2b6f9, type: 3}
+  - {fileID: 8300000, guid: f2bcd27f4409742459a0b109df1b995a, type: 3}
 --- !u!82 &2604685385485898032
 AudioSource:
   m_ObjectHideFlags: 0
@@ -163,7 +165,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6770622591282772054, guid: a94018a47709040fd82c3e5dfe0b6432, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -353,3 +355,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6291028690451504435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8786036391655017191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5cd1c9081f5fe40977a54d9a1b05b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleDroppable: 02000000030000000400000005000000060000000700000008000000090000000a000000
+  event: {fileID: 11400000, guid: b6e99973cb2c31940927cacff065a4e5, type: 2}

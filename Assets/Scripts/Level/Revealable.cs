@@ -8,4 +8,8 @@ public class Revealable : MonoBehaviour {
             return;
         Event.Global.revealPositionOnUi.Raise(transform.position);
     }
+
+    public void SetVisible(bool value) {
+        isVisible = value;
+    }
 }

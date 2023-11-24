@@ -27,7 +27,6 @@ public class Computer : MonoBehaviour {
     [SerializeField] private GameObject interactable;
     [SerializeField] private TextMeshProUGUI loginInputField;
     [SerializeField] private Animator audioWindowAnimator;
-    [SerializeField] private Canvas inventoryOpenWarning;
 
 
     private bool isOn = false;
@@ -98,7 +97,7 @@ public class Computer : MonoBehaviour {
 
         // Trim zero width space characters
         if (input.Trim((char)8203).Equals(password.Trim(), StringComparison.OrdinalIgnoreCase)) {
-            Event.L2.LoggedIn.Raise();
+            Event.L2.loggedIn.Raise();
             ambientAudioSource.PlayOneShot(loginSuccessAudioClip);
         } else {
             loginInputField.text = "";
@@ -116,22 +115,24 @@ public class Computer : MonoBehaviour {
     }
 
     private void Update() {
+        // Off computer when unfocusing, on when focusing
         if (!isOn && cameraFocusable.IsCinemachineInStartState()) {
             On();
         } else if (isOn && !cameraFocusable.IsCinemachineInStartState()) {
             Off();
         }
 
+        // Close audio window when audio is done playing
         if (isPlayingAudio && !interactableAudioSource.isPlaying) {
             isPlayingAudio = false;
             audioWindowAnimator.SetTrigger("Close");
         }
 
-        if (State == ComputerState.Desktop || State == ComputerState.Login) {
-            if (GameState.isInventoryOpened)
-                inventoryOpenWarning.gameObject.SetActive(true);
-            else 
-                inventoryOpenWarning.gameObject.SetActive(false);
+        // Close inventory when computer is turned on
+        if (isOn && GameState.isInventoryOpened && 
+            (State == ComputerState.Desktop || State == ComputerState.Login)) {
+                GameState.ToggleInventory(false);
+                Event.Global.inventoryUpdate.Raise();
         }
     }
 
@@ -139,6 +140,13 @@ public class Computer : MonoBehaviour {
         isPlayingAudio = true;
         interactableAudioSource.clip = AudioFileClip;
         interactableAudioSource.Play();
+        StartCoroutine("CloseAudioFile");
+    }
+
+    private IEnumerator CloseAudioFile() {
+        yield return new WaitForSeconds(AudioFileClip.length + 0.5f);
+        isPlayingAudio = false;
+        audioWindowAnimator.SetTrigger("Close");
     }
 
     

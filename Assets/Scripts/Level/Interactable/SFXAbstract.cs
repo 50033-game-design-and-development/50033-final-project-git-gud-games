@@ -15,7 +15,7 @@ public abstract class SFXAbstract : MonoBehaviour {
 
     public float GetAudioLength() {
         if (cachedState == -1) {
-            return 0;
+            return audioClips[state].length;
         }
         return audioClips[cachedState].length;
     }
