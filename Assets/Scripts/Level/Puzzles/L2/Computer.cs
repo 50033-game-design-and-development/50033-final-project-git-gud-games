@@ -25,7 +25,7 @@ public class Computer : MonoBehaviour {
 
     [Header("References")]
     [SerializeField] private GameObject interactable;
-    [SerializeField] private TextMeshProUGUI loginInputField;
+    [SerializeField] private TMP_InputField loginInputField;
     [SerializeField] private Animator audioWindowAnimator;
 
 
