@@ -27,6 +27,7 @@ public class Computer : MonoBehaviour {
     [SerializeField] private GameObject interactable;
     [SerializeField] private TextMeshProUGUI loginInputField;
     [SerializeField] private Animator audioWindowAnimator;
+    [SerializeField] private Canvas inventoryOpenWarning;
 
 
     private bool isOn = false;
@@ -124,6 +125,13 @@ public class Computer : MonoBehaviour {
         if (isPlayingAudio && !interactableAudioSource.isPlaying) {
             isPlayingAudio = false;
             audioWindowAnimator.SetTrigger("Close");
+        }
+
+        if (State == ComputerState.Desktop || State == ComputerState.Login) {
+            if (GameState.isInventoryOpened)
+                inventoryOpenWarning.gameObject.SetActive(true);
+            else 
+                inventoryOpenWarning.gameObject.SetActive(false);
         }
     }
 
