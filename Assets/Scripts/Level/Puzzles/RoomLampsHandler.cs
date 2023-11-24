@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Level.Puzzles {
     public class RoomLampsHandler : MonoBehaviour {
-        public string lampsTagName;
+        public string lampsTagName = "lamp";
 
         public void OnLightsToggle(bool turnOn) {
             var lampGameObjects = FindInChildren(
@@ -24,8 +24,8 @@ namespace Level.Puzzles {
             taggedChildren ??= new List<GameObject>();
             
             foreach (Transform child in obj.transform) {
-                if (
-                    child.gameObject.CompareTag(tagName) &&
+                if (                    
+                    child.gameObject.tag.Equals(tagName) &&
                     child.GetComponent<Light>() != null
                 ) {
                     taggedChildren.Add(child.gameObject);

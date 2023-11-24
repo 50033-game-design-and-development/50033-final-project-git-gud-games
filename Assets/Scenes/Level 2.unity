@@ -2670,7 +2670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1800325428}
+  m_Material: {fileID: 372176560}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -5159,6 +5159,45 @@ Transform:
   - {fileID: 308449727}
   m_Father: {fileID: 280883671}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!21 &372176560
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1848, g: 201, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &373766211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9223,9 +9262,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lamp_2
       objectReference: {fileID: 0}
+    - target: {fileID: 1346214679054956, guid: 1c84920a311cf3b429209e6741616a98, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1468060215434108, guid: 1c84920a311cf3b429209e6741616a98, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468060215434108, guid: 1c84920a311cf3b429209e6741616a98, type: 3}
+      propertyPath: m_TagString
+      value: lamp
       objectReference: {fileID: 0}
     - target: {fileID: 4422535878737164, guid: 1c84920a311cf3b429209e6741616a98, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9425,9 +9472,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lamp_2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1346214679054956, guid: 1c84920a311cf3b429209e6741616a98, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1468060215434108, guid: 1c84920a311cf3b429209e6741616a98, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468060215434108, guid: 1c84920a311cf3b429209e6741616a98, type: 3}
+      propertyPath: m_TagString
+      value: lamp
       objectReference: {fileID: 0}
     - target: {fileID: 4422535878737164, guid: 1c84920a311cf3b429209e6741616a98, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9837,6 +9892,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 740331676}
+  - component: {fileID: 740331678}
+  - component: {fileID: 740331677}
   m_Layer: 0
   m_Name: STUDY ROOM
   m_TagString: Untagged
@@ -9866,6 +9923,47 @@ Transform:
   - {fileID: 514586893}
   m_Father: {fileID: 2083562620}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &740331677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740331675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 762454757a5347f7bc51fad0d20d12ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: ecf0eb6f8beb2e050b9bc2348ad701f7, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 740331678}
+        m_TargetAssemblyTypeName: Level.Puzzles.RoomLampsHandler, Assembly-CSharp
+        m_MethodName: OnLightsToggle
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &740331678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740331675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a87ea3b18114a29be9ff1f0bb20bc90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lampsTagName: lamp
 --- !u!1 &749884735
 GameObject:
   m_ObjectHideFlags: 0
@@ -22279,6 +22377,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8856873947168040878, guid: 6f97ad0f21f8947d998ec9255f9161e1, type: 3}
   m_PrefabInstance: {fileID: 127854504835518775}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &997972271 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1036790066515305315, guid: 6f97ad0f21f8947d998ec9255f9161e1, type: 3}
+  m_PrefabInstance: {fileID: 127854504835518775}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1004097491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23460,9 +23563,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lamp_2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1346214679054956, guid: 1c84920a311cf3b429209e6741616a98, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1468060215434108, guid: 1c84920a311cf3b429209e6741616a98, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468060215434108, guid: 1c84920a311cf3b429209e6741616a98, type: 3}
+      propertyPath: m_TagString
+      value: lamp
       objectReference: {fileID: 0}
     - target: {fileID: 4422535878737164, guid: 1c84920a311cf3b429209e6741616a98, type: 3}
       propertyPath: m_LocalPosition.x
@@ -44248,6 +44359,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Living Room Switch
       objectReference: {fileID: 0}
+    - target: {fileID: 7547737586221557964, guid: 107d547db65a566a3861eaee78d90e13, type: 3}
+      propertyPath: onSwitchToggle
+      value: 
+      objectReference: {fileID: 11400000, guid: b93621886a2f1d558816032073dd7bec, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -45700,45 +45815,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4579100096229528, guid: 8b52a049bbba76b4187f855da48487cc, type: 3}
   m_PrefabInstance: {fileID: 1799826490}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1800325428
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1848, g: 201, b: 40, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &1810429060
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46595,6 +46671,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4327901319954042, guid: 3cb351084f4e79c4aa3faa3ccec2101e, type: 3}
   m_PrefabInstance: {fileID: 1874683220}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1882506901 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1055808999750419266, guid: 6f97ad0f21f8947d998ec9255f9161e1, type: 3}
+  m_PrefabInstance: {fileID: 127854504835518775}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1882506907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882506901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd098d31d0f144baa38a009505f27df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 997972271}
 --- !u!1001 &1887938509
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46647,6 +46741,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Study Room Switch
       objectReference: {fileID: 0}
+    - target: {fileID: 7547737586221557964, guid: 107d547db65a566a3861eaee78d90e13, type: 3}
+      propertyPath: onSwitchToggle
+      value: 
+      objectReference: {fileID: 11400000, guid: ecf0eb6f8beb2e050b9bc2348ad701f7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -54564,6 +54662,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1266299821}
     m_Modifications:
+    - target: {fileID: 1055808999750419266, guid: 6f97ad0f21f8947d998ec9255f9161e1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8856873947168040878, guid: 6f97ad0f21f8947d998ec9255f9161e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -54615,7 +54717,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1055808999750419266, guid: 6f97ad0f21f8947d998ec9255f9161e1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1882506907}
   m_SourcePrefab: {fileID: 100100000, guid: 6f97ad0f21f8947d998ec9255f9161e1, type: 3}
 --- !u!1 &614351226253024556
 GameObject:
