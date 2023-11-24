@@ -8,6 +8,7 @@ public class NotePlayable : MonoBehaviour, IInteractable, IClickable {
     public void OnInteraction() {
         Debug.Log("Played Note: ("+note+", "+_octave+")");
         // todo: Synthesize note sounds
+        Event.L2.playNote.Raise(note, _octave);
     }
 
     public void OnClick() => OnInteraction();
