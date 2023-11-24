@@ -2,13 +2,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class P4NoteSequence : MonoBehaviour {
-    public Music.Octave octave;
     public List<Music.Note> sequence;
 
+    private Music.Octave _octave;
     private int _idx;
 
     public void OnNotePlayed(Music.Note note, Music.Octave octave) {
-        if (note != sequence[_idx]) {
+        if (_idx == 0) {
+            _octave = octave;
+        }
+
+        if (note != sequence[_idx] || _octave != octave) {
             _idx = 0;
             return;
         }
