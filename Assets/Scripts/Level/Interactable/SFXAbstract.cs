@@ -26,7 +26,7 @@ public abstract class SFXAbstract : MonoBehaviour {
         }
 
         AudioClip clip = audioClips[state];
-        if (clip != null) {
+        if (clip != null && audioSource != null) {
             StopCoroutine("ClearCache");
             cachedState = state;
             audioSource.PlayOneShot(clip);
