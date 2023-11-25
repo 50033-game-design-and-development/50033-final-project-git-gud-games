@@ -17,6 +17,11 @@ public class LightFlicker : MonoBehaviour
     public Material offMaterial;
     public Material onMaterial;
     
+    // audio to play when on or off
+    public AudioSource lightAudioSource;
+    public AudioClip onAudio;
+    public AudioClip offAudio;
+    
     private bool _isFlickering = false;
     private float _timeDelay;
     
@@ -36,18 +41,29 @@ public class LightFlicker : MonoBehaviour
 
     private IEnumerator FlickerLight()
     {
+        // Turn off
         _isFlickering = true;
         if (offMaterial != null)
         {
             this.gameObject.transform.parent.GetComponent<Renderer>().material = offMaterial;
         }
+
+        if (lightAudioSource != null && offAudio != null)
+        {
+            lightAudioSource.PlayOneShot(offAudio);
+        }
         this.gameObject.GetComponent<Light>().enabled = false;
         _timeDelay = Random.Range(minOffRange, maxOffRange);
         yield return new WaitForSeconds(_timeDelay);
         
+        // Turn on
         if (onMaterial != null)
         {
             this.gameObject.transform.parent.GetComponent<Renderer>().material = onMaterial;
+        }
+        if (lightAudioSource != null && onAudio != null)
+        {
+            lightAudioSource.PlayOneShot(onAudio);
         }
         this.gameObject.GetComponent<Light>().enabled = true;
         _timeDelay = Random.Range(minOnRange, maxOnRange);
