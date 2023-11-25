@@ -5,6 +5,8 @@ using UnityEngine;
 namespace Level.Puzzles {
     public class RoomLampsHandler : MonoBehaviour {
         public string lampsTagName = "lamp";
+        public Material lampsOnMaterial;
+        public Material lampsOffMaterial;
 
         public void OnLightsToggle(bool turnOn) {
             var lampGameObjects = FindInChildren(
@@ -12,9 +14,16 @@ namespace Level.Puzzles {
             );
             
             Debug.Log("OBJECTS " + lampGameObjects.Count + " " + turnOn);
-            foreach (var lampGameObject in lampGameObjects) { 
-                var lamp = lampGameObject.GetComponent<Light>();
-                lamp.enabled = turnOn;
+            foreach (var lampGameObject in lampGameObjects) {
+                if (lampGameObject.TryGetComponent<Light>(out var lamp)) {
+                    lamp.enabled = turnOn;
+                } else if (
+                    lampGameObject.TryGetComponent<Renderer>(out var renderer)
+                ) {
+                    renderer.material = turnOn ? 
+                        lampsOnMaterial : lampsOffMaterial;
+                }
+
             }
         }
         
@@ -24,10 +33,7 @@ namespace Level.Puzzles {
             taggedChildren ??= new List<GameObject>();
             
             foreach (Transform child in obj.transform) {
-                if (                    
-                    child.gameObject.tag.Equals(tagName) &&
-                    child.GetComponent<Light>() != null
-                ) {
+                if (child.gameObject.tag.Equals(tagName)) {
                     taggedChildren.Add(child.gameObject);
                 }
 
