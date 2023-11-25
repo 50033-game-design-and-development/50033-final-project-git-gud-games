@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.35872743, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1895,10 +1895,7 @@ PrefabInstance:
     - {fileID: 6927462181489859488, guid: cacca0ede52bf12949fda8e7b602dc25, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 754602151221385095, guid: cacca0ede52bf12949fda8e7b602dc25, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 703948404}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cacca0ede52bf12949fda8e7b602dc25, type: 3}
 --- !u!1 &359080515
 GameObject:
@@ -3879,28 +3876,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9657eec125d1ed4408cd77a5ad62be9d, type: 3}
---- !u!1 &703948394 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 754602151221385095, guid: cacca0ede52bf12949fda8e7b602dc25, type: 3}
-  m_PrefabInstance: {fileID: 342966551}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &703948395 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6320342883266193291, guid: cacca0ede52bf12949fda8e7b602dc25, type: 3}
   m_PrefabInstance: {fileID: 342966551}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &703948404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703948394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2974149c6fb01b409a280581634da96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &705112340
 GameObject:
   m_ObjectHideFlags: 0
@@ -9144,7 +9124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1497818460}
+  m_Material: {fileID: 1832949618}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -9258,7 +9238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc97ffa3d191c0e43b250ded8994c29c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _checkStew: {fileID: 0}
+  _checkStew: {fileID: 11400000, guid: c5ff330833532404fa6af1cd3823003d, type: 2}
   _drinkStew: {fileID: 11400000, guid: 079ff177b7e25108f811a387f4801a92, type: 2}
   _placeIngredient: {fileID: 11400000, guid: b6e99973cb2c31940927cacff065a4e5, type: 2}
   _removeIngredient: {fileID: 11400000, guid: b5e48fdadf380cc4f97f671f00f3264c, type: 2}
@@ -9266,34 +9246,6 @@ MonoBehaviour:
   _solveP1: {fileID: 11400000, guid: 938b3ac4bbc278c5f9703a92622d5acb, type: 2}
   _solveP2: {fileID: 11400000, guid: 10b9523cc776456fba83d7ea0c3f6756, type: 2}
   _unlockDoor: {fileID: 11400000, guid: ad01cfb210614fccb88093012f5e052a, type: 2}
---- !u!114 &1625286882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1625286877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1645042ab9c7e1c40a7c732a204f5d99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: ad01cfb210614fccb88093012f5e052a, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1625286881}
-        m_TargetAssemblyTypeName: Event.L1, Assembly-CSharp
-        m_MethodName: bob
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1633214876
 GameObject:
   m_ObjectHideFlags: 0
@@ -10516,6 +10468,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monologueKeys: 270000002800000029000000
+--- !u!21 &1832949618
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &1842874030
 PrefabInstance:
   m_ObjectHideFlags: 0
