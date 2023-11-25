@@ -2696,7 +2696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1516828327}
+  m_Material: {fileID: 1944788343}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -43709,45 +43709,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6001097662037099236, guid: a99d72e9320bffe4ab91ba5ac0172aff, type: 3}
   m_PrefabInstance: {fileID: 1513086314}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1516828327
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &1526901077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44872,6 +44833,122 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18a11fd6df8ceb449b8785301026d639, type: 3}
+--- !u!1 &1633867824 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 153773005629202, guid: a5d01273ffc15224bb626486745771ba, type: 3}
+  m_PrefabInstance: {fileID: 2955444958472106068}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1633867835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633867824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18efc4c6e49c6a7c28122326c3c5efc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: d3353fbc72980ddddb1f20bbac559428, type: 3}
+  - {fileID: 0}
+--- !u!82 &1633867836
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633867824}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -6770622591282772054, guid: a94018a47709040fd82c3e5dfe0b6432, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 58d708d98d6e952129389743255c68df, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1635491697
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45086,6 +45163,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7447811134356423840, guid: f4cddf09d83defd49ba2b35e541f9981, type: 3}
   m_PrefabInstance: {fileID: 1671810405}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1674863420 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8177441879703711570, guid: a5d01273ffc15224bb626486745771ba, type: 3}
+  m_PrefabInstance: {fileID: 2955444958472106068}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1681951166
 GameObject:
@@ -47467,6 +47549,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4168414422722838, guid: c7bd1248045953e4589d9044c2879300, type: 3}
   m_PrefabInstance: {fileID: 1926177989}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &1944788343
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &1946427257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55457,6 +55578,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1266299821}
     m_Modifications:
+    - target: {fileID: 1657727160658165596, guid: a5d01273ffc15224bb626486745771ba, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657727160658165596, guid: a5d01273ffc15224bb626486745771ba, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657727160658165596, guid: a5d01273ffc15224bb626486745771ba, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1633867835}
+    - target: {fileID: 1657727160658165596, guid: a5d01273ffc15224bb626486745771ba, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657727160658165596, guid: a5d01273ffc15224bb626486745771ba, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: IncrementState
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657727160658165596, guid: a5d01273ffc15224bb626486745771ba, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SFXAbstract, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657727160658165596, guid: a5d01273ffc15224bb626486745771ba, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4381114606653021275, guid: a5d01273ffc15224bb626486745771ba, type: 3}
+      propertyPath: m_SceneBindings.Array.data[0].value
+      value: 
+      objectReference: {fileID: 1674863420}
+    - target: {fileID: 4381114606653021275, guid: a5d01273ffc15224bb626486745771ba, type: 3}
+      propertyPath: m_SceneBindings.Array.data[2].value
+      value: 
+      objectReference: {fileID: 1633867836}
+    - target: {fileID: 8177441879703711570, guid: a5d01273ffc15224bb626486745771ba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8229219172293319120, guid: a5d01273ffc15224bb626486745771ba, type: 3}
       propertyPath: m_Name
       value: Door_exit_animated
@@ -55501,10 +55662,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5137442715338360783, guid: a5d01273ffc15224bb626486745771ba, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 153773005629202, guid: a5d01273ffc15224bb626486745771ba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1633867835}
+    - targetCorrespondingSourceObject: {fileID: 153773005629202, guid: a5d01273ffc15224bb626486745771ba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1633867836}
   m_SourcePrefab: {fileID: 100100000, guid: a5d01273ffc15224bb626486745771ba, type: 3}
 --- !u!114 &3318849332846416046
 MonoBehaviour:
