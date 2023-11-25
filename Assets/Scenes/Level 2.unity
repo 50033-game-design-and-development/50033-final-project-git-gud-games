@@ -2696,7 +2696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1053227084}
+  m_Material: {fileID: 889883051}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -16620,6 +16620,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4354458936023278, guid: f2da139fdb8c88745b79f1879a5541f3, type: 3}
   m_PrefabInstance: {fileID: 880206905}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &889883051
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &895027590
 GameObject:
   m_ObjectHideFlags: 0
@@ -23463,6 +23502,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6692025263759600532, guid: 526c1071c69cd424abcd900fddad59bb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1774102570}
+    - targetCorrespondingSourceObject: {fileID: 6692025263759600532, guid: 526c1071c69cd424abcd900fddad59bb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1774102571}
     - targetCorrespondingSourceObject: {fileID: 6598850805369644193, guid: 526c1071c69cd424abcd900fddad59bb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1509713170}
@@ -23489,45 +23531,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2578315247240585259, guid: 6f15c2fc0c9b5b149a4f0802e0cc927e, type: 3}
   m_PrefabInstance: {fileID: 916701186}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1053227084
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &1063804220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24666,6 +24669,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3548be56ef01acb45b73c34f31f1c772, type: 3}
+--- !u!1 &1159920706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5600186046864423160, guid: f406360dd3a4c461ca155265a877bdb5, type: 3}
+  m_PrefabInstance: {fileID: 6107605833801938419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1161952509
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46081,7 +46089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e888bde4678aa34da87d985a609f299, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sequence: 
+  sequence: 070000000700000004000000090000000700000004000000
 --- !u!114 &1774102570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46110,6 +46118,102 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!82 &1774102571
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774102566}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1778606280
 GameObject:
   m_ObjectHideFlags: 0
@@ -54971,6 +55075,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2263062695834012731, guid: f406360dd3a4c461ca155265a877bdb5, type: 3}
   m_PrefabInstance: {fileID: 6107605833801938419}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4905713558732279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159920706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 379ffc6f6fec402ab08fa36137fb6ac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4905713558732280}
+  interactables: []
+--- !u!95 &4905713558732280 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 862949822394049023, guid: f406360dd3a4c461ca155265a877bdb5, type: 3}
+  m_PrefabInstance: {fileID: 6107605833801938419}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4905713558732286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159920706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1645042ab9c7e1c40a7c732a204f5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 206fc4e8bbc55fa43bb9386efb4fb86b, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4905713558732279}
+        m_TargetAssemblyTypeName: P4Shelf, Assembly-CSharp
+        m_MethodName: OnPuzzleSolved
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &127854504835518775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56090,7 +56241,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5600186046864423160, guid: f406360dd3a4c461ca155265a877bdb5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4905713558732279}
+    - targetCorrespondingSourceObject: {fileID: 5600186046864423160, guid: f406360dd3a4c461ca155265a877bdb5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4905713558732286}
   m_SourcePrefab: {fileID: 100100000, guid: f406360dd3a4c461ca155265a877bdb5, type: 3}
 --- !u!1 &6253680021872093695
 GameObject:
