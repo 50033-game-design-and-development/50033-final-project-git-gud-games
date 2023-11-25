@@ -71,7 +71,7 @@ public class P2Pot : MonoBehaviour {
     }
 
     public void OnStewClicked() {
-        if (!solved || clickState > 5)
+        if (!solved || clickState > 5 || !GameState.isPuzzleLocked)
             return;
         
         clickState ++;
