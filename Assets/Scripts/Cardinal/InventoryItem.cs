@@ -13,6 +13,7 @@
     L1_Tomato = 10,
     L1_Lily = 13,
     L1_Vial = 14,
+    L1_Vial_filled = 15,
     L1_Pencil = 11,
     
     L2_Fuse = 12,
