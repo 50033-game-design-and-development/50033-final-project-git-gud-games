@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace NavKeypad
 {
-    public class KeypadButton : MonoBehaviour, IClickable
+    public class KeypadButton : MonoBehaviour, IInteractable, IClickable
     {
         [Header("Value")]
         [SerializeField] private string value;
@@ -62,9 +62,11 @@ namespace NavKeypad
             moving = false;
         }
 
-        public void OnClick() {
+        public void OnInteraction() {
             keypad.AddInput(value);
             StartCoroutine(MoveSmooth());
         }
+
+        public void OnClick() => OnInteraction();
     }
 }
