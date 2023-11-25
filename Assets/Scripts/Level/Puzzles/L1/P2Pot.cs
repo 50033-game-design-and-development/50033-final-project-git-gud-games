@@ -8,6 +8,9 @@ public class P2Pot : MonoBehaviour {
 
     [Header("Attributes")]
     [SerializeField] private Transform ingredientsTransform;
+    [SerializeField] private Collectable vialFilled;
+
+    [Header("Password")]
     [SerializeField] private InventoryItem[] correctCombination;
     
     [Header("Ingredient details")]    
@@ -18,13 +21,17 @@ public class P2Pot : MonoBehaviour {
     private int clickState = 0;
 
     public void AddIngredient() {
-        if (!GameState.selectedInventoryItem.HasValue || solved) 
+        if (!GameState.selectedInventoryItem.HasValue) 
             return;
 
         InventoryItem item = GameState.selectedInventoryItem.Value.itemType;
         bool isIngredient = validItems.Contains(item);
-        if (!isIngredient) 
+        if (!isIngredient) {
+            if (solved && item == InventoryItem.L1_Vial) {
+                    vialFilled.OnInteraction();
+            }
             return;
+        }
 
         potItems.Add(item);
         InstantiatePrefab(validItems.IndexOf(item));
@@ -52,7 +59,6 @@ public class P2Pot : MonoBehaviour {
                 return;
         }
 
-        Debug.Log("Combination correct");
         Event.L1.solveP2.Raise();
     }
 
@@ -85,13 +91,15 @@ public class P2Pot : MonoBehaviour {
     }
 
     public void OnStewDrink() {
-        Debug.Log("GANPEIIIII");
-        // TODO: Play some cutscene
+        // Play some cutscene
     }
 
     private void LockIngredients() {
         solved = true;
         GetComponent<BoxCollider>().enabled = true;
-        Destroy(GetComponent<DragDoppable>());
+        DragDoppable droppable = GetComponent<DragDoppable>();
+        droppable.possibleDroppable.Clear();
+        droppable.possibleDroppable.Add(InventoryItem.L1_Vial);
+        droppable.UpdateDroppables();
     }
 }
