@@ -46,6 +46,8 @@ public enum MonologueKey {
     L1_INGREDIENT_AFTER_P2 = 41,
     L1_CABINET_LOCKED = 42,
     L1_CABINET_OPEN = 46,
+    L1_VIAL = 47,
+    L1_LILY = 48,
 
     L2_START = 50,
     L2_PICTURE_MOM_DEFAULT = 56,
@@ -86,6 +88,18 @@ public enum MonologueKey {
     L2_DRIVE_DEFAULT = 84,
     L2_DRIVE_AFTER_PC = 85,
     L2_KITCHEN_DOOR = 86,
+    L2_SHEET_MUSIC = 89,
+
+    L2_CABINET_LOCKED = 90,
+    L2_BOOK_DEFAULT = 91,
+    L2_BOOK_SOLVED = 92,
+    L2_PENCIL = 93,
+    L2_PENTARGAM_DEFAULT = 94,
+    L2_PENTAGRAM_AFTER_BOOK = 95,
+    L2_INCANTATION = 96,
+
+    BAD_END = 97,
+    GOOD_END = 98,
 
     WRONG_ITEM = 99,
 }
