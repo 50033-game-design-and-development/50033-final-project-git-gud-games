@@ -16,4 +16,5 @@
     L1_Pencil = 11,
     
     L2_Fuse = 12,
+    L2_Floppy = 13,
 }
