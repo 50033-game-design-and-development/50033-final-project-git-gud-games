@@ -122,12 +122,6 @@ public class Computer : MonoBehaviour {
             Off();
         }
 
-        // Close audio window when audio is done playing
-        if (isPlayingAudio && !interactableAudioSource.isPlaying) {
-            isPlayingAudio = false;
-            audioWindowAnimator.SetTrigger("Close");
-        }
-
         // Close inventory when computer is turned on
         if (isOn && GameState.isInventoryOpened && 
             (State == ComputerState.Desktop || State == ComputerState.Login)) {
@@ -144,7 +138,9 @@ public class Computer : MonoBehaviour {
     }
 
     private IEnumerator CloseAudioFile() {
-        yield return new WaitForSeconds(AudioFileClip.length + 0.5f);
+        yield return interactableAudioSource.isPlaying;
+        yield return new WaitForSeconds(AudioFileClip.length + 1f);
+        yield return !interactableAudioSource.isPlaying;
         isPlayingAudio = false;
         audioWindowAnimator.SetTrigger("Close");
     }
