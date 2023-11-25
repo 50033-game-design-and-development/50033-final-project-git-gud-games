@@ -30,7 +30,6 @@ public class Computer : MonoBehaviour {
 
 
     private bool isOn = false;
-    private bool isPlayingAudio = false;
     private AudioSource ambientAudioSource;
     private AudioSource interactableAudioSource;
     
@@ -77,7 +76,6 @@ public class Computer : MonoBehaviour {
 
     public void Off() {
         isOn = false;
-        isPlayingAudio = false;
         ambientAudioSource.Stop();
         interactableAudioSource.Stop();
         // Set all to off except for the first one
@@ -131,7 +129,6 @@ public class Computer : MonoBehaviour {
     }
 
     public void OnOpenAudioFile() {
-        isPlayingAudio = true;
         interactableAudioSource.clip = AudioFileClip;
         interactableAudioSource.Play();
         StartCoroutine("CloseAudioFile");
@@ -141,7 +138,6 @@ public class Computer : MonoBehaviour {
         yield return interactableAudioSource.isPlaying;
         yield return new WaitForSeconds(AudioFileClip.length + 1f);
         yield return !interactableAudioSource.isPlaying;
-        isPlayingAudio = false;
         audioWindowAnimator.SetTrigger("Close");
     }
 
