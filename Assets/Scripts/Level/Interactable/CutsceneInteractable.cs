@@ -26,4 +26,8 @@ public class CutsceneInteractable : MonoBehaviour, IInteractable {
     public void IncrementState() {
         state++;
     }
+    public void ToggleInventory() {
+        GameState.ToggleInventory();
+        Event.Global.inventoryUpdate.Raise();
+    }
 }
