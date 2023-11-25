@@ -103,6 +103,28 @@ public class Computer : MonoBehaviour {
         }
     }
 
+    
+    public void OnOpenAudioFile() {
+        audioWindowAnimator.SetTrigger("Click");
+        interactableAudioSource.clip = AudioFileClip;
+        interactableAudioSource.Play();
+        
+        StartCoroutine("CloseAudioFile");
+    }
+
+    private IEnumerator CloseAudioFile() {
+        yield return interactableAudioSource.isPlaying;
+        yield return new WaitForSeconds(AudioFileClip.length + 1f);
+        yield return !interactableAudioSource.isPlaying;
+        audioWindowAnimator.SetTrigger("Close");
+    }
+
+    public void OnForceCloseAudioFile() {
+        StopCoroutine("CloseAudioFile");
+        interactableAudioSource.Stop();
+        audioWindowAnimator.SetTrigger("Close");
+    }
+
     private void Start() {
         ambientAudioSource = GetComponent<AudioSource>();
         cameraFocusable = interactable.GetComponent<CameraFocusable>();
@@ -126,19 +148,6 @@ public class Computer : MonoBehaviour {
                 GameState.ToggleInventory(false);
                 Event.Global.inventoryUpdate.Raise();
         }
-    }
-
-    public void OnOpenAudioFile() {
-        interactableAudioSource.clip = AudioFileClip;
-        interactableAudioSource.Play();
-        StartCoroutine("CloseAudioFile");
-    }
-
-    private IEnumerator CloseAudioFile() {
-        yield return interactableAudioSource.isPlaying;
-        yield return new WaitForSeconds(AudioFileClip.length + 1f);
-        yield return !interactableAudioSource.isPlaying;
-        audioWindowAnimator.SetTrigger("Close");
     }
 
     
