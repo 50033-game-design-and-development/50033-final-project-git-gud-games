@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PotSFX : MonoBehaviour, IInteractable {
     private AudioSource audioSource;
-    private bool canCook;
+    [SerializeField] private bool canCook;
 
     public void OnInteraction() {
         if (canCook && !audioSource.isPlaying) {

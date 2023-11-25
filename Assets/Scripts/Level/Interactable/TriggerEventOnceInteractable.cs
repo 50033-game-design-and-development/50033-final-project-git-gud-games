@@ -1,17 +1,21 @@
 using UnityEngine;
 
 public class TriggerEventOnceInteractable : MonoBehaviour, IInteractable {
-    private bool hasTriggered;
+    [SerializeField] private bool canTrigger = true;
     [SerializeField] private GameEvent @event;
 
     public void OnInteraction() {
-        if (!hasTriggered) {
+        if (canTrigger) {
             @event.Raise();
-            hasTriggered = true;
+            canTrigger = false;
         }
     }
 
     public void DisableTrigger() {
-        hasTriggered = true;
+        canTrigger = false;
+    }
+
+    public void EnableTrigger() {
+        canTrigger = true;
     }
 }
