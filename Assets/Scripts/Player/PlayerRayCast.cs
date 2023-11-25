@@ -80,11 +80,11 @@ public class PlayerRayCast : MonoBehaviour {
     }
 
     private void DoInventoryDragHighlight() {
-        if (!GameState.isDraggingInventoryItem) {
-            _highlighted = false;
-            DisableOutline();
-            return;
-        }
+        // if (!GameState.isDraggingInventoryItem) {
+        //     _highlighted = false;
+        //     DisableOutline();
+        //     return;
+        // }
             
         // Ray points out from cursor position in camera viewport
         Ray ray = Camera.main.ScreenPointToRay(
