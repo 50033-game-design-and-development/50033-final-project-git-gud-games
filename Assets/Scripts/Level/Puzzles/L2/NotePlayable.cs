@@ -4,6 +4,7 @@ public class NotePlayable : MonoBehaviour, IInteractable, IClickable {
     public Music.Note note;
 
     private Music.Octave _octave;
+    private AudioSource _pianoSrc;
 
     public void OnInteraction() {
         Debug.Log("Played Note: ("+note+", "+_octave+")");
@@ -14,6 +15,8 @@ public class NotePlayable : MonoBehaviour, IInteractable, IClickable {
     public void OnClick() => OnInteraction();
 
     private void Start() {
-        _octave = transform.parent.gameObject.GetComponent<Octave>().octave;
+        var oct = transform.parent.gameObject;
+        _octave = oct.GetComponent<Octave>().octave;
+        _pianoSrc = oct.transform.parent.gameObject.GetComponent<AudioSource>();
     }
 }
