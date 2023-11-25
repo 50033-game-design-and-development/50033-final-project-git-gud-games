@@ -6,7 +6,7 @@ public class LightInteractable : MonoBehaviour, IInteractable {
     [SerializeField] protected bool switchedOn = true;
     [SerializeField] private Material lampsOnMaterial;
     [SerializeField] private Material lampsOffMaterial;
-    [SerializeField] private List<MeshRenderer> scribbleMeshes;
+    [SerializeField] private List<GameObject> scribbles;
     [SerializeField] private List<MeshRenderer> lampMeshes;
     [SerializeField] private List<Light> lights;
 
@@ -28,8 +28,8 @@ public class LightInteractable : MonoBehaviour, IInteractable {
             light.enabled = switchedOn;
         }
 
-        foreach (MeshRenderer mesh in scribbleMeshes) {
-            mesh.enabled = !switchedOn;
+        foreach (GameObject scribble in scribbles) {
+            scribble.SetActive(!switchedOn);
         }
     }
 
