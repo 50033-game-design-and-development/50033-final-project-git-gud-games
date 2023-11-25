@@ -8,6 +8,10 @@ public class P4NoteSequence : MonoBehaviour {
     private int _idx;
 
     public void OnNotePlayed(Music.Note note, Music.Octave octave) {
+        if (_idx == sequence.Count) {
+            return;
+        }
+
         if (_idx == 0) {
             _octave = octave;
         }
@@ -23,7 +27,6 @@ public class P4NoteSequence : MonoBehaviour {
         }
 
         Event.L2.solvedP4.Raise();
-        Debug.Log("solved");
-        enabled = false;
+        Debug.Log("solved p4");
     }
 }

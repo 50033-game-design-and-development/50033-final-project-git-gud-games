@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CameraFocusable : MonoBehaviour, IInteractable {
@@ -9,7 +10,9 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
     
     // name of the virtual camera state in cinemachineAnimator to play when player presses escape
     public string endStateName;
-    
+
+    private PlayerAction _playerAction;
+
     private bool IsCinemachineInStartState() {
         AnimatorStateInfo stateInfo = cinemachineAnimator.GetCurrentAnimatorStateInfo(0);
         return stateInfo.IsName(startStateName);
@@ -29,19 +32,24 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
     }
     
     private void OnEscape() {
+        if (!GameState.isPuzzleLocked) {
+            return;
+        }
         cinemachineAnimator.Play(endStateName);
         GameState.isInventoryOpened = false;
         GameState.isPuzzleLocked = false;
         GameState.LockCursor();
         Event.Global.changeCamera.Raise();
     }
-    
-    private void Update() {
-        if (
-            Input.GetKeyDown(KeyCode.Escape) &&
-            IsCinemachineInStartState()
-        ) {
-            OnEscape();
-        }
+
+    private void Start() {
+        _playerAction = new PlayerAction();
+        _playerAction.Enable();
+
+        _playerAction.gameplay.Escape.performed += _ => OnEscape();
+    }
+
+    private void OnDisable() {
+        _playerAction.Disable();
     }
 }

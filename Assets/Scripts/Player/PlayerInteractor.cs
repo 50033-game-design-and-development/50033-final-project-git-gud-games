@@ -68,11 +68,12 @@ public class PlayerInteractor : MonoBehaviour {
 
         // open inventory when you press E
         _playerAction.gameplay.InventoryOpen.performed += _ => {
+            Debug.Log("i reached here 1");
             // don't open inventory if inventory is closed and empty
             if (!GameState.isInventoryOpened && GameState.inventory.Count == 0) {
                 return;        
             }
-
+            Debug.Log("i reached here");
             // check if the cineMachine camera is not locked
             // to any interaction objects i.e. it follows the player
             // and don't allow player to freely move cursor if so
