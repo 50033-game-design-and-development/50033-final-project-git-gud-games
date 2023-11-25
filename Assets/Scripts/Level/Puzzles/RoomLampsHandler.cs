@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,11 +11,10 @@ namespace Level.Puzzles {
                 gameObject, lampsTagName
             );
             
-            foreach (var lampGameObject in lampGameObjects) {
-                if (lampGameObject.GetComponent<Light>() != null) {
-                    var lamp = lampGameObject.GetComponent<Light>();
-                    lamp.enabled = turnOn;
-                }
+            Debug.Log("OBJECTS " + lampGameObjects.Count + " " + turnOn);
+            foreach (var lampGameObject in lampGameObjects) { 
+                var lamp = lampGameObject.GetComponent<Light>();
+                lamp.enabled = turnOn;
             }
         }
         

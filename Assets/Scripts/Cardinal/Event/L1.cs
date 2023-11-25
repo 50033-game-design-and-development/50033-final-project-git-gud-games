@@ -31,5 +31,9 @@ namespace Event {
             unlockDoor = _L1unlockDoor;
             checkStew = _checkStew;
         }
+
+        public void bob() {
+            Debug.Log("DOOR UNLOCKED");
+        }
     }
 }
