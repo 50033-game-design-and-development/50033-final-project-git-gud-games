@@ -5,10 +5,9 @@ using UnityEngine;
 namespace Level.Puzzles {
     public class StudyRoomLampsHandler : RoomLampsHandler {
         private bool _fuseInserted = false;
-
+        
         public void OnFuseInsert() {
             _fuseInserted = true;
-            
             OnLightsToggle(true);
         }
 
