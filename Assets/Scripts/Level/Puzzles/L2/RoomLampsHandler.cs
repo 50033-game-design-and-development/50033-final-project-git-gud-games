@@ -8,12 +8,11 @@ namespace Level.Puzzles {
         public Material lampsOnMaterial;
         public Material lampsOffMaterial;
 
-        public void OnLightsToggle(bool turnOn) {
+        public virtual void OnLightsToggle(bool turnOn) {
             var lampGameObjects = FindInChildren(
                 gameObject, lampsTagName
             );
             
-            Debug.Log("OBJECTS " + lampGameObjects.Count + " " + turnOn);
             foreach (var lampGameObject in lampGameObjects) {
                 if (lampGameObject.TryGetComponent<Light>(out var lamp)) {
                     lamp.enabled = turnOn;
