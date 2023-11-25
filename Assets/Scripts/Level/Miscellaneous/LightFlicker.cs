@@ -4,8 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class LightFlicker : MonoBehaviour
-{
+public class LightFlicker : MonoBehaviour {
     // range of time delay for lights turning off
     public float minOffRange = 0.01f;
     public float maxOffRange = 1f;
@@ -26,30 +25,24 @@ public class LightFlicker : MonoBehaviour
     private float _timeDelay;
     
     
-    public bool GetFlickering()
-    {
+    public bool GetFlickering() {
         return _isFlickering;
     }
     
-    private void Update()
-    {
-        if (!_isFlickering)
-        {
+    private void Update() {
+        if (!_isFlickering) {
             StartCoroutine(FlickerLight());
         }
     }
 
-    private IEnumerator FlickerLight()
-    {
+    private IEnumerator FlickerLight() {
         // Turn off
         _isFlickering = true;
-        if (offMaterial != null)
-        {
+        if (offMaterial != null) {
             this.gameObject.transform.parent.GetComponent<Renderer>().material = offMaterial;
         }
 
-        if (lightAudioSource != null && offAudio != null)
-        {
+        if (lightAudioSource != null && offAudio != null) {
             lightAudioSource.PlayOneShot(offAudio);
         }
         this.gameObject.GetComponent<Light>().enabled = false;
@@ -57,12 +50,10 @@ public class LightFlicker : MonoBehaviour
         yield return new WaitForSeconds(_timeDelay);
         
         // Turn on
-        if (onMaterial != null)
-        {
+        if (onMaterial != null) {
             this.gameObject.transform.parent.GetComponent<Renderer>().material = onMaterial;
         }
-        if (lightAudioSource != null && onAudio != null)
-        {
+        if (lightAudioSource != null && onAudio != null) {
             lightAudioSource.PlayOneShot(onAudio);
         }
         this.gameObject.GetComponent<Light>().enabled = true;
