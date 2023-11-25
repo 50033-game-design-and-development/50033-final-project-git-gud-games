@@ -3,7 +3,7 @@ using UnityEngine;
 public class Clickable : MonoBehaviour, IClickable {
     public GameEvent @event;
 
-    public bool destroyOnClick = false;
+    public bool destroyOnClick;
 
     public void OnClick() {
         if(@event != null) {

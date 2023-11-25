@@ -5,7 +5,7 @@ public class DragDoppable : MonoBehaviour, IDragDroppable {
     public List<InventoryItem> possibleDroppable;
     public GameEvent @event;
 
-    public bool retainItem = false;
+    public bool retainItem;
 
     private HashSet<InventoryItem> _possibleDroppable;
     public void OnDragDrop() {
