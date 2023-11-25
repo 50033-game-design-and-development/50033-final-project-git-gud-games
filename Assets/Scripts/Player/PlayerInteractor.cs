@@ -96,4 +96,8 @@ public class PlayerInteractor : MonoBehaviour {
             Event.Global.inventoryUpdate.Raise();
         };
     }
+
+    private void OnDisable() {
+        _playerAction.Disable();
+    }
 }

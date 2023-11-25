@@ -8,12 +8,13 @@
     L1_Onion = 5,
     L1_Banana = 6,
     L1_Mushroom = 7,
-    L1_Chicken = 8,
     L1_Carrot = 9,
     L1_Tomato = 10,
-    L1_Lily = 13,
-    L1_Vial = 14,
+    L1_Lily = 8,
+    L1_Vial = 141,
+    L1_Vial_filled = 142,
     L1_Pencil = 11,
     
     L2_Fuse = 12,
+    L2_Floppy = 13,
 }

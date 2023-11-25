@@ -6,11 +6,11 @@ public class PlayerMovement : MonoBehaviour {
     /// <summary>
     /// The vector the player should move in based on player input
     /// </summary>
-    private Vector3 moveVector = Vector2.zero;
+    private Vector3 _moveVector = Vector2.zero;
 
-    private CharacterController controller;
+    private CharacterController _controller;
 
-    private PlayerAction playerAction;
+    private PlayerAction _playerAction;
 
 
     /// <summary>
@@ -18,8 +18,8 @@ public class PlayerMovement : MonoBehaviour {
     /// </summary>
     /// <param name="direction"></param>
     private void OnMove(Vector2 direction) {
-        moveVector.x = direction.x;
-        moveVector.z = direction.y;
+        _moveVector.x = direction.x;
+        _moveVector.z = direction.y;
     }
 
     /// <summary>
@@ -29,8 +29,8 @@ public class PlayerMovement : MonoBehaviour {
         Vector3 cameraForward = new(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z);
         Vector3 cameraRight = new(Camera.main.transform.right.x, 0, Camera.main.transform.right.z);
 
-        Vector3 moveDirection = cameraForward.normalized * moveVector.z
-                                + cameraRight.normalized * moveVector.x;
+        Vector3 moveDirection = cameraForward.normalized * _moveVector.z
+                                + cameraRight.normalized * _moveVector.x;
         
         return new Vector3(moveDirection.x, playerConstants.gravity, moveDirection.z);
     }
@@ -38,25 +38,29 @@ public class PlayerMovement : MonoBehaviour {
     private void Move() {
         // don't move when the inventory is open
         if (GameState.isInventoryOpened) {
-            controller.Move(Vector3.zero);
+            _controller.Move(Vector3.zero);
             return;
         }
         
         Vector3 moveDirection = CalculateMoveDirection();
-        controller.Move(moveDirection * playerConstants.moveSpeed * Time.deltaTime);
+        _controller.Move(moveDirection * playerConstants.moveSpeed * Time.deltaTime);
     }
 
     private void Start() {
-        controller = GetComponent<CharacterController>();
+        _controller = GetComponent<CharacterController>();
 
-        playerAction = new PlayerAction();
-        playerAction.Enable();
+        _playerAction = new PlayerAction();
+        _playerAction.Enable();
 
-        playerAction.gameplay.Move.performed += ctx => OnMove(ctx.ReadValue<Vector2>());
-        playerAction.gameplay.Move.canceled += ctx => OnMove(ctx.ReadValue<Vector2>());
+        _playerAction.gameplay.Move.performed += ctx => OnMove(ctx.ReadValue<Vector2>());
+        _playerAction.gameplay.Move.canceled += ctx => OnMove(ctx.ReadValue<Vector2>());
     }
 
     private void Update() {
         Move();
+    }
+
+    private void OnDisable() {
+        _playerAction.Disable();
     }
 }
