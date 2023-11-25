@@ -6,6 +6,12 @@ public class NextScene : MonoBehaviour {
     [SerializeField]
     private string sceneName;
 
+    public void SetScene(string sceneName) {
+        // Commented out because ending scenes are not in build settings
+        // if (SceneManager.GetSceneByName(sceneName).IsValid())
+        this.sceneName = sceneName;
+    }
+
     public void LoadSingle() {
         GameState.isInventoryOpened = false;
         GameState.isPuzzleLocked = false;
