@@ -66,4 +66,8 @@ public class PlayerMouseLook : MonoBehaviour {
     private void Update() {
         transform.localEulerAngles = new Vector3(-_rotationY, _rotationX, 0);
     }
+
+    private void OnDisable() {
+        _playerAction.Disable();
+    }
 }
