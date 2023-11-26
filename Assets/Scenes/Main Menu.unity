@@ -1080,6 +1080,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 708295648}
+  - component: {fileID: 708295649}
   m_Layer: 0
   m_Name: MAIN MENU MANAGER
   m_TagString: Untagged
@@ -1105,6 +1106,24 @@ Transform:
   - {fileID: 1644439704}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &708295649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708295647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98aa785d93b56437ca676d61b478d133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cinemachineAnimator: {fileID: 1993435803}
+  sfxSource: {fileID: 2005721614}
+  ambienceSource: {fileID: 1644439705}
+  bgmSource: {fileID: 1054724363}
+  startSfx: {fileID: 8300000, guid: 57cb71e2ff6773d4a970f143464292c7, type: 3}
+  canvas: {fileID: 1743609176}
 --- !u!4 &729496239 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4993859192935402, guid: 604695ab4a5265f49a9523e33d849aa7, type: 3}
@@ -1412,7 +1431,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1012906545}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 708295649}
+        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
+        m_MethodName: QuitButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1012906545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2485,7 +2516,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1581341402}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 708295649}
+        m_TargetAssemblyTypeName: MainMenuScript, Assembly-CSharp
+        m_MethodName: StartButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1581341402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3372,7 +3415,7 @@ Animator:
   m_GameObject: {fileID: 1993435802}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2541dde9d44f2416a873d67c22a868df, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3403,16 +3446,24 @@ MonoBehaviour:
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
-  m_AnimatedTarget: {fileID: 0}
+  m_AnimatedTarget: {fileID: 1993435803}
   m_LayerIndex: 0
   m_ShowDebugText: 0
   m_ChildCameras:
   - {fileID: 2108691414}
   - {fileID: 1078394143}
-  m_Instructions: []
+  m_Instructions:
+  - m_FullHash: -764248999
+    m_VirtualCamera: {fileID: 2108691414}
+    m_ActivateAfter: 0
+    m_MinDuration: 0
+  - m_FullHash: -152968870
+    m_VirtualCamera: {fileID: 1078394143}
+    m_ActivateAfter: 0
+    m_MinDuration: 0
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 0.5
+    m_Time: 4
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -3420,7 +3471,11 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   m_CustomBlends: {fileID: 0}
-  m_ParentHash: []
+  m_ParentHash:
+  - m_Hash: -764248999
+    m_ParentHash: 756556552
+  - m_Hash: -152968870
+    m_ParentHash: 756556552
 --- !u!4 &1993435805
 Transform:
   m_ObjectHideFlags: 0
@@ -3482,7 +3537,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.235
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
