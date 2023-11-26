@@ -28,13 +28,18 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
         cinemachineAnimator.Play(startStateName);
         GameState.isPuzzleLocked = true;
         GameState.ConfineCursor();
+        Event.Global.changeCamera.Raise();
     }
     
     private void OnEscape() {
+        if (!GameState.isPuzzleLocked) {
+            return;
+        }
         cinemachineAnimator.Play(endStateName);
         GameState.isInventoryOpened = false;
         GameState.isPuzzleLocked = false;
         GameState.LockCursor();
+        Event.Global.changeCamera.Raise();
     }
 
     private void Start() {

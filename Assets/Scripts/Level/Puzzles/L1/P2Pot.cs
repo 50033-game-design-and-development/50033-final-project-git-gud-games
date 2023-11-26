@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class P2Pot : MonoBehaviour {
+public class P2Pot : MonoBehaviour, IInteractable {
 
     private readonly HashSet<InventoryItem> potItems = new HashSet<InventoryItem>();
 
@@ -18,8 +18,6 @@ public class P2Pot : MonoBehaviour {
 
     private bool _solved = false;
     private int _clickState = 0;
-    private bool _canCook;
-    private MeshCollider _potCollider;
 
     public void AddIngredient() {
         if (!GameState.selectedInventoryItem.HasValue) 
@@ -77,8 +75,8 @@ public class P2Pot : MonoBehaviour {
         CheckCombination();
     }
 
-    public void OnStewClicked() {
-        if (!_solved || _clickState > 4)
+    public void OnInteraction() {
+        if (!_solved || _clickState > 5)
             return;
         
         _clickState ++;
@@ -95,17 +93,6 @@ public class P2Pot : MonoBehaviour {
         // Play some cutscene
     }
 
-    public void SetCanCook(bool value) {
-        _canCook = value;
-        _potCollider.enabled = true;
-    }
-
-    public void ToggleCollider() {
-        if (!_canCook) {
-            _potCollider.enabled = !GameState.isInventoryOpened;
-        }
-    }
-
     private void LockIngredients() {
         _solved = true;
         GetComponent<BoxCollider>().enabled = true;
@@ -113,9 +100,5 @@ public class P2Pot : MonoBehaviour {
         droppable.possibleDroppable.Clear();
         droppable.possibleDroppable.Add(InventoryItem.L1_Vial);
         droppable.UpdateDroppables();
-    }
-
-    private void Start() {
-        _potCollider = GetComponent<MeshCollider>();
     }
 }
