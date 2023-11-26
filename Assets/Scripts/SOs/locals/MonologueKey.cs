@@ -5,6 +5,7 @@ using UnityEngine;
 // Manually assigned numbers to prevent breakage
 public enum MonologueKey {
     NULL = 0,
+
     L0_START = 1,
     L0_DOOR_LOCKED = 4,
     L0_CORPSE_DEFAULT = 5,
@@ -97,9 +98,11 @@ public enum MonologueKey {
     L2_PENTARGAM_DEFAULT = 94,
     L2_PENTAGRAM_AFTER_BOOK = 95,
     L2_INCANTATION = 96,
-
-    BAD_END = 97,
-    GOOD_END = 98,
+    L2_CANDLE_DEFAULT = 97,
+    L2_CANDLE_AFTER_P5 = 98,
 
     WRONG_ITEM = 99,
+
+    BAD_END = 100,
+    GOOD_END = 101,
 }
