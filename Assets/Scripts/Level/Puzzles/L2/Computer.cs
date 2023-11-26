@@ -128,6 +128,7 @@ public class Computer : MonoBehaviour {
         yield return interactableAudioSource.isPlaying;
         yield return new WaitForSeconds(audioFileClip.length + 1f);
         yield return !interactableAudioSource.isPlaying;
+        Event.L2.finishRecording.Raise();
         audioWindowAnimator.SetTrigger("Close");
     }
 

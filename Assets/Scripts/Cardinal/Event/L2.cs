@@ -3,7 +3,9 @@ using UnityEngine;
 namespace Event {
     public class L2 : MonoBehaviour {
 
+        public static GameEvent finishRecording;
         public static GameEvent clickPainting;
+        public static GameEvent insertFloppy;
         public static GameEvent loggedIn;
         public static GameEvent paintingAnimationTrigger;
         public static NoteOctaveGameEvent playNote;
@@ -13,6 +15,8 @@ namespace Event {
         public static GameEvent seeFuseBox;
 
         [SerializeField] private GameEvent _clickPainting;
+        [SerializeField] private GameEvent _finishRecording;
+        [SerializeField] private GameEvent _insertFloppy;
         [SerializeField] private GameEvent _loggedIn;
         [SerializeField] private GameEvent _paintingAnimationTrigger;
         [SerializeField] private NoteOctaveGameEvent _playNote;
@@ -22,7 +26,9 @@ namespace Event {
         [SerializeField] private GameEvent _seeFuseBox;
 
         private void Start() {
+            finishRecording = _finishRecording;
             clickPainting = _clickPainting;
+            insertFloppy = _insertFloppy;
             playNote = _playNote;
             plugFuse = _plugFuse;
             loggedIn = _loggedIn;
