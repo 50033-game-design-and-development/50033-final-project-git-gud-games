@@ -20,7 +20,9 @@ public class Computer : MonoBehaviour {
     [Header("Settings")]
     [SerializeField] private AudioClip loginSuccessAudioClip;
     [SerializeField] private AudioClip loginFailAudioClip;
-    [SerializeField] private AudioClip AudioFileClip;
+    [SerializeField] private AudioClip audioFileClip;
+    [SerializeField] private AudioClip staticNoiseClip;
+    [SerializeField] private AudioClip hummingNoiseClip;
     [SerializeField] private string password;
 
     [Header("References")]
@@ -49,11 +51,23 @@ public class Computer : MonoBehaviour {
 
     public void OnFusePlugged() {
         State = ComputerState.NoBoot;
+
         dragDroppable.possibleDroppable.Clear();
         dragDroppable.possibleDroppable.Add(InventoryItem.L2_Floppy);
         dragDroppable.UpdateDroppables();
+
+        ambientAudioSource.clip = staticNoiseClip;
+        ambientAudioSource.Play();
     }
-    public void OnFloppyInserted()  => State = ComputerState.Startup;
+    
+    public void OnFloppyInserted() {
+        State = ComputerState.Startup;
+
+        ambientAudioSource.Stop();
+        ambientAudioSource.clip = hummingNoiseClip;
+        ambientAudioSource.Play();
+        
+    }
     public void OnLogin() => State = ComputerState.Desktop;
 
     public void SetState(ComputerState computerState) {
@@ -69,15 +83,13 @@ public class Computer : MonoBehaviour {
         if (State == ComputerState.Startup) 
             StartCoroutine("LoadStartupScreen");
         
-        if (State != ComputerState.Off)
-            ambientAudioSource.Play();
         
     }
 
     public void Off() {
         isOn = false;
-        ambientAudioSource.Stop();
         interactableAudioSource.Stop();
+
         // Set all to off except for the first one
         for (int i = 1; i < screens.Length; i++) {
             screens[i].gameObject.SetActive(false);
@@ -106,7 +118,7 @@ public class Computer : MonoBehaviour {
     
     public void OnOpenAudioFile() {
         audioWindowAnimator.SetTrigger("Click");
-        interactableAudioSource.clip = AudioFileClip;
+        interactableAudioSource.clip = audioFileClip;
         interactableAudioSource.Play();
         
         StartCoroutine("CloseAudioFile");
@@ -114,7 +126,7 @@ public class Computer : MonoBehaviour {
 
     private IEnumerator CloseAudioFile() {
         yield return interactableAudioSource.isPlaying;
-        yield return new WaitForSeconds(AudioFileClip.length + 1f);
+        yield return new WaitForSeconds(audioFileClip.length + 1f);
         yield return !interactableAudioSource.isPlaying;
         audioWindowAnimator.SetTrigger("Close");
     }

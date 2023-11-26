@@ -238,9 +238,11 @@ MonoBehaviour:
   - {fileID: 427699657232559230}
   - {fileID: 4885035824806023410}
   - {fileID: 4490684012231303403}
-  loginSuccessAudioClip: {fileID: 8300000, guid: 32184b18da083ac40a98cbe7f756244b, type: 3}
+  loginSuccessAudioClip: {fileID: 8300000, guid: 5f8919a26446c564fa769fc2cd23047a, type: 3}
   loginFailAudioClip: {fileID: 8300000, guid: 87d64dba9a6c1814cae31af138a3ca76, type: 3}
-  AudioFileClip: {fileID: 8300000, guid: a7c0922937583074ca8994a3fcad57fe, type: 3}
+  audioFileClip: {fileID: 8300000, guid: a7c0922937583074ca8994a3fcad57fe, type: 3}
+  staticNoiseClip: {fileID: 8300000, guid: d7d4cbf8e6c4acf4ca11b25c1b23e06e, type: 3}
+  hummingNoiseClip: {fileID: 8300000, guid: c468fe40bac981540ab9a727cf31bb15, type: 3}
   password: elsaislife
   interactable: {fileID: 3538784948745978163}
   loginInputField: {fileID: 1624219005859512908}
@@ -728,6 +730,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Close
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4983000129234072383}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 4d0df9ae61bd9ba48a894e2bc11490a6, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1727128991664165468
@@ -1625,6 +1639,7 @@ GameObject:
   - component: {fileID: 8416369786119005913}
   - component: {fileID: 1102956593994599663}
   - component: {fileID: 4983000129234072383}
+  - component: {fileID: 448862434801039463}
   m_Layer: 6
   m_Name: Interactable
   m_TagString: Untagged
@@ -1816,6 +1831,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &448862434801039463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3538784948745978163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18efc4c6e49c6a7c28122326c3c5efc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 4d0df9ae61bd9ba48a894e2bc11490a6, type: 3}
 --- !u!1 &3801591414358386053
 GameObject:
   m_ObjectHideFlags: 0
@@ -3323,6 +3352,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4983000129234072383}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 4d0df9ae61bd9ba48a894e2bc11490a6, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
