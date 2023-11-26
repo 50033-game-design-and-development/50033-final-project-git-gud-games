@@ -2,7 +2,6 @@
 
 namespace Event {
     public class L1 : MonoBehaviour {
-        public static GameEvent checkStew;
         public static GameEvent drinkStew;
         public static GameEvent placeIngredient;
         public static InventoryItemGameEvent removeIngredient;
@@ -10,7 +9,6 @@ namespace Event {
         public static GameEvent solveP2;
         public static GameEvent unlockDoor;
 
-        [SerializeField] private GameEvent _checkStew;
         [SerializeField] private  GameEvent _drinkStew;
         [SerializeField] private GameEvent _placeIngredient;
         [SerializeField] private InventoryItemGameEvent _removeIngredient;
@@ -25,7 +23,6 @@ namespace Event {
             solveP2 = _solveP2;
             drinkStew = _drinkStew;
             unlockDoor = _unlockDoor;
-            checkStew = _checkStew;
         }
     }
 }

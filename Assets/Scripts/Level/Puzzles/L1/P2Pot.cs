@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class P2Pot : MonoBehaviour {
+public class P2Pot : MonoBehaviour, IInteractable {
 
     private HashSet<InventoryItem> potItems = new HashSet<InventoryItem>();
 
@@ -76,8 +76,8 @@ public class P2Pot : MonoBehaviour {
         CheckCombination();
     }
 
-    public void OnStewClicked() {
-        if (!solved || clickState > 5 || !GameState.isPuzzleLocked)
+    public void OnInteraction() {
+        if (!solved || clickState > 5)
             return;
         
         clickState ++;
