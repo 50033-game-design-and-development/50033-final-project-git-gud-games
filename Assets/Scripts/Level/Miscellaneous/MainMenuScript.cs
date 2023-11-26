@@ -28,4 +28,8 @@ public class MainMenuScript : MonoBehaviour {
         yield return new WaitForSeconds(time);
         SceneManager.LoadScene("Level 0");
     }
+
+    private void Start() {
+        cinemachineAnimator.Play("Main Menu Idle");
+    }
 }
