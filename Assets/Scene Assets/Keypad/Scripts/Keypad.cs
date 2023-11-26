@@ -4,17 +4,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace NavKeypad { 
+namespace NavKeypad {
 public class Keypad : MonoBehaviour
 {
     [Header("Events")]
-    [SerializeField] private UnityEvent onAccessGranted;
-    [SerializeField] private UnityEvent onAccessDenied;
+    [SerializeField] private GameEvent onAccessGranted;
+    [SerializeField] private GameEvent onAccessDenied;
     [Header("Combination Code (9 Numbers Max)")]
     [SerializeField] private int keypadCombo = 12345;
-
-    public UnityEvent OnAccessGranted => onAccessGranted;
-    public UnityEvent OnAccessDenied => onAccessDenied;
 
     [Header("Settings")]
     [SerializeField] private string accessGrantedText = "Granted";
@@ -60,7 +57,7 @@ public class Keypad : MonoBehaviour
                 CheckCombo();
                 break;
             default:
-                if (currentInput != null && currentInput.Length == 9) // 9 max passcode size 
+                if (currentInput != null && currentInput.Length == 9) // 9 max passcode size
                 {
                     return;
                 }
@@ -68,7 +65,7 @@ public class Keypad : MonoBehaviour
                 keypadDisplayText.text = currentInput;
                 break;
         }
-        
+
     }
     public void CheckCombo()
     {
@@ -87,7 +84,7 @@ public class Keypad : MonoBehaviour
 
     }
 
-    //mainly for animations 
+    //mainly for animations
     private IEnumerator DisplayResultRoutine(bool granted)
     {
         displayingResult = true;
@@ -106,7 +103,9 @@ public class Keypad : MonoBehaviour
     private void AccessDenied()
     {
         keypadDisplayText.text = accessDeniedText;
-        onAccessDenied?.Invoke();
+        if(onAccessDenied != null) {
+            onAccessDenied.Raise();
+        }
         panelMesh.material.SetVector("_EmissionColor", screenDeniedColor * screenIntensity);
         audioSource.PlayOneShot(accessDeniedSfx);
     }
@@ -121,11 +120,11 @@ public class Keypad : MonoBehaviour
     {
         accessWasGranted = true;
         keypadDisplayText.text = accessGrantedText;
-        onAccessGranted?.Invoke();
+        if(onAccessGranted != null) {
+            onAccessGranted.Raise();
+        }
         panelMesh.material.SetVector("_EmissionColor", screenGrantedColor * screenIntensity);
         audioSource.PlayOneShot(accessGrantedSfx);
-        Event.L1.unlockDoor.Raise();
     }
-
 }
 }

@@ -5,6 +5,8 @@ public class DragDoppable : MonoBehaviour, IDragDroppable {
     public List<InventoryItem> possibleDroppable;
     public GameEvent @event;
 
+    public bool retainItem;
+
     private HashSet<InventoryItem> _possibleDroppable;
     public void OnDragDrop() {
         if (GameState.selectedInventoryItem == null) {
@@ -14,11 +16,17 @@ public class DragDoppable : MonoBehaviour, IDragDroppable {
         if (!_possibleDroppable.Contains(selectedInventoryItem.itemType)) {
             return;
         }
+
+        if(@event != null) {
+            @event.Raise();
+        }
+
+        if(retainItem) return;
+
         GameState.inventory.Remove(selectedInventoryItem);
         Event.Global.inventoryUpdate.Raise();
-
-        @event.Raise();
     }
+
     private void Awake() {
         UpdateDroppables();
     }
