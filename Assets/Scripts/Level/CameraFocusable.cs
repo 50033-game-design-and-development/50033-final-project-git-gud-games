@@ -13,7 +13,7 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
 
     protected PlayerAction _playerAction;
 
-    private bool IsCinemachineInStartState() {
+    public bool IsCinemachineInStartState() {
         AnimatorStateInfo stateInfo = cinemachineAnimator.GetCurrentAnimatorStateInfo(0);
         return stateInfo.IsName(startStateName);
     }
