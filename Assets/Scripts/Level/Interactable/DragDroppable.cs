@@ -27,11 +27,11 @@ public class DragDoppable : MonoBehaviour, IDragDroppable {
         Event.Global.inventoryUpdate.Raise();
     }
 
-    public void UpdateDroppables() {
-        _possibleDroppable = new HashSet<InventoryItem>(possibleDroppable);
-    }
-
     private void Awake() {
         UpdateDroppables();
+    }
+
+    public void UpdateDroppables() {
+        _possibleDroppable = new(possibleDroppable);
     }
 }
