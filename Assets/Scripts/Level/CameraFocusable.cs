@@ -11,7 +11,7 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
     // name of the virtual camera state in cinemachineAnimator to play when player presses escape
     public string endStateName;
 
-    private PlayerAction _playerAction;
+    protected PlayerAction _playerAction;
 
     public bool IsCinemachineInStartState() {
         AnimatorStateInfo stateInfo = cinemachineAnimator.GetCurrentAnimatorStateInfo(0);
@@ -31,7 +31,7 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
         Event.Global.changeCamera.Raise();
     }
     
-    private void OnEscape() {
+    protected virtual void OnEscape() {
         if (!GameState.isPuzzleLocked) {
             return;
         }
@@ -42,14 +42,14 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
         Event.Global.changeCamera.Raise();
     }
 
-    private void Start() {
+    protected void Start() {
         _playerAction = new PlayerAction();
         _playerAction.Enable();
 
         _playerAction.gameplay.Escape.performed += _ => OnEscape();
     }
 
-    private void OnDisable() {
+    protected void OnDisable() {
         _playerAction.Disable();
     }
 }
