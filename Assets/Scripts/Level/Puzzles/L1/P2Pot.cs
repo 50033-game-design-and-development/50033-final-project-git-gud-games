@@ -1,10 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class P2Pot : MonoBehaviour {
+public class P2Pot : MonoBehaviour, IInteractable {
 
-    private HashSet<InventoryItem> potItems = new HashSet<InventoryItem>();
+    private readonly HashSet<InventoryItem> potItems = new HashSet<InventoryItem>();
 
     [Header("Attributes")]
     [SerializeField] private Transform ingredientsTransform;
@@ -17,10 +16,8 @@ public class P2Pot : MonoBehaviour {
     [SerializeField] private List<InventoryItem> validItems = new List<InventoryItem>();
     [SerializeField] private List<GameObject> itemPrefabs = new List<GameObject>();
 
-    private bool solved = false;
-    private int clickState = 0;
-    private bool canCook;
-    private MeshCollider potCollider;
+    private bool _solved = false;
+    private int _clickState = 0;
 
     public void AddIngredient() {
         if (!GameState.selectedInventoryItem.HasValue) 
@@ -29,7 +26,7 @@ public class P2Pot : MonoBehaviour {
         InventoryItem item = GameState.selectedInventoryItem.Value.itemType;
         bool isIngredient = validItems.Contains(item);
         if (!isIngredient) {
-            if (solved && item == InventoryItem.L1_Vial) {
+            if (_solved && item == InventoryItem.L1_Vial) {
                     vialFilled.OnInteraction();
             }
             return;
@@ -65,7 +62,7 @@ public class P2Pot : MonoBehaviour {
     }
 
     public void OnP2Solved() {
-        solved = true;
+        _solved = true;
         LockIngredients();
         // TODO: play sinking animation (?)
     }
@@ -78,14 +75,14 @@ public class P2Pot : MonoBehaviour {
         CheckCombination();
     }
 
-    public void OnStewClicked() {
-        if (!solved || clickState > 4)
+    public void OnInteraction() {
+        if (!_solved || _clickState > 5)
             return;
         
-        clickState ++;
-        if (clickState == 5)
+        _clickState ++;
+        if (_clickState == 5)
             Event.L1.drinkStew.Raise();
-        else if (clickState < 5) {
+        else if (_clickState < 5) {
             MonologueInteractable monologueInteractable = GetComponent<MonologueInteractable>();
             // monologueInteractable.OnInteraction();
             monologueInteractable.IncrementState();
@@ -96,27 +93,12 @@ public class P2Pot : MonoBehaviour {
         // Play some cutscene
     }
 
-    public void SetCanCook(bool value) {
-        canCook = value;
-        potCollider.enabled = true;
-    }
-
-    public void ToggleCollider() {
-        if (!canCook) {
-            potCollider.enabled = !GameState.isInventoryOpened;
-        }
-    }
-
     private void LockIngredients() {
-        solved = true;
+        _solved = true;
         GetComponent<BoxCollider>().enabled = true;
         DragDoppable droppable = GetComponent<DragDoppable>();
         droppable.possibleDroppable.Clear();
         droppable.possibleDroppable.Add(InventoryItem.L1_Vial);
         droppable.UpdateDroppables();
-    }
-
-    private void Start() {
-        potCollider = GetComponent<MeshCollider>();
     }
 }
