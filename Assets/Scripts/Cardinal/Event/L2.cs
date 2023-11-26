@@ -7,6 +7,7 @@ namespace Event {
         public static GameEvent plugFuse;
         public static GameEvent solveP3;
         public static GameEvent solvedP4;
+        public static GameEvent seeFuseBox;
         public static GameEvent placeAllCandles;
 
         [SerializeField] private GameEvent _clickPainting;
@@ -14,6 +15,7 @@ namespace Event {
         [SerializeField] private GameEvent _plugFuse;
         [SerializeField] private GameEvent _solveP3;
         [SerializeField] private GameEvent _solvedP4;
+        [SerializeField] private GameEvent _seeFuseBox;
         [SerializeField] private GameEvent _placeAllCandles;
 
 
@@ -23,6 +25,7 @@ namespace Event {
             plugFuse = _plugFuse;
             solveP3 = _solveP3;
             solvedP4 = _solvedP4;
+            seeFuseBox = _seeFuseBox;
             placeAllCandles = _placeAllCandles;
         }
     }
