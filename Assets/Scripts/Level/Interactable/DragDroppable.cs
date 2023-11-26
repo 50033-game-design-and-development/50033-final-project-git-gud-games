@@ -31,8 +31,7 @@ public class DragDoppable : MonoBehaviour, IDragDroppable {
         _possibleDroppable = new HashSet<InventoryItem>(possibleDroppable);
     }
 
-    private void Awake()
-    {
+    private void Awake() {
         UpdateDroppables();
     }
 }
