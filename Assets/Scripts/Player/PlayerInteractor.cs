@@ -40,7 +40,7 @@ public class PlayerInteractor : MonoBehaviour {
     }
 
     private void Start() {
-        _layerMaskInteractable = LayerMask.GetMask("Interactable");
+        _layerMaskInteractable = LayerMask.GetMask("Interactable", "FloorInteractable");
         _playerAction = new PlayerAction();
         _playerAction.Enable();
         _playerAction.gameplay.MousePos.performed += ctx => {
