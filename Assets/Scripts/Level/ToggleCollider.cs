@@ -1,16 +1,16 @@
 using UnityEngine;
 
 public class ToggleCollider : MonoBehaviour {
-    [SerializeField] private bool canToggle = true;
-    [SerializeField] private Collider targetCollider;
-
-    public void Toggle() {
-        if (canToggle) {
-            targetCollider.enabled = !GameState.isPuzzleLocked;
-        }
+    [SerializeField] private Collider _targetCollider;
+    [SerializeField] private bool _canToggle = true;
+    public bool CanToggle {
+        get => _canToggle;
+        set => _canToggle = value;
     }
 
-    public void SetCanToggle(bool value) {
-        canToggle = value;
+    public void Toggle() {
+        if (_canToggle) {
+            _targetCollider.enabled = !GameState.isPuzzleLocked;
+        }
     }
 }
