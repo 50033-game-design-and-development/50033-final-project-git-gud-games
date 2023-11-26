@@ -18,5 +18,5 @@
     L2_Fuse = 12,
     L2_Floppy = 13,
     
-    L2_5_Candles = 14
+    L2_5_Candles = 14,
 }

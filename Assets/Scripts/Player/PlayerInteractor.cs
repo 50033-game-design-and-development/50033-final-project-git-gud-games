@@ -10,19 +10,21 @@ public class PlayerInteractor : MonoBehaviour {
 
     private void TriggerInteractions(Vector2 screenPos) {
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
-        
+       
         if (Physics.Raycast(ray, out RaycastHit raycastHit, playerConstants.raycastDistance, _layerMaskInteractable)) {
-            Debug.Log(raycastHit.transform.gameObject.ToString());
             Interact(raycastHit.transform.gameObject);
         }
     }
 
     private static void Interact(GameObject obj) {
-        if(GameState.isInteractionAllowed) {
-            foreach (var i in obj.GetComponents<IInteractable>()) {
-                i.OnInteraction();
+        if(GameState.isInteractionAllowed) { 
+            if((obj.GetComponents<IInteractable>().Length > 0)) {
+                foreach (var i in obj.GetComponents<IInteractable>()) {
+                    i.OnInteraction();
+                }
+                return;
             }
-            return;
+            
         }
         // if we only check for isDraggingInventoryItem, we can implement a mechanic where stuff is dragged/dropped
         // onto items in the world itself. Leaving this comment here in case this is ever required (unlikely)
@@ -39,7 +41,6 @@ public class PlayerInteractor : MonoBehaviour {
 
     private void Start() {
         _layerMaskInteractable = LayerMask.GetMask("Interactable");
-
         _playerAction = new PlayerAction();
         _playerAction.Enable();
         _playerAction.gameplay.MousePos.performed += ctx => {
@@ -68,12 +69,10 @@ public class PlayerInteractor : MonoBehaviour {
 
         // open inventory when you press E
         _playerAction.gameplay.InventoryOpen.performed += _ => {
-            Debug.Log("i reached here 1");
             // don't open inventory if inventory is closed and empty
             if (!GameState.isInventoryOpened && GameState.inventory.Count == 0) {
                 return;        
             }
-            Debug.Log("i reached here");
             // check if the cineMachine camera is not locked
             // to any interaction objects i.e. it follows the player
             // and don't allow player to freely move cursor if so
