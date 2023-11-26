@@ -5,7 +5,7 @@ public class StudyRoomLightInteractable : LightInteractable {
 
     public void OnFuseInsert() {
         _fuseInserted = true;
-        base.ApplyLighting();
+        base.@event.Raise(base.switchedOn);
     }
 
     public override void OnInteraction() {
@@ -17,9 +17,6 @@ public class StudyRoomLightInteractable : LightInteractable {
     }
 
     protected override void Start() {
-        bool initialState = base.switchedOn;
-        base.switchedOn = false;
-        base.ApplyLighting();
-        base.switchedOn = initialState;
+        base.@event.Raise(false);
     }
 }
