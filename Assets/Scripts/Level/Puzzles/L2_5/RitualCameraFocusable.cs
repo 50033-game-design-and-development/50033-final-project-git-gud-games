@@ -1,13 +1,17 @@
+using System;
+using UnityEngine;
+using UnityEngine.Serialization;
+
 public class RitualCameraFocusable : CameraFocusable {
-    public PlayerConstants _playerConstants;
+    [SerializeField] private PlayerConstants playerConstants;
 
     public override void OnInteraction() {
         base.OnInteraction();
-        _playerConstants.raycastDistance = 4f;
+        playerConstants.raycastDistance = 4f;
     }
 
-    public override void OnEscape() {
+    protected override void OnEscape() {
         base.OnEscape();
-        _playerConstants.raycastDistance = 1f;
+        playerConstants.raycastDistance = 1f;
     }
 }
