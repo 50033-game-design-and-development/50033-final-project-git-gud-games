@@ -9,22 +9,21 @@ namespace Level.Puzzles.L2_5 {
         public GameObject shinyWaters;
         public GameObject murkyWaters;
         public GameObject magicField;
-        
+
+        public float startLightIntensity = 0.5f;
+        public float minGlowLightIntensity = 1.0f;
+        public float maxGlowLightIntensity = 5.0f;
+
         public Light waterGlowLight;
         public float glowDuration = 8.0f;
         public GameEvent onRitualStart;
 
-        private float _startLightIntensity;
         private bool _lilyAdded = false;
         private bool _photoAdded = false;
         private bool _allCandlesLit = false;
 
         public GameEvent testEvent;
-
-        private void Start() {
-            _startLightIntensity = waterGlowLight.intensity;
-        }
-
+        
         public void OnAllCandlesLit() {
             _allCandlesLit = true;
         }
@@ -60,6 +59,9 @@ namespace Level.Puzzles.L2_5 {
                 murkyWaters.SetActive(false);
                 shinyWaters.SetActive(true);
                 
+                waterGlowLight.enabled = true;
+                waterGlowLight.intensity = startLightIntensity;
+                
                 GameState.inventory.Remove(selectedInventoryItem);
                 Event.Global.inventoryUpdate.Raise();
                 _lilyAdded = true;
@@ -67,10 +69,7 @@ namespace Level.Puzzles.L2_5 {
             }
             
             if (_lilyAdded && itemType == InventoryItem.L2_5_Photo) {
-                waterGlowLight.enabled = true;
-                magicField.SetActive(true);
                 StartDimmingLight();
-                
                 GameState.inventory.Remove(selectedInventoryItem);
                 Event.Global.inventoryUpdate.Raise();
                 _photoAdded = true;
@@ -81,6 +80,7 @@ namespace Level.Puzzles.L2_5 {
                 _photoAdded && _allCandlesLit &&
                 itemType == InventoryItem.L2_5_Silver_key
             ) {
+                magicField.SetActive(true);
                 onRitualStart.Raise(); 
                 GameState.inventory.Remove(selectedInventoryItem);
                 Event.Global.inventoryUpdate.Raise();
@@ -97,16 +97,21 @@ namespace Level.Puzzles.L2_5 {
 
             while (timePassed < duration) {
                 timePassed = Time.time - startTime;
+
+                float progress = timePassed / duration;
+                float oscillateIntensity = 0.4f * (1.0f - progress);
+                float oscillator = (
+                    1 + oscillateIntensity * (float) Math.Sin(timePassed * 8)
+                );
                     
-                float oscillator = 1 + 0.3f * (float) Math.Sin(timePassed * 8);
                 waterGlowLight.intensity = Mathf.Lerp(
-                    _startLightIntensity, 0, timePassed / duration
+                    maxGlowLightIntensity, minGlowLightIntensity, progress
                 ) * oscillator;
                 
                 yield return null;
             }
 
-            waterGlowLight.intensity = 0;
+            waterGlowLight.intensity = minGlowLightIntensity;
         }
     }
 }
