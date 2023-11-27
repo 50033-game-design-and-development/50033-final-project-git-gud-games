@@ -6,7 +6,6 @@ public class PlayerInteractor : MonoBehaviour {
     private int _layerMaskInteractable;
     public CinemachineStateDrivenCamera cineMachineCamera;
     public CinemachineVirtualCamera firstPersonCamera;
-    public PlayerConstants playerConstants;
 
     private void TriggerInteractions(Vector2 screenPos) {
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
@@ -17,14 +16,11 @@ public class PlayerInteractor : MonoBehaviour {
     }
 
     private static void Interact(GameObject obj) {
-        if(GameState.isInteractionAllowed) { 
-            if((obj.GetComponents<IInteractable>().Length > 0)) {
-                foreach (var i in obj.GetComponents<IInteractable>()) {
-                    i.OnInteraction();
-                }
-                return;
+        if(GameState.isInteractionAllowed) {
+            foreach (var i in obj.GetComponents<IInteractable>()) {
+                i.OnInteraction();
             }
-            
+            return;
         }
         // if we only check for isDraggingInventoryItem, we can implement a mechanic where stuff is dragged/dropped
         // onto items in the world itself. Leaving this comment here in case this is ever required (unlikely)
@@ -49,14 +45,15 @@ public class PlayerInteractor : MonoBehaviour {
 
         // and when inventory is not opened
         // trigger interaction with object on click
-        _playerAction.gameplay.MousePress.performed += ctx => {
+        _playerAction.gameplay.MousePress.performed += _ => {
             TriggerInteractions(GameState.lastPointerDragScreenPos);
             GameState.mouseHold = true;
         };
 
         // trigger drag interaction with object on mouse release
         // and inventory item was previously being dragged
-        _playerAction.gameplay.MousePress.canceled += ctx => {
+        _playerAction.gameplay.MousePress.canceled += _ => {
+            Debug.Log("isDraggingInvItem: "+GameState.isDraggingInventoryItem);
             if (GameState.isDraggingInventoryItem) {
                 TriggerInteractions(GameState.lastPointerDragScreenPos);
             }

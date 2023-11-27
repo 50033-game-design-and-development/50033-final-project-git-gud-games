@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerRayCast : MonoBehaviour {
     private static Color OUTLINE_COLOR = new Color(255, 255, 255, 0.8f);
-    public PlayerConstants playerConstants;
 
     private Transform _highlight;
     private bool _highlighted;
