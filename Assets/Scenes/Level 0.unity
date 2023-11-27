@@ -315,45 +315,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43cd4c5bb4c96634ca91419a57491eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!21 &190466292
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!114 &168176300 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 563224539740933847, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
+  m_PrefabInstance: {fileID: 1676290849}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
-  m_BuildTextureStacks: []
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4554c88273303224dad63051da05013c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &208055858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -543,6 +515,45 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
+--- !u!21 &419097452
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &475772587
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3968,7 +3979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 190466292}
+  m_Material: {fileID: 419097452}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -4126,6 +4137,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 563224539740933847, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
+      propertyPath: monologueKeys.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 563224539740933847, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
+      propertyPath: monologueKeys.Array.data[0]
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 820532787249298380, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -4156,7 +4175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2980693208272183888, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
       propertyPath: playState
-      value: 999
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5195996529987489323, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
       propertyPath: audioClips.Array.data[0]
@@ -4202,6 +4221,10 @@ PrefabInstance:
       propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[4].m_Mode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7956136119280437385, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
+      propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 168176300}
     - target: {fileID: 7956136119280437385, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
       propertyPath: m_Events.m_Events.Array.data[0].m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -4300,12 +4323,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8648283310017452971, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8648283310017452971, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8648283310017452971, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1969739788}
+    - target: {fileID: 8648283310017452971, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1969739800}
     - target: {fileID: 8648283310017452971, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
@@ -4319,12 +4350,20 @@ PrefabInstance:
       value: IncrementState
       objectReference: {fileID: 0}
     - target: {fileID: 8648283310017452971, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: EnableTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 8648283310017452971, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: EnableTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 8648283310017452971, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CutsceneInteractable, Assembly-CSharp
+      value: MonologueInteractable, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8648283310017452971, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: EventInvocable, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8648283310017452971, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
@@ -5321,11 +5360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4554c88273303224dad63051da05013c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!320 &1969739789 stripped
-PlayableDirector:
-  m_CorrespondingSourceObject: {fileID: 2317886866560271550, guid: ea50a42ff6edc1a4f90c4299a2afc118, type: 3}
-  m_PrefabInstance: {fileID: 1676290849}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1969739798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5342,9 +5376,21 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1969739789}
-        m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
-        m_MethodName: Play
+      - m_Target: {fileID: 1969739787}
+        m_TargetAssemblyTypeName: CutsceneInteractable, Assembly-CSharp
+        m_MethodName: IncrementState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1969739787}
+        m_TargetAssemblyTypeName: CutsceneInteractable, Assembly-CSharp
+        m_MethodName: OnInteraction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
