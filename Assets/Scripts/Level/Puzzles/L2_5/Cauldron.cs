@@ -10,9 +10,12 @@ namespace Level.Puzzles.L2_5 {
         public GameObject murkyWaters;
         public GameObject magicField;
 
+        // light intensity after placing the lily into cauldron
         public float startLightIntensity = 0.5f;
-        public float minGlowLightIntensity = 1.0f;
-        public float maxGlowLightIntensity = 5.0f;
+        // light intensity right after placing the photo into cauldron
+        public float startGlowLightIntensity = 5.0f;
+        // light intensity after pulsating glowing animation
+        public float endGlowLightIntensity = 1.0f;
 
         public Light waterGlowLight;
         public float glowDuration = 8.0f;
@@ -105,13 +108,13 @@ namespace Level.Puzzles.L2_5 {
                 );
                     
                 waterGlowLight.intensity = Mathf.Lerp(
-                    maxGlowLightIntensity, minGlowLightIntensity, progress
+                    startGlowLightIntensity, endGlowLightIntensity, progress
                 ) * oscillator;
                 
                 yield return null;
             }
 
-            waterGlowLight.intensity = minGlowLightIntensity;
+            waterGlowLight.intensity = endGlowLightIntensity;
         }
     }
 }
