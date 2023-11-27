@@ -15,13 +15,17 @@ namespace NavKeypad
         [SerializeField] private Keypad keypad;
 
 
+
         public void PressButton()
         {
+            return; // Disable this function
+            /*
             if (!moving)
             {
                 keypad.AddInput(value);
                 StartCoroutine(MoveSmooth());
             }
+            */
         }
         private bool moving;
 
