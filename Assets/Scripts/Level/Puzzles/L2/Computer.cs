@@ -160,15 +160,14 @@ public class Computer : MonoBehaviour {
         Off();
     }
 
+    /*
     private void Update() {
         // Off computer when unfocusing, on when focusing
-        /*
         if (!isOn && cameraFocusable.IsCinemachineInStartState()) {
             On();
         } else if (isOn && !cameraFocusable.IsCinemachineInStartState()) {
             Off();
         }
-        */
 
         // Close inventory when computer is turned on
         if (GameState.isInventoryOpened &&
@@ -177,6 +176,7 @@ public class Computer : MonoBehaviour {
                 Event.Global.inventoryUpdate.Raise();
         }
     }
+    */
 
     
 }
