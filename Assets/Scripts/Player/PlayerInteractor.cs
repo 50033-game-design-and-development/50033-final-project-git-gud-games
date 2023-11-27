@@ -20,13 +20,11 @@ public class PlayerInteractor : MonoBehaviour {
             foreach (var i in obj.GetComponents<IInteractable>()) {
                 i.OnInteraction();
             }
-            Debug.Log("INTERACT_START");
             return;
         }
         // if we only check for isDraggingInventoryItem, we can implement a mechanic where stuff is dragged/dropped
         // onto items in the world itself. Leaving this comment here in case this is ever required (unlikely)
         if (GameState.isPuzzleLocked && GameState.isDraggingInventoryItem) {
-            Debug.Log("DRAG DROP ENTER");
             foreach (var i in obj.GetComponents<IDragDroppable>()) {
                 i.OnDragDrop();
             }
