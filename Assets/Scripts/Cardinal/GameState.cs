@@ -4,13 +4,15 @@ using UnityEngine;
 public class GameState : MonoBehaviour {
     // initial list of items to assign to inventory (for testing only)
     public List<Inv.Collectable> startInventory = new();
-    public static readonly List<Inv.Collectable> inventory = new();
+    public PlayerConstants playerConstants;
 
+    public static float raycastDist;
+    public static readonly List<Inv.Collectable> inventory = new();
     public static Inv.Collectable? selectedInventoryItem = null; 
     public static bool isDraggingInventoryItem = false;
     public static Vector2 lastPointerDragScreenPos;
     public static bool mouseHold;
-    
+
     private static bool _isInventoryOpened;
     // whether or not the camera is locked onto a puzzle or not
     public static bool isPuzzleLocked = false;
@@ -52,5 +54,7 @@ public class GameState : MonoBehaviour {
         foreach (var collectable in startInventory) {
             inventory.Add(collectable);
         }
+
+        raycastDist = playerConstants.raycastDistance;
     }
 }
