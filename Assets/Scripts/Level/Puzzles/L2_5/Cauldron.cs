@@ -8,6 +8,8 @@ namespace Level.Puzzles.L2_5 {
         public GameObject murkyBubbles;
         public GameObject shinyWaters;
         public GameObject murkyWaters;
+        public GameObject magicField;
+        
         public Light waterGlowLight;
         public float glowDuration = 8.0f;
         public GameEvent onRitualStart;
@@ -66,6 +68,7 @@ namespace Level.Puzzles.L2_5 {
             
             if (_lilyAdded && itemType == InventoryItem.L2_5_Photo) {
                 waterGlowLight.enabled = true;
+                magicField.SetActive(true);
                 StartDimmingLight();
                 
                 GameState.inventory.Remove(selectedInventoryItem);
