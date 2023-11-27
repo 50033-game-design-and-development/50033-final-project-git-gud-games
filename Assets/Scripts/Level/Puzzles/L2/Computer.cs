@@ -23,6 +23,7 @@ public class Computer : MonoBehaviour {
     [SerializeField] private AudioClip audioFileClip;
     [SerializeField] private AudioClip staticNoiseClip;
     [SerializeField] private AudioClip hummingNoiseClip;
+    [SerializeField] private AudioClip noBootBeepClip;
     [SerializeField] private string password;
 
     [Header("References")]
@@ -31,7 +32,8 @@ public class Computer : MonoBehaviour {
     [SerializeField] private Animator audioWindowAnimator;
 
 
-    private bool isOn = false;
+    private bool isOn;
+    private bool watchedRecording;
     private AudioSource ambientAudioSource;
     private AudioSource interactableAudioSource;
     
@@ -55,9 +57,6 @@ public class Computer : MonoBehaviour {
         dragDroppable.possibleDroppable.Clear();
         dragDroppable.possibleDroppable.Add(InventoryItem.L2_Floppy);
         dragDroppable.UpdateDroppables();
-
-        ambientAudioSource.clip = staticNoiseClip;
-        ambientAudioSource.Play();
     }
     
     public void OnFloppyInserted() {
@@ -66,9 +65,8 @@ public class Computer : MonoBehaviour {
         ambientAudioSource.Stop();
         ambientAudioSource.clip = hummingNoiseClip;
         ambientAudioSource.Play();
-        
+        Event.Global.showDialogue.Raise(MonologueKey.L2_PC_DISK_INSERTED);
     }
-    public void OnLogin() => State = ComputerState.Desktop;
 
     public void SetState(ComputerState computerState) {
         State = computerState;
@@ -80,10 +78,15 @@ public class Computer : MonoBehaviour {
         for (int i = 0; i < screens.Length; i++) {
             screens[i].gameObject.SetActive(i == (int) State);
         }
-        if (State == ComputerState.Startup) 
+
+        if (State == ComputerState.NoBoot) {
+            interactableAudioSource.PlayOneShot(noBootBeepClip);
+            ambientAudioSource.clip = staticNoiseClip;
+            ambientAudioSource.Play();
+        }
+        else if (State == ComputerState.Startup) {
             StartCoroutine("LoadStartupScreen");
-        
-        
+        }
     }
 
     public void Off() {
@@ -102,16 +105,17 @@ public class Computer : MonoBehaviour {
     }
 
     public void OnLoginSubmit() {
-    
         string input = loginInputField.text;
 
         // Trim zero width space characters
         if (input.Trim((char)8203).Equals(password.Trim(), StringComparison.OrdinalIgnoreCase)) {
-            Event.L2.loggedIn.Raise();
             ambientAudioSource.PlayOneShot(loginSuccessAudioClip);
+            Event.Global.showDialogue.Raise(MonologueKey.L2_PC_LOGIN);
+            State = ComputerState.Desktop;
         } else {
             loginInputField.text = "";
             ambientAudioSource.PlayOneShot(loginFailAudioClip);
+            Event.Global.showDialogue.Raise(MonologueKey.L2_PC_WRONG_PASSWORD);
         }
     }
 
@@ -120,6 +124,9 @@ public class Computer : MonoBehaviour {
         audioWindowAnimator.SetTrigger("Click");
         interactableAudioSource.clip = audioFileClip;
         interactableAudioSource.Play();
+        if (!watchedRecording) {
+            Event.Global.showDialogue.Raise(MonologueKey.L2_PC_AUDIO_INTERACT);
+        }
         
         StartCoroutine("CloseAudioFile");
     }
@@ -130,6 +137,10 @@ public class Computer : MonoBehaviour {
         yield return !interactableAudioSource.isPlaying;
         Event.L2.finishRecording.Raise();
         audioWindowAnimator.SetTrigger("Close");
+        if (!watchedRecording) {
+            watchedRecording = true;
+            Event.Global.showDialogue.Raise(MonologueKey.L2_AFTER_AUDIO);
+        }
     }
 
     public void OnForceCloseAudioFile() {
@@ -149,14 +160,16 @@ public class Computer : MonoBehaviour {
 
     private void Update() {
         // Off computer when unfocusing, on when focusing
+        /*
         if (!isOn && cameraFocusable.IsCinemachineInStartState()) {
             On();
         } else if (isOn && !cameraFocusable.IsCinemachineInStartState()) {
             Off();
         }
+        */
 
         // Close inventory when computer is turned on
-        if (isOn && GameState.isInventoryOpened && 
+        if (GameState.isInventoryOpened &&
             (State == ComputerState.Desktop || State == ComputerState.Login)) {
                 GameState.ToggleInventory(false);
                 Event.Global.inventoryUpdate.Raise();

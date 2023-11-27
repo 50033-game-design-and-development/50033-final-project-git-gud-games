@@ -19,11 +19,13 @@ namespace NavKeypad
         public void PressButton()
         {
             return; // Disable this function
+            /*
             if (!moving)
             {
                 keypad.AddInput(value);
                 StartCoroutine(MoveSmooth());
             }
+            */
         }
         private bool moving;
 
