@@ -92,7 +92,7 @@ public class PlayerRayCast : MonoBehaviour {
         );
             
         if (Physics.Raycast(
-            ray, out RaycastHit raycastHit, playerConstants.raycastDistance,
+            ray, out RaycastHit raycastHit, GameState.raycastDist,
             _layerMaskInteractable
         )) {
             PerformHighlight(raycastHit.transform);
@@ -107,7 +107,7 @@ public class PlayerRayCast : MonoBehaviour {
         // Ray points out from the middle of camera viewport 
         Ray ray = Camera.main.ViewportPointToRay(_rayOrigin);
         if (Physics.Raycast(
-            ray, out RaycastHit raycastHit, playerConstants.raycastDistance,
+            ray, out RaycastHit raycastHit, GameState.raycastDist,
             _layerMaskInteractable
         )) {
             PerformHighlight(raycastHit.transform);
