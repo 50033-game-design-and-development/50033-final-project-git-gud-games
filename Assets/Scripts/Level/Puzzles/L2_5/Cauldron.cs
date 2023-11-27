@@ -103,10 +103,10 @@ namespace Level.Puzzles.L2_5 {
                     _startLightIntensity, 0, timePassed / duration
                 ) * oscillator;
                 
-                yield return null; // Wait until the next frame
+                yield return null;
             }
 
-            waterGlowLight.intensity = 0; // Ensure the intensity is set to 0
+            waterGlowLight.intensity = 0;
         }
     }
 }
