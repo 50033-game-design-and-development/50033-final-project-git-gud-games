@@ -26,7 +26,6 @@ public class InventoryRenderer : MonoBehaviour {
     private float hotbarItemSize;
     
     public UIDocument hotbarUI;
-    public int hotbarItemGap = 40;
     public int numHotbarItems = 5;
 
     // gap between bar item images

@@ -32,6 +32,8 @@ public class DraggableButton : Button {
             // TODO: maybe show the inventory item moving on cursor drag
         }
     }
-    
-    private void OnPointerUp(IPointerEvent evt) {}
+
+    private void OnPointerUp(IPointerEvent evt) {
+        RemoveFromClassList(DRAGGING_SLOT_CLASS);
+    }
 }
