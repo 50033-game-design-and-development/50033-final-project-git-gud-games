@@ -24,6 +24,7 @@ public class Computer : MonoBehaviour {
     [SerializeField] private AudioClip staticNoiseClip;
     [SerializeField] private AudioClip hummingNoiseClip;
     [SerializeField] private AudioClip noBootBeepClip;
+    [SerializeField] private AudioClip insertFloppyClip;
     [SerializeField] private string password;
 
     [Header("References")]
@@ -65,6 +66,7 @@ public class Computer : MonoBehaviour {
         ambientAudioSource.Stop();
         ambientAudioSource.clip = hummingNoiseClip;
         ambientAudioSource.Play();
+        interactableAudioSource.PlayOneShot(insertFloppyClip);
         Event.Global.showDialogue.Raise(MonologueKey.L2_PC_DISK_INSERTED);
     }
 

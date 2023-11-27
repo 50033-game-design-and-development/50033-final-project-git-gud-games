@@ -8000,7 +8000,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1861519869733354, guid: 71229b5bf10e4104d9ec35fb47862528, type: 3}
       propertyPath: m_Name
-      value: Chair_Small (1)
+      value: Piano_Skip
       objectReference: {fileID: 0}
     - target: {fileID: 1861519869733354, guid: 71229b5bf10e4104d9ec35fb47862528, type: 3}
       propertyPath: m_Layer
@@ -8390,7 +8390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1787049391}
+  m_Material: {fileID: 1573355703}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -50207,6 +50207,45 @@ Transform:
   - {fileID: 389540909}
   m_Father: {fileID: 733608244}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1573355703
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &1573569483
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50876,7 +50915,11 @@ PrefabInstance:
     - target: {fileID: 7344248194165554880, guid: 745f79304d1534903b568c1cf172ef87, type: 3}
       propertyPath: noBootBeepClip
       value: 
-      objectReference: {fileID: 8300000, guid: a7eaa29f336ebef10872ace5c216a7b4, type: 3}
+      objectReference: {fileID: 8300000, guid: ae2db1dffcf66dff8ade56b579db1e60, type: 3}
+    - target: {fileID: 7344248194165554880, guid: 745f79304d1534903b568c1cf172ef87, type: 3}
+      propertyPath: insertFloppyClip
+      value: 
+      objectReference: {fileID: 8300000, guid: cc45b74b664cb96dc9fc26458fb81944, type: 3}
     - target: {fileID: 7344248194165554880, guid: 745f79304d1534903b568c1cf172ef87, type: 3}
       propertyPath: loginFailAudioClip
       value: 
@@ -53579,45 +53622,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7447811134356423840, guid: f4cddf09d83defd49ba2b35e541f9981, type: 3}
   m_PrefabInstance: {fileID: 1776939148}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1787049391
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &1799826490
 PrefabInstance:
   m_ObjectHideFlags: 0
