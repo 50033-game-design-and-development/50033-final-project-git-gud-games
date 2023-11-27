@@ -20,12 +20,17 @@ public class MonologueUI : MonoBehaviour {
         }
         StopCoroutine("Monologue");
         StopCoroutine("EndMonologue");
+        audioSource.Stop();
         StartCoroutine("Monologue", monologueKey);
     }
 
     private IEnumerator Monologue(MonologueKey monologueKey) {
         cachedKey = monologueKey;
         Monologue monologue = MonologueMap.Get(monologueKey);
+        bool played = MonologueMap.HasPlayed(monologueKey);
+        if (!played) {
+            MonologueMap.SetTracker(monologueKey);
+        }
         SetAlpha(1);
 
         for (int i = 0; i < monologue.strings.Count; i++) {
@@ -34,11 +39,13 @@ public class MonologueUI : MonoBehaviour {
             float duration;
 
             if (voiceLines != null) {
-                audioSource.PlayOneShot(voiceLines);
+                if (!played) {
+                    audioSource.PlayOneShot(voiceLines);
+                }
                 duration = voiceLines.length;
             } else {
                 // Set duration for unvoiced lines based on length of text
-                duration = monologue.strings[i].Length / 15.0f;
+                duration = monologue.strings[i].Length / 20.0f;
             }
 
             if (i == monologue.strings.Count - 1) {
@@ -59,6 +66,7 @@ public class MonologueUI : MonoBehaviour {
     // Fade out monologue panel
     private IEnumerator EndMonologue() {
         cachedKey = null;
+        Event.Global.endMonologue.Raise();
         for (float alpha = 1; alpha > -0.1f; alpha -= 0.05f) {
             SetAlpha(alpha);
             yield return new WaitForSeconds(0.05f);
