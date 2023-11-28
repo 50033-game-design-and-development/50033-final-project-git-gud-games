@@ -5,6 +5,7 @@ namespace Event {
 
         public static GameEvent finishRecording;
         public static GameEvent clickPainting;
+        public static GameEvent enlargeFlames;
         public static GameEvent insertFloppy;
         public static NoteOctaveGameEvent playNote;
         public static GameEvent plugFuse;
@@ -14,6 +15,7 @@ namespace Event {
         public static GameEvent placeAllCandles;
 
         [SerializeField] private GameEvent _clickPainting;
+        [SerializeField] private GameEvent _enlargeFlames;
         [SerializeField] private GameEvent _finishRecording;
         [SerializeField] private GameEvent _insertFloppy;
         [SerializeField] private NoteOctaveGameEvent _playNote;
@@ -26,6 +28,7 @@ namespace Event {
 
         private void Start() {
             finishRecording = _finishRecording;
+            enlargeFlames = _enlargeFlames;
             clickPainting = _clickPainting;
             insertFloppy = _insertFloppy;
             playNote = _playNote;
