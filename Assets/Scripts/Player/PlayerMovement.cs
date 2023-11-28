@@ -12,12 +12,6 @@ public class PlayerMovement : MonoBehaviour {
 
     private PlayerAction _playerAction;
 
-    private bool _canMove = true;
-
-    public void ToggleMove() {
-        _canMove = !(GameState.isPuzzleLocked || GameState.isInventoryOpened);
-    }
-
 
     /// <summary>
     /// Called by the ActionManager when the player moves (WASD or Arrow keys).
@@ -57,7 +51,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Update() {
-        if (_canMove) {
+        if (GameState.isInteractionAllowed) {
             Move();
         } else {
             _controller.Move(Vector3.zero);
