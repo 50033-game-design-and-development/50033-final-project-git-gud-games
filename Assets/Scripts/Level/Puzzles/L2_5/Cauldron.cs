@@ -30,22 +30,8 @@ namespace Level.Puzzles.L2_5 {
         public void OnAllCandlesLit() {
             _allCandlesLit = true;
         }
-
-        public void test() {
-            // raise test event if paper was dragged in
-            if (!GameState.selectedInventoryItem.HasValue) {
-                return;
-            }
-            
-            var selectedInventoryItem = GameState.selectedInventoryItem.Value;
-            if (selectedInventoryItem.itemType == InventoryItem.L0_Paper) {
-                Debug.Log("ADD PAPER");
-                testEvent.Raise();
-            }
-        }
         
         public void OnDragDrop() {
-            test();
             if (!GameState.selectedInventoryItem.HasValue) {
                 return;
             }
