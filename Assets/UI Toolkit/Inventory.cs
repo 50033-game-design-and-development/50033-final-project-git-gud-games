@@ -1,3 +1,4 @@
+/*
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -28,3 +29,4 @@ public class Inventory : EditorWindow
         root.Add(labelFromUXML);
     }
 }
+*/
