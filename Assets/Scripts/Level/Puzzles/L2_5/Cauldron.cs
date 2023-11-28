@@ -69,6 +69,7 @@ namespace Level.Puzzles.L2_5 {
                 onRitualStart.Raise(); 
                 GameState.inventory.Remove(selectedInventoryItem);
                 Event.Global.inventoryUpdate.Raise();
+                Event.L2.solvedP6.Raise();
             }
         }
 
