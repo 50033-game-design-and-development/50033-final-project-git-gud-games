@@ -24,7 +24,7 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
             // to an interactable object if camera is locked onto a puzzle
             return;
         }
-        
+        Debug.Log("Playing animation " + startStateName);
         cinemachineAnimator.Play(startStateName);
         GameState.isPuzzleLocked = true;
         GameState.ConfineCursor();

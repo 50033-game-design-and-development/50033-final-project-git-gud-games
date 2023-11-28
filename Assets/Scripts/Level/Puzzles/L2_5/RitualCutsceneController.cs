@@ -9,7 +9,8 @@ public class RitualCutsceneController : MonoBehaviour
     [SerializeField] private ParticleSystem circleFX;
     [SerializeField] private AudioClip extinguishSound;
     [SerializeField] private AudioClip igniteSound;
-    [SerializeField] private CameraFocusable cameraFocusable;
+    [SerializeField] private CameraFocusable cauldronCameraFocusable;
+    [SerializeField] private CameraFocusable fpCameraFocusable;
     [SerializeField] private GameObject[] candleFlames;
 
 
@@ -92,8 +93,20 @@ public class RitualCutsceneController : MonoBehaviour
 
     }
 
+    public void FocusOnCauldron()
+    {
+        GameState.isPuzzleLocked = false;
+        cauldronCameraFocusable.OnInteraction();
+    }
+
+    public void FocusFirstPerson()
+    {
+        GameState.isPuzzleLocked = false;
+        fpCameraFocusable.OnInteraction();
+    }
+
     public void Escape() {
-        cameraFocusable.OnEscape();
+        cauldronCameraFocusable.OnEscape();
     }
 
 
