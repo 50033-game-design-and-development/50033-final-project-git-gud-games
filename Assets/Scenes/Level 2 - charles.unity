@@ -8281,7 +8281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1154817601}
+  m_Material: {fileID: 547208760}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -18103,15 +18103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35464d0d704fd130a5ee6a9be136f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startInventory:
-  - itemType: 8
-    itemSprite: {fileID: 21300000, guid: 5a341658138b049fa8f1a9d504a793e2, type: 3}
-  - itemType: 15
-    itemSprite: {fileID: 21300000, guid: cf91c2af4786e4b3faf81a99dc1194cb, type: 3}
-  - itemType: 16
-    itemSprite: {fileID: 21300000, guid: 25e8dca4976dc1a46908f7d1368aabed, type: 3}
-  - itemType: 0
-    itemSprite: {fileID: 21300000, guid: 9daad25a735d944f7a51a141ff3aa075, type: 3}
+  startInventory: []
   playerConstants: {fileID: 11400000, guid: c5333c05b04472e41bf642f63025eb7e, type: 2}
 --- !u!4 &223368373
 Transform:
@@ -25472,6 +25464,45 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!21 &547208760
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1848, g: 201, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &550898771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38639,45 +38670,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3548be56ef01acb45b73c34f31f1c772, type: 3}
---- !u!21 &1154817601
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1848, g: 201, b: 40, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &1165031211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41917,7 +41909,7 @@ MonoBehaviour:
   _solveP3: {fileID: 11400000, guid: c2386f01e34f3114b8f1ba2a7244b5ad, type: 2}
   _solvedP4: {fileID: 11400000, guid: 206fc4e8bbc55fa43bb9386efb4fb86b, type: 2}
   _seeFuseBox: {fileID: 11400000, guid: c64706221b8603d51b2153cace25682c, type: 2}
-  _placeAllCandles: {fileID: 0}
+  _placeAllCandles: {fileID: 11400000, guid: 1ebaeb2ee318447e8bd82b2d1ddf6e2a, type: 2}
 --- !u!114 &1373120838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41936,7 +41928,7 @@ MonoBehaviour:
   _revealPositionOnUi: {fileID: 11400000, guid: 3254f790691a4a74fb7ecb1a932ff123, type: 2}
   _showDialogue: {fileID: 11400000, guid: 9a33f24b199f73fbea54375e870f2719, type: 2}
   _changeCamera: {fileID: 11400000, guid: c039f501bfa1ccaf28e97a5f6027fc5b, type: 2}
-  _endMonologue: {fileID: 0}
+  _endMonologue: {fileID: 11400000, guid: 637836336141ad24c853e0f483680a06, type: 2}
 --- !u!4 &1373120839
 Transform:
   m_ObjectHideFlags: 0
