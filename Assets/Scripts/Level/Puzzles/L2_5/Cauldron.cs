@@ -19,7 +19,6 @@ namespace Level.Puzzles.L2_5 {
 
         public Light waterGlowLight;
         public float glowDuration = 8.0f;
-        public GameEvent onRitualStart;
 
         private bool _lilyAdded = false;
         private bool _photoAdded = false;
@@ -66,10 +65,9 @@ namespace Level.Puzzles.L2_5 {
                 itemType == InventoryItem.L2_5_Silver_key
             ) {
                 magicField.SetActive(true);
-                onRitualStart.Raise(); 
+                Event.L2.solvedP6.Raise();
                 GameState.inventory.Remove(selectedInventoryItem);
                 Event.Global.inventoryUpdate.Raise();
-                Event.L2.solvedP6.Raise();
             }
         }
 
