@@ -12,6 +12,12 @@ public class PlayerMovement : MonoBehaviour {
 
     private PlayerAction _playerAction;
 
+    private bool _canMove = true;
+
+    public void ToggleMove() {
+        _canMove = !(GameState.isPuzzleLocked || GameState.isInventoryOpened);
+    }
+
 
     /// <summary>
     /// Called by the ActionManager when the player moves (WASD or Arrow keys).
@@ -36,12 +42,6 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Move() {
-        // don't move when the inventory is open
-        if (GameState.isInventoryOpened) {
-            _controller.Move(Vector3.zero);
-            return;
-        }
-        
         Vector3 moveDirection = CalculateMoveDirection();
         _controller.Move(moveDirection * playerConstants.moveSpeed * Time.deltaTime);
     }
@@ -57,7 +57,11 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Update() {
-        Move();
+        if (_canMove) {
+            Move();
+        } else {
+            _controller.Move(Vector3.zero);
+        }
     }
 
     private void OnDisable() {
