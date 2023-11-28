@@ -31,7 +31,7 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
         Event.Global.changeCamera.Raise();
     }
     
-    protected virtual void OnEscape() {
+    public virtual void OnEscape() {
         if (!GameState.isPuzzleLocked) {
             return;
         }

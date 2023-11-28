@@ -1,23 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RitualCutsceneController : MonoBehaviour
 {
     [SerializeField] private GameObject pentagram;
+    [SerializeField] private ParticleSystem circleFX;
+    [SerializeField] private AudioClip extinguishSound;
+    [SerializeField] private AudioClip igniteSound;
+    [SerializeField] private CameraFocusable cameraFocusable;
+    [SerializeField] private GameObject[] candleFlames;
+
+
+    private AudioSource audioSource;
 
     public void EnableGlowPentagram()
     {
-        Debug.Log("START GLOWwWW");
         Material mat = pentagram.GetComponent<Renderer>().material;
-        StartCoroutine(gradualGlow(1f, mat));
+        StartCoroutine(gradualGlow(0.5f, mat));
 
     }
 
     public void DisableGlowPentagram()
     {
         Material mat = pentagram.GetComponent<Renderer>().material;
-        StartCoroutine(gradualGlow(1f, mat, 1, 0));
+        StartCoroutine(gradualGlow(0.5f, mat, 1, 0));
 
     }
 
@@ -43,6 +51,56 @@ public class RitualCutsceneController : MonoBehaviour
 
     public void EnlargeFlames()
     {
-        Event.L2.enlargeFlames.Raise();
+        foreach (GameObject flame in candleFlames)
+        {
+            flame.GetComponent<Animator>().SetTrigger("Enlarge");
+            audioSource.PlayOneShot(igniteSound);
+        }
+    }
+
+    public void ShrinkFlames()
+    {
+        foreach (GameObject flame in candleFlames)
+        {
+            flame.GetComponent<Animator>().SetTrigger("Shrink");
+        }
+    }
+
+    public void DisableFlames(float delay)
+    {
+        StartCoroutine(DisableFlameCoroutine(delay));
+    }
+
+    IEnumerator DisableFlameCoroutine(float delay)
+    {
+        foreach (GameObject flame in candleFlames)
+        {
+            flame.SetActive(false);
+            audioSource.PlayOneShot(extinguishSound);
+            yield return new WaitForSeconds(delay);
+        }
+    }
+
+    public void EnableParticles()
+    {
+        circleFX.Play();
+    }
+
+    public void DisableParticles()
+    {
+        circleFX.Stop();
+
+    }
+
+    public void Escape() {
+        cameraFocusable.OnEscape();
+    }
+
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        DisableParticles();
+
     }
 }
