@@ -7,6 +7,8 @@ public class NextScene : MonoBehaviour, IInteractable, IClickable {
 
     public int sceneLoadDelay = 5;
 
+    private bool _allowSceneChange;
+
     public void SetScene(string sceneName) {
         // Commented out because ending scenes are not in build settings
         // if (SceneManager.GetSceneByName(sceneName).IsValid())
@@ -41,7 +43,12 @@ public class NextScene : MonoBehaviour, IInteractable, IClickable {
         LoadSingle();
     }
 
+    public void AllowSceneChange() {
+        _allowSceneChange = true;
+    }
+
     public void OnInteraction() {
+        if(!_allowSceneChange) return;
         StartCoroutine(LoadWithDelay(sceneLoadDelay));
     }
 
