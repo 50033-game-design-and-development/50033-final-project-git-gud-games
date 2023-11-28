@@ -27,10 +27,6 @@ public class MonologueUI : MonoBehaviour {
     private IEnumerator Monologue(MonologueKey monologueKey) {
         cachedKey = monologueKey;
         Monologue monologue = MonologueMap.Get(monologueKey);
-        bool played = MonologueMap.HasPlayed(monologueKey);
-        if (!played) {
-            MonologueMap.SetTracker(monologueKey);
-        }
         SetAlpha(1);
 
         for (int i = 0; i < monologue.strings.Count; i++) {
@@ -39,9 +35,7 @@ public class MonologueUI : MonoBehaviour {
             float duration;
 
             if (voiceLines != null) {
-                if (!played) {
-                    audioSource.PlayOneShot(voiceLines);
-                }
+                audioSource.PlayOneShot(voiceLines);
                 duration = voiceLines.length;
             } else {
                 // Set duration for unvoiced lines based on length of text
