@@ -8281,7 +8281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 456578441}
+  m_Material: {fileID: 1154817601}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -23138,45 +23138,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 18a11fd6df8ceb449b8785301026d639, type: 3}
   m_PrefabInstance: {fileID: 1633786997}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &456578441
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1848, g: 201, b: 40, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &457301373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27717,7 +27678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1645042ab9c7e1c40a7c732a204f5d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: 4d7c631769d7eafa881e34d8e33205b3, type: 2}
+  event: {fileID: 11400000, guid: bb8dc0e8f26a28e4fb8b617dc37468ea, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
@@ -38678,6 +38639,45 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3548be56ef01acb45b73c34f31f1c772, type: 3}
+--- !u!21 &1154817601
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1848, g: 201, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &1165031211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41912,8 +41912,6 @@ MonoBehaviour:
   _clickPainting: {fileID: 11400000, guid: 772460f6e25ac47a1bc777920374ef97, type: 2}
   _finishRecording: {fileID: 11400000, guid: bb8dc0e8f26a28e4fb8b617dc37468ea, type: 2}
   _insertFloppy: {fileID: 11400000, guid: 49bd48d7cb6d19b45a8e2e771009dc87, type: 2}
-  _loggedIn: {fileID: 11400000, guid: c1c57f20b80661443a6a7c98a2d4d1dd, type: 2}
-  _paintingAnimationTrigger: {fileID: 11400000, guid: 772460f6e25ac47a1bc777920374ef97, type: 2}
   _playNote: {fileID: 11400000, guid: a1a90afa89325c0419062b9c2515ffe9, type: 2}
   _plugFuse: {fileID: 11400000, guid: c18cf66c2d1e34fde941ee8599d741d5, type: 2}
   _solveP3: {fileID: 11400000, guid: c2386f01e34f3114b8f1ba2a7244b5ad, type: 2}
@@ -41938,6 +41936,7 @@ MonoBehaviour:
   _revealPositionOnUi: {fileID: 11400000, guid: 3254f790691a4a74fb7ecb1a932ff123, type: 2}
   _showDialogue: {fileID: 11400000, guid: 9a33f24b199f73fbea54375e870f2719, type: 2}
   _changeCamera: {fileID: 11400000, guid: c039f501bfa1ccaf28e97a5f6027fc5b, type: 2}
+  _endMonologue: {fileID: 0}
 --- !u!4 &1373120839
 Transform:
   m_ObjectHideFlags: 0
@@ -49699,7 +49698,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8103963158690179599, guid: 745f79304d1534903b568c1cf172ef87, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -57639,7 +57639,6 @@ GameObject:
   - component: {fileID: 6138978916455424641}
   - component: {fileID: 6138978916455424642}
   - component: {fileID: 6138978916455424643}
-  - component: {fileID: 6138978916455424644}
   m_Layer: 6
   m_Name: cauldron
   m_TagString: Untagged
@@ -57787,6 +57786,9 @@ MonoBehaviour:
   shinyWaters: {fileID: 701955811}
   murkyWaters: {fileID: 2511887165159788305}
   magicField: {fileID: 302674489}
+  startLightIntensity: 0.5
+  startGlowLightIntensity: 5
+  endGlowLightIntensity: 1
   waterGlowLight: {fileID: 1177751831}
   glowDuration: 5
   onRitualStart: {fileID: 11400000, guid: 29bbbd659dc77416c80fb67f78cf94fc, type: 2}
@@ -57810,34 +57812,6 @@ MonoBehaviour:
       - m_Target: {fileID: 6138978916455424642}
         m_TargetAssemblyTypeName: Level.Puzzles.L2_5.Cauldron, Assembly-CSharp
         m_MethodName: OnAllCandlesLit
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &6138978916455424644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6138978916452283946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1645042ab9c7e1c40a7c732a204f5d99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: 29bbbd659dc77416c80fb67f78cf94fc, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6138978916455424642}
-        m_TargetAssemblyTypeName: Level.Puzzles.L2_5.Cauldron, Assembly-CSharp
-        m_MethodName: OnSolved
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

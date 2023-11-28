@@ -43,11 +43,7 @@ namespace Level.Puzzles.L2_5 {
                 testEvent.Raise();
             }
         }
-
-        public void OnSolved() {
-            Debug.Log("SOLVED");
-        }
-
+        
         public void OnDragDrop() {
             test();
             if (!GameState.selectedInventoryItem.HasValue) {
