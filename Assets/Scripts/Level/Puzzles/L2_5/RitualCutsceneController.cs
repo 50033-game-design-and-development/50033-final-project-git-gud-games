@@ -9,8 +9,8 @@ public class RitualCutsceneController : MonoBehaviour
     [SerializeField] private ParticleSystem circleFX;
     [SerializeField] private AudioClip extinguishSound;
     [SerializeField] private AudioClip igniteSound;
-    [SerializeField] private CameraFocusable cauldronCameraFocusable;
-    [SerializeField] private CameraFocusable fpCameraFocusable;
+    [SerializeField] private LockedCameraFocusable cauldronCameraFocusable;
+    [SerializeField] private LockedCameraFocusable fpCameraFocusable;
     [SerializeField] private GameObject[] candleFlames;
 
 
@@ -106,7 +106,7 @@ public class RitualCutsceneController : MonoBehaviour
     }
 
     public void Escape() {
-        cauldronCameraFocusable.OnEscape();
+        cauldronCameraFocusable.ForcedEscape();
     }
 
 

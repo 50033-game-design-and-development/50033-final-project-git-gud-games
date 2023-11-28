@@ -211,6 +211,54 @@ Transform:
   - {fileID: 6401268271460103941}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2300258945371427088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6708845756678786915}
+  - component: {fileID: 5575956612805738898}
+  m_Layer: 6
+  m_Name: RitualCameraFocusable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6708845756678786915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2300258945371427088}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1398799515079140161}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5575956612805738898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2300258945371427088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0b0f4006c5f79f40886e6eec16230aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cinemachineAnimator: {fileID: 0}
+  startStateName: L2_5 Cauldron
+  endStateName: L2 First Person
+  playerConstants: {fileID: 11400000, guid: c5333c05b04472e41bf642f63025eb7e, type: 2}
 --- !u!1 &3021061660333069136
 GameObject:
   m_ObjectHideFlags: 0
@@ -10238,6 +10286,7 @@ Transform:
   - {fileID: 2388467793648742127}
   - {fileID: 5727597633594170846}
   - {fileID: 7579534770205005961}
+  - {fileID: 6708845756678786915}
   - {fileID: 3246589385557071692}
   - {fileID: 1142080292935575234}
   - {fileID: 6307815494006815284}
@@ -10380,9 +10429,9 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2130374911301138857}
-          m_TargetAssemblyTypeName: RitualCutsceneController, Assembly-CSharp
-          m_MethodName: Escape
+        - m_Target: {fileID: 5575956612805738898}
+          m_TargetAssemblyTypeName: LockedCameraFocusable, Assembly-CSharp
+          m_MethodName: ForcedEscape
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -10478,8 +10527,8 @@ MonoBehaviour:
   circleFX: {fileID: 84301719502073594}
   extinguishSound: {fileID: 8300000, guid: bd0b2b011b025ee458823af48889436c, type: 3}
   igniteSound: {fileID: 8300000, guid: eae9752f455df2b4298dda144427baf8, type: 3}
-  cauldronCameraFocusable: {fileID: 1037099272828801832}
-  fpCameraFocusable: {fileID: 1238685150484921608}
+  cauldronCameraFocusable: {fileID: 5575956612805738898}
+  fpCameraFocusable: {fileID: 504696116786940649}
   candleFlames:
   - {fileID: 0}
   - {fileID: 0}
@@ -10591,7 +10640,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7579534770205005961}
-  - component: {fileID: 1238685150484921608}
+  - component: {fileID: 504696116786940649}
   m_Layer: 6
   m_Name: FPCameraFocusable
   m_TagString: Untagged
@@ -10614,7 +10663,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1398799515079140161}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1238685150484921608
+--- !u!114 &504696116786940649
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10623,12 +10672,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6006907341510800574}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b0858f33e9464300bf380908a8a5bde, type: 3}
+  m_Script: {fileID: 11500000, guid: a0b0f4006c5f79f40886e6eec16230aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cinemachineAnimator: {fileID: 0}
   startStateName: L2_5 Ritual
   endStateName: L2 First Person
+  playerConstants: {fileID: 11400000, guid: c5333c05b04472e41bf642f63025eb7e, type: 2}
 --- !u!1 &6550034357739826169
 GameObject:
   m_ObjectHideFlags: 0
