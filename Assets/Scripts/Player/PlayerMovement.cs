@@ -36,12 +36,6 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Move() {
-        // don't move when the inventory is open
-        if (GameState.isInventoryOpened) {
-            _controller.Move(Vector3.zero);
-            return;
-        }
-        
         Vector3 moveDirection = CalculateMoveDirection();
         _controller.Move(moveDirection * playerConstants.moveSpeed * Time.deltaTime);
     }
@@ -57,7 +51,11 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Update() {
-        Move();
+        if (GameState.isInteractionAllowed) {
+            Move();
+        } else {
+            _controller.Move(Vector3.zero);
+        }
     }
 
     private void OnDisable() {

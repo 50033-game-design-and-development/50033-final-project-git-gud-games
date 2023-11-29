@@ -19,4 +19,6 @@
     L2_Floppy = 13,
     
     L2_5_Candles = 14,
+    L2_5_Photo = 15,
+    L2_5_Silver_key = 16
 }

@@ -20,6 +20,7 @@ public class MonologueUI : MonoBehaviour {
         }
         StopCoroutine("Monologue");
         StopCoroutine("EndMonologue");
+        audioSource.Stop();
         StartCoroutine("Monologue", monologueKey);
     }
 
@@ -38,7 +39,7 @@ public class MonologueUI : MonoBehaviour {
                 duration = voiceLines.length;
             } else {
                 // Set duration for unvoiced lines based on length of text
-                duration = monologue.strings[i].Length / 15.0f;
+                duration = monologue.strings[i].Length / 20.0f;
             }
 
             if (i == monologue.strings.Count - 1) {
@@ -59,6 +60,7 @@ public class MonologueUI : MonoBehaviour {
     // Fade out monologue panel
     private IEnumerator EndMonologue() {
         cachedKey = null;
+        Event.Global.endMonologue.Raise();
         for (float alpha = 1; alpha > -0.1f; alpha -= 0.05f) {
             SetAlpha(alpha);
             yield return new WaitForSeconds(0.05f);
