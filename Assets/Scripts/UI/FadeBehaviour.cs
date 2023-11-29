@@ -21,18 +21,26 @@ public class FadeBehaviour : MonoBehaviour {
     public void Fade() {
         switch (fadeType) {
             case FadeType.FadeIn:
-                StartCoroutine(FadeIn());
+                StartCoroutine(FadeInCoroutine());
                 break;
             case FadeType.FadeOut:
-                StartCoroutine(FadeOut());
+                StartCoroutine(FadeOutCoroutine());
                 break;
             default: 
-                StartCoroutine(FadeOut());
+                StartCoroutine(FadeOutCoroutine());
                 break;
         }
     }
 
-    private IEnumerator FadeOut() {
+    public void FadeIn() {
+        StartCoroutine(FadeInCoroutine());
+    }
+
+    public void FadeOut() {
+        StartCoroutine(FadeOutCoroutine());
+    }
+
+    private IEnumerator FadeOutCoroutine() {
         fadeOverlay.alpha = 1f;
         float t = 0;
         while (t < duration) {
@@ -42,7 +50,7 @@ public class FadeBehaviour : MonoBehaviour {
         }
     }
 
-    private IEnumerator FadeIn() {
+    private IEnumerator FadeInCoroutine() {
         fadeOverlay.alpha = 0f;
         float t = 0;
         while (t < duration) {
