@@ -21,6 +21,8 @@ public class RitualCutsceneController : MonoBehaviour
         Material mat = pentagram.GetComponent<Renderer>().material;
         StartCoroutine(gradualGlow(0.5f, mat));
 
+        EnableFlames();
+
     }
 
     public void DisableGlowPentagram()
@@ -47,6 +49,14 @@ public class RitualCutsceneController : MonoBehaviour
             mat.color = currentColor;
             pentagram.GetComponent<Renderer>().material = mat;
             yield return null;
+        }
+    }
+
+    public void EnableFlames()
+    {
+        foreach (GameObject flame in candleFlames)
+        {
+            flame.SetActive(true);
         }
     }
 

@@ -4,8 +4,10 @@ public class Clickable : MonoBehaviour, IClickable {
     public GameEvent @event;
 
     public bool destroyOnClick;
+    public bool canClick = true;
 
     public void OnClick() {
+        if(!canClick) return;
         if(@event != null) {
             @event.Raise();
         }
@@ -13,5 +15,9 @@ public class Clickable : MonoBehaviour, IClickable {
         if(!destroyOnClick) return;
 
         Destroy(gameObject);
+    }
+
+    public void ToggleClick(bool canClick) {
+        this.canClick = canClick;
     }
 }

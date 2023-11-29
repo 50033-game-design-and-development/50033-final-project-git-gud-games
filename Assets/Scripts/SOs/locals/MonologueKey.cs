@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Manually assigned numbers to prevent breakage
-public enum MonologueKey {
+public enum MonologueKey
+{
     NULL = 0,
 
     L0_START = 1,
