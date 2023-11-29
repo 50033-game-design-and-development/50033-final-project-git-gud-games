@@ -38,7 +38,7 @@ namespace Level.Puzzles.L2_5 {
             var selectedInventoryItem = GameState.selectedInventoryItem.Value;
             InventoryItem itemType = selectedInventoryItem.itemType;
             
-            if (itemType == InventoryItem.L1_Lily) {
+            if (itemType == InventoryItem.L1_Vial_filled) {
                 murkyBubbles.SetActive(false);
                 murkyWaters.SetActive(false);
                 shinyWaters.SetActive(true);

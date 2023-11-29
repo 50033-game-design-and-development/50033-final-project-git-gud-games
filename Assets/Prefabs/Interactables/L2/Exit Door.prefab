@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1645042ab9c7e1c40a7c732a204f5d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: 475b59193e9028f4cb6cca599803635b, type: 2}
+  event: {fileID: 11400000, guid: 29bbbd659dc77416c80fb67f78cf94fc, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
@@ -416,7 +416,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -492,6 +492,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8381085133070156798}
     m_Modifications:
+    - target: {fileID: 2225887874147284791, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2303921294396319332, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
@@ -548,14 +552,141 @@ PrefabInstance:
       propertyPath: m_Name
       value: KeypadStandard
       objectReference: {fileID: 0}
+    - target: {fileID: 8935437802348617227, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
+      propertyPath: m_Size.z
+      value: 0.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2225887874147284791, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4875880423519385421}
+    - targetCorrespondingSourceObject: {fileID: 2225887874147284791, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8901751220743863816}
+    - targetCorrespondingSourceObject: {fileID: 2225887874147284791, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5237923142012587036}
+    - targetCorrespondingSourceObject: {fileID: 2225887874147284791, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2427972705538766927}
+    - targetCorrespondingSourceObject: {fileID: 2225887874147284791, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 270071665559393656}
   m_SourcePrefab: {fileID: 100100000, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
+--- !u!1 &3630009612104949611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2225887874147284791, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
+  m_PrefabInstance: {fileID: 3207569778178861148}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4875880423519385421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3630009612104949611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b0858f33e9464300bf380908a8a5bde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cinemachineAnimator: {fileID: 0}
+  startStateName: L2 Exit Door Keypad
+  endStateName: L2 First Person
+--- !u!114 &8901751220743863816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3630009612104949611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a578918c2f52dea685688347d732636, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetCollider: {fileID: 5801374018757408343}
+  _canToggle: 1
+--- !u!114 &5237923142012587036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3630009612104949611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1645042ab9c7e1c40a7c732a204f5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: c039f501bfa1ccaf28e97a5f6027fc5b, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8901751220743863816}
+        m_TargetAssemblyTypeName: ToggleCollider, Assembly-CSharp
+        m_MethodName: Toggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2427972705538766927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3630009612104949611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30247d4bbd61d434da331d5029c47197, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVisible: 1
+--- !u!114 &270071665559393656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3630009612104949611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1645042ab9c7e1c40a7c732a204f5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 63080e7618c82ec40a90130e24461487, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2427972705538766927}
+        m_TargetAssemblyTypeName: Revealable, Assembly-CSharp
+        m_MethodName: OnReveal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &3709487859201363513 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2303921294396319333, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
+  m_PrefabInstance: {fileID: 3207569778178861148}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &5801374018757408343 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 8935437802348617227, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
   m_PrefabInstance: {fileID: 3207569778178861148}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5904688089995129800

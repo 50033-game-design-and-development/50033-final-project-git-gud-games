@@ -24,14 +24,13 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
             // to an interactable object if camera is locked onto a puzzle
             return;
         }
-        
         cinemachineAnimator.Play(startStateName);
         GameState.isPuzzleLocked = true;
         GameState.ConfineCursor();
         Event.Global.changeCamera.Raise();
     }
     
-    protected virtual void OnEscape() {
+    public virtual void OnEscape() {
         if (!GameState.isPuzzleLocked) {
             return;
         }

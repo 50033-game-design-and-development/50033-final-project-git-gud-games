@@ -8,7 +8,7 @@ public class RitualCameraFocusable : CameraFocusable {
         GameState.raycastDist = 4f;
     }
 
-    protected override void OnEscape() {
+    public override void OnEscape() {
         base.OnEscape();
         GameState.raycastDist = 1.75f;
     }

@@ -8,7 +8,7 @@ public class PlaceCandles : MonoBehaviour {
         if (GameObject.FindWithTag("purple_candle")) {
             return;
         }
-        candles[0].GetComponent<MeshRenderer>().enabled = true;
+        candles[0].SetActive(true);
         candles.RemoveAt(0);
 
         if (candles.Count == 0) {
@@ -24,5 +24,9 @@ public class PlaceCandles : MonoBehaviour {
         candles.Add(GameObject.Find("Yellow_Candle_3"));
         candles.Add(GameObject.Find("Yellow_Candle_4"));
         candles.Add(GameObject.Find("Yellow_Candle_5"));
+
+        for (int i = 0; i < candles.Count; i++) {
+            candles[i].SetActive(false);
+        }
     }
 }
