@@ -3550,7 +3550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1650941851}
+  m_Material: {fileID: 1742638774}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -3963,7 +3963,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35464d0d704fd130a5ee6a9be136f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startInventory: []
+  startInventory:
+  - itemType: 8
+    itemSprite: {fileID: 21300000, guid: 5a341658138b049fa8f1a9d504a793e2, type: 3}
+  - itemType: 15
+    itemSprite: {fileID: 21300000, guid: cf91c2af4786e4b3faf81a99dc1194cb, type: 3}
+  - itemType: 16
+    itemSprite: {fileID: 21300000, guid: 9080ace9ebba4451285c9a3bddfb4459, type: 3}
+  - itemType: 14
+    itemSprite: {fileID: 21300000, guid: 4d3cb0b1c1e6f4c16a147f44688c60c0, type: 3}
   playerConstants: {fileID: 11400000, guid: c5333c05b04472e41bf642f63025eb7e, type: 2}
 --- !u!4 &223368373
 Transform:
@@ -20386,7 +20394,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2874550459541879500, guid: e64fe3363a02efa078aa6fac4440e734, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1852638503}
   m_SourcePrefab: {fileID: 100100000, guid: e64fe3363a02efa078aa6fac4440e734, type: 3}
 --- !u!4 &859722029 stripped
 Transform:
@@ -31152,45 +31163,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 358b75ea5451cf143ab19029a189097d, type: 3}
   m_PrefabInstance: {fileID: 577658762}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1650941851
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1848, g: 201, b: 40, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &1669388624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32554,6 +32526,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lampsOnMaterial: {fileID: 2100000, guid: a4fada28675201a409c5226fa5103e3e, type: 2}
   lampsOffMaterial: {fileID: 2100000, guid: ab065d74197f046ffb80de9f036b361b, type: 2}
+--- !u!21 &1742638774
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1848, g: 201, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &1745655022
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33830,6 +33841,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monologueKeys: 3c0000003d000000
+--- !u!1 &1852638493 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2874550459541879500, guid: e64fe3363a02efa078aa6fac4440e734, type: 3}
+  m_PrefabInstance: {fileID: 859722028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1852638503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852638493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb422f7bf4d04db4afb9e2775cae85dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  candlesLitEvent: {fileID: 11400000, guid: 1ebaeb2ee318447e8bd82b2d1ddf6e2a, type: 2}
 --- !u!1001 &1854873713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36714,7 +36743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5758501854294509582, guid: cacca0ede52bf12949fda8e7b602dc25, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.07
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5758501854294509582, guid: cacca0ede52bf12949fda8e7b602dc25, type: 3}
       propertyPath: m_LocalPosition.y
@@ -36782,7 +36811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6320342883266193291, guid: cacca0ede52bf12949fda8e7b602dc25, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00000011920929
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6320342883266193291, guid: cacca0ede52bf12949fda8e7b602dc25, type: 3}
       propertyPath: m_LocalPosition.y
@@ -38722,7 +38751,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 109995136888025666, guid: 5425c2a8e53834938991defb8ab18a1b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6767404
+      value: 13.393259
       objectReference: {fileID: 0}
     - target: {fileID: 109995136888025666, guid: 5425c2a8e53834938991defb8ab18a1b, type: 3}
       propertyPath: m_LocalPosition.y
