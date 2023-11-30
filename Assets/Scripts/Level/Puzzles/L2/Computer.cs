@@ -52,6 +52,16 @@ public class Computer : MonoBehaviour {
         }
     }
 
+    private bool _usingPC;
+    public bool UsingPC {
+        get {
+            return _usingPC;
+        }
+        set {
+            _usingPC = value;
+        }
+    }
+
     public void OnFusePlugged() {
         State = ComputerState.NoBoot;
 
@@ -160,23 +170,28 @@ public class Computer : MonoBehaviour {
         Off();
     }
 
-    /*
     private void Update() {
+        /*
         // Off computer when unfocusing, on when focusing
         if (!isOn && cameraFocusable.IsCinemachineInStartState()) {
             On();
         } else if (isOn && !cameraFocusable.IsCinemachineInStartState()) {
             Off();
         }
+        */
 
-        // Close inventory when computer is turned on
-        if (GameState.isInventoryOpened &&
-            (State == ComputerState.Desktop || State == ComputerState.Login)) {
+        // Close inventory on password screen
+        if (_usingPC && GameState.isInventoryOpened &&
+            State == ComputerState.Login) {
+                Debug.Log("working");
                 GameState.ToggleInventory(false);
                 Event.Global.inventoryUpdate.Raise();
         }
+
+        if (!GameState.isPuzzleLocked) {
+            _usingPC = false;
+        }
     }
-    */
 
     
 }
