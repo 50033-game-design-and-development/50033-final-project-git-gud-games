@@ -62,7 +62,7 @@ namespace Level.Puzzles.L2_5 {
 
             if (
                 _photoAdded && _allCandlesLit &&
-                itemType == InventoryItem.L2_5_Silver_key
+                itemType == InventoryItem.L0_Key
             ) {
                 magicField.SetActive(true);
                 Event.L2.solvedP6.Raise();
