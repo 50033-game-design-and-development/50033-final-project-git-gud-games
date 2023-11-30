@@ -17,7 +17,7 @@ public class EndingCutsceneController : MonoBehaviour
     [SerializeField] private ShaderEffect_CorruptedVram corruptedVramEffect;
     [SerializeField] private PostProcessVolume vignetteVolume;
     private Vignette vignette;
-    private float vignetteMaxIntensity = 0.55f;
+    private float vignetteMaxIntensity = 0.4f;
 
     public void MoveToHouseFocusable(float duration) {
         Vector3 diff = frontTransform.position - playerController.transform.position;
@@ -38,7 +38,7 @@ public class EndingCutsceneController : MonoBehaviour
 
         while (Time.time < endTime) {
             vignette.intensity.value = Mathf.Lerp(0, vignetteMaxIntensity, (Time.time - startTime) / duration);
-            corruptedVramEffect.shift = Mathf.Lerp(0, 20f, (Time.time - startTime) / duration);
+            corruptedVramEffect.shift = Mathf.Lerp(0, 40f, (Time.time - startTime) / duration);
             yield return null;
         }
     }
