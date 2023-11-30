@@ -18,13 +18,23 @@ public class MonologueUI : MonoBehaviour {
         if (monologueKey == cachedKey) {
             return;
         }
+
+        if (monologueKey == MonologueKey.TERMINATE) {
+            if (cachedKey == MonologueKey.L2_PC_AUDIO) {
+                StopCoroutine("Monologue");
+                StartCoroutine("EndMonologue", MonologueKey.NULL);
+                audioSource.Stop();
+            }
+            return;
+        }
+
         StopCoroutine("Monologue");
         StopCoroutine("EndMonologue");
         audioSource.Stop();
         StartCoroutine("Monologue", monologueKey);
     }
 
-    private IEnumerator Monologue(MonologueKey monologueKey) {
+    protected IEnumerator Monologue(MonologueKey monologueKey) {
         cachedKey = monologueKey;
         Monologue monologue = MonologueMap.Get(monologueKey);
         SetAlpha(1);
@@ -35,7 +45,9 @@ public class MonologueUI : MonoBehaviour {
             float duration;
 
             if (voiceLines != null) {
-                audioSource.PlayOneShot(voiceLines);
+                if (monologueKey != MonologueKey.L2_PC_AUDIO) {
+                    audioSource.PlayOneShot(voiceLines);
+                }
                 duration = voiceLines.length;
             } else {
                 // Set duration for unvoiced lines based on length of text
@@ -54,13 +66,13 @@ public class MonologueUI : MonoBehaviour {
             yield return new WaitForSeconds(duration);
         }
 
-        StartCoroutine("EndMonologue");
+        StartCoroutine("EndMonologue", monologueKey);
     }
 
     // Fade out monologue panel
-    private IEnumerator EndMonologue() {
+    private IEnumerator EndMonologue(MonologueKey key) {
         cachedKey = null;
-        Event.Global.endMonologue.Raise();
+        Event.Global.endMonologue.Raise(key);
         for (float alpha = 1; alpha > -0.1f; alpha -= 0.05f) {
             SetAlpha(alpha);
             yield return new WaitForSeconds(0.05f);
