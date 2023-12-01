@@ -638,17 +638,6 @@ MonoBehaviour:
   startStateName: L2_5 Cauldron
   endStateName: L2 First Person
   playerConstants: {fileID: 11400000, guid: c5333c05b04472e41bf642f63025eb7e, type: 2}
---- !u!114 &52548638 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2710441044990711192, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
-  m_PrefabInstance: {fileID: 289978953}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52548629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 774aa3bc97c84904cad48a4355c6d855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &52548641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -665,9 +654,9 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 52548638}
-        m_TargetAssemblyTypeName: Clickable, Assembly-CSharp
-        m_MethodName: ToggleClick
+      - m_Target: {fileID: 52548643}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -677,6 +666,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &52548643 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8060775824403891530, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
+  m_PrefabInstance: {fileID: 289978953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52548629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8541eaea70f34e3fb51941e1eaf3cb5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &52739295 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4237832093145238677, guid: 6eb911fbad309463cbe813c0cee13f64, type: 3}
@@ -3703,7 +3703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1234316638}
+  m_Material: {fileID: 1313638618}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -3824,17 +3824,6 @@ MonoBehaviour:
   startStateName: L2_5 Cauldron
   endStateName: L2 First Person
   playerConstants: {fileID: 11400000, guid: c5333c05b04472e41bf642f63025eb7e, type: 2}
---- !u!114 &203945097 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 378885015096244410, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
-  m_PrefabInstance: {fileID: 289978953}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 203945088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 774aa3bc97c84904cad48a4355c6d855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &203945100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3851,7 +3840,7 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 203945097}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Clickable, Assembly-CSharp
         m_MethodName: ToggleClick
         m_Mode: 6
@@ -7021,6 +7010,8 @@ PrefabInstance:
     - {fileID: 8089701651698482298, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
     - {fileID: 2350475291474364166, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
     - {fileID: 602517544237270989, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
+    - {fileID: 2785207502140198821, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
+    - {fileID: 7847452351084896119, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8325502798228386767, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
     - {fileID: 514322438010912028, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
@@ -7060,19 +7051,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2973414327743413381, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1185594565}
+      addedObject: {fileID: 1185594571}
     - targetCorrespondingSourceObject: {fileID: 2973414327743413381, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1185594571}
-    - targetCorrespondingSourceObject: {fileID: 8360004497308676849, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1746896622}
+      addedObject: {fileID: 1185594572}
     - targetCorrespondingSourceObject: {fileID: 8360004497308676849, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1746896628}
-    - targetCorrespondingSourceObject: {fileID: 4454751909845368692, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 458674874}
     - targetCorrespondingSourceObject: {fileID: 4454751909845368692, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
       insertIndex: -1
       addedObject: {fileID: 458674880}
@@ -9943,33 +9928,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4454751909845368692, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
   m_PrefabInstance: {fileID: 289978953}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &458674874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 458674868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba5aa65c3b645f59bd0765d32912fd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cinemachineAnimator: {fileID: 6287965009556726496}
-  startStateName: L2_5 Cauldron
-  endStateName: L2 First Person
-  playerConstants: {fileID: 11400000, guid: c5333c05b04472e41bf642f63025eb7e, type: 2}
---- !u!114 &458674877 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3618306566575443028, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
-  m_PrefabInstance: {fileID: 289978953}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 458674868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 774aa3bc97c84904cad48a4355c6d855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &458674880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9986,7 +9944,7 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 458674877}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Clickable, Assembly-CSharp
         m_MethodName: ToggleClick
         m_Mode: 6
@@ -25473,33 +25431,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2973414327743413381, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
   m_PrefabInstance: {fileID: 289978953}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1185594565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1185594559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba5aa65c3b645f59bd0765d32912fd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cinemachineAnimator: {fileID: 6287965009556726496}
-  startStateName: L2_5 Cauldron
-  endStateName: L2 First Person
-  playerConstants: {fileID: 11400000, guid: c5333c05b04472e41bf642f63025eb7e, type: 2}
---- !u!114 &1185594568 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2785207502140198821, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
-  m_PrefabInstance: {fileID: 289978953}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1185594559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 774aa3bc97c84904cad48a4355c6d855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1185594571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25516,7 +25447,7 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1185594568}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Clickable, Assembly-CSharp
         m_MethodName: ToggleClick
         m_Mode: 6
@@ -25528,6 +25459,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &1185594572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185594559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8541eaea70f34e3fb51941e1eaf3cb5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 0}
+  destroyOnClick: 1
+  canClick: 1
 --- !u!1001 &1196723559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26164,45 +26110,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!21 &1234316638
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &1245021503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27375,6 +27282,45 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3548be56ef01acb45b73c34f31f1c772, type: 3}
+--- !u!21 &1313638618
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &1322105075
 GameObject:
   m_ObjectHideFlags: 0
@@ -33016,33 +32962,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8360004497308676849, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
   m_PrefabInstance: {fileID: 289978953}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1746896622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1746896616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba5aa65c3b645f59bd0765d32912fd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cinemachineAnimator: {fileID: 6287965009556726496}
-  startStateName: L2_5 Cauldron
-  endStateName: L2 First Person
-  playerConstants: {fileID: 11400000, guid: c5333c05b04472e41bf642f63025eb7e, type: 2}
---- !u!114 &1746896625 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8926143432144077265, guid: 2cf60940bf1d742dfa69b33378897074, type: 3}
-  m_PrefabInstance: {fileID: 289978953}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1746896616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 774aa3bc97c84904cad48a4355c6d855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1746896628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33059,7 +32978,7 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1746896625}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Clickable, Assembly-CSharp
         m_MethodName: ToggleClick
         m_Mode: 6

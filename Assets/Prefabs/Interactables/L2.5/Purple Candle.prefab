@@ -105,8 +105,8 @@ GameObject:
   - component: {fileID: 1325098746549719895}
   - component: {fileID: 259513108354479270}
   - component: {fileID: 106017998624632413}
-  - component: {fileID: 8149571637068356838}
   - component: {fileID: 1979935773088249709}
+  - component: {fileID: 4276681435691551796}
   m_Layer: 6
   m_Name: Purple Candle
   m_TagString: purple_candle
@@ -181,20 +181,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8149571637068356838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9150650189263728582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 774aa3bc97c84904cad48a4355c6d855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  event: {fileID: 0}
-  destroyOnClick: 1
 --- !u!136 &1979935773088249709
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -218,6 +204,21 @@ CapsuleCollider:
   m_Height: 0.13866577
   m_Direction: 1
   m_Center: {x: 0.0020813216, y: 0.027667765, z: 0.00083499216}
+--- !u!114 &4276681435691551796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9150650189263728582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8541eaea70f34e3fb51941e1eaf3cb5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 0}
+  destroyOnClick: 1
+  canClick: 1
 --- !u!1001 &5071771329713548429
 PrefabInstance:
   m_ObjectHideFlags: 0
