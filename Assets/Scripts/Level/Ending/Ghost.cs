@@ -13,12 +13,6 @@ public class Ghost : MonoBehaviour
 
     private Color currentColor;
 
-    private void OnEnable() {
-        // gradually change alpha from 0 to 1
-        StartCoroutine(RaiseAlpha(0, 1, 1));
-
-    }
-
     private IEnumerator RaiseAlpha(float start, float end, float duration) {
         float startTime = Time.time;
         float endTime = startTime + duration;
@@ -29,6 +23,16 @@ public class Ghost : MonoBehaviour
             material.SetColor("_Color", currentColor);
             yield return null;
         }
+    }
+
+    private void OnEnable() {
+        // gradually change alpha from 0 to 1
+        StartCoroutine(RaiseAlpha(0, 1, 1));
+
+    }
+
+    private void OnDestroy() {
+        material.SetColor("_Color", new Color(r/255,g/255,b/255,1));
     }
 
     private void Start() {
