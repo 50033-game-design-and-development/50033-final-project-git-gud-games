@@ -135,7 +135,6 @@ public class Computer : MonoBehaviour {
     
     public void OnOpenAudioFile() {
         audioWindowAnimator.SetTrigger("Click");
-        ambientAudioSource.Stop();
         ambientAudioSource.clip = staticNoiseClip;
         ambientAudioSource.Play();
         //interactableAudioSource.clip = audioFileClip;
@@ -167,7 +166,6 @@ public class Computer : MonoBehaviour {
         //yield return !interactableAudioSource.isPlaying;
         yield return new WaitForSeconds(1);
         audioWindowAnimator.SetTrigger("Close");
-        ambientAudioSource.Stop();
         ambientAudioSource.clip = hummingNoiseClip;
         ambientAudioSource.Play();
         if (!watchedRecording) {
@@ -182,7 +180,6 @@ public class Computer : MonoBehaviour {
         //StopCoroutine("CloseAudioFile");
         //interactableAudioSource.Stop();
         StopCoroutine("PlayAudioFile");
-        ambientAudioSource.Stop();
         ambientAudioSource.clip = hummingNoiseClip;
         ambientAudioSource.Play();
         audioWindowAnimator.SetTrigger("Close");
