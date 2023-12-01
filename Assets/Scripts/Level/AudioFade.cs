@@ -4,7 +4,7 @@ using UnityEngine;
 public class AudioFade : MonoBehaviour {
     [SerializeField] private float maxVolume;
     [SerializeField] private float fadeDuration;
-    private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource;
     private float interval;
 
     public void FadeOut() {
@@ -33,7 +33,6 @@ public class AudioFade : MonoBehaviour {
     }
 
     private void Start() {
-        audioSource = GetComponent<AudioSource>();
         interval = maxVolume / fadeDuration * 0.1f;
     }
 }
