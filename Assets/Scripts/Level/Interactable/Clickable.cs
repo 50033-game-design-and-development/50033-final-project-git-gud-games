@@ -6,7 +6,7 @@ public class Clickable : MonoBehaviour, IClickable {
     public bool destroyOnClick;
     public bool canClick = true;
 
-    public void OnClick() {
+    public virtual void OnClick() {
         if(!canClick) return;
         if(@event != null) {
             @event.Raise();
