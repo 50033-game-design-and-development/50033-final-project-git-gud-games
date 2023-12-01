@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaceCandles : MonoBehaviour {
+public class PlaceCandles : SFXAbstract {
     private List<GameObject> _candles;
     public void AddCandle() {
         //check if all purple candles have been removed: polish add some sfx showing error dragging
         if (GameObject.FindWithTag("purple_candle")) {
             return;
         }
+        PlaySFX();
         _candles[0].SetActive(true);
         _candles.RemoveAt(0);
 
@@ -19,6 +20,7 @@ public class PlaceCandles : MonoBehaviour {
     }
     // Start is called before the first frame update
     private void Start() {
+        base.Start();
         _candles = new List<GameObject>();
         _candles.Add(GameObject.Find("Yellow_Candle_1"));
         _candles.Add(GameObject.Find("Yellow_Candle_2"));
