@@ -9,4 +9,10 @@ public class AudioFadeCutscene : AudioFade
             base.FadeOut();
         }
     }
+
+    public void FadeInAfterMonologue(MonologueKey key) {
+        if (key == _targetKey) {
+            base.FadeIn();
+        }
+    }
 }
