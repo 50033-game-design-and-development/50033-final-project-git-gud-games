@@ -1522,6 +1522,30 @@ PrefabInstance:
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ToggleCollider, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 8604833635203447818, guid: 53e9f4bc9a719b74e86e691382f99079, type: 3}
+      propertyPath: monologueKeys.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8604833635203447818, guid: 53e9f4bc9a719b74e86e691382f99079, type: 3}
+      propertyPath: monologueKeys.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8604833635203447818, guid: 53e9f4bc9a719b74e86e691382f99079, type: 3}
+      propertyPath: monologueKeys.Array.data[4]
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 8604833635203447818, guid: 53e9f4bc9a719b74e86e691382f99079, type: 3}
+      propertyPath: monologueKeys.Array.data[5]
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 8604833635203447818, guid: 53e9f4bc9a719b74e86e691382f99079, type: 3}
+      propertyPath: monologueKeys.Array.data[6]
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 8604833635203447818, guid: 53e9f4bc9a719b74e86e691382f99079, type: 3}
+      propertyPath: monologueKeys.Array.data[7]
+      value: 38
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3067746416856379954, guid: 53e9f4bc9a719b74e86e691382f99079, type: 3}
     - {fileID: 7295852566232053794, guid: 53e9f4bc9a719b74e86e691382f99079, type: 3}
@@ -2506,37 +2530,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &544829884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 544829872}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 1
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
---- !u!114 &544829885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 544829872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4554c88273303224dad63051da05013c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monologueKeys: 1700000000000000
 --- !u!114 &544829890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2568,7 +2561,7 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 544829885}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MonologueInteractable, Assembly-CSharp
         m_MethodName: IncrementState
         m_Mode: 1
@@ -4642,6 +4635,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 483570, guid: 64eafbb696cff75488acb043b0cbfa09, type: 3}
   m_PrefabInstance: {fileID: 948639639}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &975554947
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &976025008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4848,9 +4880,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 238893576}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1451343612572638, guid: 4277c84f4eb45414089869ec9eed16a9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1545414052}
     - targetCorrespondingSourceObject: {fileID: 1451343612572638, guid: 4277c84f4eb45414089869ec9eed16a9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1545414051}
@@ -5557,18 +5586,6 @@ MonoBehaviour:
           m_StringArgument: Interact
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Interact
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &1084643598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6117,12 +6134,6 @@ PrefabInstance:
       addedObject: {fileID: 1168712963}
     - targetCorrespondingSourceObject: {fileID: 173732, guid: 147f183af15640289aa7154f0ea2de5c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1168712962}
-    - targetCorrespondingSourceObject: {fileID: 173732, guid: 147f183af15640289aa7154f0ea2de5c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1168712961}
-    - targetCorrespondingSourceObject: {fileID: 173732, guid: 147f183af15640289aa7154f0ea2de5c, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1168712960}
     - targetCorrespondingSourceObject: {fileID: 173732, guid: 147f183af15640289aa7154f0ea2de5c, type: 3}
       insertIndex: -1
@@ -6204,62 +6215,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.48480415, y: 0.1, z: 0.30349922}
   m_Center: {x: -0.0000009536743, y: 0.03833681, z: 0}
---- !u!114 &1168712961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168712956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1645042ab9c7e1c40a7c732a204f5d99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: 079ff177b7e25108f811a387f4801a92, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1168712967}
-        m_TargetAssemblyTypeName: MonologueInteractable, Assembly-CSharp
-        m_MethodName: IncrementState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1168712962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168712956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1645042ab9c7e1c40a7c732a204f5d99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: 10b9523cc776456fba83d7ea0c3f6756, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1168712967}
-        m_TargetAssemblyTypeName: MonologueInteractable, Assembly-CSharp
-        m_MethodName: IncrementState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1168712963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6279,18 +6234,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1168712967}
         m_TargetAssemblyTypeName: MonologueInteractable, Assembly-CSharp
         m_MethodName: IncrementState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1168712967}
-        m_TargetAssemblyTypeName: MonologueInteractable, Assembly-CSharp
-        m_MethodName: OnInteraction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6368,46 +6311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4554c88273303224dad63051da05013c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monologueKeys: 1c0000001d0000002000000021000000
---- !u!21 &1215066955
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
-  m_BuildTextureStacks: []
+  monologueKeys: 1c00000000000000
 --- !u!1001 &1217286142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7480,9 +7384,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2303921294396319335, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1491165651}
-    - targetCorrespondingSourceObject: {fileID: 2303921294396319335, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1491165650}
     - targetCorrespondingSourceObject: {fileID: 2303921294396319335, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
       insertIndex: -1
@@ -7490,21 +7391,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2303921294396319335, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1491165653}
-    - targetCorrespondingSourceObject: {fileID: 2303921294396319335, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1491165657}
     - targetCorrespondingSourceObject: {fileID: 2225887874147284791, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 544829877}
     - targetCorrespondingSourceObject: {fileID: 2225887874147284791, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 544829879}
-    - targetCorrespondingSourceObject: {fileID: 2225887874147284791, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 544829884}
-    - targetCorrespondingSourceObject: {fileID: 2225887874147284791, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 544829885}
     - targetCorrespondingSourceObject: {fileID: 2225887874147284791, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 544829890}
@@ -7835,24 +7727,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVisible: 1
---- !u!114 &1491165651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1491165647}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 1
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!64 &1491165652
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7917,19 +7791,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1491165657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1491165647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30247d4bbd61d434da331d5029c47197, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isVisible: 1
 --- !u!1 &1509534788 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4609970214355274374, guid: 0427bb946f21e314d943cc696f3d9a12, type: 3}
@@ -8040,6 +7901,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2092325404}
     m_Modifications:
+    - target: {fileID: 52032551792150742, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+      propertyPath: monologueKeys.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 237130751379939302, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
       propertyPath: event
       value: 
@@ -8096,6 +7961,10 @@ PrefabInstance:
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2864497492369160444, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+      propertyPath: monologueKeys.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3240717999032731779, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
       propertyPath: m_Volume
       value: 0.5
@@ -8140,6 +8009,10 @@ PrefabInstance:
       propertyPath: event
       value: 
       objectReference: {fileID: 11400000, guid: 938b3ac4bbc278c5f9703a92622d5acb, type: 2}
+    - target: {fileID: 4807496708680414605, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+      propertyPath: monologueKeys.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5210590183545684555, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
       propertyPath: monologueKeys.Array.size
       value: 1
@@ -8204,6 +8077,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6452124455146213894, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+      propertyPath: monologueKeys.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6467943472850805884, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
       propertyPath: m_Volume
       value: 0.5
@@ -8215,6 +8092,14 @@ PrefabInstance:
     - target: {fileID: 6467943472850805884, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6487301229259740118, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+      propertyPath: monologueKeys.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6506585279200387054, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+      propertyPath: monologueKeys.Array.data[1]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6736616456199450956, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -8240,6 +8125,10 @@ PrefabInstance:
       propertyPath: event
       value: 
       objectReference: {fileID: 11400000, guid: 938b3ac4bbc278c5f9703a92622d5acb, type: 2}
+    - target: {fileID: 7444891675710224227, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+      propertyPath: monologueKeys.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7479191107976895969, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
       propertyPath: m_Volume
       value: 0.5
@@ -8280,6 +8169,10 @@ PrefabInstance:
       propertyPath: event
       value: 
       objectReference: {fileID: 11400000, guid: 938b3ac4bbc278c5f9703a92622d5acb, type: 2}
+    - target: {fileID: 9007998022876720226, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+      propertyPath: monologueKeys.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 899526389458501682, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
     - {fileID: 1434471816766089126, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
@@ -8408,19 +8301,6 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 34a229fd5a5e31a5d8e1e9bab0d2ad3e, type: 3}
   - {fileID: 8300000, guid: 58d708d98d6e952129389743255c68df, type: 3}
---- !u!114 &1545414052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545414046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4554c88273303224dad63051da05013c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monologueKeys: 1700000000000000
 --- !u!114 &1545414053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8437,7 +8317,7 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1545414052}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MonologueInteractable, Assembly-CSharp
         m_MethodName: IncrementState
         m_Mode: 1
@@ -8609,7 +8489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1215066955}
+  m_Material: {fileID: 975554947}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -9928,7 +9808,12 @@ PrefabInstance:
       propertyPath: audioClips.Array.data[3]
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7842603653410546015, guid: a02e328a79948d643abdad41867b4488, type: 3}
+      propertyPath: monologueKeys.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7842603653410546015, guid: a02e328a79948d643abdad41867b4488, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

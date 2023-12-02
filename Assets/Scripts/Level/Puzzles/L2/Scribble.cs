@@ -1,13 +1,13 @@
 using UnityEngine;
 
 public class Scribble : MonoBehaviour {
-    private GameObject scribble;
+    private MeshRenderer scribble;
 
     public void Visible(bool state) {
-        scribble.SetActive(!state);
+        scribble.enabled = !state;
     }
 
     private void Start() {
-        scribble = transform.GetChild(0).gameObject;
+        scribble = GetComponent<MeshRenderer>();
     }
 }

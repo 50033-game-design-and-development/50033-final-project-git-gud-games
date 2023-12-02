@@ -114,7 +114,6 @@ public class Computer : MonoBehaviour {
     public IEnumerator LoadStartupScreen() {
         yield return new WaitForSeconds(2f);
         State = ComputerState.Login;
-        Event.Global.showDialogue.Raise(MonologueKey.L2_PC_DISK_INSERTED);
     }
 
     public void OnLoginSubmit() {
@@ -123,12 +122,10 @@ public class Computer : MonoBehaviour {
         // Trim zero width space characters
         if (input.Trim((char)8203).Equals(password.Trim(), StringComparison.OrdinalIgnoreCase)) {
             ambientAudioSource.PlayOneShot(loginSuccessAudioClip);
-            Event.Global.showDialogue.Raise(MonologueKey.L2_PC_LOGIN);
             State = ComputerState.Desktop;
         } else {
             loginInputField.text = "";
             ambientAudioSource.PlayOneShot(loginFailAudioClip);
-            Event.Global.showDialogue.Raise(MonologueKey.L2_PC_WRONG_PASSWORD);
         }
     }
 
@@ -137,13 +134,6 @@ public class Computer : MonoBehaviour {
         audioWindowAnimator.SetTrigger("Click");
         ambientAudioSource.clip = staticNoiseClip;
         ambientAudioSource.Play();
-        //interactableAudioSource.clip = audioFileClip;
-        //interactableAudioSource.Play();
-        if (!watchedRecording) {
-            Event.Global.showDialogue.Raise(MonologueKey.L2_PC_AUDIO_INTERACT);
-        }
-        
-        //StartCoroutine("CloseAudioFile");
         StartCoroutine("PlayAudioFile");
     }
 
@@ -161,9 +151,6 @@ public class Computer : MonoBehaviour {
     }
 
     private IEnumerator CloseAudioFile() {
-        //yield return interactableAudioSource.isPlaying;
-        //yield return new WaitForSeconds(audioFileClip.length + 1f);
-        //yield return !interactableAudioSource.isPlaying;
         yield return new WaitForSeconds(1);
         audioWindowAnimator.SetTrigger("Close");
         ambientAudioSource.clip = hummingNoiseClip;
@@ -177,8 +164,6 @@ public class Computer : MonoBehaviour {
     }
 
     public void OnForceCloseAudioFile() {
-        //StopCoroutine("CloseAudioFile");
-        //interactableAudioSource.Stop();
         StopCoroutine("PlayAudioFile");
         ambientAudioSource.clip = hummingNoiseClip;
         ambientAudioSource.Play();
