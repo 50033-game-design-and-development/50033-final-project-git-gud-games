@@ -1628,7 +1628,9 @@ GameObject:
   - component: {fileID: 905703188481165978}
   - component: {fileID: 1574636003858343716}
   - component: {fileID: 4823608995170715507}
+  - component: {fileID: 2084049048089378324}
   - component: {fileID: 1531271977123347337}
+  - component: {fileID: 6887522295104624961}
   m_Layer: 5
   m_Name: InteractableRevealCanvas
   m_TagString: Untagged
@@ -1818,6 +1820,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2084049048089378324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6079195342993861624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1645042ab9c7e1c40a7c732a204f5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: f242a7ef48cbb9af9a7d7fac0e508881, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6887522295104624961}
+        m_TargetAssemblyTypeName: InventorySFX, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &1531271977123347337
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1914,6 +1944,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6887522295104624961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6079195342993861624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d76c63ccbca4435e99dd98519081f7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _openSFX: {fileID: 8300000, guid: 3ab4edb4195b492efb5dfb4b785ab8b1, type: 3}
+  _closeSFX: {fileID: 8300000, guid: e97c298660017a393ae0916f546a6e95, type: 3}
 --- !u!1 &8369782335964148659
 GameObject:
   m_ObjectHideFlags: 0
