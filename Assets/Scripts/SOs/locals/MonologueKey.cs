@@ -105,6 +105,9 @@ public enum MonologueKey
 
     WRONG_ITEM = 99,
 
-    BAD_END = 100,
+    BAD_END_SCREAM = 100,
+    BAD_END_GHOST = 102,
+    BAD_END_COUSIN = 103,
     GOOD_END = 101,
+    GOOD_END_COUSIN = 104,
 }
