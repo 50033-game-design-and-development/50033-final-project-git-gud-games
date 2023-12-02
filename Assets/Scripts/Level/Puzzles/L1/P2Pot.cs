@@ -76,6 +76,7 @@ public class P2Pot : MonoBehaviour, IInteractable {
     }
 
     public void OnInteraction() {
+        /*
         if (!_solved || _clickState > 5)
             return;
         
@@ -87,6 +88,7 @@ public class P2Pot : MonoBehaviour, IInteractable {
             // monologueInteractable.OnInteraction();
             monologueInteractable.IncrementState();
         }
+        */
     }
 
     public void OnStewDrink() {

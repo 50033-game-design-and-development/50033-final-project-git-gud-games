@@ -31,6 +31,7 @@ public class MainMenu : MonoBehaviour {
     private IEnumerator StartScreen(float time) {
         yield return new WaitForSeconds(time);
         cinemachineAnimator.Play("Main Menu Idle");
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     private void Start() {

@@ -5,6 +5,7 @@ using UnityEngine;
 // Manually assigned numbers to prevent breakage
 public enum MonologueKey
 {
+    TERMINATE = -1,
     NULL = 0,
 
     L0_START = 1,
@@ -58,7 +59,6 @@ public enum MonologueKey
     L2_PICTURE_COUSIN_AFTER_AUDIO = 59,
     L2_PICTURE_FAMILY_DEFAULT = 60,
     L2_PICTURE_FAMILY_AFTER_AUDIO = 61,
-    L2_PICTURE_DAD_DEFAULT = 62,
     L2_PICTURE_DAD_AFTER_AUDIO = 63,
     L2_PICTURE_LOOSE = 51,
     L2_FUSE_BOX_REVEALED = 52,
@@ -91,12 +91,13 @@ public enum MonologueKey
     L2_DRIVE_AFTER_PC = 85,
     L2_KITCHEN_DOOR = 86,
     L2_SHEET_MUSIC = 89,
+    L2_BLOOD = 62,
 
     L2_CABINET_LOCKED = 90,
     L2_BOOK_DEFAULT = 91,
     L2_BOOK_SOLVED = 92,
     L2_PENCIL = 93,
-    L2_PENTARGAM_DEFAULT = 94,
+    L2_PENTAGRAM_DEFAULT = 94,
     L2_PENTAGRAM_AFTER_BOOK = 95,
     L2_INCANTATION = 96,
     L2_CANDLE_DEFAULT = 97,
@@ -104,6 +105,9 @@ public enum MonologueKey
 
     WRONG_ITEM = 99,
 
-    BAD_END = 100,
+    BAD_END_SCREAM = 100,
+    BAD_END_GHOST = 102,
+    BAD_END_COUSIN = 103,
     GOOD_END = 101,
+    GOOD_END_COUSIN = 104,
 }

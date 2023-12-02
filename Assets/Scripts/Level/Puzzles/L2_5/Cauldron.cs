@@ -20,6 +20,11 @@ namespace Level.Puzzles.L2_5 {
         public Light waterGlowLight;
         public float glowDuration = 8.0f;
 
+        [SerializeField] private AudioClip shinyCauldronPhase1Clip;
+        [SerializeField] private AudioClip shinyCauldronPhase2Clip;
+        [SerializeField] private AudioClip shinyCauldronPhase3Clip;
+        private AudioSource audioSource;
+
         private bool _lilyAdded = false;
         private bool _photoAdded = false;
         private bool _allCandlesLit = false;
@@ -38,7 +43,7 @@ namespace Level.Puzzles.L2_5 {
             var selectedInventoryItem = GameState.selectedInventoryItem.Value;
             InventoryItem itemType = selectedInventoryItem.itemType;
             
-            if (itemType == InventoryItem.L1_Vial_filled) {
+            if (_allCandlesLit && itemType == InventoryItem.L1_Vial_filled) {
                 murkyBubbles.SetActive(false);
                 murkyWaters.SetActive(false);
                 shinyWaters.SetActive(true);
@@ -49,6 +54,9 @@ namespace Level.Puzzles.L2_5 {
                 GameState.inventory.Remove(selectedInventoryItem);
                 Event.Global.inventoryUpdate.Raise();
                 _lilyAdded = true;
+
+                audioSource.clip = shinyCauldronPhase1Clip;
+                audioSource.Play();
                 return;
             }
             
@@ -57,6 +65,9 @@ namespace Level.Puzzles.L2_5 {
                 GameState.inventory.Remove(selectedInventoryItem);
                 Event.Global.inventoryUpdate.Raise();
                 _photoAdded = true;
+
+                audioSource.clip = shinyCauldronPhase2Clip;
+                audioSource.Play();
                 return;
             }
 
@@ -67,6 +78,9 @@ namespace Level.Puzzles.L2_5 {
                 magicField.SetActive(true);
                 Event.L2.solvedP6.Raise();
                 GameState.inventory.Remove(selectedInventoryItem);
+
+                audioSource.clip = shinyCauldronPhase3Clip;
+                audioSource.Play();
                 Event.Global.inventoryUpdate.Raise();
             }
         }
@@ -96,6 +110,10 @@ namespace Level.Puzzles.L2_5 {
             }
 
             waterGlowLight.intensity = endGlowLightIntensity;
+        }
+
+        private void Start() {
+            audioSource = GetComponent<AudioSource>();
         }
     }
 }

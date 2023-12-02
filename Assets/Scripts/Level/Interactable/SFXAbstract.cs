@@ -4,42 +4,44 @@ using UnityEngine;
 
 public abstract class SFXAbstract : MonoBehaviour {
     [SerializeField] private List<AudioClip> audioClips;
-    private AudioSource audioSource;
-    private int state;
-    private int cachedState = -1;
+    private AudioSource _audioSource;
+    private int _state;
+    private int _cachedState = -1;
     
     // To be called by event listener so that monologue changes based on game state
     public void IncrementState() {
-        state = (state + 1) % audioClips.Count;
+        _state = (_state + 1) % audioClips.Count;
     }
 
     public float GetAudioLength() {
-        if (cachedState == -1) {
-            return audioClips[state].length;
+        if (_cachedState == -1) {
+            return audioClips[_state].length;
         }
-        return audioClips[cachedState].length;
+        return audioClips[_cachedState].length;
     }
 
     protected void PlaySFX() {
-        if (state == cachedState) {
+        if (_state == _cachedState) {
             return;
         }
 
-        AudioClip clip = audioClips[state];
-        if (clip != null && audioSource != null) {
+
+        AudioClip clip = audioClips[_state];
+        if (clip != null && _audioSource != null) {
             StopCoroutine("ClearCache");
-            cachedState = state;
-            audioSource.PlayOneShot(clip);
+            _cachedState = _state;
+            Debug.Log(this.gameObject);
+            _audioSource.PlayOneShot(clip);
             StartCoroutine("ClearCache", clip.length);
         }
     }
 
     private IEnumerator ClearCache(float duration) {
         yield return new WaitForSeconds(duration);
-        cachedState = -1;
+        _cachedState = -1;
     }
 
-    private void Start() {
-        audioSource = GetComponent<AudioSource>();
+    protected void Start() {
+        _audioSource = GetComponent<AudioSource>();
     }
 }

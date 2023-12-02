@@ -8,7 +8,7 @@ namespace Event {
         public static Vector3GameEvent revealPositionOnUi;
         public static MonologueKeyGameEvent showDialogue;
         public static GameEvent changeCamera;
-        public static GameEvent endMonologue;
+        public static MonologueKeyGameEvent endMonologue;
 
         public GameEvent _hideAll;
         public GameEvent _inventoryUpdate;
@@ -16,7 +16,7 @@ namespace Event {
         public Vector3GameEvent _revealPositionOnUi;
         public MonologueKeyGameEvent _showDialogue;
         public GameEvent _changeCamera;
-        public GameEvent _endMonologue;
+        public MonologueKeyGameEvent _endMonologue;
 
         private void Start() {
             revealAll = _revealAll;
