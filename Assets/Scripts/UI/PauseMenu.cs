@@ -5,6 +5,7 @@ public class PauseMenu : MonoBehaviour {
     public void OnMainMenu() {
         SceneManager.LoadScene("Main Menu", LoadSceneMode.Single);
         GameState.TogglePause();
+        GameState.ConfineCursor();
     }
 
     public void OnResume() => GameState.TogglePause();
