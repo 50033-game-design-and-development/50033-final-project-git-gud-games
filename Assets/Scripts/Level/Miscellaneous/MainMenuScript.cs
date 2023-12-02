@@ -31,5 +31,6 @@ public class MainMenuScript : MonoBehaviour {
 
     private void Start() {
         cinemachineAnimator.Play("Main Menu Idle");
+        Cursor.lockState = CursorLockMode.Confined;
     }
 }
