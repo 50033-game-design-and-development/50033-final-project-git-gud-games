@@ -27,8 +27,13 @@ public class MainMenu : MonoBehaviour {
         yield return new WaitForSeconds(time);
         SceneManager.LoadScene("Level 0");
     }
+    
+    private IEnumerator StartScreen(float time) {
+        yield return new WaitForSeconds(time);
+        cinemachineAnimator.Play("Main Menu Idle");
+    }
 
     private void Start() {
-        cinemachineAnimator.Play("Main Menu Idle");
+        StartCoroutine(StartScreen(1f));
     }
 }
