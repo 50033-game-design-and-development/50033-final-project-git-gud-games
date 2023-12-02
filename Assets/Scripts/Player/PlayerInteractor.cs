@@ -88,9 +88,8 @@ public class PlayerInteractor : MonoBehaviour {
                 cineMachineCamera.enabled = GameState.isPuzzleLocked || !GameState.isInventoryOpened;
             } else if(GameState.isInteractionAllowed && !GameState.wasPuzzleLocked) {
                 GameState.TogglePause();
-            } else {
-                GameState.wasPuzzleLocked = false;
             }
+            GameState.wasPuzzleLocked = false;
         };
     }
 
