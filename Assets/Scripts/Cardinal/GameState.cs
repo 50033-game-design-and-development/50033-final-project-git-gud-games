@@ -90,6 +90,8 @@ public class GameState : MonoBehaviour {
 
         _monologuePanel = GameObject.Find("MonologuePanel");
         _pausedPanel = GameObject.Find("Paused");
-        _pausedPanel.SetActive(false);
+        if(_pausedPanel != null) {
+            _pausedPanel.SetActive(false);
+        }
     }
 }
