@@ -1,9 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuScript : MonoBehaviour {
+public class MainMenu : MonoBehaviour {
     public Animator cinemachineAnimator;
     public AudioSource sfxSource;
     public AudioSource ambienceSource;
@@ -17,20 +16,25 @@ public class MainMenuScript : MonoBehaviour {
         bgmSource.Stop();
         sfxSource.PlayOneShot(startSfx);
         cinemachineAnimator.Play("Main Menu Black");
-        StartCoroutine(LoadScene(4f));
+        StartCoroutine(LoadL0(4f));
     }
 
     public void QuitButton() {
         Application.Quit(0);
     }
 
-    private IEnumerator LoadScene(float time) {
+    private IEnumerator LoadL0(float time) {
         yield return new WaitForSeconds(time);
         SceneManager.LoadScene("Level 0");
     }
-
-    private void Start() {
+    
+    private IEnumerator StartScreen(float time) {
+        yield return new WaitForSeconds(time);
         cinemachineAnimator.Play("Main Menu Idle");
         Cursor.lockState = CursorLockMode.Confined;
+    }
+
+    private void Start() {
+        StartCoroutine(StartScreen(1f));
     }
 }
