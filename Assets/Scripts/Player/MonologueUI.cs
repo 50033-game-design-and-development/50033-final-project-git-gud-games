@@ -54,12 +54,14 @@ public class MonologueUI : MonoBehaviour {
                 duration = monologue.strings[i].Length / 20.0f;
             }
 
-            if (i == monologue.strings.Count - 1) {
-                arrow.SetActive(false);
-                page.SetActive(true);
-            } else {
-                arrow.SetActive(true);
-                page.SetActive(false);
+            if (arrow != null && page != null) {
+                if (i == monologue.strings.Count - 1) {
+                    arrow.SetActive(false);
+                    page.SetActive(true);
+                } else {
+                    arrow.SetActive(true);
+                    page.SetActive(false);
+                }
             }
 
             // Wait for monologue to be spoken completely
@@ -78,24 +80,32 @@ public class MonologueUI : MonoBehaviour {
             yield return new WaitForSeconds(0.05f);
         }
         subtitles.text = "";
-        page.SetActive(false);
+
+        if (page != null) {
+            page.SetActive(false);
+        }
     }
 
     private void SetAlpha(float value) {
         subtitles.alpha = value;
         background.color = new Color(0, 0, 0, value * 0.6f);
-        pageImage.color = new Color(1, 1, 1, value);
+        if (page != null) {
+            pageImage.color = new Color(1, 1, 1, value);
+        }
     }
 
     private void Start() {
         audioSource = GetComponent<AudioSource>();
         subtitles = GetComponentInChildren<TextMeshProUGUI>();
         background = GetComponent<Image>();
-        pageImage = page.GetComponent<Image>();
-
         subtitles.text = "";
-        arrow.SetActive(false);
-        page.SetActive(false);
+
+        if (arrow != null && page != null) {
+            pageImage = page.GetComponent<Image>();
+            arrow.SetActive(false);
+            page.SetActive(false);
+        }
+
         SetAlpha(0);
     }
 }
