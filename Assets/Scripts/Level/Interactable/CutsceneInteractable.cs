@@ -16,7 +16,7 @@ public class CutsceneInteractable : MonoBehaviour, IInteractable {
     private void PlayCutscene() {
         // TODO: Lock player input
 
-        PlayableDirector director = GetComponent<PlayableDirector>();
+        var director = GetComponent<PlayableDirector>();
         director.Play();
 
         // while (director.state == PlayState.Playing);
@@ -29,6 +29,5 @@ public class CutsceneInteractable : MonoBehaviour, IInteractable {
 
     public void ToggleInventory() {
         GameState.ToggleInventory();
-        Event.Global.inventoryUpdate.Raise();
     }
 }

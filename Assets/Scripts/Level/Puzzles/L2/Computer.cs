@@ -185,7 +185,6 @@ public class Computer : MonoBehaviour {
             State == ComputerState.Login) {
                 Debug.Log("working");
                 GameState.ToggleInventory(false);
-                Event.Global.inventoryUpdate.Raise();
         }
 
         if (!GameState.isPuzzleLocked) {

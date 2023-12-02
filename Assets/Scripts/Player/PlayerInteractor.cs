@@ -73,24 +73,24 @@ public class PlayerInteractor : MonoBehaviour {
             // check if the cineMachine camera is not locked
             // to any interaction objects i.e. it follows the player
             // and don't allow player to freely move cursor if so
-            bool adjustCursor = ReferenceEquals(
-                cineMachineCamera.LiveChild, firstPersonCamera
-            );
+            bool adjustCursor = ReferenceEquals(cineMachineCamera.LiveChild, firstPersonCamera);
 
             // disable the cineMachineCamera if the inventory is opened,
             // otherwise the camera will follow the cursor position
             GameState.ToggleInventory(adjustCursor);
-            Event.Global.inventoryUpdate.Raise();
-            Debug.Log("EVENT " + GameState.isInventoryOpened);
-            cineMachineCamera.enabled = (
-                GameState.isPuzzleLocked || !GameState.isInventoryOpened
-            );
+            cineMachineCamera.enabled = GameState.isPuzzleLocked || !GameState.isInventoryOpened;
         };
 
         // close inventory when you press escape
         _playerAction.gameplay.Escape.performed += _ => {
-            // GameState.HideInventory();
-            Event.Global.inventoryUpdate.Raise();
+            if(GameState.isInventoryOpened) {
+                GameState.ToggleInventory();
+                cineMachineCamera.enabled = GameState.isPuzzleLocked || !GameState.isInventoryOpened;
+            } else if(GameState.isInteractionAllowed && !GameState.wasPuzzleLocked) {
+                GameState.TogglePause();
+            } else {
+                GameState.wasPuzzleLocked = false;
+            }
         };
     }
 
