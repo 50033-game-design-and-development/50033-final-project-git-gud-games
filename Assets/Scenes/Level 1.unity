@@ -1522,6 +1522,10 @@ PrefabInstance:
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ToggleCollider, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 8604833635203447818, guid: 53e9f4bc9a719b74e86e691382f99079, type: 3}
+      propertyPath: monologueKeys.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3067746416856379954, guid: 53e9f4bc9a719b74e86e691382f99079, type: 3}
     - {fileID: 7295852566232053794, guid: 53e9f4bc9a719b74e86e691382f99079, type: 3}
@@ -2506,24 +2510,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &544829884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 544829872}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 1
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &544829885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2536,7 +2522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4554c88273303224dad63051da05013c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monologueKeys: 1700000000000000
+  monologueKeys: 0000000000000000
 --- !u!114 &544829890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3327,6 +3313,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4432975863972712, guid: 278e8eacf74c6154ebc173a666e00c27, type: 3}
   m_PrefabInstance: {fileID: 770039180}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &676527734
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &678077171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6368,46 +6393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4554c88273303224dad63051da05013c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monologueKeys: 1c0000001d0000002000000021000000
---- !u!21 &1215066955
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
-  m_BuildTextureStacks: []
+  monologueKeys: 1c000000000000000000000021000000
 --- !u!1001 &1217286142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7480,9 +7466,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2303921294396319335, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1491165651}
-    - targetCorrespondingSourceObject: {fileID: 2303921294396319335, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1491165650}
     - targetCorrespondingSourceObject: {fileID: 2303921294396319335, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
       insertIndex: -1
@@ -7490,18 +7473,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2303921294396319335, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1491165653}
-    - targetCorrespondingSourceObject: {fileID: 2303921294396319335, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1491165657}
     - targetCorrespondingSourceObject: {fileID: 2225887874147284791, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 544829877}
     - targetCorrespondingSourceObject: {fileID: 2225887874147284791, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 544829879}
-    - targetCorrespondingSourceObject: {fileID: 2225887874147284791, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 544829884}
     - targetCorrespondingSourceObject: {fileID: 2225887874147284791, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 544829885}
@@ -7835,24 +7812,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVisible: 1
---- !u!114 &1491165651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1491165647}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 1
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!64 &1491165652
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7917,19 +7876,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1491165657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1491165647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30247d4bbd61d434da331d5029c47197, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isVisible: 1
 --- !u!1 &1509534788 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4609970214355274374, guid: 0427bb946f21e314d943cc696f3d9a12, type: 3}
@@ -8040,6 +7986,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2092325404}
     m_Modifications:
+    - target: {fileID: 52032551792150742, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+      propertyPath: monologueKeys.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 237130751379939302, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
       propertyPath: event
       value: 
@@ -8096,6 +8046,10 @@ PrefabInstance:
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2864497492369160444, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+      propertyPath: monologueKeys.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3240717999032731779, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
       propertyPath: m_Volume
       value: 0.5
@@ -8140,6 +8094,10 @@ PrefabInstance:
       propertyPath: event
       value: 
       objectReference: {fileID: 11400000, guid: 938b3ac4bbc278c5f9703a92622d5acb, type: 2}
+    - target: {fileID: 4807496708680414605, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+      propertyPath: monologueKeys.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5210590183545684555, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
       propertyPath: monologueKeys.Array.size
       value: 1
@@ -8204,6 +8162,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6452124455146213894, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+      propertyPath: monologueKeys.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6467943472850805884, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
       propertyPath: m_Volume
       value: 0.5
@@ -8215,6 +8177,14 @@ PrefabInstance:
     - target: {fileID: 6467943472850805884, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6487301229259740118, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+      propertyPath: monologueKeys.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6506585279200387054, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+      propertyPath: monologueKeys.Array.data[1]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6736616456199450956, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -8240,6 +8210,10 @@ PrefabInstance:
       propertyPath: event
       value: 
       objectReference: {fileID: 11400000, guid: 938b3ac4bbc278c5f9703a92622d5acb, type: 2}
+    - target: {fileID: 7444891675710224227, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+      propertyPath: monologueKeys.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7479191107976895969, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
       propertyPath: m_Volume
       value: 0.5
@@ -8280,6 +8254,10 @@ PrefabInstance:
       propertyPath: event
       value: 
       objectReference: {fileID: 11400000, guid: 938b3ac4bbc278c5f9703a92622d5acb, type: 2}
+    - target: {fileID: 9007998022876720226, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
+      propertyPath: monologueKeys.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 899526389458501682, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
     - {fileID: 1434471816766089126, guid: 879ef80c5e486174cb0a8fb5bb19c37a, type: 3}
@@ -8420,7 +8398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4554c88273303224dad63051da05013c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monologueKeys: 1700000000000000
+  monologueKeys: 0000000000000000
 --- !u!114 &1545414053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8609,7 +8587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1215066955}
+  m_Material: {fileID: 676527734}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -9927,6 +9905,10 @@ PrefabInstance:
     - target: {fileID: 7403031378460271041, guid: a02e328a79948d643abdad41867b4488, type: 3}
       propertyPath: audioClips.Array.data[3]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7842603653410546015, guid: a02e328a79948d643abdad41867b4488, type: 3}
+      propertyPath: monologueKeys.Array.data[0]
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

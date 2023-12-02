@@ -114,7 +114,7 @@ public class Computer : MonoBehaviour {
     public IEnumerator LoadStartupScreen() {
         yield return new WaitForSeconds(2f);
         State = ComputerState.Login;
-        Event.Global.showDialogue.Raise(MonologueKey.L2_PC_DISK_INSERTED);
+        //Event.Global.showDialogue.Raise(MonologueKey.L2_PC_DISK_INSERTED);
     }
 
     public void OnLoginSubmit() {
@@ -123,12 +123,12 @@ public class Computer : MonoBehaviour {
         // Trim zero width space characters
         if (input.Trim((char)8203).Equals(password.Trim(), StringComparison.OrdinalIgnoreCase)) {
             ambientAudioSource.PlayOneShot(loginSuccessAudioClip);
-            Event.Global.showDialogue.Raise(MonologueKey.L2_PC_LOGIN);
+            //Event.Global.showDialogue.Raise(MonologueKey.L2_PC_LOGIN);
             State = ComputerState.Desktop;
         } else {
             loginInputField.text = "";
             ambientAudioSource.PlayOneShot(loginFailAudioClip);
-            Event.Global.showDialogue.Raise(MonologueKey.L2_PC_WRONG_PASSWORD);
+            //Event.Global.showDialogue.Raise(MonologueKey.L2_PC_WRONG_PASSWORD);
         }
     }
 
@@ -139,9 +139,11 @@ public class Computer : MonoBehaviour {
         ambientAudioSource.Play();
         //interactableAudioSource.clip = audioFileClip;
         //interactableAudioSource.Play();
+        /*
         if (!watchedRecording) {
             Event.Global.showDialogue.Raise(MonologueKey.L2_PC_AUDIO_INTERACT);
         }
+        */
         
         //StartCoroutine("CloseAudioFile");
         StartCoroutine("PlayAudioFile");
