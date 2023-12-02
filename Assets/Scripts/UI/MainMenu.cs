@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour {
     public AudioSource bgmSource;
     public AudioClip startSfx;
     public GameObject canvas;
+    public CanvasGroup fadeCanvasGroup;
     
     public void StartButton() {
         canvas.SetActive(false);
@@ -29,9 +30,12 @@ public class MainMenu : MonoBehaviour {
     }
     
     private IEnumerator StartScreen(float time) {
+        Cursor.lockState = CursorLockMode.Confined;
         yield return new WaitForSeconds(time);
         cinemachineAnimator.Play("Main Menu Idle");
-        Cursor.lockState = CursorLockMode.Confined;
+        
+        yield return new WaitForSeconds(3f);
+        fadeCanvasGroup.blocksRaycasts = false;
     }
 
     private void Start() {
