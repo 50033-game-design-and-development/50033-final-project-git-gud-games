@@ -7,8 +7,12 @@ public class PauseMenu : MonoBehaviour {
     public string blackState;
 
     public void OnMainMenu() {
+        GameState.inventory.Clear();
+        Event.Global.inventoryUpdate.Raise();
+
         GameState.TogglePause(false);
         GameState.HidePauseMenuUiElements();
+
         cinemachineAnimator.Play(blackState);
         StartCoroutine(LoadMainMenu(1.0f));
     }
