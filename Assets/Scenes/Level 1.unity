@@ -2480,7 +2480,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4333737611318720, guid: b29ecf6c6d8bc074fb2fa0418d400134, type: 3}
   m_PrefabInstance: {fileID: 88102046}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &569184187
+--- !u!21 &570581700
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -8488,7 +8488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 569184187}
+  m_Material: {fileID: 570581700}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -11364,6 +11364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2015808085}
   - component: {fileID: 2015808086}
+  - component: {fileID: 2015808087}
   m_Layer: 0
   m_Name: Rosie
   m_TagString: Untagged
@@ -11393,9 +11394,9 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015808084}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7849656221007358733, guid: a94018a47709040fd82c3e5dfe0b6432, type: 2}
   m_audioClip: {fileID: 8300000, guid: ee5aecfd4acecba22b17208a90577e90, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -11404,7 +11405,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 250
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -11482,6 +11483,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2015808087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015808084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8fc3b097b672800966c500ab69d04d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 2015808086}
+  duration: 150
 --- !u!1001 &2022806619
 PrefabInstance:
   m_ObjectHideFlags: 0
