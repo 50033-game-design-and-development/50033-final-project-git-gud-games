@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameState : MonoBehaviour {
@@ -56,14 +57,25 @@ public class GameState : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Confined;
     }
 
-    public static void TogglePause() {
+    public static void HidePauseMenuUiElements() {
+        var children = _pausedPanel.GetComponentsInChildren<Transform>()
+                       .Select(person => person.gameObject)
+                       .Skip(1)
+                       .ToArray();
+
+        foreach (var child in children) {
+            child.SetActive(false);
+        }
+    }
+
+    public static void TogglePause(bool enablePanels = true) {
         isPaused = !isPaused;
 
         AudioListener.pause = isPaused;
         Time.timeScale = isPaused ? 0.0f : 1.0f;
 
-        _monologuePanel.SetActive(!isPaused);
-        _pausedPanel.SetActive(isPaused);
+        _monologuePanel.SetActive(!isPaused && enablePanels);
+        _pausedPanel.SetActive(isPaused || !enablePanels);
 
         Action AdjustCursor = isPaused ? ConfineCursor : LockCursor;
         AdjustCursor();
