@@ -37,6 +37,7 @@ public class Computer : MonoBehaviour {
     private bool watchedRecording;
     private AudioSource ambientAudioSource;
     private AudioSource interactableAudioSource;
+    private MonologueKeyGameEventListener monologueListener;
     
     private CameraFocusable cameraFocusable;
     private DragDoppable dragDroppable;
@@ -77,7 +78,6 @@ public class Computer : MonoBehaviour {
         ambientAudioSource.clip = hummingNoiseClip;
         ambientAudioSource.Play();
         interactableAudioSource.PlayOneShot(insertFloppyClip);
-        Event.Global.showDialogue.Raise(MonologueKey.L2_PC_DISK_INSERTED);
     }
 
     public void SetState(ComputerState computerState) {
@@ -93,7 +93,7 @@ public class Computer : MonoBehaviour {
 
         if (State == ComputerState.NoBoot) {
             interactableAudioSource.PlayOneShot(noBootBeepClip);
-            ambientAudioSource.clip = staticNoiseClip;
+            ambientAudioSource.clip = hummingNoiseClip;
             ambientAudioSource.Play();
         }
         else if (State == ComputerState.Startup) {
@@ -114,6 +114,7 @@ public class Computer : MonoBehaviour {
     public IEnumerator LoadStartupScreen() {
         yield return new WaitForSeconds(2f);
         State = ComputerState.Login;
+        Event.Global.showDialogue.Raise(MonologueKey.L2_PC_DISK_INSERTED);
     }
 
     public void OnLoginSubmit() {
@@ -134,31 +135,55 @@ public class Computer : MonoBehaviour {
     
     public void OnOpenAudioFile() {
         audioWindowAnimator.SetTrigger("Click");
-        interactableAudioSource.clip = audioFileClip;
-        interactableAudioSource.Play();
+        ambientAudioSource.clip = staticNoiseClip;
+        ambientAudioSource.Play();
+        //interactableAudioSource.clip = audioFileClip;
+        //interactableAudioSource.Play();
         if (!watchedRecording) {
             Event.Global.showDialogue.Raise(MonologueKey.L2_PC_AUDIO_INTERACT);
         }
         
+        //StartCoroutine("CloseAudioFile");
+        StartCoroutine("PlayAudioFile");
+    }
+
+    public void OnCloseAudioFile(MonologueKey key) {
+        if (key != MonologueKey.L2_PC_AUDIO) {
+            return;
+        }
+
         StartCoroutine("CloseAudioFile");
     }
 
+    private IEnumerator PlayAudioFile() {
+        yield return new WaitForSeconds(4);
+        Event.Global.showDialogue.Raise(MonologueKey.L2_PC_AUDIO);
+    }
+
     private IEnumerator CloseAudioFile() {
-        yield return interactableAudioSource.isPlaying;
-        yield return new WaitForSeconds(audioFileClip.length + 1f);
-        yield return !interactableAudioSource.isPlaying;
-        Event.L2.finishRecording.Raise();
+        //yield return interactableAudioSource.isPlaying;
+        //yield return new WaitForSeconds(audioFileClip.length + 1f);
+        //yield return !interactableAudioSource.isPlaying;
+        yield return new WaitForSeconds(1);
         audioWindowAnimator.SetTrigger("Close");
+        ambientAudioSource.clip = hummingNoiseClip;
+        ambientAudioSource.Play();
         if (!watchedRecording) {
             watchedRecording = true;
             Event.Global.showDialogue.Raise(MonologueKey.L2_AFTER_AUDIO);
+            Event.L2.finishRecording.Raise();
+            monologueListener.enabled = false;
         }
     }
 
     public void OnForceCloseAudioFile() {
-        StopCoroutine("CloseAudioFile");
-        interactableAudioSource.Stop();
+        //StopCoroutine("CloseAudioFile");
+        //interactableAudioSource.Stop();
+        StopCoroutine("PlayAudioFile");
+        ambientAudioSource.clip = hummingNoiseClip;
+        ambientAudioSource.Play();
         audioWindowAnimator.SetTrigger("Close");
+        Event.Global.showDialogue.Raise(MonologueKey.TERMINATE);
     }
 
     private void Start() {
@@ -166,6 +191,7 @@ public class Computer : MonoBehaviour {
         cameraFocusable = interactable.GetComponent<CameraFocusable>();
         dragDroppable = interactable.GetComponent<DragDoppable>();
         interactableAudioSource = interactable.GetComponent<AudioSource>();
+        monologueListener = GetComponent<MonologueKeyGameEventListener>();
         
         Off();
     }

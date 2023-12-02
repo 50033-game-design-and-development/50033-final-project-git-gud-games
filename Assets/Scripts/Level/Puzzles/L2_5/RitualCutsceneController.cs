@@ -88,6 +88,7 @@ public class RitualCutsceneController : MonoBehaviour
         {
             flame.SetActive(false);
             audioSource.PlayOneShot(extinguishSound);
+            flame.transform.parent.gameObject.GetComponentInChildren<Light>().enabled = false;
             yield return new WaitForSeconds(delay);
         }
     }

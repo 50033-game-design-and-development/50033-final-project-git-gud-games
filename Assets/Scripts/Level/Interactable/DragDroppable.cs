@@ -14,6 +14,7 @@ public class DragDoppable : MonoBehaviour, IDragDroppable {
         }
         var selectedInventoryItem = GameState.selectedInventoryItem.Value;
         if (!_possibleDroppable.Contains(selectedInventoryItem.itemType)) {
+            Event.Global.showDialogue.Raise(MonologueKey.WRONG_ITEM);
             return;
         }
 
