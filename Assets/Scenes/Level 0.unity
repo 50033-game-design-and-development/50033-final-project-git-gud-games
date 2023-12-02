@@ -682,7 +682,8 @@ PrefabInstance:
       propertyPath: cinemachineAnimator
       value: 
       objectReference: {fileID: 1194112844}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6897706402079417537, guid: 8387ea386d65ff249aacc26f90f4f1f4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -4055,6 +4056,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paper1
       objectReference: {fileID: 0}
+    - target: {fileID: 6807021322808996681, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807021322808996681, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2124534466}
+    - target: {fileID: 6807021322808996681, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: L0P1Solved
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807021322808996681, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: L0P1Paper1, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7258650849225820414, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
       propertyPath: monologueKeys.Array.size
       value: 4
@@ -4075,13 +4092,11 @@ PrefabInstance:
       propertyPath: monologueKeys.Array.data[3]
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7258650849225820414, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5273702698105169557, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
-      insertIndex: 9
-      addedObject: {fileID: 2124534455}
     - targetCorrespondingSourceObject: {fileID: 5273702698105169557, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2124534445}
@@ -4092,45 +4107,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2124534465}
   m_SourcePrefab: {fileID: 100100000, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
---- !u!21 &1542721320
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &1592162206
 GameObject:
   m_ObjectHideFlags: 0
@@ -4346,7 +4322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1542721320}
+  m_Material: {fileID: 1664858234}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -4386,6 +4362,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 20
   image: {fileID: 1652254682}
+--- !u!21 &1664858234
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &1668663782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6156,45 +6171,6 @@ MonoBehaviour:
   possibleDroppable: 00000000
   event: {fileID: 11400000, guid: 758ca5494ab26ef11b8e221d78b29c55, type: 2}
   retainItem: 0
---- !u!114 &2124534448 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7258650849225820414, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
-  m_PrefabInstance: {fileID: 1523629649}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124534443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4554c88273303224dad63051da05013c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2124534455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124534443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1645042ab9c7e1c40a7c732a204f5d99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: b170fc9a837f1864cac89169605a3b0f, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2124534448}
-        m_TargetAssemblyTypeName: MonologueInteractable, Assembly-CSharp
-        m_MethodName: IncrementState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &2124534464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6211,18 +6187,6 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2124534448}
-        m_TargetAssemblyTypeName: MonologueInteractable, Assembly-CSharp
-        m_MethodName: IncrementState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2124534465}
         m_TargetAssemblyTypeName: TriggerEventOnceInteractable, Assembly-CSharp
         m_MethodName: DisableTrigger
@@ -6249,6 +6213,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canTrigger: 1
   event: {fileID: 11400000, guid: 16d24df7029effaebbeb62ab65152153, type: 2}
+--- !u!114 &2124534466 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5713332507168834058, guid: e4198abed0393a843b6a4b018a04c8f3, type: 3}
+  m_PrefabInstance: {fileID: 1523629649}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124534443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d94d0d1b24f1e112f885ef16c29a95aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1216136005929907595
 PrefabInstance:
   m_ObjectHideFlags: 0
