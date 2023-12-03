@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TutorialUI : MonologueUI {
     public void OnCutsceneEnd(MonologueKey key) {
-        LENGTH_DIVISOR = 5.0f;
+        LENGTH_DIVISOR = 10.0f;
         if(key != MonologueKey.L0_START) return;
 
         GameState.instructionQueue.Enqueue(MonologueKey.I_MOVE);
@@ -28,7 +28,7 @@ public class TutorialUI : MonologueUI {
                 hasShownFocus = true;
             }
             StartMonologue(key);
-            yield return new WaitForSecondsRealtime(10.0f);
+            yield return new WaitForSecondsRealtime(6.0f);
         }
     }
 
