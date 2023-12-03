@@ -15,12 +15,17 @@ public class TutorialUI : MonologueUI {
     protected override void SetAlpha(float value) {}
 
     private IEnumerator ShowQueuedInstructions() {
+        bool hasShownFocus = false;
         while(true) {
             MonologueKey key;
             var hasInstruction = GameState.instructionQueue.TryDequeue(out key);
-            if(!hasInstruction) {
+            if(!hasInstruction || (hasShownFocus && key == MonologueKey.I_FOCUS)) {
                 yield return new WaitForSecondsRealtime(1.0f);
                 continue;
+            }
+
+            if (key == MonologueKey.I_FOCUS) {
+                hasShownFocus = true;
             }
             StartMonologue(key);
             yield return new WaitForSecondsRealtime(10.0f);
