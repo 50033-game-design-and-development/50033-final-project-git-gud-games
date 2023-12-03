@@ -13,6 +13,18 @@
     padding: 20px;
 }
 
+#ItemDescription {
+    color: rgba(235, 235, 235, 0.0);
+    font-size: 45px;
+    transition: color 2.15s ease-in-out;
+    margin-top: 10px;
+}
+
+#ItemDescription.show {
+    color: rgba(235, 235, 235, 1.0);
+    transition: color 0.0s ease-in-out;
+}
+
 .unity-button {
     height: 100%;
     border-radius: 10px;
@@ -24,8 +36,6 @@
     border-color: rgba(0, 0, 0, 0.0);
     flex-shrink: 0;
     flex-grow: 0;
-    border: none;
-    
     /* padding-right: 20px; */
 }
 
