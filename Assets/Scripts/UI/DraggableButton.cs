@@ -9,6 +9,8 @@ public class DraggableButton : Button {
         _dragCallbacks = dragCallbacks;
 
         RegisterCallback<PointerDownEvent>(OnPointerDown, TrickleDown.TrickleDown);
+        RegisterCallback<MouseEnterEvent>(OnMouseEnter, TrickleDown.TrickleDown);
+        RegisterCallback<MouseLeaveEvent>(OnMouseLeave, TrickleDown.TrickleDown);
         RegisterCallback<PointerMoveEvent>(OnPointerMove);
         RegisterCallback<PointerUpEvent>(OnPointerUp);
     }
@@ -35,5 +37,17 @@ public class DraggableButton : Button {
 
     private void OnPointerUp(IPointerEvent evt) {
         RemoveFromClassList(DRAGGING_SLOT_CLASS);
+        _dragCallbacks.OnDragEnd(evt);
+
+    }
+    
+    private void OnMouseEnter(MouseEnterEvent evt) {
+        _dragCallbacks.OnHoverStart(evt);
+    }
+
+    private void OnMouseLeave(MouseLeaveEvent evt) {
+        // Code to execute when the mouse stops hovering (leaves) the button
+        // For example: Revert color changes, hide a tooltip, etc.
+        _dragCallbacks.OnHoverEnd(evt);
     }
 }

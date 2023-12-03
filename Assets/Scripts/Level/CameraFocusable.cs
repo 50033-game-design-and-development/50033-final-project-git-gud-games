@@ -35,8 +35,8 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
             return;
         }
         cinemachineAnimator.Play(endStateName);
-        GameState.isInventoryOpened = false;
         GameState.isPuzzleLocked = false;
+        GameState.wasPuzzleLocked = true;
         GameState.LockCursor();
         Event.Global.changeCamera.Raise();
     }

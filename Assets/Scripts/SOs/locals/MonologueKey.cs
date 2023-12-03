@@ -1,10 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 // Manually assigned numbers to prevent breakage
-public enum MonologueKey
-{
+public enum MonologueKey {
+    I_MOVE = -7,
+    I_INTERACT = -6,
+    I_HIGHLIGHT = -5,
+    I_INV = -4,
+    I_FOCUS = -3,
+    I_FOCUS_INTERACT = -2,
+
     TERMINATE = -1,
     NULL = 0,
 
@@ -97,7 +99,7 @@ public enum MonologueKey
     L2_BOOK_DEFAULT = 91,
     L2_BOOK_SOLVED = 92,
     L2_PENCIL = 93,
-    L2_PENTARGAM_DEFAULT = 94,
+    L2_PENTAGRAM_DEFAULT = 94,
     L2_PENTAGRAM_AFTER_BOOK = 95,
     L2_INCANTATION = 96,
     L2_CANDLE_DEFAULT = 97,
