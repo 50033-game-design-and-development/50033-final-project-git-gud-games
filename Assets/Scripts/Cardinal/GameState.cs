@@ -15,6 +15,7 @@ public class GameState : MonoBehaviour {
     public static Vector2 lastPointerDragScreenPos;
     public static bool mouseHold;
     public static bool isPaused;
+    public static Queue<MonologueKey> instructionQueue = new();
 
     private static GameObject _pausedPanel;
     private static GameObject _monologuePanel;
@@ -37,6 +38,13 @@ public class GameState : MonoBehaviour {
         }
     }
     
+    /// <summary>
+    /// toggle the inventory visibility
+    /// </summary>
+    /// <param name="adjustCursor">
+    /// whether to automatically change the cursor
+    /// lock state after toggling the inventory
+    /// </param>
     public static void ToggleInventory(bool adjustCursor = true) {
         if (adjustCursor) {
             isInventoryOpened = !isInventoryOpened;
