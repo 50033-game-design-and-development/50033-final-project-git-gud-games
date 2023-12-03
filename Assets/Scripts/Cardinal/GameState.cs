@@ -16,6 +16,8 @@ public class GameState : MonoBehaviour {
     public static bool mouseHold;
     public static bool isPaused;
 
+    public static int level = 0;
+
     private static GameObject _pausedPanel;
     private static GameObject _monologuePanel;
 
