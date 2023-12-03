@@ -1,12 +1,13 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.UI;
 using TMPro;
 
 public class MonologueUI : MonoBehaviour {
     [SerializeField] private GameObject arrow;
     [SerializeField] private GameObject page;
+
+    protected float LENGTH_DIVISOR = 20.0f;
 
     private AudioSource audioSource;
     private TextMeshProUGUI subtitles;
@@ -41,7 +42,7 @@ public class MonologueUI : MonoBehaviour {
 
         for (int i = 0; i < monologue.strings.Count; i++) {
             subtitles.text = monologue.strings[i];
-            AudioClip voiceLines = monologue.audios[i];
+            AudioClip voiceLines = i < monologue.audios.Count ? monologue.audios[i] : null;
             float duration;
 
             if (voiceLines != null) {
@@ -51,7 +52,7 @@ public class MonologueUI : MonoBehaviour {
                 duration = voiceLines.length;
             } else {
                 // Set duration for unvoiced lines based on length of text
-                duration = monologue.strings[i].Length / 20.0f;
+                duration = monologue.strings[i].Length / LENGTH_DIVISOR;
             }
 
             if (arrow != null && page != null) {
@@ -86,7 +87,7 @@ public class MonologueUI : MonoBehaviour {
         }
     }
 
-    private void SetAlpha(float value) {
+    protected virtual void SetAlpha(float value) {
         subtitles.alpha = value;
         background.color = new Color(0, 0, 0, value * 0.6f);
         if (page != null) {

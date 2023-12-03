@@ -15,6 +15,7 @@ public class GameState : MonoBehaviour {
     public static Vector2 lastPointerDragScreenPos;
     public static bool mouseHold;
     public static bool isPaused;
+    public static Queue<MonologueKey> instructionQueue = new();
 
     private static GameObject _pausedPanel;
     private static GameObject _monologuePanel;
