@@ -17,10 +17,12 @@ public class HotbarItemDragHandler : DragCallbacks {
     }
     
     public void OnDragStart(IPointerEvent evt) {
+        if (GameState.inventory.Count == 0) { return; }
         _inventoryRenderer.OnDragStart(_hotbarItemIndex);
     }
 
     public void OnHoverStart(MouseEnterEvent evt) {
+        if (GameState.inventory.Count == 0) { return; }
         _inventoryRenderer.OnHoverOverItem(_hotbarItemIndex);
     }
 
@@ -34,10 +36,12 @@ public class HotbarItemDragHandler : DragCallbacks {
 }
 
 public class InventoryRenderer : MonoBehaviour {
-    // hotbar USS slot class to assign to filled inventory slots
-    private const string OCCUPIED_SLOT_CLASS = "filled";
+    // hotbar USS slot class to assign to visible inventory slots
+    private const string VISIBLE_SLOT_CLASS = "visible";
     // hotbar USS slot class to assign to inventory slot description text
     private const string HOVERING_SLOT_CLASS = "show";
+    // hotbar USS slot class to assign to empty inventory slots
+    private const string EMPTY_SLOT_CLASS = "empty";
 
     private InventoryItem? _hoveringItemType = null;
     private InventoryItem? _draggingItemType = null;
@@ -175,17 +179,25 @@ public class InventoryRenderer : MonoBehaviour {
             if (k < GameState.inventory.Count) {
                 // set hotbar slot background image and make slot active
                 var collectable = GameState.inventory[k];
-                hotbarSlot.AddToClassList(OCCUPIED_SLOT_CLASS);
+                hotbarSlot.AddToClassList(VISIBLE_SLOT_CLASS);
+                hotbarSlot.RemoveFromClassList(EMPTY_SLOT_CLASS);
                 hotbarSlot.style.backgroundImage = (
                     new StyleBackground(collectable.itemSprite)
                 );
 
                 // make the inventory slot visible
                 hotbarSlot.style.display = DisplayStyle.Flex;
+            } else if (k == 0) {
+                // display the first slot even if it's empty
+                hotbarSlot.AddToClassList(VISIBLE_SLOT_CLASS);
+                hotbarSlot.AddToClassList(EMPTY_SLOT_CLASS);
+                hotbarSlot.style.backgroundImage = null;
+                hotbarSlot.style.display = DisplayStyle.Flex;
             } else {
                 // remove hotbar slot background image and make slot inactive
                 // if theres no corresponding inventory item for the hotbar slot
-                hotbarSlot.RemoveFromClassList(OCCUPIED_SLOT_CLASS);
+                hotbarSlot.RemoveFromClassList(VISIBLE_SLOT_CLASS);
+                hotbarSlot.RemoveFromClassList(EMPTY_SLOT_CLASS);
                 hotbarSlot.style.backgroundImage = null;
                 
                 // make the inventory slot invisible
