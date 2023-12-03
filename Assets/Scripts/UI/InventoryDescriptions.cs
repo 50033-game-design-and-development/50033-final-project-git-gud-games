@@ -25,7 +25,7 @@ namespace UI {
             { InventoryItem.L2_Floppy, "Floppy Disk" },
             
             { InventoryItem.L2_5_Candles, "Set of Candles" },
-            { InventoryItem.L2_5_Photo, "Faded Photograph" },
+            { InventoryItem.L2_5_Photo, "Photograph" },
             { InventoryItem.L2_5_Silver_key, "Silver Key" }
         };
 
