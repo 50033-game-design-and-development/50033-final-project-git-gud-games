@@ -35,7 +35,7 @@ public class NextScene : MonoBehaviour, IInteractable, IClickable {
             SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
             return;
         }
-        var level = sceneName.Substring(sceneName.Length - 2, sceneName.Length);
+        var level = sceneName.Substring(sceneName.Length - 1, 1);
         int.TryParse(level, out GameState.level);
 
         SceneManager.LoadSceneAsync("LevelTxn", LoadSceneMode.Single);
