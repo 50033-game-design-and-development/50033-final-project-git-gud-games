@@ -31,7 +31,14 @@ public class NextScene : MonoBehaviour, IInteractable, IClickable {
             GameState.inventory.Add(vial);
         }
 
-        SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+        if (!sceneName.StartsWith("Level")) {
+            SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+            return;
+        }
+        var level = sceneName.Substring(sceneName.Length - 2, sceneName.Length);
+        int.TryParse(level, out GameState.level);
+
+        SceneManager.LoadSceneAsync("LevelTxn", LoadSceneMode.Single);
     }
 
     // public void LoadAdditive() {

@@ -26,7 +26,8 @@ public class MainMenu : MonoBehaviour {
 
     private IEnumerator LoadL0(float time) {
         yield return new WaitForSeconds(time);
-        SceneManager.LoadScene("Level 0");
+        GameState.level = 0;
+        SceneManager.LoadScene("LevelTxn");
     }
     
     private IEnumerator StartScreen() {
