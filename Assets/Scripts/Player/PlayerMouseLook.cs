@@ -57,10 +57,10 @@ public class PlayerMouseLook : MonoBehaviour {
         };
         */
         // close inventory when you press escape
-        _playerAction.gameplay.Escape.performed += _ => {
-            // GameState.HideInventory();
-            Event.Global.inventoryUpdate.Raise();
-        };
+        // _playerAction.gameplay.Escape.performed += _ => {
+        //     // GameState.HideInventory();
+        //     Event.Global.inventoryUpdate.Raise();
+        // };
     }
 
     private void Update() {

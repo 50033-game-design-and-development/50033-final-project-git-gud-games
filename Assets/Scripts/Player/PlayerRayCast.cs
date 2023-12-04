@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerRayCast : MonoBehaviour {
     private static Color OUTLINE_COLOR = new Color(255, 255, 255, 0.8f);
-    public PlayerConstants playerConstants;
 
     private Transform _highlight;
     private bool _highlighted;
@@ -92,7 +91,7 @@ public class PlayerRayCast : MonoBehaviour {
         );
             
         if (Physics.Raycast(
-            ray, out RaycastHit raycastHit, playerConstants.raycastDistance,
+            ray, out RaycastHit raycastHit, GameState.raycastDist,
             _layerMaskInteractable
         )) {
             PerformHighlight(raycastHit.transform);
@@ -107,7 +106,7 @@ public class PlayerRayCast : MonoBehaviour {
         // Ray points out from the middle of camera viewport 
         Ray ray = Camera.main.ViewportPointToRay(_rayOrigin);
         if (Physics.Raycast(
-            ray, out RaycastHit raycastHit, playerConstants.raycastDistance,
+            ray, out RaycastHit raycastHit, GameState.raycastDist,
             _layerMaskInteractable
         )) {
             PerformHighlight(raycastHit.transform);

@@ -1,20 +1,29 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameState : MonoBehaviour {
     // initial list of items to assign to inventory (for testing only)
     public List<Inv.Collectable> startInventory = new();
-    public static readonly List<Inv.Collectable> inventory = new();
+    public PlayerConstants playerConstants;
 
+    public static float raycastDist;
+    public static readonly List<Inv.Collectable> inventory = new();
     public static Inv.Collectable? selectedInventoryItem = null; 
     public static bool isDraggingInventoryItem = false;
     public static Vector2 lastPointerDragScreenPos;
     public static bool mouseHold;
-    
+    public static bool isPaused;
+    public static Queue<MonologueKey> instructionQueue = new();
+
+    private static GameObject _pausedPanel;
+    private static GameObject _monologuePanel;
+
     private static bool _isInventoryOpened;
     // whether or not the camera is locked onto a puzzle or not
     public static bool isPuzzleLocked = false;
-    
+    public static bool wasPuzzleLocked = false;
     public static bool isInteractionAllowed => !(isPuzzleLocked || isInventoryOpened);
     
     public static bool isInventoryOpened {
@@ -29,12 +38,20 @@ public class GameState : MonoBehaviour {
         }
     }
     
+    /// <summary>
+    /// toggle the inventory visibility
+    /// </summary>
+    /// <param name="adjustCursor">
+    /// whether to automatically change the cursor
+    /// lock state after toggling the inventory
+    /// </param>
     public static void ToggleInventory(bool adjustCursor = true) {
         if (adjustCursor) {
             isInventoryOpened = !isInventoryOpened;
         } else {
             _isInventoryOpened = !_isInventoryOpened;
         }
+        Event.Global.inventoryUpdate.Raise();
     }
     
     public static void LockCursor() {
@@ -48,9 +65,41 @@ public class GameState : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Confined;
     }
 
+    public static void HidePauseMenuUiElements() {
+        var children = _pausedPanel.GetComponentsInChildren<Transform>()
+                       .Select(person => person.gameObject)
+                       .Skip(1)
+                       .ToArray();
+
+        foreach (var child in children) {
+            child.SetActive(false);
+        }
+    }
+
+    public static void TogglePause(bool enablePanels = true) {
+        isPaused = !isPaused;
+
+        AudioListener.pause = isPaused;
+        Time.timeScale = isPaused ? 0.0f : 1.0f;
+
+        _monologuePanel.SetActive(!isPaused && enablePanels);
+        _pausedPanel.SetActive(isPaused || !enablePanels);
+
+        Action AdjustCursor = isPaused ? ConfineCursor : LockCursor;
+        AdjustCursor();
+    }
+
     private void Start() {
         foreach (var collectable in startInventory) {
             inventory.Add(collectable);
+        }
+
+        raycastDist = playerConstants.raycastDistance;
+
+        _monologuePanel = GameObject.Find("MonologuePanel");
+        _pausedPanel = GameObject.Find("Paused");
+        if(_pausedPanel != null) {
+            _pausedPanel.SetActive(false);
         }
     }
 }

@@ -1,0 +1,53 @@
+Realistic Glitches by SF Productions
+
+Realistic Glitches is a collection of post processing shaders recreating glitches, occurring on real circumstances.
+
+The following camera effects are included:
+
+· „Scanner“
+	- defective, or faulty loaded JPEG image
+	- horizontal or vertical stripes (not included in lite)
+
+· Tint
+	- manipulation of the YUV-Color channels
+	- U/V channels can be swapped (not included in lite)
+
+· Bleeding colors
+	- bad sync of the YUV-color channels, often seen on VHS cassettes or cable TV
+
+· Corrupted VRAM
+ 	- shifts parts of the picture, such as the VRAM was corrupted
+
+· Unsync
+	- shifts the picture vertically, like vertical sync issues on an analog RGBHV signal
+	- shift can be static (only option in lite), scrolling or jumping
+
+· CRT
+	- not a glitch, but imitation of an old CRT screen
+	- scanlines
+	- bulged picture (not included in lite)
+
+· VHS (not included in lite)
+	- distorted picture with bleeding colors, like on a damaged VHS cassette
+
+· DIY (not included in lite)
+	- variable array for multiple shader effects
+	- experiment with all of the shaders' raw parameters and add as many as you want 
+
+
+
+Usage
+
+Just add the desired scripts as components to the camera in your scene.
+
+
+Troubleshooting
+· black screen / effects not applied / corrupted image :
+	Try changing the display renderer. OpenGLCore works fine.
+	"Edit" → "Project Settings" → "Graphics" → "Other Settings" → "Graphics API for [...]"
+
+· shaders not working in the final build :
+	Add the shader files under "Edit" → "Project Settings" → "Graphics" → "Shader Preloading".
+
+Contact
+sfischer@sf-productions.net

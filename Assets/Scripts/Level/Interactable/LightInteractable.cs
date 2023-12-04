@@ -1,19 +1,19 @@
-using System;
 using UnityEngine;
 
-namespace Level.Interactable {
-    public class LightInteractable : MonoBehaviour, IInteractable {
-        public bool switchedOn = true;
-        public BoolGameEvent onSwitchToggle;
+public class LightInteractable : MonoBehaviour, IInteractable {
+    [SerializeField] protected bool switchedOn = true;
+    [SerializeField] protected BoolGameEvent @event;
 
-        public void Start() {
-            onSwitchToggle.Raise(switchedOn);
-        }
+    public virtual void OnInteraction() {
+        ToggleSwitch();
+        @event.Raise(switchedOn);
+    }
 
-        public void OnInteraction() {
-            // Debug.Log("LIGHT SWITCH INTERACT");
-            switchedOn = !switchedOn;
-            onSwitchToggle.Raise(switchedOn);
-        }
+    protected void ToggleSwitch() {
+        switchedOn = !switchedOn;
+    }
+
+    protected virtual void Start() {
+        @event.Raise(switchedOn);
     }
 }

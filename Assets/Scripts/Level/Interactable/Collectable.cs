@@ -16,6 +16,7 @@ public class Collectable : MonoBehaviour, IInteractable {
         if (!canCollect) {
             return;
         }
+        canCollect = false;
 
         Debug.Log("Collect " + gameObject.name);
         GameState.inventory.Add(invItem);
