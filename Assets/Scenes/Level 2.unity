@@ -2747,13 +2747,64 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3999275007478159208, guid: bc1299836d3944650a8c53d946b65bc7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 115057159}
+    - targetCorrespondingSourceObject: {fileID: 3999275007478159208, guid: bc1299836d3944650a8c53d946b65bc7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 115057158}
   m_SourcePrefab: {fileID: 100100000, guid: bc1299836d3944650a8c53d946b65bc7, type: 3}
 --- !u!4 &115057156 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6679367231942610568, guid: bc1299836d3944650a8c53d946b65bc7, type: 3}
   m_PrefabInstance: {fileID: 115057155}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &115057157 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3999275007478159208, guid: bc1299836d3944650a8c53d946b65bc7, type: 3}
+  m_PrefabInstance: {fileID: 115057155}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &115057158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115057157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1645042ab9c7e1c40a7c732a204f5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 29bbbd659dc77416c80fb67f78cf94fc, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 115057159}
+        m_TargetAssemblyTypeName: DestroyAfterRitual, Assembly-CSharp
+        m_MethodName: OnRitualComplete
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &115057159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115057157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d453518db61a30f5a902a90c995dc396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &115798381
 GameObject:
   m_ObjectHideFlags: 0
@@ -3252,6 +3303,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8976369323614944640, guid: 6f97ad0f21f8947d998ec9255f9161e1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 159920072}
+    - targetCorrespondingSourceObject: {fileID: 8976369323614944640, guid: 6f97ad0f21f8947d998ec9255f9161e1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 159920073}
     - targetCorrespondingSourceObject: {fileID: 1055808999750419266, guid: 6f97ad0f21f8947d998ec9255f9161e1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 159920065}
@@ -3418,6 +3472,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chance: 0.3
+--- !u!114 &159920073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159920064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1645042ab9c7e1c40a7c732a204f5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 29bbbd659dc77416c80fb67f78cf94fc, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 159920072}
+        m_TargetAssemblyTypeName: RandomDoorInteraction, Assembly-CSharp
+        m_MethodName: OnRitualComplete
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &160392740
 GameObject:
   m_ObjectHideFlags: 0
@@ -4159,7 +4241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1885792207}
+  m_Material: {fileID: 1651993998}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -4725,6 +4807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startInventory: []
   playerConstants: {fileID: 11400000, guid: c5333c05b04472e41bf642f63025eb7e, type: 2}
+  _save: {fileID: 0}
 --- !u!4 &223368373
 Transform:
   m_ObjectHideFlags: 0
@@ -28839,6 +28922,51 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.1979837, y: 1.3695698, z: 1.0626128}
   m_Center: {x: 0.00000005964304, y: 0.6847849, z: -0.08196134}
+--- !u!1 &1274494087 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8369782335964148659, guid: cacca0ede52bf12949fda8e7b602dc25, type: 3}
+  m_PrefabInstance: {fileID: 2067822367}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1274494088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274494087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1645042ab9c7e1c40a7c732a204f5d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 29bbbd659dc77416c80fb67f78cf94fc, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1274494089}
+        m_TargetAssemblyTypeName: DestroyAfterRitual, Assembly-CSharp
+        m_MethodName: OnRitualComplete
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1274494089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274494087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d453518db61a30f5a902a90c995dc396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1279274182 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2492779538772319299, guid: 5425c2a8e53834938991defb8ab18a1b, type: 3}
@@ -34080,6 +34208,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isVisible: 1
+--- !u!21 &1651993998
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &1669388624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37605,45 +37772,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!21 &1885792207
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &1889049986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40340,6 +40468,12 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8369782335964148659, guid: cacca0ede52bf12949fda8e7b602dc25, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1274494089}
+    - targetCorrespondingSourceObject: {fileID: 8369782335964148659, guid: cacca0ede52bf12949fda8e7b602dc25, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1274494088}
     - targetCorrespondingSourceObject: {fileID: 6079195342993861624, guid: cacca0ede52bf12949fda8e7b602dc25, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2067822373}
