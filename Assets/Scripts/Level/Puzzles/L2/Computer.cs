@@ -78,6 +78,7 @@ public class Computer : MonoBehaviour {
         ambientAudioSource.clip = hummingNoiseClip;
         ambientAudioSource.Play();
         interactableAudioSource.PlayOneShot(insertFloppyClip);
+        Event.L2.onPasswordScreen.Raise(true);
     }
 
     public void SetState(ComputerState computerState) {
@@ -123,6 +124,7 @@ public class Computer : MonoBehaviour {
         if (input.Trim((char)8203).Equals(password.Trim(), StringComparison.OrdinalIgnoreCase)) {
             ambientAudioSource.PlayOneShot(loginSuccessAudioClip);
             State = ComputerState.Desktop;
+            Event.L2.onPasswordScreen.Raise(false);
         } else {
             loginInputField.text = "";
             ambientAudioSource.PlayOneShot(loginFailAudioClip);
@@ -196,7 +198,6 @@ public class Computer : MonoBehaviour {
             State == ComputerState.Login) {
                 Debug.Log("working");
                 GameState.ToggleInventory(false);
-                Event.Global.inventoryUpdate.Raise();
         }
 
         if (!GameState.isPuzzleLocked) {

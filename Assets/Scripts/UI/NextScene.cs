@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,12 +33,19 @@ public class NextScene : MonoBehaviour, IInteractable, IClickable {
             GameState.inventory.Add(vial);
         }
 
-        SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
-    }
+        if (!sceneName.StartsWith("Level")) {
+            GameState.inventory.Clear();
+            SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+            return;
+        }
+        var level = sceneName.Substring(sceneName.Length - 1, 1);
+        int.TryParse(level, out GameState.level);
 
-    // public void LoadAdditive() {
-    //     SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-    // }
+        GameState.save.inventory = new List<Inv.Collectable>(GameState.inventory);
+        GameState.save.level = GameState.level;
+
+        SceneManager.LoadSceneAsync("LevelTxn", LoadSceneMode.Single);
+    }
 
     private IEnumerator LoadWithDelay(float delaySeconds) {
         yield return new WaitForSeconds(delaySeconds);
