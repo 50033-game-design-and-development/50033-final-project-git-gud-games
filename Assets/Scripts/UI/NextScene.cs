@@ -35,8 +35,6 @@ public class NextScene : MonoBehaviour, IInteractable, IClickable {
 
         if (!sceneName.StartsWith("Level")) {
             GameState.inventory.Clear();
-            GameState.save.inventory.Clear();
-            GameState.save.level = 0;
             SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
             return;
         }
