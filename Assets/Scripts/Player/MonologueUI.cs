@@ -14,6 +14,8 @@ public class MonologueUI : MonoBehaviour {
     private Image background;
     private MonologueKey? cachedKey;
     private Image pageImage;
+    private PlayerAction _playerAction;
+    private bool inMonologue;
 
     public void StartMonologue(MonologueKey monologueKey) {
         if (monologueKey == cachedKey) {
@@ -66,10 +68,25 @@ public class MonologueUI : MonoBehaviour {
             }
 
             // Wait for monologue to be spoken completely
-            yield return new WaitForSeconds(duration);
+            inMonologue = true;
+            StartCoroutine("WaitForMonologue", duration);
+            while (inMonologue) {
+                yield return null;
+            }
+            StopCoroutine("WaitForMonologue");
+            audioSource.Stop();
         }
 
         StartCoroutine("EndMonologue", monologueKey);
+    }
+
+    private IEnumerator WaitForMonologue(float duration) {
+        yield return new WaitForSeconds(duration);
+        inMonologue = false;
+    }
+
+    private void SkipCurrentText() {
+        inMonologue = false;
     }
 
     // Fade out monologue panel
@@ -96,6 +113,10 @@ public class MonologueUI : MonoBehaviour {
     }
 
     private void Start() {
+        _playerAction = new PlayerAction();
+        _playerAction.Enable();
+        _playerAction.gameplay.SkipText.performed += _ => SkipCurrentText();
+
         audioSource = GetComponent<AudioSource>();
         subtitles = GetComponentInChildren<TextMeshProUGUI>();
         background = GetComponent<Image>();
@@ -108,5 +129,9 @@ public class MonologueUI : MonoBehaviour {
         }
 
         SetAlpha(0);
+    }
+
+    private void OnDisable() {
+        _playerAction.Disable();
     }
 }

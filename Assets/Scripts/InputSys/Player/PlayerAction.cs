@@ -89,6 +89,15 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SkipText"",
+                    ""type"": ""Button"",
+                    ""id"": ""b37f9d5f-062c-4049-8e98-6875b10cda43"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -289,6 +298,17 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
                     ""action"": ""MousePress"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ebe1f02a-e111-41c5-a435-133d546e7bd7"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SkipText"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -321,6 +341,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         m_gameplay_MousePos = m_gameplay.FindAction("MousePos", throwIfNotFound: true);
         m_gameplay_RevealItems = m_gameplay.FindAction("RevealItems", throwIfNotFound: true);
         m_gameplay_MousePress = m_gameplay.FindAction("MousePress", throwIfNotFound: true);
+        m_gameplay_SkipText = m_gameplay.FindAction("SkipText", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -389,6 +410,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
     private readonly InputAction m_gameplay_MousePos;
     private readonly InputAction m_gameplay_RevealItems;
     private readonly InputAction m_gameplay_MousePress;
+    private readonly InputAction m_gameplay_SkipText;
     public struct GameplayActions
     {
         private @PlayerAction m_Wrapper;
@@ -400,6 +422,7 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         public InputAction @MousePos => m_Wrapper.m_gameplay_MousePos;
         public InputAction @RevealItems => m_Wrapper.m_gameplay_RevealItems;
         public InputAction @MousePress => m_Wrapper.m_gameplay_MousePress;
+        public InputAction @SkipText => m_Wrapper.m_gameplay_SkipText;
         public InputActionMap Get() { return m_Wrapper.m_gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -430,6 +453,9 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
             @MousePress.started += instance.OnMousePress;
             @MousePress.performed += instance.OnMousePress;
             @MousePress.canceled += instance.OnMousePress;
+            @SkipText.started += instance.OnSkipText;
+            @SkipText.performed += instance.OnSkipText;
+            @SkipText.canceled += instance.OnSkipText;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -455,6 +481,9 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
             @MousePress.started -= instance.OnMousePress;
             @MousePress.performed -= instance.OnMousePress;
             @MousePress.canceled -= instance.OnMousePress;
+            @SkipText.started -= instance.OnSkipText;
+            @SkipText.performed -= instance.OnSkipText;
+            @SkipText.canceled -= instance.OnSkipText;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -490,5 +519,6 @@ public partial class @PlayerAction: IInputActionCollection2, IDisposable
         void OnMousePos(InputAction.CallbackContext context);
         void OnRevealItems(InputAction.CallbackContext context);
         void OnMousePress(InputAction.CallbackContext context);
+        void OnSkipText(InputAction.CallbackContext context);
     }
 }
