@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -39,12 +41,11 @@ public class NextScene : MonoBehaviour, IInteractable, IClickable {
         var level = sceneName.Substring(sceneName.Length - 1, 1);
         int.TryParse(level, out GameState.level);
 
+        GameState.save.inventory = new List<Inv.Collectable>(GameState.inventory);
+        GameState.save.level = GameState.level;
+
         SceneManager.LoadSceneAsync("LevelTxn", LoadSceneMode.Single);
     }
-
-    // public void LoadAdditive() {
-    //     SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-    // }
 
     private IEnumerator LoadWithDelay(float delaySeconds) {
         yield return new WaitForSeconds(delaySeconds);
