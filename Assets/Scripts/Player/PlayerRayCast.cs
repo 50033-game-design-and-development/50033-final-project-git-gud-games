@@ -79,11 +79,11 @@ public class PlayerRayCast : MonoBehaviour {
     }
 
     private void DoInventoryDragHighlight() {
-        if (!GameState.isDraggingInventoryItem) {
-            _highlighted = false;
-            DisableOutline();
-            return;
-        }
+        // if (!GameState.isDraggingInventoryItem) {
+        //     _highlighted = false;
+        //     DisableOutline();
+        //     return;
+        // }
             
         // Ray points out from cursor position in camera viewport
         Ray ray = Camera.main.ScreenPointToRay(
@@ -94,8 +94,10 @@ public class PlayerRayCast : MonoBehaviour {
             ray, out RaycastHit raycastHit, GameState.raycastDist,
             _layerMaskInteractable
         )) {
-            PerformHighlight(raycastHit.transform);
-            return;
+            if (GameState.isDraggingInventoryItem || raycastHit.transform.gameObject.GetComponent<IClickable>() != null) {
+                PerformHighlight(raycastHit.transform);
+                return;
+            }
         }
         
         _highlighted = false;
