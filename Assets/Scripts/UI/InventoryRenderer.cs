@@ -1,29 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 
 public class HotbarItemDragHandler : DragCallbacks {
     private readonly int _hotbarItemIndex;
+    private readonly InventoryRenderer _inventoryRenderer;
     
-    public HotbarItemDragHandler(int hotbarItemIndex) {
+    public HotbarItemDragHandler(
+        InventoryRenderer inventoryRenderer, int hotbarItemIndex
+    ) {
+        _inventoryRenderer = inventoryRenderer;
         _hotbarItemIndex = hotbarItemIndex;
     }
     
     public void OnDragStart(IPointerEvent evt) {
-        if (_hotbarItemIndex >= GameState.inventory.Count) { return; }
-        GameState.selectedInventoryItem = GameState.inventory[_hotbarItemIndex];
-        GameState.isDraggingInventoryItem = true;
+        if (GameState.inventory.Count == 0) { return; }
+        _inventoryRenderer.OnDragStart(_hotbarItemIndex);
+    }
+
+    public void OnHoverStart(MouseEnterEvent evt) {
+        if (GameState.inventory.Count == 0) { return; }
+        _inventoryRenderer.OnHoverOverItem(_hotbarItemIndex);
+    }
+
+    public void OnHoverEnd(MouseLeaveEvent evt) {
+        _inventoryRenderer.OnHoverLeaveItem(_hotbarItemIndex);
+    }
+
+    public void OnDragEnd(IPointerEvent evt) {
+        _inventoryRenderer.OnDragEnd(_hotbarItemIndex);
     }
 }
 
 public class InventoryRenderer : MonoBehaviour {
-    // hotbar USS slot class to assign to filled inventory slots
-    private const string OCCUPIED_SLOT_CLASS = "filled";
-    
+    // hotbar USS slot class to assign to visible inventory slots
+    private const string VISIBLE_SLOT_CLASS = "visible";
+    // hotbar USS slot class to assign to inventory slot description text
+    private const string HOVERING_SLOT_CLASS = "show";
+    // hotbar USS slot class to assign to empty inventory slots
+    private const string EMPTY_SLOT_CLASS = "empty";
+
+    private InventoryItem? _hoveringItemType = null;
+    private InventoryItem? _draggingItemType = null;
+
     private float _padding;
-    private float hotbarItemSize;
+    private float _hotbarItemSize;
+    private Label _descriptionLabel;
     
     public UIDocument hotbarUI;
     public int numHotbarItems = 5;
@@ -32,7 +57,7 @@ public class InventoryRenderer : MonoBehaviour {
     private readonly List<DraggableButton> _hotbarItems = new();
 
     public void OnInventoryUpdate() {
-        if (GameState.isInventoryOpened && GameState.inventory.Count > 0) {
+        if (GameState.isInventoryOpened) {
             Show();
             PopulateHotbar();
         } else {
@@ -48,6 +73,59 @@ public class InventoryRenderer : MonoBehaviour {
         hotbarUI.rootVisualElement.style.visibility = Visibility.Hidden;
     }
 
+    public void OnDragStart(int hotbarItemIndex) {
+        if (hotbarItemIndex >= GameState.inventory.Count) { return; }
+        var selectedInventoryItem = GameState.inventory[hotbarItemIndex];
+       
+        GameState.selectedInventoryItem = selectedInventoryItem;
+        GameState.isDraggingInventoryItem = true;
+        _draggingItemType = selectedInventoryItem.itemType;
+        UpdateInventoryDescription();
+    }
+
+    public void OnDragEnd(int _) {
+        _draggingItemType = null;
+        UpdateInventoryDescription();
+    }
+
+    public void OnHoverOverItem(int hotbarItemIndex) {
+        _hoveringItemType = GameState.inventory[hotbarItemIndex].itemType;
+        UpdateInventoryDescription();
+    }
+    
+    public void OnHoverLeaveItem(int _) {
+        _hoveringItemType = null;
+        UpdateInventoryDescription();
+    }
+
+    /// <summary>
+    /// display the inventory item description during
+    /// either item dragging or hovering over the hotbar slot
+    /// </summary>
+    private void UpdateInventoryDescription() {
+        InventoryItem ?displayedItemType = null;
+        
+        // prioritize showing dragged item names over hovered items
+        if (_draggingItemType != null) {
+            displayedItemType = _draggingItemType;
+        } else if (_hoveringItemType != null) {
+            displayedItemType = _hoveringItemType;
+        }
+
+        if (displayedItemType != null) {
+            var text = InventoryDescriptions.Get(
+                (InventoryItem) displayedItemType
+            );
+            _descriptionLabel.text = text;
+        }
+        
+        if (displayedItemType == null) {
+            _descriptionLabel.RemoveFromClassList(HOVERING_SLOT_CLASS);
+        } else {
+            _descriptionLabel.AddToClassList(HOVERING_SLOT_CLASS);
+        }
+    }
+
     /// <summary>
     ///  Initialize the hotbar item slot UI elements
     /// </summary>
@@ -61,24 +139,25 @@ public class InventoryRenderer : MonoBehaviour {
             button.RemoveFromHierarchy();
         }
 
-        VisualElement hotbarElement = (
-            root.Q<VisualElement>("HotbarWrapper").Q<VisualElement>("Hotbar")
-        );
+        var wrapper = root.Q<VisualElement>("HotbarWrapper");
+        var hotbarElement = wrapper.Q<VisualElement>("Hotbar");
+        _descriptionLabel = wrapper.Q<Label>("ItemDescription");
+        
         _padding = (
             hotbarElement.resolvedStyle.paddingTop 
             + hotbarElement.resolvedStyle.paddingBottom
         ) / 2.0f;
 
         var hotbarHeight = hotbarElement.resolvedStyle.height;
-        hotbarItemSize = hotbarHeight - _padding * 2;
+        _hotbarItemSize = hotbarHeight - _padding * 2;
 
         for (int k = 0; k < numHotbarItems; k++) {
             // Create hotbar item slots (each slot is a UIElement Button)
-            var dragCallback = new HotbarItemDragHandler(k);
+            var dragCallback = new HotbarItemDragHandler(this, k);
             DraggableButton inventoryItem = new DraggableButton(dragCallback);
             
             // DragAndDropManipulator manipulator = new(inventoryItem);
-            inventoryItem.style.width = hotbarItemSize;
+            inventoryItem.style.width = _hotbarItemSize;
             hotbarElement.Add(inventoryItem);
             _hotbarItems.Add(inventoryItem);
         }
@@ -100,17 +179,25 @@ public class InventoryRenderer : MonoBehaviour {
             if (k < GameState.inventory.Count) {
                 // set hotbar slot background image and make slot active
                 var collectable = GameState.inventory[k];
-                hotbarSlot.AddToClassList(OCCUPIED_SLOT_CLASS);
+                hotbarSlot.AddToClassList(VISIBLE_SLOT_CLASS);
+                hotbarSlot.RemoveFromClassList(EMPTY_SLOT_CLASS);
                 hotbarSlot.style.backgroundImage = (
                     new StyleBackground(collectable.itemSprite)
                 );
 
                 // make the inventory slot visible
                 hotbarSlot.style.display = DisplayStyle.Flex;
+            } else if (k == 0) {
+                // display the first slot even if it's empty
+                hotbarSlot.AddToClassList(VISIBLE_SLOT_CLASS);
+                hotbarSlot.AddToClassList(EMPTY_SLOT_CLASS);
+                hotbarSlot.style.backgroundImage = null;
+                hotbarSlot.style.display = DisplayStyle.Flex;
             } else {
                 // remove hotbar slot background image and make slot inactive
                 // if theres no corresponding inventory item for the hotbar slot
-                hotbarSlot.RemoveFromClassList(OCCUPIED_SLOT_CLASS);
+                hotbarSlot.RemoveFromClassList(VISIBLE_SLOT_CLASS);
+                hotbarSlot.RemoveFromClassList(EMPTY_SLOT_CLASS);
                 hotbarSlot.style.backgroundImage = null;
                 
                 // make the inventory slot invisible

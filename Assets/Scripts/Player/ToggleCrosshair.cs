@@ -2,13 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ToggleCrosshair : MonoBehaviour {
-    private Image crosshair;
+    private Image _crosshair;
 
-    public void Toggle() {
-        crosshair.enabled = GameState.isInteractionAllowed;
+    private void Update() {
+        _crosshair.enabled = GameState.isInteractionAllowed;
+
     }
 
     private void Start() {
-        crosshair = GetComponent<Image>();
+        _crosshair = GetComponent<Image>();
     }
 }

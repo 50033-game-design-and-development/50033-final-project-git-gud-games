@@ -29,16 +29,13 @@ public class MainMenu : MonoBehaviour {
         SceneManager.LoadScene("Level 0");
     }
     
-    private IEnumerator StartScreen(float time) {
+    private IEnumerator StartScreen() {
         Cursor.lockState = CursorLockMode.Confined;
-        yield return new WaitForSeconds(time);
-        cinemachineAnimator.Play("Main Menu Idle");
-        
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         fadeCanvasGroup.blocksRaycasts = false;
     }
 
     private void Start() {
-        StartCoroutine(StartScreen(1f));
+        StartCoroutine(StartScreen());
     }
 }
