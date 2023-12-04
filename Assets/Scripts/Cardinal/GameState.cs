@@ -17,12 +17,13 @@ public class GameState : MonoBehaviour {
     public static bool mouseHold;
     public static bool isPaused;
     public static Queue<MonologueKey> instructionQueue = new();
-    public static int level = 0;
+    public static int level = -1;
 
     public static Save save;
 
     private static GameObject _pausedPanel;
     private static GameObject _monologuePanel;
+    private static GameObject _tutorialPanel;
 
     private static bool _isInventoryOpened;
     // whether or not the camera is locked onto a puzzle or not
@@ -87,6 +88,9 @@ public class GameState : MonoBehaviour {
         Time.timeScale = isPaused ? 0.0f : 1.0f;
 
         _monologuePanel.SetActive(!isPaused && enablePanels);
+        if(_tutorialPanel != null) {
+            _tutorialPanel.SetActive(!isPaused && enablePanels);
+        }
         _pausedPanel.SetActive(isPaused || !enablePanels);
 
         Action AdjustCursor = isPaused ? ConfineCursor : LockCursor;
@@ -101,6 +105,7 @@ public class GameState : MonoBehaviour {
         raycastDist = playerConstants.raycastDistance;
 
         _monologuePanel = GameObject.Find("MonologuePanel");
+        _tutorialPanel = GameObject.Find("TutorialPanel");
         _pausedPanel = GameObject.Find("Paused");
         if(_pausedPanel != null) {
             _pausedPanel.SetActive(false);
