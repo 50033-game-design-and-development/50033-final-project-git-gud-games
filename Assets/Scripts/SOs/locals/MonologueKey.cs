@@ -53,6 +53,7 @@ public enum MonologueKey {
     L1_CABINET_OPEN = 46,
     L1_VIAL = 47,
     L1_LILY = 48,
+    L1_MOP = 49,
 
     L2_START = 50,
     L2_PICTURE_MOM_DEFAULT = 56,
