@@ -94,8 +94,10 @@ public class PlayerRayCast : MonoBehaviour {
             ray, out RaycastHit raycastHit, GameState.raycastDist,
             _layerMaskInteractable
         )) {
-            PerformHighlight(raycastHit.transform);
-            return;
+            if (GameState.isDraggingInventoryItem || raycastHit.transform.gameObject.GetComponent<IClickable>() != null) {
+                PerformHighlight(raycastHit.transform);
+                return;
+            }
         }
         
         _highlighted = false;
