@@ -1,9 +1,11 @@
+using System.Numerics;
 using UnityEngine.UIElements;
 
 public class DraggableButton : Button {
     private const string DRAGGING_SLOT_CLASS = "dragging";
     private const int LEFT_MOUSE_PRESS_MASK = 1;
     private readonly DragCallbacks _dragCallbacks;
+    private Vector2? _startDragPosition;
 
     public DraggableButton(DragCallbacks dragCallbacks) {
         _dragCallbacks = dragCallbacks;
@@ -15,11 +17,18 @@ public class DraggableButton : Button {
         RegisterCallback<PointerUpEvent>(OnPointerUp);
     }
 
+    private Vector2 GetScreenCoords(IPointerEvent evt) {
+        return new Vector2(
+            evt.position.x, evt.position.y
+        );
+    }
+
     private void OnPointerDown(IPointerEvent evt) {
         if (evt.pointerId != PointerId.mousePointerId) {
             return;
         }
 
+        _startDragPosition = GetScreenCoords(evt);
         AddToClassList(DRAGGING_SLOT_CLASS);
         this.CapturePointer(evt.pointerId);
         _dragCallbacks.OnDragStart(evt);
@@ -31,7 +40,12 @@ public class DraggableButton : Button {
             evt.pointerId == PointerId.mousePointerId 
             && evt.pressedButtons == LEFT_MOUSE_PRESS_MASK
         ) {
-            // TODO: maybe show the inventory item moving on cursor drag
+            var coords = GetScreenCoords(evt);
+            if (_startDragPosition != null) {
+                var displacement = coords - (Vector2) _startDragPosition;
+                style.left = displacement.X;
+                style.top = displacement.Y;
+            }
         }
     }
 
@@ -39,6 +53,9 @@ public class DraggableButton : Button {
         RemoveFromClassList(DRAGGING_SLOT_CLASS);
         _dragCallbacks.OnDragEnd(evt);
 
+        _startDragPosition = null;
+        style.left = 0;
+        style.top = 0;
     }
     
     private void OnMouseEnter(MouseEnterEvent evt) {
