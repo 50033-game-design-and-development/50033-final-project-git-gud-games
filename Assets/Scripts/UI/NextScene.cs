@@ -32,6 +32,7 @@ public class NextScene : MonoBehaviour, IInteractable, IClickable {
         }
 
         if (!sceneName.StartsWith("Level")) {
+            GameState.inventory.Clear();
             SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
             return;
         }
