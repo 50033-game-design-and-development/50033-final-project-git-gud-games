@@ -4228,12 +4228,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4393125519056686, guid: d9701c9a48aaebe40813707f15a57b7d, type: 3}
   m_PrefabInstance: {fileID: 1326671939}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &916773561 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4432975863972712, guid: 278e8eacf74c6154ebc173a666e00c27, type: 3}
-  m_PrefabInstance: {fileID: 1775667828}
-  m_PrefabAsset: {fileID: 0}
---- !u!21 &920017907
+--- !u!21 &895571758
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -4272,6 +4267,11 @@ Material:
     m_Colors:
     - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
   m_BuildTextureStacks: []
+--- !u!4 &916773561 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4432975863972712, guid: 278e8eacf74c6154ebc173a666e00c27, type: 3}
+  m_PrefabInstance: {fileID: 1775667828}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &926994992
 GameObject:
   m_ObjectHideFlags: 0
@@ -8047,7 +8047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 920017907}
+  m_Material: {fileID: 895571758}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -8090,6 +8090,7 @@ GameObject:
   - component: {fileID: 1625286878}
   - component: {fileID: 1625286880}
   - component: {fileID: 1625286881}
+  - component: {fileID: 1625286882}
   m_Layer: 0
   m_Name: Cardinal
   m_TagString: Untagged
@@ -8164,6 +8165,18 @@ MonoBehaviour:
   _solveP1: {fileID: 11400000, guid: 938b3ac4bbc278c5f9703a92622d5acb, type: 2}
   _solveP2: {fileID: 11400000, guid: 10b9523cc776456fba83d7ea0c3f6756, type: 2}
   _unlockDoor: {fileID: 11400000, guid: ad01cfb210614fccb88093012f5e052a, type: 2}
+--- !u!114 &1625286882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625286877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97fc6dd4f46f4a8e9b1a8d0d0936cd33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1633214876
 GameObject:
   m_ObjectHideFlags: 0
@@ -9605,6 +9618,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startInventory: []
   playerConstants: {fileID: 11400000, guid: c5333c05b04472e41bf642f63025eb7e, type: 2}
+  _save: {fileID: 0}
+  _secrets: {fileID: 0}
 --- !u!4 &1883072368
 Transform:
   m_ObjectHideFlags: 0
