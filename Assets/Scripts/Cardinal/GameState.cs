@@ -24,8 +24,8 @@ public class GameState : MonoBehaviour {
     public static Secrets secrets;
 
     private static GameObject _pausedPanel;
-    private static GameObject _monologuePanel;
     private static GameObject _tutorialPanel;
+    private static MonologueUI _monologueUI;
 
     private static bool _isInventoryOpened;
     // whether or not the camera is locked onto a puzzle or not
@@ -89,7 +89,7 @@ public class GameState : MonoBehaviour {
         AudioListener.pause = isPaused;
         Time.timeScale = isPaused ? 0.0f : 1.0f;
 
-        _monologuePanel.SetActive(!isPaused && enablePanels);
+        _monologueUI.TogglePanel(!isPaused && enablePanels);
         if(_tutorialPanel != null) {
             _tutorialPanel.SetActive(!isPaused && enablePanels);
         }
@@ -106,8 +106,11 @@ public class GameState : MonoBehaviour {
 
         raycastDist = playerConstants.raycastDistance;
 
-        _monologuePanel = GameObject.Find("MonologuePanel");
         _tutorialPanel = GameObject.Find("TutorialPanel");
+        var monologuePanel = GameObject.Find("MonologuePanel");
+        if (monologuePanel != null) {
+            _monologueUI = monologuePanel.GetComponent<MonologueUI>();
+        }
         _pausedPanel = GameObject.Find("Paused");
         if(_pausedPanel != null) {
             _pausedPanel.SetActive(false);
