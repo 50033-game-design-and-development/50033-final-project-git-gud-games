@@ -58,6 +58,7 @@ public class Transition : MonoBehaviour {
     }
 
     private void Start() {
+        GameState.LockCursor();
         fadeInTxt = new []{ secondTxt, firstTxt, secondTxt };
         otherTxt = new []{ firstTxt, secondTxt, firstTxt };
 

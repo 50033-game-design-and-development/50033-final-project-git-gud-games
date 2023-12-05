@@ -14,7 +14,7 @@ public class FadeBehaviour : MonoBehaviour {
 
     public float duration = 2f;
     // Start is called before the first frame update
-    void Start() {
+    private void Start() {
         if (playOnStart) Fade();
     }
 
