@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class TutorialUI : MonologueUI {
     public void OnCutsceneEnd(MonologueKey key) {
-        LENGTH_DIVISOR = 10.0f;
+        LENGTH_DIVISOR = 15.0f;
         if(key != MonologueKey.L0_START) return;
 
         GameState.instructionQueue.Enqueue(MonologueKey.I_MOVE);
         GameState.instructionQueue.Enqueue(MonologueKey.I_INTERACT);
         GameState.instructionQueue.Enqueue(MonologueKey.I_HIGHLIGHT);
+        GameState.instructionQueue.Enqueue(MonologueKey.I_SKIP);
         StartCoroutine(ShowQueuedInstructions());
     }
 
