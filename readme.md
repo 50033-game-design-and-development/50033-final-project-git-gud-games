@@ -6,15 +6,16 @@ Murder Mansion is a single-player puzzle game with a mystery/horror-themed escap
 
 ### System requirements
 
-- OS: **Windows 10** / **MacOS 12+** / **Ubuntu** 
-- Memory: Minimum **8 GB RAM**
+- OS: **Windows 10** / **MacOS 12+ (x86 + apple silicon)** / **Ubuntu** 
+- Memory: Minimum **1 GB RAM**
 ### How to play the game
 | Control    | Action                                        |
 |------------|-----------------------------------------------|
 | WASD       | Move around                                   |-  
-| Left Click | Interact/Pickup items                         |-  
+| Left Click | Interact/Pickup items/Drag Drop items         |-  
 | E          | Toggle Inventory on off                       |-
 | TAB        | Reveal Interactable Items                     |-
+| Space      | Skip Monologues/Voice Acting                  |-
 | Esc        | Exit Inventory/Exit from Zoom/Open Pause Menu |-  
 
 ### Gameplay
