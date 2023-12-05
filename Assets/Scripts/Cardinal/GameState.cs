@@ -100,7 +100,10 @@ public class GameState : MonoBehaviour {
 
         raycastDist = playerConstants.raycastDistance;
 
-        _monologueUI = GameObject.Find("MonologuePanel").GetComponent<MonologueUI>();
+        GameObject monologuePanel = GameObject.Find("MonologuePanel");
+        if (monologuePanel != null) {
+            _monologueUI = monologuePanel.GetComponent<MonologueUI>();
+        }
         _pausedPanel = GameObject.Find("Paused");
         if(_pausedPanel != null) {
             _pausedPanel.SetActive(false);
