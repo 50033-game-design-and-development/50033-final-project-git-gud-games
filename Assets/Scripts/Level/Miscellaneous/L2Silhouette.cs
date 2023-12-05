@@ -21,6 +21,7 @@ public class L2Silhouette : MonoBehaviour {
     public float audioProbabilty = 0.5f;
 
     private SpriteRenderer _silhouette;
+    private bool _ready;
     
     // called when lights are switched on or off. Silhouette only appears when lights are off
     public void Visible(bool state) {
@@ -29,7 +30,7 @@ public class L2Silhouette : MonoBehaviour {
             _silhouette.enabled = true;
             StartCoroutine(VisibleTime(Random.Range(minAppearanceTime, maxAppearanceTime)));
             if (audioSource != null) {
-                if(Random.value < audioProbabilty) audioSource.PlayOneShot(audioSource.clip);
+                if (Random.value < audioProbabilty && _ready) audioSource.PlayOneShot(audioSource.clip);
             }
         }
         else {
@@ -50,7 +51,7 @@ public class L2Silhouette : MonoBehaviour {
         }
     }
 
-    IEnumerator FadeOutCoroutine(float fadeDuration) {
+    private IEnumerator FadeOutCoroutine(float fadeDuration) {
         Color originalColor = _silhouette.color;
         Color targetColor = new Color(originalColor.r, originalColor.g, originalColor.b, 0f);
         float elapsedTime = 0f;
@@ -63,7 +64,13 @@ public class L2Silhouette : MonoBehaviour {
         _silhouette.enabled = false;
     }
 
+    private IEnumerator GetReady() {
+        yield return new WaitForSeconds(2);
+        _ready = true;
+    }
+
     private void Start() {
         _silhouette = this.gameObject.GetComponent<SpriteRenderer>();
+        StartCoroutine("GetReady");
     }
 }

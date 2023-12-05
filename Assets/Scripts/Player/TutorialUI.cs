@@ -16,6 +16,8 @@ public class TutorialUI : MonologueUI {
     protected override void SetAlpha(float value) {}
 
     private IEnumerator ShowQueuedInstructions() {
+        yield return new WaitForSecondsRealtime(4.0f);
+
         bool hasShownFocus = false;
         while(true) {
             MonologueKey key;

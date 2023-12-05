@@ -7,17 +7,19 @@ public class GameState : MonoBehaviour {
     // initial list of items to assign to inventory (for testing only)
     public List<Inv.Collectable> startInventory = new();
     public PlayerConstants playerConstants;
+    public Save _save;
 
     public static float raycastDist;
-    public static readonly List<Inv.Collectable> inventory = new();
+    public static List<Inv.Collectable> inventory = new();
     public static Inv.Collectable? selectedInventoryItem = null; 
     public static bool isDraggingInventoryItem = false;
     public static Vector2 lastPointerDragScreenPos;
     public static bool mouseHold;
     public static bool isPaused;
     public static Queue<MonologueKey> instructionQueue = new();
-
     public static int level = 0;
+
+    public static Save save;
 
     private static GameObject _pausedPanel;
     private static GameObject _monologuePanel;
@@ -102,6 +104,10 @@ public class GameState : MonoBehaviour {
         _pausedPanel = GameObject.Find("Paused");
         if(_pausedPanel != null) {
             _pausedPanel.SetActive(false);
+        }
+
+        if (_save != null) {
+            save = _save;
         }
     }
 }
