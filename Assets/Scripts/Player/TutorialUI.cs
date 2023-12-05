@@ -10,6 +10,7 @@ public class TutorialUI : MonologueUI {
         GameState.instructionQueue.Enqueue(MonologueKey.I_INTERACT);
         GameState.instructionQueue.Enqueue(MonologueKey.I_HIGHLIGHT);
         GameState.instructionQueue.Enqueue(MonologueKey.I_SKIP);
+        GameState.instructionQueue.Enqueue(MonologueKey.I_PAUSE);
         StartCoroutine(ShowQueuedInstructions());
     }
 
