@@ -8,6 +8,7 @@ public class GameState : MonoBehaviour {
     public List<Inv.Collectable> startInventory = new();
     public PlayerConstants playerConstants;
     public Save _save;
+    public Secrets _secrets;
 
     public static float raycastDist;
     public static List<Inv.Collectable> inventory = new();
@@ -20,6 +21,7 @@ public class GameState : MonoBehaviour {
     public static int level = -1;
 
     public static Save save;
+    public static Secrets secrets;
 
     private static GameObject _pausedPanel;
     private static GameObject _monologuePanel;
@@ -113,6 +115,9 @@ public class GameState : MonoBehaviour {
 
         if (_save != null) {
             save = _save;
+        }
+        if (_secrets != null) {
+            secrets = _secrets;
         }
     }
 }

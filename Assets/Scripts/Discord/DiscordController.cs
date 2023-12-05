@@ -3,12 +3,10 @@ using Discord;
 using UnityEngine;
 
 public class DiscordController : MonoBehaviour {
-    [SerializeField] private long appId;
-
     private static long _time;
     private static bool _loggedIn;
     private static Discord.Discord _discord;
-    private static string[] _chapterName = { "Memories, Awakening", "Not Alone", "Escape... & Despair" };
+    private static readonly string[] CHAPTER_NAME = { "Memories, Awakening", "Not Alone", "Escape... & Despair" };
     private static ActivityManager _activityManager;
 
     public static void ClearActivity() {
@@ -25,7 +23,7 @@ public class DiscordController : MonoBehaviour {
             var activity = new Activity {
                 Details = GameState.level == -1
                               ? ""
-                              : "Chapter " + (GameState.level + 1) + ": " + _chapterName[GameState.level],
+                              : "Chapter " + (GameState.level + 1) + ": " + CHAPTER_NAME[GameState.level],
                 State = GameState.level == -1 ? "In the Main Menu" : "Playing",
                 Assets = {
                     LargeImage = "mm_logo",
@@ -57,8 +55,13 @@ public class DiscordController : MonoBehaviour {
     private void Start() {
         if(_loggedIn) return;
 
+        if (GameState.secrets == null) {
+            Debug.LogError("Secrets file not assigned. Discord RPC will not work");
+            return;
+        }
+
         _time = DateTimeOffset.Now.ToUnixTimeMilliseconds();
-        _discord = new Discord.Discord(appId, (ulong)CreateFlags.NoRequireDiscord);
+        _discord = new Discord.Discord(GameState.secrets.appId, (ulong)CreateFlags.NoRequireDiscord);
         _loggedIn = true;
     }
 }
