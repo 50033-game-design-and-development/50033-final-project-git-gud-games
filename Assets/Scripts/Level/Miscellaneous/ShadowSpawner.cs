@@ -23,7 +23,7 @@ public class ShadowSpawner : MonoBehaviour {
                 shadow.GetComponent<Shadow>().target = target;
                 spawned = true;
             }
-            yield return null;
+            yield return new WaitForSeconds(2);
         }
     }
 
