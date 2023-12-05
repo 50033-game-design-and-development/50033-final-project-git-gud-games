@@ -5,10 +5,12 @@ using UnityEngine;
 public class CameraGlitch : MonoBehaviour {
 
     [SerializeField] private float glitchShift = 5f;
+    private ShaderEffect_CorruptedVram _effect;
 
     public void Glitch(float duration) {
         Camera camera = Camera.main;
         ShaderEffect_CorruptedVram effect = camera.AddComponent<ShaderEffect_CorruptedVram>();
+        _effect = effect;
         StartCoroutine(GlitchCoroutine(effect, duration));
     }
 
@@ -26,5 +28,7 @@ public class CameraGlitch : MonoBehaviour {
         Destroy(effect);
     }
 
-
+    private void OnDisable() {
+        Destroy(_effect);
+    }
 }
