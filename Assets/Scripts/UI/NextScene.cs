@@ -35,6 +35,7 @@ public class NextScene : MonoBehaviour, IInteractable, IClickable {
         GameState.permLockMouse = false;
 
         if (!sceneName.StartsWith("Level")) {
+            GameState.level = -1;
             GameState.inventory.Clear();
             SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
             return;
