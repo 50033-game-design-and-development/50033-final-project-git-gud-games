@@ -33,6 +33,7 @@ public class MonologueUI : MonoBehaviour {
 
         StopCoroutine("Monologue");
         StopCoroutine("EndMonologue");
+        StopCoroutine("WaitForMonologue");
         audioSource.Stop();
         StartCoroutine("Monologue", monologueKey);
     }
@@ -129,6 +130,12 @@ public class MonologueUI : MonoBehaviour {
         }
 
         SetAlpha(0);
+    }
+
+    private void OnEnable() {
+        if (_playerAction != null) {
+            _playerAction.Enable();
+        }
     }
 
     private void OnDisable() {
