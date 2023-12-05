@@ -66,6 +66,8 @@ public class PlayerInteractor : MonoBehaviour {
 
         // open inventory when you press E
         _playerAction.gameplay.InventoryOpen.performed += _ => {
+            if(GameState.isCutscenePlaying) return;
+
             // check if the cineMachine camera is not locked
             // to any interaction objects i.e. it follows the player
             // and don't allow player to freely move cursor if so
