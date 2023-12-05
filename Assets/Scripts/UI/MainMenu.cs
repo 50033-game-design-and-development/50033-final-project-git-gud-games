@@ -32,6 +32,7 @@ public class MainMenu : MonoBehaviour {
     }
 
     private void PlayTransition() {
+        GameState.LockCursor();
         canvas.SetActive(false);
         ambienceSource.Stop();
         bgmSource.Stop();
@@ -46,13 +47,16 @@ public class MainMenu : MonoBehaviour {
     }
     
     private IEnumerator StartScreen() {
-        Cursor.lockState = CursorLockMode.Confined;
         yield return new WaitForSeconds(1f);
+        GameState.permLockMouse = false;
+        GameState.ConfineCursor();
         fadeCanvasGroup.blocksRaycasts = false;
     }
 
     private void Start() {
+        GameState.LockCursor();
         StartCoroutine(StartScreen());
+
         var btn = GameObject.Find("Continue Button");
         var continueButton = btn.GetComponent<Button>();
         var txt = btn.GetComponentInChildren<TextMeshProUGUI>();

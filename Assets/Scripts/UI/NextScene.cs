@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -32,6 +31,8 @@ public class NextScene : MonoBehaviour, IInteractable, IClickable {
         if (!vial.Equals(default(Inv.Collectable))) {
             GameState.inventory.Add(vial);
         }
+
+        GameState.permLockMouse = false;
 
         if (!sceneName.StartsWith("Level")) {
             GameState.inventory.Clear();

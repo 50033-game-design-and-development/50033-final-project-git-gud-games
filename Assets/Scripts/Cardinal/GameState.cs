@@ -28,6 +28,8 @@ public class GameState : MonoBehaviour {
     // whether or not the camera is locked onto a puzzle or not
     public static bool isPuzzleLocked = false;
     public static bool wasPuzzleLocked = false;
+    public static bool permLockMouse;
+
     public static bool isInteractionAllowed => !(isPuzzleLocked || isInventoryOpened);
     
     public static bool isInventoryOpened {
@@ -41,7 +43,7 @@ public class GameState : MonoBehaviour {
             }
         }
     }
-    
+
     /// <summary>
     /// toggle the inventory visibility
     /// </summary>
@@ -65,6 +67,8 @@ public class GameState : MonoBehaviour {
     }
 
     public static void ConfineCursor() {
+        if(permLockMouse) return;
+
         // The cursor is visible and can be moved around
         Cursor.lockState = CursorLockMode.Confined;
     }
