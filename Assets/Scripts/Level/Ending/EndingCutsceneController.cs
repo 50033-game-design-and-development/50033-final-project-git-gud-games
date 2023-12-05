@@ -1,10 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
-public class EndingCutsceneController : MonoBehaviour
-{
+public class EndingCutsceneController : MonoBehaviour {
 
     [Header("Player")]
     [SerializeField] private CharacterController playerController;
@@ -90,7 +88,9 @@ public class EndingCutsceneController : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start() {
+    private void Start() {
+        GameState.permLockMouse = true;
+        GameState.LockCursor();
         playerController.transform.LookAt(frontTransform.position);
         if (vignetteVolume.profile.TryGetSettings(out vignette)) {
             vignette.intensity.value = 0.0f;
@@ -100,6 +100,5 @@ public class EndingCutsceneController : MonoBehaviour
         corruptedVramEffect.enabled = false;
 
         // ghostAnimation.clip = ghostAnimation.GetClip("Attack2")
-
     }
 }

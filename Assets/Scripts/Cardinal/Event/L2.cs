@@ -15,6 +15,9 @@ namespace Event {
         public static GameEvent enterLivingRoom;
         public static GameEvent enterSecretRoom;
         public static BoolGameEvent onPasswordScreen;
+        public static BoolGameEvent secretRoomRevealable;
+        public static BoolGameEvent livingRoomRevealable;
+        public static BoolGameEvent studyRoomRevealable;
 
         [SerializeField] private GameEvent _clickPainting;
         [SerializeField] private GameEvent _finishRecording;
@@ -28,6 +31,9 @@ namespace Event {
         [SerializeField] private GameEvent _enterLivingRoom;
         [SerializeField] private GameEvent _enterSecretRoom;
         [SerializeField] private BoolGameEvent _onPasswordScreen;
+        [SerializeField] private BoolGameEvent _secretRoomRevealable;
+        [SerializeField] private BoolGameEvent _livingRoomRevealable;
+        [SerializeField] private BoolGameEvent _studyRoomRevealable;
 
 
         private void Start() {
@@ -43,6 +49,9 @@ namespace Event {
             enterLivingRoom = _enterLivingRoom;
             enterSecretRoom = _enterSecretRoom;
             onPasswordScreen = _onPasswordScreen;
+            secretRoomRevealable = _secretRoomRevealable;
+            livingRoomRevealable = _livingRoomRevealable;
+            studyRoomRevealable = _studyRoomRevealable;
         }
     }
 }

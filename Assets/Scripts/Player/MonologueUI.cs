@@ -9,45 +9,50 @@ public class MonologueUI : MonoBehaviour {
 
     protected float LENGTH_DIVISOR = 20.0f;
 
-    private AudioSource audioSource;
-    private TextMeshProUGUI subtitles;
-    private Image background;
-    private MonologueKey? cachedKey;
-    private Image pageImage;
+    private AudioSource _audioSource;
+    protected TextMeshProUGUI subtitles;
+    private Image _background;
+    private MonologueKey? _cachedKey;
+    private Image _pageImage;
     private PlayerAction _playerAction;
-    private bool inMonologue;
+    private bool _inMonologue;
+    private float _cachedAlpha;
+
 
     public void StartMonologue(MonologueKey monologueKey) {
-        if (monologueKey == cachedKey) {
+        if (monologueKey == _cachedKey) {
             return;
         }
 
         if (monologueKey == MonologueKey.TERMINATE) {
-            if (cachedKey == MonologueKey.L2_PC_AUDIO) {
+            if (_cachedKey == MonologueKey.L2_PC_AUDIO) {
                 StopCoroutine("Monologue");
                 StartCoroutine("EndMonologue", MonologueKey.NULL);
-                audioSource.Stop();
+                _audioSource.Stop();
             }
             return;
         }
 
-        if (cachedKey != null) {
+        if (_cachedKey != null) {
             StopCoroutine("Monologue");
             StopCoroutine("WaitForMonologue");
-            audioSource.Stop();
-            Event.Global.endMonologue.Raise((MonologueKey)cachedKey);
+            _audioSource.Stop();
+            Event.Global.endMonologue.Raise((MonologueKey)_cachedKey);
         }
 
         StopCoroutine("EndMonologue");
         StartCoroutine("Monologue", monologueKey);
     }
 
-    public void TogglePanel(bool value) {
-        SetAlpha(value ? 1 : 0);
+    public virtual void TogglePanel(bool on) {
+        if(!on) {
+            _cachedAlpha = subtitles.alpha;
+        }
+        SetAlpha(on ? _cachedAlpha : 0);
     }
 
     protected IEnumerator Monologue(MonologueKey monologueKey) {
-        cachedKey = monologueKey;
+        _cachedKey = monologueKey;
         Monologue monologue = MonologueMap.Get(monologueKey);
         SetAlpha(1);
 
@@ -58,7 +63,7 @@ public class MonologueUI : MonoBehaviour {
 
             if (voiceLines != null) {
                 if (monologueKey != MonologueKey.L2_PC_AUDIO) {
-                    audioSource.PlayOneShot(voiceLines);
+                    _audioSource.PlayOneShot(voiceLines);
                 }
                 duration = voiceLines.length;
             } else {
@@ -77,13 +82,13 @@ public class MonologueUI : MonoBehaviour {
             }
 
             // Wait for monologue to be spoken completely
-            inMonologue = true;
+            _inMonologue = true;
             StartCoroutine("WaitForMonologue", duration);
-            while (inMonologue) {
+            while (_inMonologue) {
                 yield return null;
             }
             StopCoroutine("WaitForMonologue");
-            audioSource.Stop();
+            _audioSource.Stop();
         }
 
         StartCoroutine("EndMonologue", monologueKey);
@@ -91,17 +96,17 @@ public class MonologueUI : MonoBehaviour {
 
     private IEnumerator WaitForMonologue(float duration) {
         yield return new WaitForSeconds(duration);
-        inMonologue = false;
+        _inMonologue = false;
     }
 
-    private void SkipCurrentText() {
+    protected virtual void SkipCurrentText() {
         if (GameState.isCutscenePlaying) return;
-        inMonologue = false;
+        _inMonologue = false;
     }
 
     // Fade out monologue panel
     private IEnumerator EndMonologue(MonologueKey key) {
-        cachedKey = null;
+        _cachedKey = null;
         Event.Global.endMonologue.Raise(key);
         for (float alpha = 1; alpha > -0.1f; alpha -= 0.05f) {
             SetAlpha(alpha);
@@ -116,9 +121,9 @@ public class MonologueUI : MonoBehaviour {
 
     protected virtual void SetAlpha(float value) {
         subtitles.alpha = value;
-        background.color = new Color(0, 0, 0, value * 0.6f);
+        _background.color = new Color(0, 0, 0, value * 0.6f);
         if (page != null) {
-            pageImage.color = new Color(1, 1, 1, value);
+            _pageImage.color = new Color(1, 1, 1, value);
         }
     }
 
@@ -127,13 +132,13 @@ public class MonologueUI : MonoBehaviour {
         _playerAction.Enable();
         _playerAction.gameplay.SkipText.performed += _ => SkipCurrentText();
 
-        audioSource = GetComponent<AudioSource>();
+        _audioSource = GetComponent<AudioSource>();
         subtitles = GetComponentInChildren<TextMeshProUGUI>();
-        background = GetComponent<Image>();
+        _background = GetComponent<Image>();
         subtitles.text = "";
 
         if (arrow != null && page != null) {
-            pageImage = page.GetComponent<Image>();
+            _pageImage = page.GetComponent<Image>();
             arrow.SetActive(false);
             page.SetActive(false);
         }
