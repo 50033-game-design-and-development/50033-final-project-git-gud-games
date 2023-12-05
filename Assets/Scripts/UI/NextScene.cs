@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,7 +32,10 @@ public class NextScene : MonoBehaviour, IInteractable, IClickable {
             GameState.inventory.Add(vial);
         }
 
+        GameState.permLockMouse = false;
+
         if (!sceneName.StartsWith("Level")) {
+            GameState.level = -1;
             GameState.inventory.Clear();
             SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
             return;

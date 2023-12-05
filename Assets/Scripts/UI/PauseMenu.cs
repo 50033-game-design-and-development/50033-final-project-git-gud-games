@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour {
 
         GameState.TogglePause(false);
         GameState.HidePauseMenuUiElements();
+        GameState.level = -1;
 
         cinemachineAnimator.Play(blackState);
         StartCoroutine(LoadMainMenu(1.0f));
@@ -19,7 +20,6 @@ public class PauseMenu : MonoBehaviour {
 
     private static IEnumerator LoadMainMenu(float seconds) {
         yield return new WaitForSecondsRealtime(seconds);
-        GameState.ConfineCursor();
         SceneManager.LoadScene("Main Menu", LoadSceneMode.Single);
     }
 

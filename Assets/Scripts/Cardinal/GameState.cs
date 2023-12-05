@@ -8,6 +8,7 @@ public class GameState : MonoBehaviour {
     public List<Inv.Collectable> startInventory = new();
     public PlayerConstants playerConstants;
     public Save _save;
+    public Secrets _secrets;
 
     public static float raycastDist;
     public static List<Inv.Collectable> inventory = new();
@@ -17,17 +18,21 @@ public class GameState : MonoBehaviour {
     public static bool mouseHold;
     public static bool isPaused;
     public static Queue<MonologueKey> instructionQueue = new();
-    public static int level = 0;
+    public static int level = -1;
 
     public static Save save;
+    public static Secrets secrets;
 
     private static GameObject _pausedPanel;
+    private static TutorialUI _tutorialUi;
     private static MonologueUI _monologueUI;
 
     private static bool _isInventoryOpened;
     // whether or not the camera is locked onto a puzzle or not
     public static bool isPuzzleLocked = false;
     public static bool wasPuzzleLocked = false;
+    public static bool permLockMouse;
+
     public static bool isInteractionAllowed => !(isPuzzleLocked || isInventoryOpened);
     
     public static bool isInventoryOpened {
@@ -41,7 +46,7 @@ public class GameState : MonoBehaviour {
             }
         }
     }
-    
+
     /// <summary>
     /// toggle the inventory visibility
     /// </summary>
@@ -65,6 +70,8 @@ public class GameState : MonoBehaviour {
     }
 
     public static void ConfineCursor() {
+        if(permLockMouse) return;
+
         // The cursor is visible and can be moved around
         Cursor.lockState = CursorLockMode.Confined;
     }
@@ -87,6 +94,9 @@ public class GameState : MonoBehaviour {
         Time.timeScale = isPaused ? 0.0f : 1.0f;
 
         _monologueUI.TogglePanel(!isPaused && enablePanels);
+        if(_tutorialUi != null) {
+            _tutorialUi.TogglePanel(!isPaused && enablePanels);
+        }
         _pausedPanel.SetActive(isPaused || !enablePanels);
 
         Action AdjustCursor = isPaused ? ConfineCursor : LockCursor;
@@ -100,10 +110,17 @@ public class GameState : MonoBehaviour {
 
         raycastDist = playerConstants.raycastDistance;
 
-        GameObject monologuePanel = GameObject.Find("MonologuePanel");
+        var tutorialPanel = GameObject.Find("TutorialPanel");
+        var monologuePanel = GameObject.Find("MonologuePanel");
+
         if (monologuePanel != null) {
             _monologueUI = monologuePanel.GetComponent<MonologueUI>();
         }
+
+        if (tutorialPanel != null) {
+            _tutorialUi = tutorialPanel.GetComponent<TutorialUI>();
+        }
+
         _pausedPanel = GameObject.Find("Paused");
         if(_pausedPanel != null) {
             _pausedPanel.SetActive(false);
@@ -111,6 +128,9 @@ public class GameState : MonoBehaviour {
 
         if (_save != null) {
             save = _save;
+        }
+        if (_secrets != null) {
+            secrets = _secrets;
         }
     }
 }
