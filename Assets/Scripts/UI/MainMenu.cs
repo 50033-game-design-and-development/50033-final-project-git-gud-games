@@ -28,6 +28,7 @@ public class MainMenu : MonoBehaviour {
     }
 
     public void QuitButton() {
+        DiscordController.ClearActivity();
         Application.Quit(0);
     }
 

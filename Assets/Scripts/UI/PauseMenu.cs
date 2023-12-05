@@ -12,6 +12,7 @@ public class PauseMenu : MonoBehaviour {
 
         GameState.TogglePause(false);
         GameState.HidePauseMenuUiElements();
+        GameState.level = -1;
 
         cinemachineAnimator.Play(blackState);
         StartCoroutine(LoadMainMenu(1.0f));
