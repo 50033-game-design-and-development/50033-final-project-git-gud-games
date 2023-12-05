@@ -134,5 +134,7 @@ public class PlayerRayCast : MonoBehaviour {
 
     private void OnDisable() {
         _playerAction.Disable();
+        _highlighted = false;
+        DisableOutline();
     }
 }
