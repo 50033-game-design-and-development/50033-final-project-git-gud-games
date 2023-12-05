@@ -31,10 +31,10 @@ public class GameState : MonoBehaviour {
     // whether or not the camera is locked onto a puzzle or not
     public static bool isPuzzleLocked = false;
     public static bool wasPuzzleLocked = false;
+    public static bool isCutscenePlaying = false;
+    public static bool isInteractionAllowed => !(isPuzzleLocked || isInventoryOpened || isCutscenePlaying);
     public static bool permLockMouse;
 
-    public static bool isInteractionAllowed => !(isPuzzleLocked || isInventoryOpened);
-    
     public static bool isInventoryOpened {
         get => _isInventoryOpened;
         set {
