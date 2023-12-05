@@ -24,7 +24,7 @@ public class GameState : MonoBehaviour {
     public static Secrets secrets;
 
     private static GameObject _pausedPanel;
-    private static GameObject _tutorialPanel;
+    private static TutorialUI _tutorialUi;
     private static MonologueUI _monologueUI;
 
     private static bool _isInventoryOpened;
@@ -90,8 +90,8 @@ public class GameState : MonoBehaviour {
         Time.timeScale = isPaused ? 0.0f : 1.0f;
 
         _monologueUI.TogglePanel(!isPaused && enablePanels);
-        if(_tutorialPanel != null) {
-            _tutorialPanel.SetActive(!isPaused && enablePanels);
+        if(_tutorialUi != null) {
+            _tutorialUi.TogglePanel(!isPaused && enablePanels);
         }
         _pausedPanel.SetActive(isPaused || !enablePanels);
 
@@ -106,11 +106,17 @@ public class GameState : MonoBehaviour {
 
         raycastDist = playerConstants.raycastDistance;
 
-        _tutorialPanel = GameObject.Find("TutorialPanel");
+        var tutorialPanel = GameObject.Find("TutorialPanel");
         var monologuePanel = GameObject.Find("MonologuePanel");
+
         if (monologuePanel != null) {
             _monologueUI = monologuePanel.GetComponent<MonologueUI>();
         }
+
+        if (tutorialPanel != null) {
+            _tutorialUi = tutorialPanel.GetComponent<TutorialUI>();
+        }
+
         _pausedPanel = GameObject.Find("Paused");
         if(_pausedPanel != null) {
             _pausedPanel.SetActive(false);

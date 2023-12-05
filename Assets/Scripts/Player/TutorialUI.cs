@@ -13,7 +13,12 @@ public class TutorialUI : MonologueUI {
         StartCoroutine(ShowQueuedInstructions());
     }
 
+    public override void TogglePanel(bool on) {
+        subtitles.alpha = on ? 1 : 0;
+    }
+
     protected override void SetAlpha(float value) {}
+    protected override void SkipCurrentText() {}
 
     private IEnumerator ShowQueuedInstructions() {
         yield return new WaitForSecondsRealtime(4.0f);
