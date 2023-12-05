@@ -46,6 +46,9 @@ public class Collectable : MonoBehaviour, IInteractable {
         if (TryGetComponent(out Collider collider)) {
             collider.enabled = false;
         }
+        if (TryGetComponent(out Revealable revealable)) {
+            revealable.SetVisible(false);
+        }
         foreach (Transform child in transform) {
             Destroy(child.gameObject);
         }
