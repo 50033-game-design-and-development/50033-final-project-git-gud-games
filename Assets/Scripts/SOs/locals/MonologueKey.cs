@@ -3,6 +3,7 @@ public enum MonologueKey {
     I_MOVE = -7,
     I_INTERACT = -6,
     I_HIGHLIGHT = -5,
+    I_SKIP = -8,
     I_INV = -4,
     I_FOCUS = -3,
     I_FOCUS_INTERACT = -2,
