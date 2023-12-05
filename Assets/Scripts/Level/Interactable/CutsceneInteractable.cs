@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -6,21 +7,15 @@ public class CutsceneInteractable : MonoBehaviour, IInteractable {
 
     [SerializeField] private int playState = 1;
 
+
+    private PlayableDirector _director;
+    private bool _selfPlayingCutscene;
+
     public void OnInteraction() {
         if (state == playState) {
             PlayCutscene();
             IncrementState();
         }
-    }
-
-    private void PlayCutscene() {
-        // TODO: Lock player input
-
-        var director = GetComponent<PlayableDirector>();
-        director.Play();
-
-        // while (director.state == PlayState.Playing);
-        // TODO: Unlock player input
     }
 
     public void IncrementState() {
@@ -29,5 +24,31 @@ public class CutsceneInteractable : MonoBehaviour, IInteractable {
 
     public void ToggleInventory() {
         GameState.ToggleInventory();
+    }
+
+    private void OnDisable() {
+        if(!_selfPlayingCutscene) return;
+
+        GameState.isCutscenePlaying = false;
+        _selfPlayingCutscene = false;
+    }
+
+    private IEnumerator SetCutscenePlaying() {
+        while (_director.state == PlayState.Playing) {
+            yield return null;
+        }
+
+        GameState.isCutscenePlaying = false;
+        _selfPlayingCutscene = false;
+    }
+
+    private void PlayCutscene() {
+        GameState.isCutscenePlaying = true;
+        _selfPlayingCutscene = true;
+
+        _director = GetComponent<PlayableDirector>();
+        _director.Play();
+
+        StartCoroutine(SetCutscenePlaying());
     }
 }

@@ -95,6 +95,7 @@ public class MonologueUI : MonoBehaviour {
     }
 
     private void SkipCurrentText() {
+        if (GameState.isCutscenePlaying) return;
         inMonologue = false;
     }
 
