@@ -5,6 +5,10 @@ public class RandomDoorInteraction : MonoBehaviour {
     [SerializeField] private float chance;
     private Animator anim;
 
+    public void OnRitualComplete() {
+        StopCoroutine("RandomInteractions");
+    }
+
     private IEnumerator RandomInteractions() {
         yield return new WaitForSeconds(77);
         if (Random.value < chance) {

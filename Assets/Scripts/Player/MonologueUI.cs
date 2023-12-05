@@ -29,9 +29,13 @@ public class MonologueUI : MonoBehaviour {
             return;
         }
 
-        StopCoroutine("Monologue");
+        if (cachedKey != null) {
+            StopCoroutine("Monologue");
+            audioSource.Stop();
+            Event.Global.endMonologue.Raise((MonologueKey)cachedKey);
+        }
+
         StopCoroutine("EndMonologue");
-        audioSource.Stop();
         StartCoroutine("Monologue", monologueKey);
     }
 

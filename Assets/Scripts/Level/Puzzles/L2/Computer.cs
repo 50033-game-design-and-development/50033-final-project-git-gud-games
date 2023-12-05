@@ -31,6 +31,7 @@ public class Computer : MonoBehaviour {
     [SerializeField] private GameObject interactable;
     [SerializeField] private TMP_InputField loginInputField;
     [SerializeField] private Animator audioWindowAnimator;
+    [SerializeField] private GameObject thingButton;
 
 
     private bool isOn;
@@ -171,6 +172,10 @@ public class Computer : MonoBehaviour {
         ambientAudioSource.Play();
         audioWindowAnimator.SetTrigger("Close");
         Event.Global.showDialogue.Raise(MonologueKey.TERMINATE);
+    }
+
+    public void OnRitualComplete() {
+        Destroy(thingButton);
     }
 
     private void Start() {
