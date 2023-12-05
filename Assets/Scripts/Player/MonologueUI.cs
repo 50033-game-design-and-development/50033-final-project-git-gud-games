@@ -42,6 +42,10 @@ public class MonologueUI : MonoBehaviour {
         StartCoroutine("Monologue", monologueKey);
     }
 
+    public void TogglePanel(bool value) {
+        SetAlpha(value ? 1 : 0);
+    }
+
     protected IEnumerator Monologue(MonologueKey monologueKey) {
         cachedKey = monologueKey;
         Monologue monologue = MonologueMap.Get(monologueKey);
