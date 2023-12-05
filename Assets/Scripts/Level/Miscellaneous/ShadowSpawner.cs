@@ -33,7 +33,7 @@ public class ShadowSpawner : MonoBehaviour {
 
     private void Update() {
         transform.LookAt(target);
-        Vector3 offset = -2 * transform.forward;
+        Vector3 offset = -2 * new Vector3(target.forward.x, 0, target.forward.z);
         transform.position = target.position + offset;
     }
 
