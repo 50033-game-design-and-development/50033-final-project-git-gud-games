@@ -50,6 +50,7 @@ public class MainMenu : MonoBehaviour {
     private IEnumerator StartScreen() {
         yield return new WaitForSeconds(1f);
         GameState.permLockMouse = false;
+        GameState.isCutscenePlaying = false;
         GameState.ConfineCursor();
         fadeCanvasGroup.blocksRaycasts = false;
     }

@@ -19,6 +19,7 @@ public class NextScene : MonoBehaviour, IInteractable, IClickable {
     public void LoadSingle() {
         GameState.isInventoryOpened = false;
         GameState.isPuzzleLocked = false;
+        GameState.isCutscenePlaying = false;
 
         var key = GameState.inventory.Find(x => x.itemType == InventoryItem.L0_Key);
         var vial = GameState.inventory.Find(x => x.itemType == InventoryItem.L1_Vial_filled);
