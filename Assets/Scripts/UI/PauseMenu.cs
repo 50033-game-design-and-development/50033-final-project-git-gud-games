@@ -20,7 +20,6 @@ public class PauseMenu : MonoBehaviour {
 
     private static IEnumerator LoadMainMenu(float seconds) {
         yield return new WaitForSecondsRealtime(seconds);
-        GameState.ConfineCursor();
         SceneManager.LoadScene("Main Menu", LoadSceneMode.Single);
     }
 
