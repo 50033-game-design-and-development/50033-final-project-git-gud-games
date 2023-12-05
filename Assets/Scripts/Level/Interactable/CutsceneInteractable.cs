@@ -35,7 +35,6 @@ public class CutsceneInteractable : MonoBehaviour, IInteractable {
         _selfPlayingCutscene = true;
 
         Event.Global.hideAll.Raise();
-        GameState.LockCursor();
 
         _director.Play();
 
@@ -53,7 +52,6 @@ public class CutsceneInteractable : MonoBehaviour, IInteractable {
 
         GameState.isCutscenePlaying = false;
         _selfPlayingCutscene = false;
-        GameState.ConfineCursor();
     }
 
     private void Update() {
