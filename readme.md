@@ -6,7 +6,7 @@ Murder Mansion is a single-player puzzle game with a mystery/horror-themed escap
 
 ### System requirements
 
-- OS: **Windows 10** / **MacOS 12+ (x86 + apple silicon)** / **Ubuntu** 
+- OS: **Windows 10** / **MacOS 12+ (x86 + apple silicon)** / **Linux** 
 - Memory: Minimum **1 GB RAM**
 ### How to play the game
 | Control    | Action                                        |
@@ -33,9 +33,4 @@ A link to your gameplay recording video
 | Divy Chandra        | Level Designer      | 1005246    |
 | Charles Lim         | Software Developer  | 1003158    |
 
-### Level Design
-
-[Insert Screenshots from GDD]
-
-### Asset Used & Credits
-[Put Table from GDD once finished]
+### [Asset Used & Credits](./credits.md)
