@@ -109,6 +109,10 @@ public class UIRevealBehaviour : MonoBehaviour {
         foreach (var element in _elements) {
             AdjustCrosshairTransform(element.crosshair, element.coords);
         }
+
+        if (_isRevealed && GameState.isCutscenePlaying)
+            OnHide();
+            
     }
 
     private void Start() {
