@@ -6,6 +6,10 @@ public class LockedCameraFocusable : CameraFocusable {
 
 
     public override void OnInteraction() {
+        if (GameState.isInventoryOpened) {
+            GameState.ToggleInventory();
+        }
+
         base.OnInteraction();
         GameState.raycastDist = 0f;
         _cachedisPuzzleLocked = GameState.isPuzzleLocked;

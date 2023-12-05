@@ -26,11 +26,21 @@ public class CutsceneInteractable : MonoBehaviour, IInteractable {
         GameState.ToggleInventory();
     }
 
-    private void OnDisable() {
-        if(!_selfPlayingCutscene) return;
+    private void PlayCutscene() {
+        if (GameState.isInventoryOpened) {
+            GameState.ToggleInventory();
+        }
 
-        GameState.isCutscenePlaying = false;
-        _selfPlayingCutscene = false;
+        GameState.isCutscenePlaying = true;
+        _selfPlayingCutscene = true;
+
+        _director.Play();
+
+        StartCoroutine(SetCutscenePlaying());
+    }
+
+    private void Start() {
+        _director = GetComponent<PlayableDirector>();
     }
 
     private IEnumerator SetCutscenePlaying() {
@@ -42,13 +52,21 @@ public class CutsceneInteractable : MonoBehaviour, IInteractable {
         _selfPlayingCutscene = false;
     }
 
-    private void PlayCutscene() {
-        GameState.isCutscenePlaying = true;
-        _selfPlayingCutscene = true;
+    private void Update() {
+        if (_director.state == PlayState.Playing && !_selfPlayingCutscene) {
+            _selfPlayingCutscene = true;
+            GameState.isCutscenePlaying = true;
+            if (GameState.isInventoryOpened) {
+                GameState.ToggleInventory();
+            }
+            StartCoroutine(SetCutscenePlaying());
+        }
+    }
 
-        _director = GetComponent<PlayableDirector>();
-        _director.Play();
+    private void OnDisable() {
+        if(!_selfPlayingCutscene) return;
 
-        StartCoroutine(SetCutscenePlaying());
+        GameState.isCutscenePlaying = false;
+        _selfPlayingCutscene = false;
     }
 }

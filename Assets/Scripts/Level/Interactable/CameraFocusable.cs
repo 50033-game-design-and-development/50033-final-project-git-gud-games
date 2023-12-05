@@ -31,7 +31,7 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
     }
     
     public virtual void OnEscape() {
-        if (!GameState.isPuzzleLocked) {
+        if (!GameState.isPuzzleLocked || GameState.isCutscenePlaying) {
             return;
         }
         cinemachineAnimator.Play(endStateName);
