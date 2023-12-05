@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class WindowSilhouette : MonoBehaviour {
     private Animator anim;
+    [SerializeField] private float duration;
     private bool active;
     public bool Active {
         get => active;
@@ -17,7 +18,7 @@ public class WindowSilhouette : MonoBehaviour {
 
     private IEnumerator Hide() {
         if (active) {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(duration);
             anim.SetTrigger("Dispel");
         }
     }
