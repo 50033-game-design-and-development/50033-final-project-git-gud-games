@@ -10,6 +10,8 @@ public class DiscordController : MonoBehaviour {
     private static ActivityManager _activityManager;
 
     public static void ClearActivity() {
+        if(!_loggedIn) return;
+
         _loggedIn = false;
         _activityManager.ClearActivity((res) => {
             if(res != Result.Ok) Debug.LogWarning("Failed to clear activity");
@@ -18,6 +20,7 @@ public class DiscordController : MonoBehaviour {
 
     private static void UpdateRPC() {
         if(!_loggedIn) return;
+
         try {
             _activityManager = _discord.GetActivityManager();
             var activity = new Activity {
