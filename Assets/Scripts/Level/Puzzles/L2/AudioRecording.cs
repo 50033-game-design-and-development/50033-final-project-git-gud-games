@@ -45,6 +45,7 @@ public class AudioRecording : MonoBehaviour {
     }
 
     private void SkipCurrentText() {
+        if (GameState.isCutscenePlaying) return;
         inMonologue = false;
     }
 

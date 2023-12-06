@@ -74,8 +74,12 @@ public class PlayerRayCast : MonoBehaviour {
         _playerAction = new PlayerAction();
         _playerAction.Enable();
 
-        _playerAction.gameplay.RevealItems.performed += _ => EnableAllOutlines();
-        _playerAction.gameplay.RevealItems.canceled += _ => DisableAllOutlines();
+        _playerAction.gameplay.RevealItems.performed += _ => {
+            if (!GameState.isCutscenePlaying) EnableAllOutlines();
+        };
+        _playerAction.gameplay.RevealItems.canceled += _ => {
+            if (!GameState.isCutscenePlaying) DisableAllOutlines();
+        };
     }
 
     private void DoInventoryDragHighlight() {
