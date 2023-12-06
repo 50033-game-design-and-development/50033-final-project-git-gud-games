@@ -2,32 +2,38 @@ using System.Collections;
 using UnityEngine;
 
 public class WindowSilhouette : MonoBehaviour {
-    private Animator anim;
+    private Animator _anim;
     [SerializeField] private float duration;
-    private bool active;
-    public bool Active {
-        get => active;
-        set => active = value;
+    private bool _active;
+    private static readonly int DISPEL = Animator.StringToHash("Dispel");
+
+    public void SetActive() {
+        Debug.Log("test");
+        _active = true;
     }
 
     public void OnHide() {
-        if (active) {
+        if (_active) {
             Destroy(gameObject);
         }
     }
 
     private IEnumerator Hide() {
-        if (active) {
-            yield return new WaitForSeconds(duration);
-            anim.SetTrigger("Dispel");
+        if (!_active) {
+            yield break;
         }
+
+        Debug.Log("test");
+        yield return new WaitForSeconds(duration);
+        _anim.SetTrigger(DISPEL);
     }
 
     private void Start() {
-        anim = GetComponent<Animator>();
+        _anim = GetComponent<Animator>();
     }
 
     private void OnBecameVisible() {
+        Debug.Log("started");
         StartCoroutine("Hide");
     }
 }
