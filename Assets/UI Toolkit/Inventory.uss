@@ -1,0 +1,71 @@
+.custom-label {
+    font-size: 20px;
+    -unity-font-style: bold;
+    color: rgb(68, 138, 255);
+}
+
+#Hotbar {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    height: 200px;
+    width: 1820px;
+    margin: auto;
+    padding: 20px;
+}
+
+#ItemDescription {
+    color: rgba(235, 235, 235, 0.0);
+    font-size: 45px;
+    transition: color 2.15s ease-in-out;
+    margin-top: 10px;
+}
+
+#ItemDescription.show {
+    color: rgba(235, 235, 235, 1.0);
+    transition: color 0.0s ease-in-out;
+}
+
+.unity-button {
+    height: 100%;
+    border-radius: 10px;
+    background-size: contain;
+    padding: 10px;
+    transition: background-color 0.15s ease-in-out;
+    background-color: rgba(235, 235, 235, 0.0);
+    
+    border-color: rgba(0, 0, 0, 0.0);
+    flex-shrink: 0;
+    flex-grow: 0;
+    /* padding-right: 20px; */
+}
+
+/*
+.unity-button.last {
+    padding-right: 0px;
+}
+*/
+
+.unity-button.visible.empty {
+    background-color: rgba(235, 235, 235, 0.0);
+}
+.unity-button.visible.empty.dragging {
+    background-color: rgba(235, 235, 235, 0.0);
+}
+.unity-button.visible.empty:hover {
+    background-color: rgba(235, 235, 235, 0.0);
+}
+.unity-button.visible.empty:active {
+    background-color: rgba(235, 235, 235, 0.0);
+}
+
+.unity-button.visible.dragging {
+    background-color: rgba(228, 228, 228, 0.4);
+}
+.unity-button.visible:hover {
+    /* Light gray background on hover */
+    background-color: rgba(228, 228, 228, 0.2);
+}
+.unity-button.visible:active {
+    /* Darker gray background when active (clicked) */
+    background-color: rgba(204, 204, 204, 0.3); 
+}
