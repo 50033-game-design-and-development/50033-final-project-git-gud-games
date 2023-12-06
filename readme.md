@@ -20,7 +20,7 @@ Murder Mansion is a single-player puzzle game with a mystery/horror-themed escap
 
 ### Gameplay
 
-A link to your gameplay recording video
+[A link to your gameplay recording video](https://youtu.be/-gQyfG3OrGE)
 
 ### Contributors
 
