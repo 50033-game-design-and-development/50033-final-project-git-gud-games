@@ -1,10 +1,9 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Level.Puzzles.L2_5 {
-    public class Cauldron: MonoBehaviour, IDragDroppable {
+    public class Cauldron : MonoBehaviour, IDragDroppable {
         public GameObject murkyBubbles;
         public GameObject shinyWaters;
         public GameObject murkyWaters;
@@ -23,7 +22,7 @@ namespace Level.Puzzles.L2_5 {
         [SerializeField] private AudioClip shinyCauldronPhase1Clip;
         [SerializeField] private AudioClip shinyCauldronPhase2Clip;
         [SerializeField] private AudioClip shinyCauldronPhase3Clip;
-        private AudioSource audioSource;
+        private AudioSource _audioSource;
 
         private bool _lilyAdded = false;
         private bool _photoAdded = false;
@@ -55,8 +54,8 @@ namespace Level.Puzzles.L2_5 {
                 Event.Global.inventoryUpdate.Raise();
                 _lilyAdded = true;
 
-                audioSource.clip = shinyCauldronPhase1Clip;
-                audioSource.Play();
+                _audioSource.clip = shinyCauldronPhase1Clip;
+                _audioSource.Play();
                 return;
             }
             
@@ -66,8 +65,8 @@ namespace Level.Puzzles.L2_5 {
                 Event.Global.inventoryUpdate.Raise();
                 _photoAdded = true;
 
-                audioSource.clip = shinyCauldronPhase2Clip;
-                audioSource.Play();
+                _audioSource.clip = shinyCauldronPhase2Clip;
+                _audioSource.Play();
                 return;
             }
 
@@ -79,8 +78,8 @@ namespace Level.Puzzles.L2_5 {
                 Event.L2.solvedP6.Raise();
                 GameState.inventory.Remove(selectedInventoryItem);
 
-                audioSource.clip = shinyCauldronPhase3Clip;
-                audioSource.Play();
+                _audioSource.clip = shinyCauldronPhase3Clip;
+                _audioSource.Play();
                 Event.Global.inventoryUpdate.Raise();
             }
         }
@@ -113,7 +112,7 @@ namespace Level.Puzzles.L2_5 {
         }
 
         private void Start() {
-            audioSource = GetComponent<AudioSource>();
+            _audioSource = GetComponent<AudioSource>();
         }
     }
 }

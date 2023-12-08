@@ -39,7 +39,7 @@ public class GameState : MonoBehaviour {
         get => _isInventoryOpened;
         set {
             _isInventoryOpened = value;
-            if (_isInventoryOpened && inventory.Count > 0) {
+            if (_isInventoryOpened) {
                 ConfineCursor();
             } else {
                 LockCursor();
@@ -66,12 +66,14 @@ public class GameState : MonoBehaviour {
     public static void LockCursor() {
         // A locked cursor is positioned in the center
         // of the view and cannot be moved.
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     public static void ConfineCursor() {
         if(permLockMouse) return;
 
+        Cursor.visible = true;
         // The cursor is visible and can be moved around
         Cursor.lockState = CursorLockMode.Confined;
     }

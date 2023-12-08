@@ -11694,6 +11694,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 456142, guid: 2b0bf804c6d79704d8c705b94af63855, type: 3}
   m_PrefabInstance: {fileID: 935281440}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &958688239
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &971761631
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13531,45 +13570,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4556984811349870, guid: b71e387166e4ce648849bbd6b762b736, type: 3}
   m_PrefabInstance: {fileID: 1146805687}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1171558190
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _WidthHeightRadius: {r: 1920, g: 280, b: 40, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &1171790935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19872,7 +19872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1171558190}
+  m_Material: {fileID: 958688239}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -27655,16 +27655,136 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndingHouse
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3936194955875103654, guid: dd02edf470658914fabc70845c26d5c7, type: 3}
+    - {fileID: 7172839503276337743, guid: dd02edf470658914fabc70845c26d5c7, type: 3}
+    - {fileID: 1950715173590580881, guid: dd02edf470658914fabc70845c26d5c7, type: 3}
+    - {fileID: 4871334584613949479, guid: dd02edf470658914fabc70845c26d5c7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8576920334827022989, guid: dd02edf470658914fabc70845c26d5c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5612616703097440028}
+    - targetCorrespondingSourceObject: {fileID: 4034438795413553669, guid: dd02edf470658914fabc70845c26d5c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5612616703097440027}
+    - targetCorrespondingSourceObject: {fileID: 693454549780516658, guid: dd02edf470658914fabc70845c26d5c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5612616703097440026}
+    - targetCorrespondingSourceObject: {fileID: 3960750045632468851, guid: dd02edf470658914fabc70845c26d5c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5612616703097440025}
   m_SourcePrefab: {fileID: 100100000, guid: dd02edf470658914fabc70845c26d5c7, type: 3}
 --- !u!4 &5612616703097440020 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 151970562772550564, guid: dd02edf470658914fabc70845c26d5c7, type: 3}
   m_PrefabInstance: {fileID: 5612616703097440019}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5612616703097440021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3960750045632468851, guid: dd02edf470658914fabc70845c26d5c7, type: 3}
+  m_PrefabInstance: {fileID: 5612616703097440019}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5612616703097440022 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 693454549780516658, guid: dd02edf470658914fabc70845c26d5c7, type: 3}
+  m_PrefabInstance: {fileID: 5612616703097440019}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5612616703097440023 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4034438795413553669, guid: dd02edf470658914fabc70845c26d5c7, type: 3}
+  m_PrefabInstance: {fileID: 5612616703097440019}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5612616703097440024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8576920334827022989, guid: dd02edf470658914fabc70845c26d5c7, type: 3}
+  m_PrefabInstance: {fileID: 5612616703097440019}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5612616703097440025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5612616703097440021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9277cdb3803edbd4dbb297b45077da43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minOffRange: 0.01
+  maxOffRange: 1
+  minOnRange: 0.01
+  maxOnRange: 2
+  offMaterial: {fileID: 0}
+  onMaterial: {fileID: 0}
+  lightAudioSource: {fileID: 0}
+  onAudio: {fileID: 0}
+  offAudio: {fileID: 0}
+--- !u!114 &5612616703097440026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5612616703097440022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9277cdb3803edbd4dbb297b45077da43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minOffRange: 0.01
+  maxOffRange: 1
+  minOnRange: 0.01
+  maxOnRange: 2
+  offMaterial: {fileID: 0}
+  onMaterial: {fileID: 0}
+  lightAudioSource: {fileID: 0}
+  onAudio: {fileID: 0}
+  offAudio: {fileID: 0}
+--- !u!114 &5612616703097440027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5612616703097440023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9277cdb3803edbd4dbb297b45077da43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minOffRange: 0.01
+  maxOffRange: 1
+  minOnRange: 0.01
+  maxOnRange: 2
+  offMaterial: {fileID: 0}
+  onMaterial: {fileID: 0}
+  lightAudioSource: {fileID: 0}
+  onAudio: {fileID: 0}
+  offAudio: {fileID: 0}
+--- !u!114 &5612616703097440028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5612616703097440024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9277cdb3803edbd4dbb297b45077da43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minOffRange: 0.01
+  maxOffRange: 1
+  minOnRange: 0.01
+  maxOnRange: 2
+  offMaterial: {fileID: 0}
+  onMaterial: {fileID: 0}
+  lightAudioSource: {fileID: 0}
+  onAudio: {fileID: 0}
+  offAudio: {fileID: 0}
 --- !u!4 &5643250885383821106
 Transform:
   m_ObjectHideFlags: 0

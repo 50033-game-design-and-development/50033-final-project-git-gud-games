@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class CameraFocusable : MonoBehaviour, IInteractable {
@@ -26,7 +25,9 @@ public class CameraFocusable : MonoBehaviour, IInteractable {
         }
         cinemachineAnimator.Play(startStateName);
         GameState.isPuzzleLocked = true;
-        GameState.ConfineCursor();
+        if(!GameState.isCutscenePlaying) {
+            GameState.ConfineCursor();
+        }
         Event.Global.changeCamera.Raise();
     }
     
