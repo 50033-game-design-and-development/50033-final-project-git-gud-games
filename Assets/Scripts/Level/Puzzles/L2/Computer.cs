@@ -97,8 +97,7 @@ public class Computer : MonoBehaviour {
             interactableAudioSource.PlayOneShot(noBootBeepClip);
             ambientAudioSource.clip = hummingNoiseClip;
             ambientAudioSource.Play();
-        }
-        else if (State == ComputerState.Startup) {
+        } else if (State == ComputerState.Startup) {
             StartCoroutine("LoadStartupScreen");
         }
     }
@@ -189,18 +188,18 @@ public class Computer : MonoBehaviour {
     }
 
     private void Update() {
-        /*
-        // Off computer when unfocusing, on when focusing
-        if (!isOn && cameraFocusable.IsCinemachineInStartState()) {
-            On();
-        } else if (isOn && !cameraFocusable.IsCinemachineInStartState()) {
-            Off();
+        if(isOn && State == ComputerState.Login) {
+            if (cameraFocusable.IsCinemachineInStartState() && !loginInputField.enabled) {
+                loginInputField.enabled = true;
+                loginInputField.ActivateInputField();
+            } else if (!cameraFocusable.IsCinemachineInStartState() && loginInputField.enabled) {
+                loginInputField.enabled = false;
+                loginInputField.DeactivateInputField();
+            }
         }
-        */
 
         // Close inventory on password screen
-        if (_usingPC && GameState.isInventoryOpened &&
-            State == ComputerState.Login) {
+        if (_usingPC && GameState.isInventoryOpened && State == ComputerState.Login) {
                 Debug.Log("working");
                 GameState.ToggleInventory(false);
         }

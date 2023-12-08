@@ -1,23 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CinematicBarBehaviour : MonoBehaviour
 {
-    private Animator animator;
+    private Animator _animator;
 
-    [SerializeField] private string activationBool = "Activated";
+    // [SerializeField] private string activationBool = "Activated";
+    private static readonly int ACTIVATED = Animator.StringToHash("Activated");
 
     public void ActivateBar() {
-        animator.SetBool("Activated", true);
+        _animator.SetBool(ACTIVATED, true);
     }
 
     public void DeactivateBar() {
-        animator.SetBool("Activated", false);
+        _animator.SetBool(ACTIVATED, false);
     }
 
     private void Start() {
-        animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
         DeactivateBar();
     }
 }
