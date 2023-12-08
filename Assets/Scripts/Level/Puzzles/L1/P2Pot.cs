@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class P2Pot : MonoBehaviour, IInteractable {
 
-    private readonly HashSet<InventoryItem> potItems = new HashSet<InventoryItem>();
+    private readonly HashSet<InventoryItem> _potItems = new();
 
     [Header("Attributes")]
     [SerializeField] private Transform ingredientsTransform;
@@ -13,11 +13,10 @@ public class P2Pot : MonoBehaviour, IInteractable {
     [SerializeField] private InventoryItem[] correctCombination;
     
     [Header("Ingredient details")]    
-    [SerializeField] private List<InventoryItem> validItems = new List<InventoryItem>();
-    [SerializeField] private List<GameObject> itemPrefabs = new List<GameObject>();
+    [SerializeField] private List<InventoryItem> validItems = new();
+    [SerializeField] private List<GameObject> itemPrefabs = new();
 
-    private bool _solved = false;
-    private int _clickState = 0;
+    private bool _solved;
 
     public void AddIngredient() {
         if (!GameState.selectedInventoryItem.HasValue) 
@@ -32,7 +31,7 @@ public class P2Pot : MonoBehaviour, IInteractable {
             return;
         }
 
-        potItems.Add(item);
+        _potItems.Add(item);
         InstantiatePrefab(validItems.IndexOf(item));
 
         CheckCombination();
@@ -49,12 +48,12 @@ public class P2Pot : MonoBehaviour, IInteractable {
 
     // Listening to potCombinationCheck event
     public void CheckCombination() {
-        if (potItems.Count != correctCombination.Length) 
+        if (_potItems.Count != correctCombination.Length)
             return;
 
         // Can be optimized to set
         foreach (InventoryItem item in correctCombination) {
-            if (!potItems.Contains(item)) 
+            if (!_potItems.Contains(item))
                 return;
         }
 
@@ -68,8 +67,8 @@ public class P2Pot : MonoBehaviour, IInteractable {
     }
 
     public void RemoveIngredient(InventoryItem item) {
-        if (potItems.Contains(item)) {
-            potItems.Remove(item);
+        if (_potItems.Contains(item)) {
+            _potItems.Remove(item);
         }
 
         CheckCombination();

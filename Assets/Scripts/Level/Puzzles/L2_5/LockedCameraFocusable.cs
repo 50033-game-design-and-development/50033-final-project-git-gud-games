@@ -10,6 +10,8 @@ public class LockedCameraFocusable : CameraFocusable {
             GameState.ToggleInventory();
         }
 
+        Cursor.visible = false;
+
         base.OnInteraction();
         GameState.raycastDist = 0f;
         _cachedisPuzzleLocked = GameState.isPuzzleLocked;
@@ -18,6 +20,10 @@ public class LockedCameraFocusable : CameraFocusable {
     }
 
     public void ForcedEscape() {
+        if (Cursor.lockState == CursorLockMode.Confined) {
+            Cursor.visible = true;
+        }
+
         GameState.isPuzzleLocked = _cachedisPuzzleLocked;
         GameState.isCutscenePlaying = false;
         base.OnEscape();

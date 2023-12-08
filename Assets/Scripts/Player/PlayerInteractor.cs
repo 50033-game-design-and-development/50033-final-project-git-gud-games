@@ -8,7 +8,10 @@ public class PlayerInteractor : MonoBehaviour {
     public CinemachineVirtualCamera firstPersonCamera;
 
     private void TriggerInteractions(Vector2 screenPos) {
-        Ray ray = Camera.main.ScreenPointToRay(screenPos);
+        // thx linux
+        Ray ray = GameState.isInteractionAllowed
+                  ? Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f))
+                  : Camera.main.ScreenPointToRay(screenPos);
        
         if (Physics.Raycast(ray, out RaycastHit raycastHit, GameState.raycastDist, _layerMaskInteractable)) {
             Interact(raycastHit.transform.gameObject);

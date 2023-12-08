@@ -12,10 +12,12 @@ public class CutsceneInteractable : MonoBehaviour, IInteractable {
     private bool _selfPlayingCutscene;
 
     public void OnInteraction() {
-        if (state == playState) {
-            PlayCutscene();
-            IncrementState();
+        if (state != playState) {
+            return;
         }
+
+        PlayCutscene();
+        IncrementState();
     }
 
     public void IncrementState() {
@@ -31,8 +33,11 @@ public class CutsceneInteractable : MonoBehaviour, IInteractable {
             GameState.ToggleInventory();
         }
 
-        GameState.isCutscenePlaying = true;
+
         _selfPlayingCutscene = true;
+        GameState.isCutscenePlaying = true;
+        // Debug.Log("Test");
+        // Cursor.visible = false;
 
         Event.Global.hideAll.Raise();
 
@@ -50,19 +55,24 @@ public class CutsceneInteractable : MonoBehaviour, IInteractable {
             yield return null;
         }
 
+        if (Cursor.lockState == CursorLockMode.Confined) {
+            Cursor.visible = true;
+        }
         GameState.isCutscenePlaying = false;
         _selfPlayingCutscene = false;
     }
 
     private void Update() {
-        if (_director.state == PlayState.Playing && !_selfPlayingCutscene) {
-            _selfPlayingCutscene = true;
-            GameState.isCutscenePlaying = true;
-            if (GameState.isInventoryOpened) {
-                GameState.ToggleInventory();
-            }
-            StartCoroutine(SetCutscenePlaying());
+        if (_director.state != PlayState.Playing || _selfPlayingCutscene) {
+            return;
         }
+
+        _selfPlayingCutscene = true;
+        GameState.isCutscenePlaying = true;
+        if (GameState.isInventoryOpened) {
+            GameState.ToggleInventory();
+        }
+        StartCoroutine(SetCutscenePlaying());
     }
 
     private void OnDisable() {

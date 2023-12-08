@@ -1,10 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-public class RitualCutsceneController : MonoBehaviour
-{
+public class RitualCutsceneController : MonoBehaviour {
     [SerializeField] private GameObject pentagram;
     [SerializeField] private ParticleSystem circleFX;
     [SerializeField] private AudioClip extinguishSound;
@@ -16,24 +13,19 @@ public class RitualCutsceneController : MonoBehaviour
 
     private AudioSource audioSource;
 
-    public void EnableGlowPentagram()
-    {
+    public void EnableGlowPentagram() {
         Material mat = pentagram.GetComponent<Renderer>().material;
         StartCoroutine(gradualGlow(0.5f, mat));
 
         EnableFlames();
-
     }
 
-    public void DisableGlowPentagram()
-    {
+    public void DisableGlowPentagram() {
         Material mat = pentagram.GetComponent<Renderer>().material;
         StartCoroutine(gradualGlow(0.5f, mat, 1, 0));
-
     }
 
-    IEnumerator gradualGlow(float cycleTime, Material mat, float startAlpha = 0, float endAlpha = 1)
-    {
+    IEnumerator gradualGlow(float cycleTime, Material mat, float startAlpha = 0, float endAlpha = 1) {
         Color startColor = mat.color;
         startColor.a = startAlpha;
 
@@ -41,8 +33,7 @@ public class RitualCutsceneController : MonoBehaviour
         endColor.a = endAlpha;
 
         float currentTime = 0;
-        while (currentTime < cycleTime)
-        {
+        while (currentTime < cycleTime) {
             currentTime += Time.deltaTime;
             float t = currentTime / cycleTime;
             Color currentColor = Color.Lerp(startColor, endColor, t);
@@ -52,40 +43,31 @@ public class RitualCutsceneController : MonoBehaviour
         }
     }
 
-    public void EnableFlames()
-    {
-        foreach (GameObject flame in candleFlames)
-        {
+    public void EnableFlames() {
+        foreach (GameObject flame in candleFlames) {
             flame.SetActive(true);
         }
     }
 
-    public void EnlargeFlames()
-    {
-        foreach (GameObject flame in candleFlames)
-        {
+    public void EnlargeFlames() {
+        foreach (GameObject flame in candleFlames) {
             flame.GetComponent<Animator>().SetTrigger("Enlarge");
             audioSource.PlayOneShot(igniteSound);
         }
     }
 
-    public void ShrinkFlames()
-    {
-        foreach (GameObject flame in candleFlames)
-        {
+    public void ShrinkFlames() {
+        foreach (GameObject flame in candleFlames) {
             flame.GetComponent<Animator>().SetTrigger("Shrink");
         }
     }
 
-    public void DisableFlames(float delay)
-    {
+    public void DisableFlames(float delay) {
         StartCoroutine(DisableFlameCoroutine(delay));
     }
 
-    IEnumerator DisableFlameCoroutine(float delay)
-    {
-        foreach (GameObject flame in candleFlames)
-        {
+    IEnumerator DisableFlameCoroutine(float delay) {
+        foreach (GameObject flame in candleFlames) {
             flame.SetActive(false);
             audioSource.PlayOneShot(extinguishSound);
             flame.transform.parent.gameObject.GetComponentInChildren<Light>().enabled = false;
@@ -93,25 +75,20 @@ public class RitualCutsceneController : MonoBehaviour
         }
     }
 
-    public void EnableParticles()
-    {
+    public void EnableParticles() {
         circleFX.Play();
     }
 
-    public void DisableParticles()
-    {
+    public void DisableParticles() {
         circleFX.Stop();
-
     }
 
-    public void FocusOnCauldron()
-    {
+    public void FocusOnCauldron() {
         GameState.isPuzzleLocked = false;
         cauldronCameraFocusable.OnInteraction();
     }
 
-    public void FocusFirstPerson()
-    {
+    public void FocusFirstPerson() {
         GameState.isPuzzleLocked = false;
         fpCameraFocusable.OnInteraction();
     }
@@ -121,10 +98,8 @@ public class RitualCutsceneController : MonoBehaviour
     }
 
 
-    private void Start()
-    {
+    private void Start() {
         audioSource = GetComponent<AudioSource>();
         DisableParticles();
-
     }
 }
