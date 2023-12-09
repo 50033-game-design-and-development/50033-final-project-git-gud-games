@@ -106,6 +106,12 @@ public class GameState : MonoBehaviour {
     }
 
     private void Start() {
+        #if UNITY_EDITOR
+            Debug.unityLogger.logEnabled = true;
+        #else
+            Debug.unityLogger.logEnabled = false;
+        #endif
+
         foreach (var collectable in startInventory) {
             inventory.Add(collectable);
         }
@@ -130,7 +136,9 @@ public class GameState : MonoBehaviour {
 
         if (_save != null) {
             save = _save;
+            SaveSys.Load();
         }
+
         if (_secrets != null) {
             secrets = _secrets;
         }

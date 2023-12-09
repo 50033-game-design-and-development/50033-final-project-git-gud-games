@@ -23,6 +23,7 @@ public class MainMenu : MonoBehaviour {
     public void StartButton() {
         GameState.save.inventory.Clear();
         GameState.level = 0;
+        SaveSys.Save();
         PlayTransition();
         StartCoroutine(LoadLevel(0, 4f));
     }
