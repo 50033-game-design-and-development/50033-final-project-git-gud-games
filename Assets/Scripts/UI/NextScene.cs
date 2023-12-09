@@ -46,6 +46,7 @@ public class NextScene : MonoBehaviour, IInteractable, IClickable {
 
         GameState.save.inventory = new List<Inv.Collectable>(GameState.inventory);
         GameState.save.level = GameState.level;
+        SaveSys.Save();
 
         SceneManager.LoadSceneAsync("LevelTxn", LoadSceneMode.Single);
     }
